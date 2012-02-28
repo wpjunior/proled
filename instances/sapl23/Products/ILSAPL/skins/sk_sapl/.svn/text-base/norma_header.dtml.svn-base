@@ -1,0 +1,41 @@
+<table width="98%" border="0" cellspacing="2" align="center">
+  <tr> 
+  <dtml-in expr="zsql.norma_juridica_obter_zsql(cod_norma=cod_norma)">
+    <dtml-if expr="pysc.browser_verificar_pysc(HTTP_USER_AGENT)">
+      <td width="30%" class="form-text">Tipo: 
+       <input type="text" name="txt_sgl_tipo_norma" value="<dtml-var sgl_tipo_norma>" size="8" disabled>
+      </td>
+      <td width="35%" class="form-text">N&uacute;mero: 
+       <input type="text" name="txt_num_norma" value="<dtml-var num_norma>" size="8" disabled>
+       </td>
+      <td width="35%" class="form-text">Ano: 
+       <input type="text" name="txt_ano_norma" value="<dtml-var ano_norma>" size="4" disabled>
+       </td>
+    <dtml-else>
+      <td width="30%" class="form-text">
+        Tipo: <b> <dtml-var sgl_tipo_norma></b>
+      </td>
+      <td width="35%" align="center" class="form-text">
+        N&uacute;mero: <b> <dtml-var num_norma></b>
+      </td>
+      <td width="35%" align="center" class="form-text">
+        Ano: <b> <dtml-var ano_norma></b>
+      </td>
+    </dtml-if>
+  </dtml-in>
+  </tr>
+</table>
+
+<table width="98%" border="0" cellspacing="2" align="center">
+  <tr>
+      <td width="100%" class="form-text">
+      <dtml-comment>obtém a ementa da norma.</dtml-comment>
+      <dtml-in expr="zsql.norma_juridica_obter_zsql(cod_norma=cod_norma)">
+      <dtml-if txt_ementa>
+      Ementa: <b> <dtml-var txt_ementa></b>
+      </dtml-if>
+      </dtml-in>
+      </td>
+  </tr>
+</table>
+

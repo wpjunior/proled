@@ -1,0 +1,491 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/5221/ILSAPL/branches/2.3/skins/sk_sapl/ajuda
+END
+filiacoes_partidarias.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/filiacoes_partidarias.dtml
+END
+sessao_legislativa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_legislativa.dtml
+END
+origem.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/origem.dtml
+END
+modulo_comissoes.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/modulo_comissoes.dtml
+END
+cadastro_comissoes.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/5142/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cadastro_comissoes.dtml
+END
+tramitacao_relatoria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tramitacao_relatoria.dtml
+END
+tipo_documento.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_documento.dtml
+END
+navegacao_ajuda.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/navegacao_ajuda.dtml
+END
+mandatos_parlamentar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/mandatos_parlamentar.dtml
+END
+modulo_mesa_diretora.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/modulo_mesa_diretora.dtml
+END
+cadastro_mesa_diretora.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cadastro_mesa_diretora.dtml
+END
+sessao_plenaria_painel.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_painel.dtml
+END
+sessao_plenaria_lista_presenca_sessao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_lista_presenca_sessao.dtml
+END
+nivel_instrucao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/nivel_instrucao.dtml
+END
+tramitacao_lote.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tramitacao_lote.dtml
+END
+sessao_plenaria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/5080/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria.dtml
+END
+modulo_parlamentares.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/modulo_parlamentares.dtml
+END
+cadastro_parlamentares.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cadastro_parlamentares.dtml
+END
+relatorios.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/relatorios.dtml
+END
+sessao_plenaria_votacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_votacao.dtml
+END
+sessao_plenaria_lista_presenca_ordem_dia.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_lista_presenca_ordem_dia.dtml
+END
+cargo_comissao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cargo_comissao.dtml
+END
+casa_legislativa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/casa_legislativa.dtml
+END
+anexos.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/anexos.dtml
+END
+ajuda_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/ajuda_index_html.dtml
+END
+numeracao_docsacess.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/numeracao_docsacess.dtml
+END
+proposicao_legislativa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/proposicao_legislativa.dtml
+END
+cadastro_materia.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/5085/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cadastro_materia.dtml
+END
+sessao_plenaria_oradores.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_oradores.dtml
+END
+orgao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/orgao.dtml
+END
+gerenciamento_usuarios.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/gerenciamento_usuarios.dtml
+END
+doc_acessorio.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/doc_acessorio.dtml
+END
+painel_controle.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/painel_controle.dtml
+END
+ordem_dia.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/ordem_dia.dtml
+END
+proposicao_editor.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/proposicao_editor.dtml
+END
+tipo_expediente.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_expediente.dtml
+END
+troca_senha.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/troca_senha.dtml
+END
+status_tramitacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/status_tramitacao.dtml
+END
+modulo_tramitacao_materias.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/modulo_tramitacao_materias.dtml
+END
+autor.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/5080/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/autor.dtml
+END
+sessao_plenaria_materias.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_materias.dtml
+END
+andamento_sessao_plenaria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/andamento_sessao_plenaria.dtml
+END
+dependentes.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/dependentes.dtml
+END
+tipo_materia_legislativa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_materia_legislativa.dtml
+END
+glossario.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/glossario.dtml
+END
+materia_anexada.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/materia_anexada.dtml
+END
+modulo_norma_juridica.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/modulo_norma_juridica.dtml
+END
+sessao_plenaria_agenda.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_agenda.dtml
+END
+tipo_comissao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_comissao.dtml
+END
+tipo_resultado_votacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_resultado_votacao.dtml
+END
+tipo_proposicao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_proposicao.dtml
+END
+acessando_alimenta.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/acessando_alimenta.dtml
+END
+unidade_tramitacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/unidade_tramitacao.dtml
+END
+fim_relatoria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/fim_relatoria.dtml
+END
+sessao_plenaria_mesa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_mesa.dtml
+END
+envio_proposicao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/envio_proposicao.dtml
+END
+proposicao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/proposicao.dtml
+END
+tipo_norma_juridica.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_norma_juridica.dtml
+END
+lexml.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/lexml.dtml
+END
+coligacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/coligacao.dtml
+END
+relatoria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4841/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/relatoria.dtml
+END
+impressos.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/impressos.dtml
+END
+tipo_autor.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_autor.dtml
+END
+partidos.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/partidos.dtml
+END
+norma_juridica.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/norma_juridica.dtml
+END
+legislacao_cita_matanexada.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/legislacao_cita_matanexada.dtml
+END
+recebimento_proposicao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/recebimento_proposicao.dtml
+END
+tipo_afastamento.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_afastamento.dtml
+END
+backup_restauracao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/backup_restauracao.dtml
+END
+cargo_mesa.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/cargo_mesa.dtml
+END
+tabelas_auxiliares.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tabelas_auxiliares.dtml
+END
+tipo_situa_militar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_situa_militar.dtml
+END
+tipo_sessao_plenaria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_sessao_plenaria.dtml
+END
+sessao_plenaria_expedientes.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/sessao_plenaria_expedientes.dtml
+END
+tipo_dependente.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/tipo_dependente.dtml
+END
+periodo_composicao_comissao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/periodo_composicao_comissao.dtml
+END
+despacho_autoria.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/5221/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/despacho_autoria.dtml
+END
+consultas.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4808/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/consultas.dtml
+END
+regime_tramitacao.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/regime_tramitacao.dtml
+END
+legislatura.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/legislatura.dtml
+END
+mesa_diretora.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/ajuda/mesa_diretora.dtml
+END

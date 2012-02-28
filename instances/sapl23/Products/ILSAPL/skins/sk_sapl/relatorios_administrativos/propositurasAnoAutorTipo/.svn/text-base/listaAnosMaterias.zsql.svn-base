@@ -1,0 +1,13 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+max_rows : 1000
+max_cache : 100
+</dtml-comment>
+select distinct m.ano_ident_basica as ano_mat
+  from materia_legislativa m,
+       autoria a
+ where a.cod_materia = m.cod_materia
+       and a.ind_excluido = 0
+       and m.ind_excluido = 0
+order by 1 desc
+

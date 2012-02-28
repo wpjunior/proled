@@ -1,0 +1,75 @@
+<dtml-var standard_html_header>
+<script type="text/javascript" language="Javascript">
+function submeter(endereco){
+
+        var form = document.presenca_sessao_form;
+        endereco += '?cod_sessao_plen=' + form.hdn_cod_sessao_plen.value;
+        endereco += '&cod_sessao_leg='+ form.hdn_cod_sessao_leg.value;
+        endereco += '&cod_num_legislatura=' + form.hdn_num_legislatura.value;
+        endereco += '&dat_sessao=' + form.hdn_dat_sessao.value;
+        endereco += '&tip_sessao=' + form.hdn_tip_sessao.value;
+
+        if (form.hdn_cod_sessao_plen.value!=""){
+            location.href = endereco;
+        }
+        return;
+    }
+</script>
+<a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_plenaria_lista_presenca_sessao">Ajuda</a>
+<h1 class="firstHeading">Lista de Presen&ccedil;a da Sess&atilde;o</h1>
+<h3 align="center"><dtml-var sessao_plenaria_header></h3>
+
+<form name="presenca_sessao_form" method="post" action="presenca_sessao_salvar_proc">
+    <dtml-var sessao_plenaria_menu>
+    <dtml-in expr="zsql.parlamentar_obter_zsql(num_legislatura = cod_num_legislatura, ind_ativo=1, ind_excluido=0)">
+        <dtml-if sequence-start>
+        <fieldset>
+        <legend>Lista de Presen&ccedil;a da Sess&atilde;o Plen&aacute;ria</legend>
+        <table width="100%">
+            <tr class="fundo">
+                <td width="10%" class="label">&nbsp;Presen&ccedil;a</td>
+                <td width="90%" class="label">&nbsp;Parlamentar</td>
+            </tr>
+        </dtml-if sequence-start>
+        <tr>
+            <td>
+                <input type="checkbox" id="chk_presen_parlamentar" name="chk_presen_parlamentar" value="<dtml-var cod_parlamentar>" 
+                    <dtml-if expr="zsql.presenca_sessao_obter_zsql(cod_sessao_plen=cod_sessao_plen,cod_parlamentar=cod_parlamentar, ind_excluido=0)">
+                        checked=1
+                    </dtml-if> />
+            </td>
+            <td>
+                <label for="chk_presen_parlamentar">
+                    <dtml-var nom_parlamentar>/<dtml-var sgl_partido missing null="">
+                </label>
+            </td>
+        </tr>
+    <dtml-if sequence-end>
+        <dtml-if tip_sessao>
+        <tr>
+            <td colspan="0">
+                <br />
+                <dtml-var expr="pysc.quantidade_presentes_sessao_plenaria_pysc(cod_sessao_plen=cod_sessao_plen,tip_sessao=tip_sessao)">
+            </td>
+        </tr>
+        </dtml-if>
+        <tr>
+            <td align="center" colspan="0">
+                <input class="botao" type="submit" name="button" value="Salvar" />
+            </td>
+        </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+  </dtml-if sequence-end>
+  <dtml-else>
+        <table width="90%">
+            <tr><td></td></tr>
+            <tr>
+                <td class="form-text">Nenhum parlamentar cadastrado na legislatura.</td>
+            </tr>
+       </table>
+</dtml-in>
+</form>
+<dtml-var standard_html_footer>

@@ -1,0 +1,62 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/despacho_autoria">Ajuda</a> </div>
+<h1 class="firstHeading"> M&aacute;teria Legislativa </h1>
+
+<form name="index_form" action="despacho_inicial_form">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>">
+
+<body bgcolor="#FFFFFF">
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>  
+    <dtml-var materia_menu>
+    <table width="98%" align="center">
+      <tr>
+         <td  colspan=2><dtml-var materia_header></td>
+      </tr>
+     </table>
+     <fieldset><legend>Despacho Inicial</legend>
+     <table width="98%" align="center">
+  <dtml-in expr="zsql.despacho_inicial_obter_zsql(cod_materia=cod_materia, ind_excluido=0)" size=8 start=query_start orphan=2>
+    <dtml-if sequence-start>   
+       <tr><td><font size="1">&nbsp;</font></td></tr>
+       <tr class="fundo"> 
+         <td width="80%" class="form-label">Comiss&atilde;o</td>
+         <td width="20%" class="form-label">|&nbsp;Sigla</td>
+       </tr>
+       
+       <dtml-if previous-sequence>
+       <tr><td class="form-element">
+         <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+         Página Anterior (<dtml-var previous-sequence-size> resultados)</a>
+       </td></tr>
+       
+       </dtml-if previous-sequence>
+    </dtml-if sequence-start>
+       <tr  height="17"> 
+          <td width="80%" class="form-element"><a href="despacho_inicial_mostrar_proc?cod_materia=<dtml-var cod_materia>&num_ordem=<dtml-var num_ordem>">
+           <dtml-var nom_comissao_index missing></a></td>
+          <td width="20%" class="form-text">&nbsp;&nbsp;<dtml-var sgl_comissao_index missing></td>
+       </tr>
+    <dtml-if sequence-end>
+       <dtml-if next-sequence>
+       <tr><td class="form-element">
+         <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+         Próxima Página (<dtml-var next-sequence-size> resultados)</a>
+       </td></tr>
+      </dtml-if next-sequence>
+       </table>
+    </dtml-if sequence-end>
+  <dtml-else>
+      <tr><td class="form-text">Nenhum despacho inicial cadastrado para essa matéria.</td></tr>
+      </table>
+   </dtml-in>
+   </fieldset>
+    
+      <p><center>
+          <input type="submit" class="botao" name="btn_incluir" value="Incluir Despacho Inicial">
+      </center></p><br>
+    </fieldset>
+
+</body>
+</form>
+<dtml-var standard_html_footer>

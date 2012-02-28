@@ -1,0 +1,96 @@
+<dtml-comment>
+********************************************************************
+*  Função: Salvar os dados da comissão vindos do formulário, seja  *
+*          em UPDATE dos dados ou na INCLUSÃO de uma nova comissão.* 
+*                                                                  * 
+*  Argumentos: [hdn_cod_comissao: int]. Argumento opcional que     *
+*              determina se esse método vai salvar ou atualizar os *
+*              dados da comissão.                                  *
+*                                                                  *
+*  Retorno: Mensagem de sucesso ou erro. Redirecionamento para a   *
+*           página que vem pelo argumento hdn_url                  *
+********************************************************************
+</dtml-comment>
+
+
+<SCRIPT LANGUAGE = "JavaScript">
+  
+  function valida_autor(cod_comissao,ind_unidade_deliberativa){
+      /*-----------------------------
+         Função: Valida a inclusão de um autor para a comissão recem-criada
+         Argumentos: cod_comissao : txt - é o código da comissão que foi criada
+                     ind_unidade_deliberativa : txt - é o código da unidade deliberativa
+                     form_login.login : txt - campo para o preenchimento do login
+         Retorno: Alerta se o campo login não for preenchido, caso contrário
+                  Direciona para o método autor_salvar_proc, com os parâmetros recebidos
+
+         Rogério Ueda em 11/12/2003.
+      ------------------------------*/
+
+       if(document.form_login.login.value!=""){
+          location.href="autor_salvar_proc?cod_comissao="+cod_comissao+'&ind_unidade_deliberativa='+ind_unidade_deliberativa+'&txt_login='+document.form_login.login.value;
+       }else{
+          alert("O campo Login deve ser preenchido");
+       }
+}
+
+</SCRIPT>
+
+<dtml-if hdn_cod_comissao>
+    <dtml-call expr="REQUEST.set('metodo', zsql.comissao_atualizar_zsql)">
+<dtml-else>
+    <dtml-call expr="REQUEST.set('metodo', zsql.comissao_incluir_zsql)">
+</dtml-if>
+
+<dtml-try>
+  <dtml-call expr="metodo(   
+        cod_comissao            = hdn_cod_comissao,     
+        nom_comissao            = txt_nom_comissao,
+        sgl_comissao            = txt_sgl_comissao,
+        tip_comissao            = hdn_tip_comissao,
+        ind_unid_deliberativa   = rad_ind_unidade_deliberativa,
+        dat_criacao             = pysc.data_converter_pysc(data=txt_dat_criacao),
+        dat_extincao            = pysc.data_converter_pysc(data=txt_dat_extincao),
+        nom_apelido_temp        = txt_nom_apelido_temp,
+        dat_instalacao_temp     = pysc.data_converter_pysc(data=txt_dat_instalacao_temp),
+        dat_final_prevista_temp = pysc.data_converter_pysc(data=txt_dat_final_prevista_temp),
+        dat_prorrogada_temp     = pysc.data_converter_pysc(data=txt_dat_prorrogada_temp),
+        dat_fim_comissao        = pysc.data_converter_pysc(data=txt_dat_fim_comissao),
+        nom_secretario          = txt_nom_secretario,
+        num_tel_reuniao         = txt_num_tel_reuniao,
+        num_tel_secretaria      = txt_num_tel_secretaria,
+        num_fax_secretaria      = txt_num_fax_secretaria,
+        end_secretaria          = txt_end_secretaria,
+        des_agenda_reuniao      = txt_des_agenda_reuniao,
+        loc_reuniao             = txt_loc_reuniao,
+        txt_finalidade          = txa_txt_finalidade,
+        end_email               = txt_end_email)">
+<dtml-except>
+  <dtml-let mensagem="'Não foi possível salvar a comissão. Tente novamente!'">
+    <dtml-var mensagem_emitir>
+  </dtml-let>  
+<dtml-else>
+  <dtml-if expr="hdn_url[-1:]=='='">
+    <dtml-comment>
+    <dtml-in expr="zsql.comissao_obter_zsql(nom_comissao = txt_nom_comissao, sgl_comissao = txt_sgl_comissao, tip_comissao = lst_tip_comissao, dat_criacao = pysc.data_converter_pysc(data=txt_dat_criacao))"></dtml-in>
+    </dtml-comment>
+
+    <dtml-in expr="zsql.comissao_incluida_codigo_obter_zsql()">
+      <dtml-call expr="REQUEST.set('cod_comissao', _.str(_.int(cod_comissao)))">
+    </dtml-in> 
+  </dtml-if>
+
+  <dtml-if expr="metodo==zsql.comissao_incluir_zsql">
+    <dtml-let mensagem="'Comissão salva com sucesso.<br><br>
+                       Clique <a href=\'sapl/cadastros/auxiliares/autor/autor_form?cod_comissao='+cod_comissao+'&ind_unidade_deliberativa='+rad_ind_unidade_deliberativa+'\'>AQUI</a> para cadastrar essa comissão como autora,<br>
+                       ou clique em <b>Continuar</b> para não efetuar esse cadastro agora.<br><br>'"
+            sucesso="1"
+            url="'unidade_tramitacao_confirmar_proc?cod_comissao='+cod_comissao+'&ind_unidade_deliberativa='+rad_ind_unidade_deliberativa">
+      <dtml-var mensagem_emitir>
+    </dtml-let>
+  <dtml-else>
+    <dtml-let mensagem="'Comissão salva com sucesso'" sucesso="1" url="hdn_url">
+      <dtml-var mensagem_emitir>
+    </dtml-let>  
+  </dtml-if>
+</dtml-try>

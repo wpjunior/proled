@@ -1,0 +1,42 @@
+<dtml-if cod_vinculo>
+    <dtml-call expr="REQUEST.set('metodo', zsql.vinculo_norma_juridica_atualizar_zsql)">
+<dtml-else> 
+    <dtml-call expr="REQUEST.set('metodo', zsql.vinculo_norma_juridica_incluir_zsql)">
+    <dtml-call "REQUEST.set('cod_vinculo','')">
+</dtml-if>
+
+<dtml-comment> verifica se a norma referida existe no cadastro. Helder </dtml-comment>
+    <dtml-in expr="zsql.norma_juridica_obter_zsql(tip_norma=lst_tip_norma, num_norma=txt_num_norma, ano_norma=txt_ano_norma)">
+        <dtml-call expr="REQUEST.set('cod_norma_referida', cod_norma)">
+    <dtml-else>
+        <dtml-call expr="REQUEST.set('erro', 1)">
+        <dtml-let mensagem="'A norma referida desejada não encontra-se devidamente cadastrada!'">
+            <dtml-var mensagem_emitir>
+        </dtml-let>         
+    </dtml-in>
+    
+<dtml-unless erro>
+        <dtml-comment> verifica se a norma referida é igual a referente. Helder </dtml-comment>
+        <dtml-if expr="cod_norma_referente == cod_norma_referida">
+           <dtml-call expr="REQUEST.set('erro', 1)">
+           <dtml-let mensagem="'A norma não pode fazer referência a ela mesma!'">
+              <dtml-var mensagem_emitir>
+           </dtml-let>         
+<dtml-else>    
+<dtml-try>
+   <dtml-call "metodo(cod_vinculo        =cod_vinculo,
+                      cod_norma_referente=cod_norma_referente,
+                      cod_norma_referida =cod_norma_referida,
+                      tip_vinculo        =lst_tip_vinculo
+                      )">
+<dtml-except>
+            <dtml-let mensagem="'Não foi possível salvar.<br>Tipo do erro: '+_.str(_['error_type'])+'<br>Valor do erro: '+_.str(_['error_value'])">
+                <dtml-var mensagem_emitir>
+            </dtml-let>
+<dtml-else>
+                <dtml-let mensagem="'Relacionamento salvo com sucesso!'" sucesso="1" url="'index_html?cod_norma='+cod_norma_referente">
+                    <dtml-var mensagem_emitir>
+                </dtml-let>
+</dtml-try>
+</dtml-if>
+</dtml-unless>

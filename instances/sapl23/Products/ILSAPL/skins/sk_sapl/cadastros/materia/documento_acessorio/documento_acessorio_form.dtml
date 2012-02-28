@@ -1,0 +1,352 @@
+<dtml-comment> script alterado para incorporar documento acessório a partir de proposição elaborada. Man Qi em 08/01/04 </dtml-comment>
+
+<dtml-var standard_html_header>
+
+<script type = "text/javascript" src="javascript/data_validar_jvsc"></script>
+<script type="text/javascript">
+<!--
+  function submeter(endereco){
+     /*-----------------------------
+        Função: Confirma se o usuário deseja salvar os dados ao clicar em
+              link do formulário que não os botões SALVAR ou EXCLUIR.
+        Argumentos: endereco : txt - é o endereço que deve ser renderizado
+                    apos a confirmação ou não de salvar os dados. 
+        Retorno: Uma janela de confirmação. Se o usuário confirmar, ele 
+               invoca o método materia_salvar_proc.
+               Se ele cancelar, a função apenas renderiza o endereço
+               (caso esteja na atualizacao).
+        Michael Onishi , Daniel C. Azevedo em 09/04/01.
+     ------------------------------*/
+     
+      var form = document.documento_acessorio_form;
+
+      endereco += '?cod_materia=' + form.hdn_cod_materia.value;
+
+      if (form.hdn_alterou.value=="1"){
+         if (confirm("Deseja salvar os dados?")){
+            form.hdn_url.value = endereco;
+            campos_criticar(form);
+         }else {location.href = endereco}
+      }
+      location.href = endereco;
+  }
+
+
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                pelo botão btn_despacho_inicial_salvar do formulário para 
+                validação dos campos.
+         Argumentos: form : formulário - é o formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Rommel Carvalho e Danilo Custódio em 04/04/2001.
+      ------------------------------*/
+       
+      if (form.lst_tip_documento.value==""){
+          alert("O tipo do documento deve ser preenchido");
+          form.lst_tip_documento.focus();
+          return false;
+      }
+      if (form.txt_nom_documento.value==""){
+          alert("O nome do documento deve ser preenchido");
+          form.txt_nom_documento.focus();
+          return false;
+      }
+      if (form.txt_nom_autor_documento.value==""){
+         alert("A nome do autor do documento deve ser preenchido");
+         form.txt_nom_autor_documento.focus();
+         return false;
+      }  
+      if (form.txt_dat_documento.value!="" && !IsValidDate(form.txt_dat_documento.value)){
+         alert("Digite uma data para anexação de documento válida!");
+         form.txt_dat_documento.focus();
+         form.txt_dat_documento.select();
+         return false;
+      }
+
+      /*--- acrescida pela Man Qi em 12/01/04 ---*/   
+      if (form.hdn_cod_documento.value==""){
+         if (!(form.radTipTxtDocumento[0].checked ||
+               form.radTipTxtDocumento[1].checked)){
+            alert("O tipo de texto do documento deve ser preenchido!");
+            form.radTipTxtDocumento[0].focus();
+            return false;
+         }
+    
+         if (form.radTipTxtDocumento[0].checked){
+            if (form.file_nom_arquivo.value==""){
+               alert("O nome do arquivo deve ser preenchido!");
+               form.file_nom_arquivo.focus();
+               return false;
+            }
+         }         
+         else {
+            if (form.selProp.value == ""){
+               if (form.selProp.length == 1){ 
+                  alert("Não há proposição disponível para ser selecionada. Carregue um arquivo!");
+                  form.radTipTxtDocumento[0].focus(); 
+                  return false;
+               }                       
+               else { 
+                  alert("A proposição deve ser selecionada");
+                  form.selProp.focus();
+                  return false;
+               }
+            }
+            else {
+               if (form.selProp.value == 'Selecione'){
+                  alert("Não havendo proposição, carregue um arquivo!");
+                  form.radTipTxtDocumento[0].focus();
+                  return false;
+               }
+            } 
+         }    
+            
+         if (form.radTipTxtDocumento[0].checked){
+            form.hdn_tip_texto.value = "Arq";
+         }
+         else { 
+            form.hdn_tip_texto.value = "Prop";            
+         }
+
+         form.hdn_cod_proposicao.value = form.selProp.value;
+      }
+
+      form.hdn_tip_documento.value = form.lst_tip_documento.value;
+   
+      /*-----------------------------
+      if (form.file_nom_arquivo.value==""){
+        alert("O nome do arquivo deve ser preenchido!");
+        form.file_nom_arquivo.focus();
+        return false;
+      }         
+      ------------------------------*/
+      
+      form.submit();
+  }
+    
+  
+  function documento_acessorio_excluir(){
+      /*-----------------------------
+         Função: Chama o Método DTML de exclusão do despacho
+         Argumentos: ().
+         Retorno: Retorna uma mensagem de exclusão bem sucessida e
+                redireciona à página 'index_html'.
+         Rommel Carvalho e Danilo Custódio em 04/04/2001.
+      ------------------------------*/
+       
+       if (confirm("Deseja realmente excluir?")) {          
+          location.href="documento_acessorio_excluir_proc?cod_documento=<dtml-var cod_documento missing>&cod_materia=<dtml-var cod_materia missing>&nom_documento=<dtml-var nom_documento missing>";
+       }
+  } 
+
+  function tipo_texto_documento(tipo) {
+    var form = document.documento_acessorio_form;
+
+    form.hdn_alterou.value = 1;
+    if (tipo=='A') {
+      form.selProp.value = '';
+      form.selProp.disabled = 1;
+      form.file_nom_arquivo.disabled = 0;
+    }
+    else {
+      form.selProp.disabled = 0;
+      form.file_nom_arquivo.value = '';
+      form.file_nom_arquivo.disabled = 1;
+    }
+    return;
+  }
+
+  function texto_documento_excluir(){
+      /*-----------------------------
+         Função: Chama o Método DTML de exclusão do texto do documento
+         Argumentos: ().
+         Retorno: Retorna uma mensagem de exclusão bem sucedida e
+                  redireciona à página 'documento_acessorio_form'.
+         Man Qi em 16/01/2004.
+      ------------------------------*/
+       
+       if (confirm("Deseja realmente excluir o texto?")) {          
+          location.href="texto_documento_excluir_proc?cod_documento=<dtml-var cod_documento missing>&cod_materia=<dtml-var cod_materia missing>";
+       }
+  } 
+
+  function corrige_radio(){
+      /*-----------------------------
+         Função: Ativa a seleção de uma proposição quando volta da tela de mensagem
+                 Chamada dessa Função no onLoad da tag body
+         Argumentos: vazio
+         Retorno: nada
+         Rogerio Ueda em 26/01/2004.
+      ------------------------------*/
+
+    var form = document.documento_acessorio_form;
+    if (form.getAttribute("selProp")!=''){
+       if ((form.selProp.value != '')&&(<dtml-var "_.hasattr(REQUEST,'btn_incluir')">)){
+         form.selProp.disabled = 0;
+       }
+    }
+    return;
+  }
+//-->
+</script>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/doc_acessorio">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<dtml-call expr="REQUEST.set('temProposicao',REQUEST.has_key('hdnCodProposicao'))">
+<dtml-if temProposicao>
+  <dtml-in expr="zsql.proposicao_obter_zsql(cod_proposicao=hdnCodProposicao)">
+    <dtml-call expr="REQUEST.set('propTipoDoc',_.str(tip_mat_ou_doc))">
+    <dtml-call expr="REQUEST.set('nom_documento',txt_descricao)">
+    <dtml-call expr="REQUEST.set('nom_autor_documento',nom_autor)">
+  </dtml-in>
+</dtml-if>
+
+<form name="documento_acessorio_form" method="post" action="documento_acessorio_salvar_proc" enctype="multipart/form-data">
+<input type="hidden" name="hdn_cod_documento" value="<dtml-var cod_documento missing>" onChange="javascript:form.hdn_alterou.value=1" />
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>
+    <dtml-var materia_menu>
+      <table width="100%" align="center">
+         <tr><td><dtml-var materia_header></td><tr>
+      </table>
+      <fieldset><legend>Documento Acess&oacute;rio</legend>
+      <table width="98%" align="center">
+  <tr><td><input type="hidden" name="hdn_tip_texto" value="" />   
+  <tr><td><input type="hidden" name="hdn_cod_proposicao" value="" />    
+  <tr><td><input type="hidden" name="hdn_tip_documento" value="" />
+
+         <tr style="height:45">
+            <td width="25%" class="form-element">Tipo (*)
+<dtml-if temProposicao>
+              <input type="hidden" name="lst_tip_documento" value="<dtml-var propTipoDoc>" />
+                <dtml-in expr="zsql.tipo_documento_obter_zsql(tip_documento=propTipoDoc)">
+                            :&nbsp;&nbsp;<dtml-var des_tipo_documento>
+                </dtml-in>
+<dtml-else>           
+                <br />
+                <select id="lst_tip_documento" name="lst_tip_documento" onChange="javascript:form.hdn_alterou.value=1">
+                  <option value="0">Selecione</option> 
+                  <dtml-in expr="zsql.tipo_documento_obter_zsql(ind_excluido=0)">           
+                     <option <dtml-if  cod_documento>
+                        <dtml-if expr="(cod_documento!=None) and _.int(tip_documento) == _.int(documento_acessorio_form.tip_documento)"> 
+                           selected 
+                        </dtml-if></dtml-if>
+                        value="<dtml-var tip_documento>">
+                        <dtml-var des_tipo_documento>
+                    </option>
+                  </dtml-in>                   
+               </select>
+</dtml-if>
+            </td>
+            <td width="45%" class="form-element">Nome (*)<br />
+             <input type="text" name="txt_nom_documento" value="<dtml-var nom_documento missing null="">" size="30" maxlength="30" onChange="javascript:form.hdn_alterou.value=1" /></td>
+<dtml-unless dat_documento>
+  <dtml-call expr="REQUEST.set('dat_documento', pysc.data_atual_port_pysc())">
+</dtml-unless>
+            <td width="30%" class="form-element">Data<br />
+             <input type="text" name="txt_dat_documento" id ="txt_dat_documento" value="<dtml-var dat_documento missing null="">" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_documento)" />
+             <script type="text/javascript">
+                /*<[CDATA[*/
+                    var dpck = new DatePicker({
+                        relative : 'txt_dat_documento',
+                        language : 'pt'
+                        });
+                /*]]>*/
+            </script>
+             
+             </td>
+          </tr>
+          <tr style="height:45"> 
+            <td colspan="4" class="form-element">Autor (*)<br />
+              <input type="text" name="txt_nom_autor_documento" value="<dtml-var nom_autor_documento missing null="">" size="50" maxlength="50"onChange="javascript:form.hdn_alterou.value=1" />
+            </td>
+          </tr>
+          <tr style="height:45"> 
+            <td colspan="2" class="form-text"><b>Texto (*)</b><br />
+<dtml-if expr="_.has_key('cod_documento')"> 
+  <dtml-comment> no caso de alteração do documento. Man Qi </dtml-comment>
+  <dtml-if "_.hasattr(sapl_documentos.materia,cod_documento)">
+    <dtml-let documento="_.getattr(sapl_documentos.materia,cod_documento).absolute_url">
+                            <a target="_blank" href="<dtml-var documento>">
+			      <img align="bottom" border="0" src="sapl/imagens/archiv.gif" alt="Texto documento" /></a>
+          <dtml-comment> &nbsp;&nbsp;&nbsp;<input type="button" class="botao" name="delTxtDocumento" value="Excluir" onClick="texto_documento_excluir()" /></dtml-comment>
+    </dtml-let>
+  <dtml-else>
+                            <input type="radio" name="radTipTxtDocumento" value="Arq" onClick="tipo_texto_documento('A')" /> Arquivo:<br />
+                            <input type="file" name="file_nom_arquivo" size="40" maxlength="100" disabled />
+                          </td>
+                          <td colspan="2" class="form-text" align="left">
+                            <br /><input type="radio" name="radTipTxtDocumento" value="Prop" onClick="tipo_texto_documento('P')" /> Proposição:<br />
+                            <select name="selProp" disabled>
+                              <option>Selecione</option>
+    <dtml-in expr="zsql.proposicao_obter_zsql(ind_recebido=1)">
+                              <option value="<dtml-var cod_proposicao>">
+                                <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)">
+                              </option>
+    </dtml-in>
+                            </select>
+  </dtml-if>
+<dtml-else>
+  <dtml-comment> no caso de inclusão do documento. Man Qi </dtml-comment>
+                            <input type="radio" name="radTipTxtDocumento" value="Arq" onClick="tipo_texto_documento('A')" 
+  <dtml-if temProposicao> 
+                                disabled
+  </dtml-if>
+                              /> Arquivo:<br />
+                            <input type="file" name="file_nom_arquivo" size="40" maxlength="100" disabled />
+                          </td>
+                          <td colspan="2" class="form-text" align="left">
+  <dtml-if temProposicao>
+                            <dtml-let txt_cod_prop="pysc.proposicao_calcular_checksum_pysc(hdnCodProposicao)">
+                               <br /><input type="radio" name="radTipTxtDocumento" value="Prop" onClick="tipo_texto_documento('P')" checked disabled /> Proposição:<br />
+                               <select name="selProp" disabled>
+                                  <option value="<dtml-var hdnCodProposicao>" selected>
+                                     <dtml-var txt_cod_prop>
+                                  </option>
+                               </select>
+                               &nbsp;<a target="_blank" href="sapl/cadastros/proposicao/proposicao_texto_imprimir?cod_documento=<dtml-var txt_cod_prop>">| ver texto |</a>
+                            </dtml-let>
+  <dtml-else>
+                            <br /><input type="radio" name="radTipTxtDocumento" value="Prop" onClick="tipo_texto_documento('P')" /> Proposição:<br />
+                            <select name="selProp" disabled>
+                              <option>Selecione</option>
+    <dtml-in expr="zsql.proposicao_obter_zsql(ind_recebido=1,ind_mat_ou_doc='D')">
+                              <option value="<dtml-var cod_proposicao>">
+                                <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)"> - <dtml-var des_tipo_proposicao>
+                              </option>
+    </dtml-in>
+                            </select>
+  </dtml-if>
+</dtml-if>
+            </td>
+          </tr>
+          <tr style="height:60"> 
+            <td colspan="4" class="form-element">Ementa<br />
+             <textarea name="txa_txt_ementa" cols="70" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_ementa missing null=""></textarea>
+            </td>
+          </tr>
+          
+        </table>
+        <input type="hidden" name="txa_txt_indexacao" value="<dtml-var txt_indexacao missing null="">" />
+        <input type="hidden" name="hdn_alterou" value="0" />
+        </fieldset>
+
+  <center><p>
+    <input type="button" class="botao" name="btn_documento_acessorio_salvar" value="Salvar" onClick="campos_criticar(document.documento_acessorio_form)" />
+    &nbsp;&nbsp;
+ 
+  <dtml-if cod_documento>
+    <input type="button" class="botao" name="btn_documento_acessorio_excluir" value="Excluir" onClick="documento_acessorio_excluir()" />
+  </dtml-if>
+  </p></center>
+<br />
+  <input type="hidden" name="hdn_cod_materia" value="<dtml-var cod_materia missing>" />
+  <input type="hidden" name="hdn_url" value="index_html?cod_materia=<dtml-var cod_materia>" /></fieldset>
+
+<br />
+<br />
+</form>
+<dtml-var standard_html_footer>

@@ -1,0 +1,14 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+arguments : cod_andamento_sessao
+max_rows : 1000
+max_cache : 100
+</dtml-comment>
+UPDATE 
+     andamento_sessao
+
+SET
+     ind_excluido=1
+
+WHERE
+     cod_andamento_sessao = <dtml-sqlvar cod_andamento_sessao type="int">

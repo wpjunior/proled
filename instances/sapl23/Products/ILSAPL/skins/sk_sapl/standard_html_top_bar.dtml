@@ -1,0 +1,70 @@
+<dtml-let isAnon="portal_membership.isAnonymousUser()">
+<div id="topo">
+  <dtml-call expr="REQUEST.set('existe_logo', 0)">
+  <dtml-call expr="REQUEST.set('id_logo', sapl_documentos.props_sapl.id_logo)">
+  <dtml-in expr="sapl_documentos.props_sapl.objectValues('Image')">
+    <dtml-if expr="id() == id_logo">
+      <dtml-call expr="REQUEST.set('existe_logo', 1)">
+    </dtml-if>
+  </dtml-in>
+  <h1 id="logo">
+    <dtml-if "not existe_logo">
+      <img src="&dtml-portal_url;/imagens/brasao.gif" alt="Logotipo da Casa Legislativa" />
+    <dtml-else>
+      <img src="sapl_documentos/props_sapl/<dtml-var id_logo>" alt="Logotipo da Casa Legislativa" />
+    </dtml-if>
+  </h1>
+  <div id="identidade">
+    <h2><dtml-var "sapl_documentos.props_sapl.nom_casa" missing></h2>
+    <h3>PROLED - Processo Legislativo Digital</h3>
+  </div>
+  <div id="busca">
+    <form name="top_bar_form" action="&dtml-portal_url;/generico/palavra_chave_buscar_proc" onSubmit="return palavra_chave_buscar()">
+      <label for="campoBusca">busca por palavra-chave</label><br />
+      <input id="campoBusca" type="text" name="txt_palavra_chave" size="20" />
+      <input class="botaoBusca" type="submit" value="buscar" />
+    </form>
+  </div>
+  <br clear="all" />
+</div>
+
+<div id="funcoes">
+  <dtml-if expr="not isAnon">
+    <span>usu&aacute;rio: <strong>&dtml-AUTHENTICATED_USER;</strong></span>
+  </dtml-if>
+  <ul>
+    <li> <a class="inicio" href="&dtml-portal_url;">in&iacute;cio</a></li>
+
+    <li> <a class="voltar" href="javascript:history.back();">voltar</a></li>
+
+
+<dtml-if expr="_['REQUEST']['ACTUAL_URL']==(portal_url() + '/generico/materia_pesquisar_proc')">
+
+
+    <li><a class="pdf" href="<dtml-var portal_url>/relatorios/pdf_materia_preparar_pysc?lst_tip_materia=<dtml-var lst_tip_materia>&amp;lst_tip_autor=<dtml-var lst_tip_autor>&amp;hdn_txt_autor=<dtml-var hdn_txt_autor url_quote>&amp;
+rad_tramitando=<dtml-var rad_tramitando>&amp;txt_numero=<dtml-var txt_numero>&amp;hdn_cod_autor=<dtml-var hdn_cod_autor url_quote>&amp;txt_relator=<dtml-var txt_relator>&amp;lst_cod_partido=<dtml-var lst_cod_partido>&amp;
+txt_ano=<dtml-var txt_ano>&amp;txt_assunto=<dtml-var txt_assunto>&amp;lst_status=<dtml-var lst_status>">PDF</a></li>
+
+<dtml-elif expr="_.has_key('ind_pdf_ordem')">
+        <dtml-in "zsql.data_ordem_dia_obter_zsql(ordenacao='A')">
+           <dtml-if expr="(REQUEST.has_key('dat_ordem_sel') and dat_ordem_sel==dat_ordem) or
+                           (_['sequence-end'] and not _.has_key('dat_ordem_sel'))"> 
+          <li><a class="pdf" href="&dtml-portal_url;/relatorios/pdf_ordem_dia_preparar_pysc?data=<dtml-var dat_ordem>">PDF</a></li>
+          </dtml-if>
+        </dtml-in>
+<dtml-elif expr="_.has_key('ind_pdf_detalhe_materia')">
+
+      <li><a class="pdf" href="&dtml-portal_url;/relatorios/pdf_detalhe_materia_preparar_pysc?cod_materia=<dtml-var cod_materia>">PDF</a></li>
+    </dtml-if>
+
+    <li><a class="impressao" href="<dtml-var URL0>?impressao=1&<dtml-var QUERY_STRING>">impress&atilde;o</a></li>
+    <li><a class="manual" href="&dtml-portal_url;/ajuda">manual</a></li>
+    <dtml-if isAnon>
+      <li><a class="acessar" href="&dtml-portal_url;/login_form">acessar</a></li>
+    <dtml-else>
+      <li><a class="sair" href="&dtml-portal_url;/generico/log_out_proc">sair</a></li>
+    </dtml-if>
+  </ul>
+  <br clear="all" />
+</div>
+</dtml-let>

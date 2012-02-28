@@ -1,0 +1,54 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zope">
+
+  <!-- Source Type Vocabulary Setup -->
+
+  <vocabulary
+      name="SourceTypes"
+      factory=".vocabulary.SourceTypeVocabulary" />
+
+  <!-- Plain Text Support -->
+
+  <factory
+      component=".plaintext.PlainTextSourceFactory"
+      id="zope.source.plaintext"
+      title="Plain Text" 
+      description="Plain Text Source" />
+
+  <browser:view
+      name=""
+      for=".plaintext.IPlainTextSource"
+      class=".plaintext.PlainTextToHTMLRenderer"
+      permission="zope.Public" />
+
+  <!-- STX support -->
+
+  <factory
+      component=".stx.StructuredTextSourceFactory"
+      id="zope.source.stx"
+      title="Structured Text (STX)"
+      description="Structured Text (STX) Source" />
+
+  <browser:view
+      name=""
+      for=".stx.IStructuredTextSource"
+      class=".stx.StructuredTextToHTMLRenderer"
+      permission="zope.Public" />
+
+  <!-- ReST support -->
+
+  <factory
+      component=".rest.ReStructuredTextSourceFactory"
+      id="zope.source.rest"
+      title="ReStructured Text (ReST)"
+      description="ReStructured Text (ReST) Source" />
+
+  <browser:view
+      name=""
+      for=".rest.IReStructuredTextSource"
+      class=".rest.ReStructuredTextToHTMLRenderer"
+      permission="zope.Public" />
+
+</configure>

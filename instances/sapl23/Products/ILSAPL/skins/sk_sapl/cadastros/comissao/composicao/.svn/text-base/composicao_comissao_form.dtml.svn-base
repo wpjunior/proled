@@ -1,0 +1,244 @@
+<dtml-var standard_html_header>
+<dtml-comment>
+*****************************************************************
+*    Esse método precisa de dois parâmetros ao ser envocado, que*
+*  são o cod_comissao e nom_comissao. Como esse método é sempre *
+*  envocado a partir do index_html de Composição, esses  argu-  *
+*  mentos são atribuídos naquele método.                        *
+*****************************************************************
+</dtml-comment>
+
+
+<dtml-comment>
+***************************************************************
+*     Abaixo, declara-se um documento com os códigos fontes de* 
+*   funções em JavaScript usadas neste formulário. Essas fun- *
+*   ções estão em outros documentos por serem de uso genérico *
+*   em vários formulários.                                    *
+***************************************************************
+</dtml-comment>
+
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_jvsc"></SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_designacao_comissao_jvsc"></SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_desligamento_jvsc"></SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                 pelo botão btn_composicao_salvar do formulário para validação 
+                 dos campos.
+         Argumentos: form : formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Michael Onishi , Daniel C. Azevedo em 14/03/2001.
+      ------------------------------*/ 
+           
+      if (form.lst_parlamentar.selectedIndex == 0){
+          alert("Selecione um parlamentar!");
+          form.lst_parlamentar.focus();
+          return false;
+      }
+        
+      if (form.lst_cargo_comissao.selectedIndex == 0){
+          alert("Selecione um cargo!");
+          form.lst_cargo_comissao.focus();
+          return false;
+      }
+  
+      if (!(form.rad_ind_titular[0].checked ||
+            form.rad_ind_titular[1].checked)){
+          alert("Selecione a opção titular!");
+          form.rad_ind_titular[0].focus();
+          return false;
+      }
+
+      if (form.txt_dat_designacao.value == "") {
+         alert("Digite uma data de designação!");
+         form.txt_dat_designacao.focus();
+         return false;
+      }
+
+      if (!IsValidDate(form.txt_dat_designacao.value)) {
+         alert("Digite uma data de designação válida!");
+         form.txt_dat_designacao.focus();
+         return false;     
+      }
+
+      /* ------------------------ valida data de designação -------- alterado em: 09-03-2011 - Claudio Morale ------------ */
+
+      if (!IsValidDateDesignacaoComissao(form.txt_dat_designacao.value, form.txt_dat_inicio.value, form.txt_dat_fim.value)) {
+         alert("Digite uma data de designação válida que esteja dentro do período de composição!");
+         form.txt_dat_designacao.focus();
+         return false;
+      }
+
+      if (form.txt_dat_desligamento.value != "" && 
+          !IsValidDate(form.txt_dat_desligamento.value)) {
+         alert("Digite uma data de desligamento válida!");
+         form.txt_dat_desligamento.focus();
+         return false;
+      }
+
+     /* -------------------------- valida data de desligamento ------- alterado em: 10/03/2011 - Claudio Morale -----------*/
+
+      if ((form.txt_dat_desligamento.value != "") && 
+         (!IsValidDateDesligamento(form.txt_dat_desligamento.value, form.txt_dat_designacao.value, form.txt_dat_fim.value))) {
+         alert("Digite data de desligamento válida, que seja posterior à designação e não posterior ao fim do período!");
+         form.txt_dat_desligamento.focus();
+         return false;
+      }
+
+      form.submit();
+    }
+
+  function composicao_excluir(form){
+      /*-----------------------------
+         Função: Chama o Método DTML de exclusão da composição
+         Michael Onishi , Daniel C. Azevedo em 14/03/01.
+      ------------------------------*/
+       
+       if (confirm("Deseja realmente excluir?")) {  
+          location.href="composicao_comissao_excluir_proc?cod_comp_comissao=" + form.hdn_cod_comp_comissao.value +
+                         "&cod_comissao=" + form.hdn_cod_comissao.value +
+                         "&cod_periodo_comp=" + form.hdn_cod_periodo_comp.value;
+       }
+  } 
+   
+//-->
+</SCRIPT>
+
+<div class="helpsapl"><a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_comissoes">Ajuda</a></div>
+<h1 class="firstHeading"> Comiss&atilde;o </h1> 
+<form name="composicao_comissao_form" method="post" action="composicao_comissao_salvar_proc">
+<ul>
+    <li>
+        <a href="<dtml-var portal_url>/cadastros/comissao/comissao_mostrar_proc?cod_comissao=<dtml-var cod_comissao>">In&iacute;cio</a>
+    </li>
+</ul>
+<dtml-comment>
+*********************************************************************
+*      Os 4 campos do tipo HIDDEN abaixo são atribuídos com os parâ-*
+*  metros recebidos. Eles são passados para o próximo método.       *
+*********************************************************************
+</dtml-comment>
+
+  <input type="hidden" name="hdn_cod_comp_comissao" value="<dtml-var cod_comp_comissao missing>">
+  <input type="hidden" name="hdn_cod_periodo_comp" value="<dtml-var cod_periodo_comp missing>">
+  <input type="hidden" name="hdn_cod_comissao" value="<dtml-var cod_comissao missing>">
+  <input type="hidden" name="hdn_nom_comissao" value="<dtml-var nom_comissao missing>">
+  
+<dtml-comment> ==========================  periodo de composição da comissão - data de início e de fim do período ===== </dtml-comment> 
+
+  <input type="hidden" name="txt_dat_inicio" value="<dtml-var dat_inicio_periodo>">
+  <input type="hidden" name="txt_dat_fim"    value="<dtml-var dat_fim_periodo>">
+ 
+<fieldset>
+    <legend>Parlamentar</legend>
+    <table width="100%" border="0" cellspacing="0" align="center" cellpadding="0">
+        <tr> 
+            <td colspan="2" height="50" class="form-element">Nome (*)<br>
+                <select name="lst_parlamentar" size="1">
+                    <option></option>
+                    <dtml-in expr="zsql.parlamentar_obter_zsql(ind_excluido=0)">
+                        <dtml-if expr="pysc.composicao_comissao_validar_parlamentar_pysc(dat_inicio_periodo, dat_fim_periodo, cod_parlamentar)">
+                          <option 
+                            <dtml-if expr="cod_parlamentar==composicao_comissao_form.cod_parlamentar and _.has_key('cod_comp_comissao')">
+                               selected 
+                            </dtml-if>
+                            value="<dtml-var cod_parlamentar>">
+                            <dtml-var nom_parlamentar> / <dtml-var sgl_partido null="">
+                         </option>
+                       </dtml-if> 
+                    </dtml-in> 
+                </select>
+            </td>
+            <td width="40%" class="form-element"><b>Titular (*)</b><br>
+	            <dtml-in expr="['Não', 'Sim']">
+	            <input type="radio" name="rad_ind_titular" value="<dtml-var expr="_['sequence-index']">"
+                    <dtml-if expr="_.has_key('cod_comp_comissao') and _.has_key('ind_titular')"> 
+                    <dtml-if expr="ind_titular==1 and _['sequence-index']==1"> checked=1
+                    <dtml-elif expr="ind_titular==0 and _['sequence-index']==0"> checked=1
+                    </dtml-if>
+                    <dtml-else>
+                    </dtml-if> />
+                    <dtml-var expr="_['sequence-item']">
+                </dtml-in>
+            </td>
+        </tr>
+        <tr> 
+            <td width="30%" height="50" class="form-element">Cargo (*)<br>
+                <select name="lst_cargo_comissao">
+                    <option></option>
+                    <dtml-in expr="zsql.cargo_comissao_obter_zsql()">
+                    <option 
+	                    <dtml-if expr="cod_cargo==composicao.comissao_form.cod_cargo and _.has_key('cod_comp_comissao')">
+	                        selected 
+	                    </dtml-if>
+                        value="<dtml-var cod_cargo>">
+                        <dtml-var des_cargo>
+                    </option>
+                    </dtml-in>
+                </select>
+            </td>
+            <td width="30%" class="form-element"><b>Data Designa&ccedil;&atilde;o (*)</b><br>
+                <input type="text"
+                       name="txt_dat_designacao"
+                       id="txt_dat_designacao"
+                       size="10"
+                       value="<dtml-var dat_designacao missing null="">" maxlength="10" onBlur="formata_data(form.txt_dat_designacao)">
+                    <script type="text/javascript">
+                        /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                        relative : 'txt_dat_designacao',
+                        language : 'pt'
+                        });
+                        /*]]>*/
+                    </script>
+                <span class="nota">(dd/mm/aaaa)</span>
+            </td>
+            <td width="40%" class="form-element"><b>Data Desligamento</b><br>
+                <input type="text"
+                       name="txt_dat_desligamento"
+                       id="txt_dat_desligamento"
+                       size="10"
+                       value="<dtml-var dat_desligamento missing null="">" maxlength="10" onBlur="formata_data(form.txt_dat_desligamento)">
+                    <script type="text/javascript">
+                        /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                        relative : 'txt_dat_desligamento',
+                        language : 'pt'
+                        });
+                        /*]]>*/
+                    </script>
+                <span class="nota">(dd/mm/aaaa)</span>
+            </td>
+        </tr>
+        <tr> 
+            <td colspan="3" height="50" class="form-element">Motivo Desligamento<br>
+                <input type="text" name="txt_des_motivo_desligamento" size="60" value="<dtml-var des_motivo_desligamento missing>" maxlength="150">
+            </td>
+        </tr>
+        <tr> 
+            <td colspan="3" height="50" class="form-element">Observa&ccedil;&atilde;o<br>
+                <input type="text" name="txt_obs_composicao" size="60" value="<dtml-var obs_composicao missing>" maxlength="150">
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p align="center">
+    <input type="button"
+           name="btn_composicao_salvar"
+           class="botao"
+           value="Salvar"
+           onClick="campos_criticar(document.composicao_comissao_form)">
+    &nbsp;&nbsp; 
+    <dtml-if cod_comp_comissao>
+        <input type="button" name="btn_composicao_excluir" class="botao" value="Excluir" onClick="composicao_excluir(document.composicao_comissao_form)">
+    </dtml-if>
+</p>
+</form>
+<br>
+
+<dtml-var standard_html_footer>

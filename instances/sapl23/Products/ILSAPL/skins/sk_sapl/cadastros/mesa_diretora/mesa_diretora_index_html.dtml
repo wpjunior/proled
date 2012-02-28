@@ -1,0 +1,280 @@
+<dtml-var standard_html_header>
+
+<dtml-comment>
+
+
+**********************************************************************************************
+*   O javascript abaixo foi feito com o intuito de chamar uma funcao que atualiza a pagina   *
+*   a cada vez que um item da lista da sessao legislativa e num_legislatura forem mudados.   *
+*   by Rommel Carvalho e Danilo Custódio em 15/03/2001                                       *
+**********************************************************************************************
+</dtml-comment>
+
+<script type="text/javascript">
+<!--
+    
+    function atualiza_sessao_leg(cod_sessao_leg, num_legislatura){
+       location.href = "index_html?cod_sessao_leg_sel="+cod_sessao_leg+"&num_legislatura_sel="+num_legislatura;
+    }   
+
+    function atualiza_num_leg(num_legislatura){    
+       location.href = "index_html?num_legislatura_sel="+num_legislatura;
+    }
+
+    function campos_criticar(form){      
+       if (form.lst_num_legislatura[form.lst_num_legislatura.selectedIndex].value == -1){ 
+          alert ("Legislatura deve ser cadastrada antes de efetuar a inclusão.");
+          return;
+       }
+
+       if (form.lst_sessao_leg[form.lst_sessao_leg.selectedIndex].value == -1){
+          alert ("Sessão Legislativa deve ser cadastrada na legislatura selecionada antes de efetuar a inclusão.");
+          return;
+        }
+
+       if (form.lst_cod_parlamentar[form.lst_cod_parlamentar.selectedIndex].value == -1){
+          alert ("Parlamentar deve ser cadastrado com mandato na legislatura selecionada antes de efetuar a inclusão.");
+          return;
+        }
+
+       if (form.lst_cod_cargo.selectedIndex == -1){
+          alert ("Cargo do parlamentar na mesa deve ser cadastrado antes de efetuar a inclusão.");
+          return;
+        }
+
+        form.submit();
+    }
+
+    function composicao_mesa_excluir(valor, valor1, valor2){
+       var form = document.composicao_mesa_form;
+       if (valor.selectedIndex == -1){
+          alert("Selecione um parlamentar na composição para efetuar a exclusão.");
+          return false;
+       }
+       valor = valor[valor.selectedIndex].value;
+       var fim1 = valor.indexOf("*");
+       var fim2 = valor.indexOf("+");
+       var fim3 = valor.indexOf("-");
+       var cod_parlamentar_exc = valor.substring(0,fim1);
+       var cod_sessao_leg_exc = valor.substring(fim1+1,fim2);
+       var cod_cargo_exc = valor.substring(fim2+1,fim3);
+       var num_legislatura = valor2;
+       var cod_sessao_leg = valor1;
+       if (confirm("Deseja realmente excluir?")){
+          location.href="composicao_mesa_excluir_proc?hdn_num_legislatura="+ num_legislatura + "&hdn_cod_sessao_leg=" + cod_sessao_leg + "&cod_parlamentar=" + cod_parlamentar_exc + "&cod_sessao_leg=" + cod_sessao_leg_exc + "&cod_cargo=" + cod_cargo_exc;
+       }
+    } 
+
+    //-->
+</script>
+<dtml-comment>
+*****************************************************************************
+*   O form abaixo é a tela da inclusao e exculsao de uma composicao mesa.   *
+*   by Rommel Carvalho e Danilo Custódio em 15/03/2001                      *
+*****************************************************************************
+</dtml-comment>
+
+<div class="helpsapl"> 
+  <a id="ajuda" href='&dtml-portal_url;/ajuda/modulo_mesa_diretora'>Ajuda</a> </div>
+<h1 class="firstHeading"> Mesa Diretora </h1> 
+
+
+<form name="composicao_mesa_form" method="post" action="composicao_mesa_incluir_proc">
+    <fieldset>
+        <legend>Escolha da Legislatura e da Sess&atilde;o Legislativa</legend>
+            <table width="100%" border="0" align="center" cellspacing="2" cellpadding="0">
+                <tr>
+                    <td width="50%" class="form-element">Escolha uma Legislatura<br/>
+                        <select name="lst_num_legislatura"
+                                size="1"
+                                onChange="atualiza_num_leg(document.composicao_mesa_form.lst_num_legislatura[document.composicao_mesa_form.lst_num_legislatura.selectedIndex].value)">
+                        <dtml-in expr="zsql.legislatura_obter_zsql(ind_excluido=0)">
+                            <option
+                                <dtml-if expr="(not _.has_key('num_legislatura_sel') and (_.DateTime() >= dat_inicio and _.DateTime() <= dat_fim))
+                                    or (_.has_key('num_legislatura_sel') and num_legislatura == _.int(num_legislatura_sel))">
+                                selected
+                                <dtml-call expr="REQUEST.set('num_legislatura_sel', num_legislatura)">
+                                </dtml-if>
+                                value="<dtml-var num_legislatura>">
+                                <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura, dat_inicio, dat_fim)">
+                                <dtml-if expr="(_.DateTime() >= dat_inicio) and (_.DateTime() <= dat_fim)">
+                                    (Atual)
+                                </dtml-if> 
+                            </option>
+                        <dtml-else>
+                            <option selected value="-1">Selecione</option>
+                                <dtml-call expr="REQUEST.set('num_legislatura_sel', '-1')">
+                        </dtml-in>
+                        </select>
+                        <dtml-comment> caso nao tenha a legislatura atual, coloca como default o primeiro da lista. Daniel</dtml-comment>
+                        <dtml-if expr="not _.has_key('num_legislatura_sel')">
+                            <dtml-in expr="zsql.legislatura_obter_zsql(ind_excluido=0)">
+                                <dtml-if sequence-start>
+                                    <dtml-call expr="REQUEST.set('num_legislatura_sel', num_legislatura)">
+                                </dtml-if>
+                            </dtml-in>
+                        </dtml-if>
+                    </td>
+                    <td width="50%" class="form-element">Escolha uma Sess&atilde;o Legislativa<br/>
+                        <select name="lst_sessao_leg"
+                                size="1"
+                                onChange="atualiza_sessao_leg(document.composicao_mesa_form.lst_sessao_leg[document.composicao_mesa_form.lst_sessao_leg.selectedIndex].value, document.composicao_mesa_form.lst_num_legislatura[document.composicao_mesa_form.lst_num_legislatura.selectedIndex].value)">
+                            <dtml-in expr="zsql.sessao_legislativa_obter_zsql(num_legislatura=num_legislatura_sel, ind_excluido=0)">
+                                <option
+                                    <dtml-if expr="(not _.has_key('cod_sessao_leg_sel') and (_.DateTime() >= dat_inicio and _.DateTime() <= dat_fim))
+                                        or
+                                        (_.has_key('cod_sessao_leg_sel') and cod_sessao_leg == cod_sessao_leg_sel)">
+                                    selected
+                                    <dtml-call expr="REQUEST.set('prim_sel', cod_sessao_leg)">
+                                    <dtml-call expr="REQUEST.set('cod_sessao_leg_sel', cod_sessao_leg)">
+                                    </dtml-if>
+                                    value="<dtml-var cod_sessao_leg>"> 
+                                    <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_sessao_leg, dat_inicio, dat_fim)">
+                                    <dtml-if expr="(_.DateTime() >= dat_inicio) and (_.DateTime() <= dat_fim)">
+                                        (Atual)
+                                    </dtml-if>
+                                </option>
+                                <dtml-else>
+                                <option selected value="-1"></option>
+                            </dtml-in>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+    </fieldset>
+    <fieldset>
+        <legend>Escolha da Composi&ccedil;&atilde;o da Mesa Diretora</legend>
+        <dtml-comment>
+        **********************************************************
+        *    O select abaixo obtem da sessao_legislativa todos os*
+        *  cod_sessao_legislativa de acordo com o num_legislatura*
+        *  passado pelo outro select de cada legislatura ,, essa *
+        *  ? selecionada.                                        *
+        *    Foi setada a variavel  num_legislatura_sel para que *
+        *  se pudesse comparar com o num_legislatura da tabela   *
+        *  sessao_legislativa. Foi usado o                       *
+        *  _.DateTime() ,com o intuito de se descobrir a data    *
+        *  atual .                                               *
+        *  by Rommel Carvalho e Danilo Cust?dio em 15/03/2001    *
+        **********************************************************
+        </dtml-comment>
+          
+        
+        <dtml-comment>
+        ********************************************************************
+        *     O select abaixo obtem os dados da tabela sessao_legislativa  *
+        *   onde:                                                          *
+        *         num_legislatura(Tabela sessao_legislativa)               *          
+        *         = num_legislatura(Tabela Legislatura)                    *
+        *     Caso nao tenha sido incluido ou excluido nenhuma composicao  *
+        *    mesa sera escolida a a primeira da lista.                     *                                            *
+        *      Para se escolher a primeira da lista foi utilizada uma      *
+        *   variavel de controle chamada de prim_sel essa variavel quando  *
+        *   nao existir faz com que o primeiro da lista seja escolhido e   *
+        *   e se ja existir o usuario devera escolher a sessao legislativa *
+        *   by Rommel Carvalho e Danilo Cust?dio em 15/03/2001             *
+        ********************************************************************
+        </dtml-comment>
+
+        <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0">
+            <tr class="fundo"> 
+                <td width="45%" class="form-label">&nbsp;Composi&ccedil;&atilde;o da Mesa Diretora</td>
+                <td width="14%" bgcolor="#FFFFFF"></td>
+                <td width="41%" class="form-label">&nbsp;Parlamentares</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr> 
+                <td width="31%" rowspan="3" valign="top"> 
+                    <dtml-comment>
+                    *********************************************************************************************
+                    *    O select abaixo obtem da tabela legislatura todos os Numeros de legislaturas com       *
+                    *   as respectivas datas de inicio e fim de cada legislatura , formatadas pelo metodo       *
+                    *   periodo_legislatura_format_pysc verifica se as datas de inicio e de fim estao entre     *
+                    *   a data atual e se estiver essa ? selecionada.                                           *
+                    *    Foi setada a variavel  cod_sessao_leg_sel num_legislatura_sel para que se pudesse      *
+                    *   comparar com o cod_sessao da tabela composicao_mesa. A variavel prim_nome foi setada    *
+                    *   para que se escolhesse caso nao se tivesse um escolhido ele escolheria o primeiro.      *
+                    *   by Rommel Carvalho e Danilo Cust?dio em 15/03/2001                                      *
+                    *********************************************************************************************
+                    </dtml-comment>
+                    <select name="lst_composicao_mesa"  size="5"> 
+                        <dtml-in expr="zsql.composicao_mesa_obter_zsql(ind_excluido=0)">
+                        <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar, ind_excluido=0)">
+                        <dtml-in expr="zsql.cargo_mesa_obter_zsql(cod_cargo=cod_cargo, ind_excluido=0)">         
+                        <dtml-if cod_sessao_leg_sel>
+                        <dtml-if expr="cod_sessao_leg_sel == cod_sessao_leg ">
+                        <option
+                            <dtml-if expr="not _.has_key('prim_sel1')">
+                            selected
+                            <dtml-call expr="REQUEST.set('prim_sel1', cod_parlamentar)">                                         
+                            </dtml-if>                   
+                            value="<dtml-var cod_parlamentar>*<dtml-var cod_sessao_leg>+<dtml-var cod_cargo>-">  
+                            <dtml-var nom_parlamentar>/<dtml-var sgl_partido missing null="">-><dtml-var des_cargo>
+                        </option>
+                        </dtml-if>
+                        <dtml-else>
+                        <option
+                            <dtml-if expr="not _.has_key('prim_sel1')">
+                            selected
+                            <dtml-call expr="REQUEST.set('prim_sel1', cod_parlamentar)">                                         
+                            </dtml-if>                   
+                            value="<dtml-var cod_parlamentar>*<dtml-var cod_sessao_leg>+<dtml-var cod_cargo>-">  
+                            <dtml-var nom_parlamentar>/<dtml-var sgl_partido missing null="">-><dtml-var des_cargo>
+                        </option>
+                        </dtml-if>
+                        </dtml-in>
+                        </dtml-in>
+                        </dtml-in>
+                        </select>
+                </td>
+                <td width="20%" valign="top" align="center" class="form-element"> 
+                    <input type="button" class="botaoIn" name="btn_incluir" value="Incluir" onClick="campos_criticar(document.composicao_mesa_form)"/>
+                </td>
+                <td width="49%" rowspan="3" valign="top"> 
+                    <select name="lst_cod_parlamentar" size="1">
+                        <dtml-unless cod_sessao_leg_sel>
+                            <dtml-call expr="REQUEST.set('cod_sessao_leg_sel','-1')">
+                        </dtml-unless>
+                        <dtml-in expr="zsql.comp_mesa_parlamentar_obter_zsql(num_legislatura=num_legislatura_sel,cod_sessao_leg=cod_sessao_leg_sel, ind_excluido=0)">
+                        <option
+                            <dtml-if expr=" (not _.has_key('prim_sel2') )  
+                                or (_.has_key('cod_parlamentar_sel') and cod_parlamentar == cod_parlamentar_sel)">
+                                selected
+                            <dtml-call expr="REQUEST.set('prim_sel2', nom_parlamentar)">
+                            <dtml-call expr="REQUEST.set('cod_parlamentar_sel', cod_parlamentar)">                    
+                            </dtml-if>
+                            value="<dtml-var cod_parlamentar >"> 
+                            <dtml-var nom_parlamentar>/<dtml-var sgl_partido missing null="">
+                        </option>
+                        </dtml-in>
+                    </select>
+                    <br>       
+                    <select name="lst_cod_cargo"  size="1">
+                        <dtml-in expr="zsql.comp_mesa_cargo_obter_zsql(cod_sessao_leg=cod_sessao_leg_sel,ind_excluido=0)">
+                        <option
+                            <dtml-if expr=" not _.has_key('prim_sel3')  
+                                or (_.has_key('des_cargo_sel') and des_cargo == des_cargo_sel)">
+                             selected
+                            <dtml-call expr="REQUEST.set('prim_sel3', des_cargo)">
+                            <dtml-call expr="REQUEST.set('des_cargo_sel', des_cargo)">
+                            </dtml-if>
+                            value="<dtml-var cod_cargo >"> 
+                            <dtml-var des_cargo>
+                        </option>                          
+                        </dtml-in>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" align="center" valign="bottom" height="34" class="form-element"> 
+                    <input type="button" class="botao" name="btn_excluir" value="Excluir" 
+                           onClick="composicao_mesa_excluir(lst_composicao_mesa, lst_sessao_leg[lst_sessao_leg.selectedIndex].value, lst_num_legislatura[lst_num_legislatura.selectedIndex].value)"/>
+                </td>
+            </tr>
+        </table>  
+        <input type="hidden" name="hdn_num_legislatura" value="<dtml-var num_legislatura_sel missing>"/>
+        <input type="hidden" name="hdn_cod_sessao_leg" value="<dtml-var cod_sessao_leg_sel missing>"/>        
+    </fieldset>
+</form>
+
+<dtml-var standard_html_footer>

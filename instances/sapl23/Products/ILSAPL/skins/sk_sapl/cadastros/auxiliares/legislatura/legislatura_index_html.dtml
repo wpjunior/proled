@@ -1,0 +1,53 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tabelas_auxiliares#legislatura">Ajuda</a> </div>
+
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="left" class="form-label">| <a href="legislatura_form">Incluir Legislatura</a> |</td>
+<dtml-comment>
+    <td align="right"><font face="Verdana, Helvetica, Arial" size="1">
+      <b>| <a href="index_html">Início</a> |</font></b></td>
+</dtml-comment>
+   </tr>
+</table>
+<fieldset><legend>Legislatura</legend>
+<dtml-in expr="zsql.legislatura_obter_zsql()">
+  <dtml-if sequence-start>
+  <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr class="fundo"> 
+            <td width="16%" class="form-label">&nbsp;Nº Legislatura</td>
+            <td width="28%" class="form-label"> | Data Início</td>
+            <td width="28%" class="form-label"> | Data Fim</td>
+            <td width="28%" class="form-label"> | Data Eleição</td>
+          </tr>
+</dtml-if>
+         <tr>
+           <td width="16%" class="form-element"  height="17">&nbsp;&nbsp;<a href="legislatura_mostrar_proc?num_legislatura=<dtml-var num_legislatura>">
+            <dtml-var num_legislatura></a></td>
+            <td width="28%" class="form-text">&nbsp;&nbsp;<dtml-var dat_inicio_conv></td>
+            <td width="28%" class="form-text">&nbsp;&nbsp;<dtml-var dat_fim_conv></td>
+            <td width="28%" class="form-text">&nbsp;&nbsp;<dtml-var dat_eleicao_conv></td>
+          </tr>
+    <dtml-if sequence-end>
+        </table>
+    </dtml-if sequence-end>
+<dtml-else>
+  <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" border="0" cellspacing="0" align="center">
+          <tr><td><font size="1">&nbsp;</font></td></tr>
+          <tr><td class="form-text">Nenhuma legislatura cadastrada.</td></tr>
+       </table>
+</dtml-in>
+   </td>
+  </tr>
+ </table>
+ </fieldset>
+<dtml-var standard_html_footer>

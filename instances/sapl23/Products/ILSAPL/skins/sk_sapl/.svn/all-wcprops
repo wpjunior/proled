@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/!svn/ver/5324/ILSAPL/branches/2.3/skins/sk_sapl
+END
+index_html.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/index_html.py
+END
+norma_header.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/norma_header.dtml
+END
+standard_html_lateral.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/5086/ILSAPL/branches/2.3/skins/sk_sapl/standard_html_lateral.dtml
+END
+standard_html_top_bar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4649/ILSAPL/branches/2.3/skins/sk_sapl/standard_html_top_bar.dtml
+END
+materia_header.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/materia_header.dtml
+END
+mensagem_emitir_newgeneration.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/mensagem_emitir_newgeneration.dtml
+END
+login_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/login_form.dtml
+END
+standard_html_header.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4585/ILSAPL/branches/2.3/skins/sk_sapl/standard_html_header.dtml
+END
+sapl_skin_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/sapl_skin_index_html.dtml
+END
+default_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/4821/ILSAPL/branches/2.3/skins/sk_sapl/default_index_html.dtml
+END
+standard_html_footer.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4580/ILSAPL/branches/2.3/skins/sk_sapl/standard_html_footer.dtml
+END
+mensagem_emitir.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/mensagem_emitir.dtml
+END
+sapl_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/sapl_index_html.dtml
+END
+printable_html_top_bar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/printable_html_top_bar.dtml
+END
+standard_error_message.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/standard_error_message.dtml
+END

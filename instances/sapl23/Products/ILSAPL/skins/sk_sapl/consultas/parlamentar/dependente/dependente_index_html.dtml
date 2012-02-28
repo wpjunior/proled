@@ -1,0 +1,61 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_dadosparl">Ajuda</a>
+<h1>Parlamentares</h1>
+
+<dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+  <dtml-call expr="REQUEST.set('nom_parlamentar', nom_parlamentar)">
+</dtml-in>
+
+  <fieldset>
+   <legend><dtml-var nom_parlamentar></legend>
+    <table>
+     <tr>
+    <td colspan="3" class="texto"> 
+      | <a href="<dtml-var URL1>/proposicao/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Proposi&ccedil;&otilde;es</a> |
+      | <a href="<dtml-var URL1>/relatoria/relatoria_index_html?cod_parlamentar=<dtml-var cod_parlamentar>"> Relatorias</a> |
+      | <a href="<dtml-var URL1>/mandato/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Mandatos</a> |
+      | <a href="<dtml-var URL1>/filiacao_partidaria/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Filia&ccedil;&atilde;o partid&aacute;ria</a> |
+      | <a href="<dtml-var URL1>/dependente/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Dependentes</a> |
+      | <a href="<dtml-var URL2>/parlamentar_mostrar_proc?cod_parlamentar=<dtml-var cod_parlamentar>">In&iacute;cio</a> |</td>
+  </tr>
+<dtml-in expr="zsql.dependente_obter_zsql(cod_parlamentar=cod_parlamentar)"> 
+  <dtml-if sequence-start>
+         <tr> 
+            <th class="label">Nome Dependente</th>
+            <th class="label">&nbsp;Tipo</th>
+            <th class="label">&nbsp;Data Nascimento </th>
+         </tr>
+      <dtml-if previous-sequence>
+             <tr><td colspan="3" class="texto">
+                <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+                Página Anterior (<dtml-var previous-sequence-size> resultados)</a>
+             </td></tr>
+             <tr><td><font size="1">&nbsp;</font></td></tr>
+      </dtml-if previous-sequence>
+      <tr> 
+      <td class="texto"><dtml-var nom_dependente></td>
+      <td class="texto">&nbsp; <dtml-var des_tipo_dependente></td>
+      <td class="tetxo">&nbsp; <dtml-var dat_nascimento null=""></td>
+      </tr>
+  </dtml-if sequence-start>
+  <dtml-if sequence-end>
+    <dtml-if next-sequence>
+        <tr> 
+          <td colspan="3" class="texto"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+          Próxima Página (<dtml-var next-sequence-size> resultados)</a></td>
+        </tr>
+    </dtml-if next-sequence>
+  </dtml-if sequence-end>
+<dtml-else>
+        <tr><td class="texto">Não há nenhum dependente cadastrado para esse parlamentar.</td></tr>
+</dtml-in>
+</table>
+</fieldset>
+<dtml-var standard_html_footer>
+
+

@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <include package="zope.app.schema" file="meta.zcml"/>
+
+  <vocabulary
+      name="my-vocab"
+      factory="zope.app.schema.tests.test_directives.MyFactory" />
+
+</configure>

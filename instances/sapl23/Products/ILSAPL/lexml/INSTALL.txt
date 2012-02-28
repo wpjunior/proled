@@ -1,0 +1,76 @@
+﻿KitProvedorDados 
+--------------------
+
+Instalando:
+Os passos para instalar e executar o Validador de registros LexML são:
+(Instalar)
+	1. Criar conta no banco de dados
+	2. Obter o arquivo de profile
+	3. Copiar o arquivo de configuracao do banco de dados
+	4. Configurar o arquivo lexm-db.properties
+	5. Configurar os scripts de validacao e instalacao
+	6. Criar as tabelas no banco de dados
+(Executar)
+	7. Inserir metadados na base de dados
+	8. Validar os metadados inseridos
+
+1. Criando conta no banco de dados e database
+Usando o Oracle:
+exemplo utilizando o sql*plus:
+SQL> connect system
+*digite a senha 
+SQL>
+CREATE USER lexmluser IDENTIFIED BY lexmlpassword
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+QUOTA UNLIMITED ON users;
+SQL> GRANT CONNECT TO lexmluser;
+
+Usando o Mysql:
+
+usuario@localhost>mysql -uroot -p
+mysql> create database lexmldatabase
+mysql> GRANT ALL PRIVILEGES ON lexmldatabase.* to 'lexmluser'@'localhost' IDENTIFIED BY 'lexmlpassword' WITH GRANT OPTION;
+mysql> FLUSH PRIVILEGES;
+
+
+2. Obtendo o arquivo de profile
+O arquivo de profile define as combinações possíveis dos elementos localidade, autoridade e tipo de documento de um publicador.
+Obs: Na fase de implantação, este arquivo será enviado por e-mail a partir do preenchimento da planilha "Perfil Provedor Dados.xls"
+
+
+3. Copiar o arquivo de configuracao do banco de dados
+Se estiver utilizando Oracle:
+Copie o arquivo lexml-db-ORACLE.properties para lexml-db.properties
+
+Se estiver utilizando Mysql:
+Copie o arquivo lexml-db-MYSQL.properties para lexml-db.properties
+
+
+4. Configurar o arquivo lexm-db.properties
+Edite o arquivo recém criado lexml-db.properties substituindo o usuario, a senha do usuário e a string de conexão jdbc.
+
+
+5. Configurando os scripts
+Edite os arquivos install.bat e validar.bat (se windows)
+Edite os arquivos install.sh e validar.sh (se unix/linux)
+Atualize a variável LEXML_HOME com o caminho do diretório onde o validador foi instalado.
+
+
+6. Criar as tabelas no banco de dados:
+Execute o arquivo instalar.bat (se windows)
+Execute o arquivo instalar.sh (se unix/linux)
+
+
+7. Inserir metadados na base de dados.
+Este passo deve ser executado diretamente no banco de dados criado. Veja o arquivo INSERINDO_DADOS.txt
+
+
+8. Validando os registros novos no banco de dados:
+Execute:
+	validar.bat (se windows)
+  sh ./validar.sh (se unix/linux)
+
+Durante o processamento são gerados os arquivos validacao_err.txt e validacao_log.txt, o primeiro é um relatório dos erros identificados durante a validacao e o segundo somente um log dos registros processados.
+
+Utilize o arquivo validacao_err.txt para corrigir os registros com erros identificados.

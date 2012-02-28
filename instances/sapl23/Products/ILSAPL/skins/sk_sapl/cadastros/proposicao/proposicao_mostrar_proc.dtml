@@ -1,0 +1,37 @@
+<dtml-comment>
+********************************************************************
+*  Função: Selecionar os campos sobre a proposição a partir do     *
+*          código da proposição nas tabelas necessárias para       *
+*          mostrar o formulário de atualização de proposição com   *
+*          os dados já existentes.                                 *
+*                                                                  *
+*  Argumentos: cod_proposicao:int - Código da proposição utilizado *
+*               para a busca dos dados pelo método zSQL.           *
+*                                                                  *
+*  Retorno: Mostra ao usuário o formulário(proposicao_form) já     *
+*           preenchido.                                            *
+*  Autor: Ciciliati - 10/11/2003                                   *
+********************************************************************
+</dtml-comment>
+
+<dtml-try>
+  <dtml-in expr="zsql.proposicao_obter_zsql(cod_proposicao=cod_proposicao, ind_excluido=0)">
+
+    <dtml-comment> Adicionada pela Man Qi em 19/12/03. </dtml-comment>
+    <dtml-call expr="REQUEST.set('tip_proposicao_sel', tip_proposicao)">   
+
+    <dtml-if cod_materia>
+      <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia)">
+        <dtml-call expr="REQUEST.set('tip_id_basica_sel', tip_id_basica)">
+        <dtml-call expr="REQUEST.set('num_ident_basica_sel', num_ident_basica)">
+        <dtml-call expr="REQUEST.set('ano_ident_basica_sel', ano_ident_basica)">
+      </dtml-in>
+    </dtml-if>
+
+    <dtml-var proposicao_form>
+  </dtml-in>
+<dtml-except>
+  <dtml-let mensagem="'Houve um erro!'">
+     <dtml-var mensagem_emitir>
+  </dtml-let>
+</dtml-try>

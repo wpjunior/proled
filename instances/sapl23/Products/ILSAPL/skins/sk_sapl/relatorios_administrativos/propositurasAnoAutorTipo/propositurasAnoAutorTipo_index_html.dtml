@@ -1,0 +1,26 @@
+<dtml-var standard_html_header>
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/relatorios#rel_tipo_autor_ano">Ajuda</a> </div>
+<h1 class="firstHeading"> Relat&oacute;rios Administrativos</h1>
+<div>
+<form action="view"> 
+<table width="95%" align="center">
+  <tr><td>
+    <fieldset><legend>Proposituras por natureza, autor e ano</legend> 
+     <table width="98%" align="center">
+       <tr align="center">
+         <td width="45%" class="form-text" align="right"><b>Entre com o ano:</b>&nbsp;&nbsp;</td>
+         <td  align="left">
+             <select name="ano" size="1">
+                <dtml-in listaAnosMaterias>
+                   <option value="<dtml-var ano_mat>"><dtml-var ano_mat></option>
+                </dtml-in>
+             </select>
+         </td>
+       </tr>
+     </table>
+     </fieldset>
+   <p align="center"> <input type="submit" class="botao" value="Consultar"></p>
+   </td></tr>
+</table>
+</form>
+<dtml-var standard_html_footer>

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias
+END
+qtdeTipoAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/qtdeTipoAno.zsql
+END
+listaOrigensMaterias.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/listaOrigensMaterias.zsql
+END
+tramitacaoMaterias_index_html_old.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/tramitacaoMaterias_index_html_old.dtml
+END
+autorMateriaAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/autorMateriaAno.zsql
+END
+materiaAutorAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/materiaAutorAno.zsql
+END
+propriedades.props
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/propriedades.props
+END
+tramitacaoMaterias_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/tramitacaoMaterias_index_html.dtml
+END
+tipoQtdeGeral.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/tipoQtdeGeral.zsql
+END
+listaStatusMaterias.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/listaStatusMaterias.zsql
+END
+qtdeAutor.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/qtdeAutor.zsql
+END
+qtdeGeral.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/qtdeGeral.zsql
+END
+listaDestinosMaterias.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/listaDestinosMaterias.zsql
+END
+tramitacao_form
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/tramitacao_form
+END
+materiaAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/materiaAno.zsql
+END
+tMidx_html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/tMidx_html
+END
+listaAnosMaterias.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/listaAnosMaterias.zsql
+END
+materiaStatusAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/tramitacaoMaterias/materiaStatusAno.zsql
+END

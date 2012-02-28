@@ -1,0 +1,163 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <!-- Define add and edit forms for fields as part of a (persistent)
+       schema -->
+
+  <browser:addform
+      label="Add Text Field"
+      name="Text Field"
+      menu="add_schema_field"
+      title="Text Field"
+      description="A Text Field"
+      content_factory="zope.schema.Text"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.IText"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default min_length max_length"
+    />
+
+  <browser:editform
+      label="Edit Text Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.IText"
+      schema="zope.schema.interfaces.IText"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default min_length max_length"
+    />
+
+  <browser:addform
+      label="Add TextLine Field"
+      name="TextLine Field"
+      menu="add_schema_field"
+      title="TextLine Field"
+      description="A TextLine Field"
+      content_factory="zope.schema.TextLine"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.ITextLine"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default min_length max_length"
+    />
+
+  <browser:editform
+      label="Edit TextLine Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.ITextLine"
+      schema="zope.schema.interfaces.ITextLine"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default min_length max_length"
+    />
+
+  <browser:addform
+      label="Add Boolean Field"
+      name="Boolean Field"
+      menu="add_schema_field"
+      title="Boolean Field"
+      description="A Boolean Field"
+      content_factory="zope.schema.Bool"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.IBool"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default"
+    />
+
+  <browser:editform
+      label="Edit Boolean Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.IBool"
+      schema="zope.schema.interfaces.IBool"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default"
+    />
+
+  <browser:addform
+      label="Add Integer Field"
+      name="Integer Field"
+      menu="add_schema_field"
+      title="Integer Field"
+      description="An Integer Field"
+      content_factory="zope.schema.Int"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.IInt"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+  <browser:editform
+      label="Edit Integer Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.IInt"
+      schema="zope.schema.interfaces.IInt"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+  <browser:addform
+      label="Add Float Field"
+      name="Float Field"
+      menu="add_schema_field"
+      title="Float Field"
+      description="A Float Field"
+      content_factory="zope.schema.Float"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.IFloat"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+  <browser:editform
+      label="Edit Float Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.IFloat"
+      schema="zope.schema.interfaces.IFloat"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+  <browser:addform
+      label="Add Datetime Field"
+      name="Datetime Field"
+      menu="add_schema_field"
+      title="Datetime Field"
+      description="A Datetime Field"
+      content_factory="zope.schema.Datetime"
+      for=".interfaces.ISchemaAdding"
+      schema="zope.schema.interfaces.IDatetime"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+  <browser:editform
+      label="Edit Datetime Field"
+      name="edit.html"
+      menu="zmi_views"
+      title="Edit"
+      for="zope.schema.interfaces.IDatetime"
+      schema="zope.schema.interfaces.IDatetime"
+      permission="zope.ManageContent"
+      fields="title description required readonly
+              default max min"
+    />
+
+</configure>

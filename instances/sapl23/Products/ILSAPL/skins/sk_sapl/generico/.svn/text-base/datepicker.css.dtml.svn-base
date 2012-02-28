@@ -1,0 +1,82 @@
+div.datepicker {
+ position: absolute;
+ text-align: center;
+ border: 1px #cccccc solid;
+ font-family: arial;
+ background: #FFFFFF;
+ font-size: 10px;
+ padding: 0px;
+}
+div.datepicker table {
+ font-size: 10px;
+ margin: 0px;
+ padding: 0px;
+ text-align: center;
+ width: 180px;
+}
+div.datepicker table thead tr th {
+ font-size: 12px;
+ font-weight: bold;
+ background-image: url(&dtml-portal_url;/imagens/portletFundo.jpg);
+ background-repeat: repeat-x;
+ background-position: right top;
+ border-bottom:1px solid #c4d5e3;
+ padding: 0px;
+ margin: 0px;
+}
+div.datepicker table tbody tr {
+ border: 1px white solid;
+ margin: 0px;
+ padding: 0px;
+}
+div.datepicker table tbody tr td {
+ border: 1px #eaeaea solid;
+ margin: 0px;
+ padding: 0px;
+ text-align: center;
+}
+div.datepicker table tbody tr td:hover,
+div.datepicker table tbody tr td.outbound:hover,
+div.datepicker table tbody tr td.today:hover {
+ border: 1px #c4d5e3 solid;
+ background: #e9eff4;
+ cursor: pointer;
+}
+div.datepicker table tbody tr td.wday {
+ border: 1px #ffffff solid;
+ background: #ffffff;
+ cursor: text;
+}
+div.datepicker table tbody tr td.outbound {
+ background: #e8e4e4;
+}
+div.datepicker table tbody tr td.today {
+ border: 1px #7dabcf solid;
+ background: #fff;
+}
+div.datepicker table tbody tr td.nclick,
+div.datepicker table tbody tr td.nclick_outbound {
+ cursor:default; color:#aaa;
+}
+div.datepicker table tbody tr td.nclick_outbound {
+ background:#E8E4E4;
+}
+div.datepicker table tbody tr td.nclick:hover,
+div.datepicker table tbody tr td.nclick_outbound:hover {
+ border: 1px #eaeaea solid;
+ background: #FFF;
+}
+div.datepicker table tbody tr td.nclick_outbound:hover {
+ background:#E8E4E4;
+}
+div.datepicker table tfoot {
+ font-size: 10px;
+ background-image: url(&dtml-portal_url;/imagens/portletFundo.jpg);
+ background-repeat: repeat-x;
+ background-position: right top;
+ border-top:1px solid #c4d5e3;
+ cursor: pointer;
+ text-align: center;
+ padding: 0px;
+}
+

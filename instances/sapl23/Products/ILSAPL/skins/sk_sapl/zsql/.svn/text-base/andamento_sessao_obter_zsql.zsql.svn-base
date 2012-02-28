@@ -1,0 +1,39 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+arguments : cod_andamento_sessao="" nom_andamento="" ind_excluido=0
+max_rows : 1000
+max_cache : 100
+</dtml-comment>
+<dtml-if expr="pysc.verifica_conector_bd_pysc() == 1">
+SELECT 
+  REPLACE(cod_andamento_sessao, 'L', '') as cod_andamento_sessao,
+  nom_andamento,
+  ind_excluido 
+FROM 
+  andamento_sessao
+
+<dtml-sqlgroup where>
+  <dtml-sqltest cod_andamento_sessao      op="=" type="int" optional> <dtml-and>
+  <dtml-sqltest nom_andamento op="=" type="nb" optional> <dtml-and>
+  <dtml-sqltest ind_excluido     op="=" type="int"  optional>
+</dtml-sqlgroup>
+
+ORDER by nom_andamento
+
+<dtml-else>
+
+SELECT 
+  cod_andamento_sessao,
+  nom_andamento,
+  ind_excluido 
+FROM 
+  andamento_sessao
+
+<dtml-sqlgroup where>
+  <dtml-sqltest cod_andamento_sessao      op="=" type="int" optional> <dtml-and>
+  <dtml-sqltest nom_andamento op="=" type="nb" optional> <dtml-and>
+  <dtml-sqltest ind_excluido     op="=" type="int"  optional>
+</dtml-sqlgroup>
+
+ORDER by nom_andamento
+</dtml-if>

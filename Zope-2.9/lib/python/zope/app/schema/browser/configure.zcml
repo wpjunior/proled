@@ -1,0 +1,63 @@
+<zope:configure
+  xmlns:zope="http://namespaces.zope.org/zope"
+  xmlns="http://namespaces.zope.org/browser">
+
+  <tool
+      interface="zope.app.schema.interfaces.ISchemaUtility"
+      title="Persistent, Local Schemas"
+      description="These are schemas that live in the ZODB and are modifiable."
+      />
+
+  <menu
+      id="add_schema_field"
+      title="Menu of Fields to be added to a schema." />
+
+  <view
+      name="+"
+      for="zope.app.schema.interfaces.IMutableSchema"
+      class="zope.app.schema.schema.SchemaAdding"
+      permission="zope.ManageContent"
+      allowed_attributes="addingInfo"
+      menu="zmi_actions" title="Add">
+
+    <page name="index.html"  template="schema_add.pt" />
+    <page name="action.html" attribute="action" />
+
+  </view>
+
+  <addMenuItem
+      title="Mutable Schema"
+      description="A Persistent Schema that can be edited through the web"
+      class="zope.app.schema.schema.SchemaUtility"
+      permission="zope.ManageServices"
+    />
+
+  <defaultView
+      for="zope.app.schema.interfaces.IMutableSchema"
+      name="editschema.html" />
+
+  <page
+      name="editschema.html"
+      menu="zmi_views" title="Edit Schema"
+      for="zope.app.schema.interfaces.IMutableSchema"
+      permission="zope.ManageServices"
+      class=".EditSchema"
+      attribute="edit"
+   />
+
+  <!-- Register a browser-specific traverser -->
+
+  <zope:view
+      for="zope.app.schema.interfaces.IMutableSchema"
+      type="zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.publisher.interfaces.browser.IBrowserPublisher"
+      factory=".traversal.SchemaFieldTraverser"
+      permission="zope.Public"
+      />
+
+  <zope:adapter
+      factory=".traversal.SchemaFieldTraversable"
+      provides="zope.app.traversing.interfaces.ITraversable"
+      for="zope.app.schema.interfaces.IMutableSchema" />
+
+</zope:configure>

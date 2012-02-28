@@ -1,0 +1,67 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/despacho_autoria#autoria">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="index_form" action="autoria_form">
+  <input type="hidden" name="hdn_cod_materia" value="<dtml-var cod_materia missing>">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia missing>">
+  <input type="hidden" name="dat_apresentacao" value="<dtml-var dat_apresentacao missing>">
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>  
+    <dtml-var materia_menu>
+    <table width="100%" align="center">
+       <tr>
+         <td><dtml-var materia_header></td>
+      </tr>
+    </table>
+   <fieldset><legend>Autoria</legend>
+    <table width="98%" align="center">
+<dtml-in expr="zsql.autoria_obter_zsql(cod_materia=cod_materia)">
+   <dtml-if sequence-start>
+      <tr class="fundo"> 
+         <td width="50%" class="form-label">&nbsp;Autor</td>
+         <td width="30%" class="form-label">| &nbsp;Tipo Autor</td>
+         <td width="20%" class="form-label">&nbsp;| Primeiro Autor</td>
+      </tr>
+      
+   </dtml-if sequence-start>
+   <dtml-in expr="zsql.autor_obter_zsql(cod_autor=cod_autor, ind_autor_materia='1')">
+      <tr> 
+         <td width="50%" height="17" class="form-element">&nbsp;
+             <a href="autoria_mostrar_proc?cod_autor=<dtml-var cod_autor>&ind_primeiro_autor=<dtml-var ind_primeiro_autor>&hdn_cod_materia=<dtml-var cod_materia>&cod_materia=<dtml-var cod_materia>&dat_apresentacao=<dtml-var dat_apresentacao>">
+             <dtml-if expr="des_tipo_autor=='Parlamentar'">
+                <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+                     <dtml-var nom_parlamentar>
+                 </dtml-in>
+             <dtml-elif expr="des_tipo_autor=='Comissao'">
+                 <dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+                     <dtml-var nom_comissao>
+                 </dtml-in>
+             <dtml-else>
+                 <dtml-var nom_autor>
+             </dtml-if></a>
+         </td>
+         <td width="30%" class="form-text">&nbsp;&nbsp;&nbsp;<dtml-var des_tipo_autor></td>
+         <td width="20%" align="center" class="form-text">
+            <dtml-if expr="ind_primeiro_autor==0">Não 
+            <dtml-else>Sim
+            </dtml-if></td>
+       </tr>
+   </dtml-in>
+   <dtml-if sequence-end>
+      </table>
+   </dtml-if sequence-end>
+<dtml-else>   
+      <tr><td>&nbsp;</td></tr>
+      <tr><td class="form-text">Nenhuma Autoria cadastrada para esta matéria.</td></tr>
+      </table>
+      
+</dtml-in>
+      </fieldset>
+  <p><center>
+  <input type="submit" class="botao" name="btn_incluir" value="Incluir Autoria">
+  </center></p><br>
+  </fieldset>
+</form>
+
+<dtml-var standard_html_footer>

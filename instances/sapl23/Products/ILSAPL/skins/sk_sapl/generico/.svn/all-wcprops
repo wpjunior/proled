@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/5253/ILSAPL/branches/2.3/skins/sk_sapl/generico
+END
+prot_prefeitura_lote_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4942/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_proc.dtml
+END
+prot_prefeitura_lote_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/5085/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_form.dtml
+END
+prot_prefeitura_lote_mostrar.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4942/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_mostrar.dtml.metadata
+END
+lexml_infografico.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/lexml_infografico.dtml
+END
+norma_juridica_texto_pesquisar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4991/ILSAPL/branches/2.3/skins/sk_sapl/generico/norma_juridica_texto_pesquisar_proc.dtml
+END
+lightview.css.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/lightview.css.dtml
+END
+senha_trocar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/5145/ILSAPL/branches/2.3/skins/sk_sapl/generico/senha_trocar_proc.dtml
+END
+senha_trocar_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/senha_trocar_form.dtml
+END
+log_out_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/log_out_proc.dtml
+END
+painel_controle.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/painel_controle.dtml.metadata
+END
+licenca.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/licenca.dtml
+END
+prot_prefeitura_lote_proc.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4942/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_proc.dtml.metadata
+END
+prot_prefeitura_lote_form.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4942/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_form.dtml.metadata
+END
+materia_pesquisar_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/5252/ILSAPL/branches/2.3/skins/sk_sapl/generico/materia_pesquisar_form.dtml
+END
+materia_pesquisar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/5253/ILSAPL/branches/2.3/skins/sk_sapl/generico/materia_pesquisar_proc.dtml
+END
+datepicker.css.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/datepicker.css.dtml
+END
+manage_page_style.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/manage_page_style.dtml
+END
+prot_prefeitura_lote_mostrar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4942/ILSAPL/branches/2.3/skins/sk_sapl/generico/prot_prefeitura_lote_mostrar.dtml
+END
+norma_juridica_pesquisar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4992/ILSAPL/branches/2.3/skins/sk_sapl/generico/norma_juridica_pesquisar_proc.dtml
+END
+norma_juridica_pesquisar_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4991/ILSAPL/branches/2.3/skins/sk_sapl/generico/norma_juridica_pesquisar_form.dtml
+END
+autor_pesquisar_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/5145/ILSAPL/branches/2.3/skins/sk_sapl/generico/autor_pesquisar_form.dtml
+END
+estilos.css.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4585/ILSAPL/branches/2.3/skins/sk_sapl/generico/estilos.css.dtml
+END
+senha_trocar_form.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/senha_trocar_form.dtml.metadata
+END
+senha_trocar_proc.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/senha_trocar_proc.dtml.metadata
+END
+painel_controle.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/painel_controle.dtml
+END
+lexml_pesquisar.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/lexml_pesquisar.dtml
+END
+palavra_chave_buscar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/generico/palavra_chave_buscar_proc.dtml
+END

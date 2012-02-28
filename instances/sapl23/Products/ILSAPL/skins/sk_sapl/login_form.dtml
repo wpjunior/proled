@@ -1,0 +1,21 @@
+<dtml-var standard_html_header>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/geral.ps"></script>
+<h1>Por favor acesse</h1>
+<p>Acesse com o seu usu&aacute;rio e a senha.</p>
+<form name="lateral_form" method="post" action="&dtml-portal_url;?retry=1">
+  <fieldset>
+    <legend>Detalhes da conta</legend>
+    <dtml-if expr="_.str(AUTHENTICATED_USER)=='Anonymous User'">
+      <label for="campoUsuario">Nome do Usu&aacute;rio</label><br />
+      <input type="text" name="__ac_name" size="15" value="<dtml-var "REQUEST.get('__ac_name', '')">" id="campoUsuario" /><br /><br />
+      <label for="campoSenha">Senha</label><br />
+      <input type="password" name="__ac_password" size="15" id="campoSenha" /><br ><br />
+      <input type="checkbox" name="__ac_persistent" value="1" checked id="campoLembrar" />
+      <label for="campoLembrar">Lembrar meu nome</label><br /><br />
+      <input class="botao" name="submit" value="Acessar" onclick="javascript:usuario_autenticar()" type="submit" />
+    <dtml-else>
+      <p>Voc&ecirc; est&aacute; autenticado, por favor clique no bot&atilde;o <b>Sair</b> ou feche seu navegador e abra-o novamente.</p>
+    </dtml-if>
+  </fieldset>
+</form>
+<dtml-var standard_html_footer>

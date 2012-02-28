@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <include package="zope.app.traversing" file="meta.zcml"/>
+ 
+  <traversalNamespace
+      name="test"
+      handler=".test_directives.Handler" />
+
+</configure>

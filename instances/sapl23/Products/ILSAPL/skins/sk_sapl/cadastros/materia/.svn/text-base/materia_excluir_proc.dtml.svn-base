@@ -1,0 +1,31 @@
+<dtml-comment>
+*****************************************************************
+*   Função: Esse método apenas chama o Método SQL de exclusão do*
+*       matéria, isto é, o método que atribui a verdadeiro o    *
+*       campo ind_excluido da matéria cujo o cod_materia        * 
+*       é recebido.                                             *
+*   Argumentos: cod_materia :     int - o código da matéria     *
+*       a ser escluído.                                         *
+*   Retorno: Atribuição do flag ind_excluido da matéria     e   *
+*       redirecionamento para a página de matéria.              *
+*   Rommel Carvalho e Danilo Custódio em 02/04/2001.            *
+*****************************************************************
+</dtml-comment>
+
+<dtml-try>
+   <dtml-in expr="zsql.documento_acessorio_obter_zsql(cod_materia = cod_materia, ind_excluido=0)">
+      <dtml-let silent="1">
+         <dtml-call expr="documento_acessorio.documento_acessorio_excluir_proc">
+      </dtml-let>
+   </dtml-in>
+   <dtml-call expr="zsql.proposicao_desincorporar_zsql(cod_mat_ou_doc = cod_materia)">
+   <dtml-call expr="zsql.materia_excluir_zsql(cod_materia = cod_materia)">
+<dtml-except>
+   <dtml-let mensagem="'Houve um erro! Matéria não excluída!'">
+      <dtml-var mensagem_emitir>
+   </dtml-let>
+<dtml-else>
+   <dtml-let mensagem="'Matéria excluída com sucesso!'" sucesso="1" url="url">
+      <dtml-var mensagem_emitir>
+   </dtml-let>
+</dtml-try>

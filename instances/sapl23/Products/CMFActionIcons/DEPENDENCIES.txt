@@ -1,0 +1,4 @@
+Zope >= 2.8.5
+Five >= 1.2
+CMFCore
+GenericSetup

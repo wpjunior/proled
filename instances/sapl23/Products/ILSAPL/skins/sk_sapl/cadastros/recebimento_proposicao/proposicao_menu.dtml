@@ -1,0 +1,14 @@
+<ul>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/recebimento_proposicao/proposicao_receber_form">Receber Proposi&ccedil;&atilde;o</a>
+    </li>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/recebimento_proposicao/proposicao_listar_form?envrec=E">Proposi&ccedil;&otilde;es N&atilde;o Recebidas</a>
+    </li>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/recebimento_proposicao/proposicao_listar_form?envrec=R">Proposi&ccedil;&otilde;es N&atilde;o Incorporadas</a>
+    </li>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/recebimento_proposicao/proposicao_listar_form?envrec=I">Proposi&ccedil;&otilde;es Incorporadas</a>
+    </li>
+</ul>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4586/ILSAPL/branches/2.3/skins/sk_sapl/backup
+END
+backup_sistema_pysc.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_sistema_pysc.py
+END
+backup_sapl.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_sapl.dtml.metadata
+END
+backup_sapl.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_sapl.dtml
+END
+banco_backup.ext
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/banco_backup.ext
+END
+backup_sapl_pysc.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_sapl_pysc.py
+END
+restaura_backup.ext
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/restaura_backup.ext
+END
+backup_banco_pysc.py.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_banco_pysc.py.metadata
+END
+backup_banco_pysc.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_banco_pysc.py
+END
+restauracao_sapl_pysc.py.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/restauracao_sapl_pysc.py.metadata
+END
+restauracao_sapl_pysc.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/restauracao_sapl_pysc.py
+END
+backup_sistema_pysc.py.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/backup/backup_sistema_pysc.py.metadata
+END

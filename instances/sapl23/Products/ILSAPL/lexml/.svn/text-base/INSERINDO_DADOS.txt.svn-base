@@ -1,0 +1,61 @@
+﻿KitProvedorDados 
+--------------------
+Inserindo registros na tabela registro_item
+
+Se o banco é MySQL utilize a partir da sua aplicação de exportação de metadados inserts do tipo:
+
+INSERT INTO `registro_item` (`id_registro_item`, `tx_metadado_xml`, `cd_status`, `cd_validacao` , `ts_registro_gmt`)
+VALUES('oai:ssinf.senado.gov.br:njur/112321', '$OAI_LEXML', 'N', 'I', UTC_TIMESTAMP());
+
+
+Se o banco é Oracle a instrução modifica-se pouco:
+
+INSERT INTO registro_item (id_registro_item, tx_metadado_xml, cd_status, cd_validacao , ts_registro_gmt)
+VALUES('oai:ssinf.senado.gov.br:njur/112321', '$OAI_LEXML', 'N', 'I', sysdate);
+
+
+
+Para ambos os bancos:
+----------------------
+
+A regra de formação da coluna id_registro_item é:
+
+id_registro_item := prefixo_oai + "/" + chave
+prefixo_oai      := 'oai:' + [orgao + "."] + dominio + ":" + sistema 
+chave            := identificador_interno  + [ ";" + detalhe]
+identificador_interno := é a chave do sistema de origem do registro
+
+EXEMPLO: 'oai:ssinf.senado.gov.br:njur/112321'
+
+O valor 'N' da coluna cd_status significa que o registro é novo.
+O valor 'I' da coluna cd_validacao significa que o registro é pendente de validação.
+
+$OAI_LEML está substituindo o xml do oai_lexml a ser validado.
+A regra para a formacao da coluna tx_metadado_xml é o XSD oai_lexml.xsd (http://www.lexml.gov.br/schema/oai_lexml.xsd)
+
+A coluna ts_registro_gmt deve receber sempre a data atual UTC ('2008-08-08 08:08:08')
+dependendo do horário de verão são 2 ou 3 horas a mais do que o horario oficial de Brasilia. 
+
+
+OBSERVAÇÃO SOBRE UPDATE
+-------------------------
+Se por algum motivo for necessário executar UPDATE em algum registro da tabela registro_item
+há que se modificar as seguintes colunas:
+
+cd_validacao deve ser atualizada para 'I',
+ts_registro_gmt deve ser atualizado para data atual UTC.
+
+UPDATE registro_item 
+set cd_status = 'I', 
+    ts_registro_gmt = {data_atual_formato_utc}
+WHERE id_registro_item = {chave};
+
+OBSERVAÇÃO SOBRE DELETE
+------------------------
+Se for necessária a exclusão de algum dos registros deve-se realizar um UPDATE
+para que a informação sobre a deleção seja mantida em banco.
+
+UPDATE registro_item 
+set cd_status = 'D', 
+    ts_registro_gmt = {data_atual_formato_utc}
+WHERE id_registro_item = {chave};

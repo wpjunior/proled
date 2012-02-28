@@ -1,0 +1,84 @@
+<dtml-var standard_html_header>
+
+<form name="index_form" action="numeracao_form">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>">
+
+<body bgcolor="#FFFFFF">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="fundo"> 
+    <td colspan="4" width="15%" align="left" class="form-label">
+      | <a href="<dtml-var URL2>/anexada/index_html?cod_materia=<dtml-var cod_materia>">Anexada</a> |</td>     
+    <td colspan="4" width="23%" align="center" class="form-label">
+      | <a href="<dtml-var URL2>/autoria/index_html?cod_materia=<dtml-var cod_materia>">Autoria</a> |</td>  
+    <td colspan="4" width="27%" align="center" class="form-label">
+      | <a href="<dtml-var URL2>/despacho_inicial/index_html?cod_materia=<dtml-var cod_materia>">Despacho Inicial</a> |</td>   
+    <td colspan="4" width="30%" align="right" class="form-label">
+      | <a href="<dtml-var URL2>/documento_acessorio/index_html?cod_materia=<dtml-var cod_materia>">Documento Acess&oacute;rio</a> |</td>  
+  </tr>
+</table>
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="fundo"> 
+    <td colspan="5" width="26%" align="left" class="form-label">
+      | <a href="<dtml-var URL2>/legislacao_citada/index_html?cod_materia=<dtml-var cod_materia>">Legisla&ccedil;&atilde;o Citada</a> |</td>
+    <td colspan="5" width="24%" align="left" class="form-label">
+      | Numera&ccedil;&atilde;o |</td>
+    <td colspan="5" width="15%" align="left" class="form-label">
+      | <a href="<dtml-var URL2>/tramitacao/index_html?cod_materia=<dtml-var cod_materia>">Tramita&ccedil;&atilde;o</a> |</td>   
+    <td colspan="5" width="22%" align="center" class="form-label">
+      | <a href="<dtml-var URL2>/relatoria/index_html?cod_materia=<dtml-var cod_materia>">Relatoria</a> |</td>
+    <td colspan="5" width="13%" align="right" class="form-label">
+      | <a href="<dtml-var URL2>/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>">Início</a>|</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+<table width="95%" border="1" cellspacing="0" cellpadding="0" align="center" class="borda">
+ <tr>
+  <td>  
+    <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr align="left" class="fundo"> 
+        <td colspan=6 class="form-label">&nbsp;Mat&eacute;ria Legislativa</td></tr>
+       <tr>
+         <td colspan=6><dtml-var materia_header></td>
+      </tr>
+<dtml-in expr="zsql.numeracao_obter_zsql(cod_materia=cod_materia)">
+  <dtml-if sequence-start>
+      <tr><td><font size="1">&nbsp;</font></td></tr>
+      <tr class="fundo"> 
+          <td width="20%" class="form-label">&nbsp;Tipo Mat&eacute;ria </td>
+          <td width="3%" class="form-label" align="center"> | </td>
+          <td width="42%" class="form-label">Descri&ccedil;&atilde;o</td>
+          <td width="10%" class="form-label"> | N&uacute;mero</td>
+          <td width="10%" class="form-label"> | Ano</td>
+          <td width="15%" class="form-label"> | Data</td>
+      </tr>
+      
+  </dtml-if sequence-start>
+      <tr height="17"> 
+         <td width="20%" class="form-element" valign="top">&nbsp;
+               <a href="numeracao_mostrar_proc?cod_materia=<dtml-var cod_materia>&num_ordem=<dtml-var num_ordem>">
+               <dtml-var sgl_tipo_materia></a></td>
+         <td width="3%" class="nota">&nbsp;</td>
+         <td width="42%" class="form-text" valign="top"><dtml-var des_tipo_materia></td>
+         <td width="10%" class="form-text" valign="top">&nbsp;&nbsp;<dtml-var num_materia></td>
+         <td width="10%" class="form-text" valign="top">&nbsp;&nbsp;<dtml-var ano_materia></td>
+         <td width="15%" align="center" class="form-text" valign="top"><dtml-var dat_materia null=""></td>
+      </tr>
+  <dtml-if sequence-end>
+          </table>
+  </dtml-if>
+<dtml-else>
+     <tr><td><font size="1">&nbsp;</font></td></tr>
+     <tr><td class="form-text">Nenhuma numeração cadastrada para esta matéria.</td></tr>
+     </table>
+</dtml-in>
+      <p><center>
+          <input type="submit" class="botao" name="btn_incluir" value="Incluir Numeração">
+      </center></p><br>
+    </td>
+  </tr>
+</table>
+</body>
+</form>
+<dtml-var standard_html_footer>

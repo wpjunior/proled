@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/5250/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria
+END
+sessao_plenaria_header.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/5040/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_header.dtml
+END
+sessao_plenaria_mostrar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_mostrar_proc.dtml
+END
+sessao_plenaria_salvar_proc.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_salvar_proc.dtml.metadata
+END
+sessao_plenaria_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/5040/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_index_html.dtml
+END
+sessao_plenaria_salvar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_salvar_proc.dtml
+END
+sessao_plenaria_form.dtml.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_form.dtml.metadata
+END
+sessao_plenaria_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4976/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_form.dtml
+END
+sessao_plenaria_menu.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4976/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/sessao_plenaria/sessao_plenaria_menu.dtml
+END

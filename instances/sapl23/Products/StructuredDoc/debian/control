@@ -1,0 +1,26 @@
+Source: zope-sde
+Section: interlegis
+Priority: optional
+Maintainer: Interlegis <ouvidoria@senado.gov.br>
+Uploaders: Ricardo Carlini Sperandio <carlini@carlini.eti.br>
+Build-Depends: debhelper (>= 5.0)
+Build-Depends-Indep: zope-debhelper (>= 0.3.2.7)
+Standards-Version: 3.7.2
+
+Package: zope-sde
+Architecture: all
+Depends: ${zope:Depends}
+Recommends: zope-extfile
+Description: SDE - Editor XML para o Zope
+ SDE (Structured Document Editor) é um editor de documentos XML para a plataforma Zope.
+ .
+ A partir da definição do modelo de estrutura do documento, o editor guia o usuário na criação de documentos compatíveis com esse modelo.
+ .
+ As estruturas de documento criadas no SDE podem ser visualizadas como arquivos XML-Schema, e os documentos criados podem ser visualizados como arquivos XML, e renderizados utilizando-se arquivos de transformação XSLT.
+ .
+ O editor funciona com os navegadores Mozilla, nas versões 1.5 e posteriores, e com o Internet Explorer, nas versões 6.0 e posteriores, e não requer a instalação de nenhum componente adicional, pois opera utilizando apenas HTML e XML.
+ .
+ A arquitetura de construção do SDE foi elaborada de forma a permitir grande capacidade de customização e adaptação do editor para as necessidades específicas de cada aplicação.
+ .
+ O SDE foi empregado na versão 2.0 do SAPL - Sistema de Apoio ao Processo Legislativo, na transação de "Elaboração de Proposições".
+ 

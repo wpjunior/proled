@@ -1,0 +1,2 @@
+O código fonte Java do executável Validador.jar está disponível em:
+http://repositorio.interlegis.gov.br/lexml/LexML_Validador/

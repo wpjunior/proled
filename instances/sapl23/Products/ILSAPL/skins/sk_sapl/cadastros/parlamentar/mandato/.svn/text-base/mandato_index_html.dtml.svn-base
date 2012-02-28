@@ -1,0 +1,78 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_parlamentares">Ajuda</a> </div>
+
+<h1 class="firstHeading"> Parlamentares </h1> 
+
+<form method="post" action="mandato_form">
+  <input type="hidden" name="cod_parlamentar" value="<dtml-var cod_parlamentar missing>" /> 
+
+<dtml-var parlamentar_menu>
+
+<dtml-comment>Busca o nom_parlamentar que será usado abaixo</dtml-comment>
+<dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+  <dtml-call expr="REQUEST.set('nom_parlamentar', nom_parlamentar)">
+  <input type="hidden" name="nom_parlamentar" value="<dtml-var nom_parlamentar>" />
+</dtml-in>
+
+<table width="100%" align="center"></table>
+
+<dtml-in expr="zsql.mandato_obter_zsql(cod_parlamentar=cod_parlamentar, nom_parlamentar=nom_parlamentar)" size=8 start=query_start orphan=2>  
+ <dtml-if sequence-start>
+     <fieldset><legend><dtml-var nom_parlamentar></legend>
+     <table width="100%" align="center">
+       <tr class="fundo"> 
+         <td width="20%" class="form-label"> Legislatura</td>
+         <td width="10%" class="form-label"> | Coliga&ccedil;&atilde;o</td>
+         <td width="10%" class="form-label" nowrap> | Fim Mandato</td>
+         <td width="10%" class="form-label" nowrap> | Exp Diploma</td>
+         <td width="10%" class="form-label" nowrap> | Nr Votos</td>
+         <td width="35%" class="form-label" nowrap> | Observa&ccedil;&atilde;o</td>
+       </tr>
+    <dtml-if previous-sequence>
+       <tr><td class="form-element">
+         <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>"><b>
+         Página Anterior (<dtml-var previous-sequence-size> resultados)</a></td>
+       </tr>
+       <tr><td><font size="1">&nbsp;</font></td></tr>
+    </dtml-if previous-sequence>
+ </dtml-if sequence-start>
+       <tr style="height:17">     
+         <td width="20%" class="form-element" nowrap>
+           <a href="<dtml-var URL1>/mandato_mostrar_proc?cod_mandato=<dtml-var cod_mandato>&cod_parlamentar=<dtml-var cod_parlamentar>"><dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura, dat_inicio, dat_fim)"></a></td>
+         <td width="10%" class="form-text">&nbsp;&nbsp;<dtml-var nom_coligacao missing null=" "></td>
+         <td width="10%" class="form-text">&nbsp;&nbsp;
+            <dtml-if dat_fim_mandato><dtml-var dat_fim_mandato></dtml-if></td>
+         <td width="10%" class="form-text">&nbsp;&nbsp;
+            <dtml-if dat_expedicao_diploma><dtml-var dat_expedicao_diploma></dtml-if></td>
+         <td width="10%" class="form-text">&nbsp;&nbsp;
+            <dtml-if num_votos_recebidos><dtml-var num_votos_recebidos></dtml-if></td>
+         <td width="35%" class="form-text">&nbsp;&nbsp;
+            <dtml-var txt_observacao null=""></td>
+       </tr>
+ <dtml-if sequence-end>
+     <dtml-if next-sequence>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+          <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+           Próxima Página (<dtml-var next-sequence-size> resultados)</a></td>
+        <tr>
+     </dtml-if next-sequence>
+    </table>
+   </fieldset>
+ </dtml-if sequence-end>
+<dtml-else>
+      <fieldset><legend><dtml-var nom_parlamentar</legend>
+      <table width="98%" align="center">
+        <tr><td class="form-text">Não há nenhum mandato cadastrado para esse parlamentar.</td></tr>
+      </table>
+</dtml-in>
+    <center><p>
+           <input type="submit" name="btn_incluir_mandato" class="botao" value="Incluir Mandato" />
+    </p></center>
+   <br />
+  </td>
+ </tr>
+</table>
+</form>
+<dtml-var standard_html_footer>

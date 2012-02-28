@@ -1,0 +1,5 @@
+# watch control file for uscan
+version=1
+# Site                                      Version Script
+# Caso algum dinha venha a ser usado...
+#http://repositorio.interlegis.gov.br/SDE/tarballs/.*Photo-(.*)\.tgz	debian uupdate

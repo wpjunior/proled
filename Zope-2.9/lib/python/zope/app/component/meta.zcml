@@ -1,0 +1,149 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:meta="http://namespaces.zope.org/meta">
+
+  <meta:directives namespace="http://namespaces.zope.org/zope">
+
+    <meta:directive
+        name="interface"
+        schema=".metadirectives.IInterfaceDirective"
+        handler="zope.app.component.metaconfigure.interface"
+        />
+
+    <meta:directive
+        name="adapter"
+        schema=".metadirectives.IAdapterDirective"
+        handler="zope.app.component.metaconfigure.adapter"
+        />
+
+    <meta:directive
+        name="subscriber"
+        schema=".metadirectives.ISubscriberDirective"
+        handler="zope.app.component.metaconfigure.subscriber"
+        />
+
+
+    <meta:directive
+        name="utility"
+        schema=".metadirectives.IUtilityDirective"
+        handler="zope.app.component.metaconfigure.utility"
+        />
+
+    <meta:directive
+        name="factory"
+        schema=".metadirectives.IFactoryDirective"
+        handler="zope.app.component.metaconfigure.factory"
+        />
+
+    <meta:directive
+        name="view"
+        schema=".metadirectives.IViewDirective"
+        handler="zope.app.component.metaconfigure.view"
+        />
+
+    <!-- BBB: Deprecated. Will go away in 3.3 -->
+    <meta:directive
+        name="defaultView"
+        schema=".metadirectives.IDefaultViewDirective"
+        handler="zope.app.component.metaconfigure.defaultView"
+        />
+
+    <meta:directive
+        name="resource"
+        schema=".metadirectives.IResourceDirective"
+        handler="zope.app.component.metaconfigure.resource"
+        />
+
+    <meta:directive
+        name="defaultLayer"
+        schema=".metadirectives.IDefaultLayerDirective"
+        handler="zope.app.component.metaconfigure.defaultLayer"
+        />
+
+    <meta:complexDirective
+        name="class"
+        schema=".metadirectives.IClassDirective"
+        handler=".contentdirective.ContentDirective"
+        >
+
+      <meta:subdirective
+          name="implements"
+          schema=".metadirectives.IImplementsSubdirective"
+          />
+
+      <meta:subdirective
+          name="require"
+          schema=".metadirectives.IRequireSubdirective"
+          />
+
+      <meta:subdirective
+          name="allow"
+          schema=".metadirectives.IAllowSubdirective"
+          />
+
+      <meta:subdirective
+          name="factory"
+          schema=".metadirectives.IFactorySubdirective"
+          />
+
+    </meta:complexDirective>
+
+    <meta:complexDirective
+        name="content"
+        schema=".metadirectives.IClassDirective"
+        handler=".contentdirective.ContentDirective"
+        >
+
+      <meta:subdirective
+          name="implements"
+          schema=".metadirectives.IImplementsSubdirective"
+          />
+
+      <meta:subdirective
+          name="require"
+          schema=".metadirectives.IRequireSubdirective"
+          />
+
+      <meta:subdirective
+          name="allow"
+          schema=".metadirectives.IAllowSubdirective"
+          />
+
+      <meta:subdirective
+          name="factory"
+          schema=".metadirectives.IFactorySubdirective"
+          />
+
+    </meta:complexDirective>
+
+    <meta:complexDirective
+        name="localUtility"
+        schema=".metadirectives.IClassDirective"
+        handler=".contentdirective.LocalUtilityDirective"
+        >
+
+      <meta:subdirective
+          name="implements"
+          schema=".metadirectives.IImplementsSubdirective"
+          />
+
+      <meta:subdirective
+          name="require"
+          schema=".metadirectives.IRequireSubdirective"
+          />
+
+      <meta:subdirective
+          name="allow"
+          schema=".metadirectives.IAllowSubdirective"
+          />
+
+      <meta:subdirective
+          name="factory"
+          schema=".metadirectives.IFactorySubdirective"
+          />
+
+    </meta:complexDirective>
+
+  </meta:directives>
+
+</configure>

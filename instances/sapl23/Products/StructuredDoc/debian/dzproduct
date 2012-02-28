@@ -1,0 +1,4 @@
+Name: StructuredDoc
+Package: zope-sde
+Recommends: ExtFile
+ZopeVersions: 2.9 2.8 2.7

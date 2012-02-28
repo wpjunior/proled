@@ -1,0 +1,107 @@
+<dtml-var standard_html_header>
+<script type="text/javascript">
+<!--
+    function submeter(cod_cargo, campo , campo1, form) {
+
+/*-----------------------------
+  Função: Verifica se os campos estão preenchidos corretamente.
+  Argumentos: tip_situacao_militar: o código do tipo.
+              campo: o campo que contém o nome do tipo.
+  Retorno: False - caso detecte na validação algum erro no preenchimento dos campos;
+           caso contrário, salva os dados.
+  Rommel Carvalho, Danilo Custódio em 21/03/01.
+  Alterada por Man Qi em 30/07/01.
+------------------------------*/   
+    if (campo.value == "") {
+      alert("O campo não pode ficar vazio!");
+      campo.focus();
+      return;
+    }
+
+    form.hdn_cod_cargo.value = cod_cargo;
+    form.hdn_des_cargo.value = campo.value;
+    form.hdn_ind_unico.value = campo1.checked; 
+
+    form.submit();
+
+    /*----- comentada por Man Qi devido ao não funcionamento no Netscape 4.76 em 30/07/01  
+    location.href = "<dtml-var absolute_url>/cargo_comissao_salvar_proc?txt_des_cargo=" + campo.value +
+                    "&cod_cargo=" + cod_cargo + "&chk_ind_unico=" + campo1.checked;
+    -----*/ 
+
+  }
+
+  function excluir(cod_cargo) {
+    location.href = "<dtml-var absolute_url>/cargo_comissao_excluir_proc?cod_cargo=" + cod_cargo;
+  }
+
+//-->
+</script>
+<form name="cargo_comissao_form" method="post" action="cargo_comissao_salvar_proc"> 
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/cargo_comissao">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<input type="hidden" name="hdn_cod_cargo" value=0 /> 
+<input type="hidden" name="hdn_des_cargo" />
+<input type="hidden" name="hdn_ind_unico" />  
+
+<dtml-in expr="zsql.cargo_comissao_obter_zsql(ind_excluido=0)">
+    <dtml-if sequence-start>
+
+<dtml-comment>
+****************************************************************************
+*      O código abaixo gera uma lista com os nomes dos tipos de situacao   *
+****************************************************************************
+</dtml-comment>
+<fieldset><legend>Cargos de Comissão</legend>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+         <tr class="fundo"> 
+           <td width="10%" class="form-label">&nbsp;Código</td>
+           <td width="55%" class="form-label"> | Cargo na Comissão</td>
+           <td width="15%" class="form-label"> | Cargo Único</td>
+           <td width="20%" class="form-label"> | Ação</td>
+         </tr>
+      </dtml-if sequence-start>
+         <tr> 
+           <td width="10%"  height="35" class="form-text">&nbsp;&nbsp;<dtml-var cod_cargo></td>
+           <td width="55%">&nbsp;<input type="text" name="txt_des_cargo_<dtml-var cod_cargo>" value="<dtml-var des_cargo missing>" size="40" /></td>                 
+      <td width="15%">&nbsp;&nbsp;<input type="checkbox" name="chk_ind_unico_<dtml-var cod_cargo>" 
+             <dtml-if expr="ind_unico==1">checked</dtml-if> /></td>
+           <td width="20%" class="form-element" nowrap>&nbsp;
+           <a href="javascript:submeter(<dtml-var cod_cargo>,document.cargo_comissao_form.txt_des_cargo_<dtml-var cod_cargo>,document.cargo_comissao_form.chk_ind_unico_<dtml-var cod_cargo>,document.cargo_comissao_form)">
+            Atualizar</a>/ <a href="javascript:excluir(<dtml-var cod_cargo>)">Excluir</a></td>
+         </tr>
+    <dtml-if sequence-end>
+      </table>        
+
+    </dtml-if sequence-end>
+<dtml-else>
+<table width="95%" border="1" cellspacing="0" align="center" class="borda" cellpadding="0">
+  <tr>
+    <td>
+       <table width="98%" border="0" cellspacing="0" align="center" cellpadding="0">
+         <tr><td><font size="1">&nbsp;</font></td></tr>
+         <tr><td class="form-text">Nenhum Cargo cadastrado.</td></tr>
+       </table>
+</dtml-in>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+  <table width="95%" border="1" cellspacing="0" align="center" class="borda">
+  <tr style="height:70">
+     <td align="center" class="form-text"><input type="text" name="txt_des_cargo" value="<dtml-var des_cargo missing>" size="40" />
+         <input type="checkbox" name="chk_ind_unico" />&nbsp;Cargo Único
+     <br /><br /> <input type="button" class="botao" name="btn_cargo_comissao_incluir" value="Incluir Cargo" 
+                onClick="submeter(0,document.cargo_comissao_form.txt_des_cargo,document.cargo_comissao_form.chk_ind_unico,document.cargo_comissao_form)" />
+     </td>
+   </tr>
+  </table>
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

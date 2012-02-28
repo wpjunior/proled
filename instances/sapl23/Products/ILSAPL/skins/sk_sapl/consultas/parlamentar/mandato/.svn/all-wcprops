@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4997/ILSAPL/branches/2.3/skins/sk_sapl/consultas/parlamentar/mandato
+END
+mandato_form.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4997/ILSAPL/branches/2.3/skins/sk_sapl/consultas/parlamentar/mandato/mandato_form.dtml
+END
+mandato_mostrar_proc.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/consultas/parlamentar/mandato/mandato_mostrar_proc.dtml
+END
+mandato_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4997/ILSAPL/branches/2.3/skins/sk_sapl/consultas/parlamentar/mandato/mandato_index_html.dtml
+END

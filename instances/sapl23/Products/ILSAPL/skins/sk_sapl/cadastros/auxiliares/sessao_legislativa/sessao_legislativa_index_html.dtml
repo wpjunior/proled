@@ -1,0 +1,147 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript">
+<!--
+   function sessao_leg_listar(form){
+      /*-----------------------------
+         Função: Reinvoca a página atribuindo a legislatura no campo 
+               LST_NUM_LESGISLATURA. As sessões legislativas que são
+               listadas para aquela legislatura também são atualizadas.
+         Argumentos: form : formulário - é o formulario em si.
+         Retorno: A página atualizada com a nova legislatura selecionada
+               e com as sessoes legislativas relativas à legislatura
+               listadas.
+         Daniel C. Azevedo em 19/03/01.
+      ------------------------------*/
+      var URL = '<dtml-var absolute_url>?hdn_num_legislatura=' + 
+                form.lst_num_legislatura[form.lst_num_legislatura.selectedIndex].value;
+      location.href = URL;
+   }
+
+   function campos_criticar(form){
+
+      if (form.lst_num_legislatura.selectedIndex == -1) {
+         alert("Legislatura deve ser cadastrada antes de incluir sessão legislativa.");
+         return;
+      }
+      
+      form.submit();
+   }
+
+//-->
+</script>
+
+<form name="index_form" action="sessao_legislativa_form">
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_legislativa">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<dtml-comment>
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">| <a href="javascript:history.go(-1)">Voltar</a> |</td>
+   </tr>
+</table>
+</dtml-comment>
+
+<dtml-comment>
+******************************************************************
+*      O campo abaixo mostra a Legislatura com qual a lista de   *
+*  sessões legislativas abaixo estará associada. Ao ser invocado,*
+*  o código testa a existencia do campo HDN_NUM_LEGISLATURA sele-*
+*  cionando a legislatura referente a ele. Se o campo não existir*
+*  o campo criado com o valor para ser atríbuico. Ao atribuir a  *
+*  legislatura, uma função JVSP fará um reload na página.        *
+******************************************************************
+</dtml-comment>
+<fieldset><legend>Sessão Legislativa</legend>
+<table width="95%" align="center">
+  <tr>
+   <td>
+     <table width="100%" align="center" border="1" class="borda">
+      <tr style="height:50">
+        <td class="form-element">Escolha uma Legislatura:<br />
+         <select name="lst_num_legislatura" size="1" onChange="sessao_leg_listar(document.index_form)">    
+            <dtml-in expr="zsql.legislatura_obter_zsql()">
+              <option 
+                 <dtml-if expr="_.has_key('hdn_num_legislatura') and num_legislatura==_.int(hdn_num_legislatura)"> 
+                 selected
+                 <dtml-elif expr="not _.has_key('hdn_num_legislatura') and (_.DateTime() <= dat_fim and _.DateTime() >= dat_inicio)">
+                    <dtml-call expr="REQUEST.set('hdn_num_legislatura', num_legislatura)">
+                    <dtml-call expr="REQUEST.set('atual', 1)">
+                    selected
+                  </dtml-if>
+                  value="<dtml-var num_legislatura>">
+                 <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura,dat_inicio,dat_fim)">
+                  <dtml-if expr="(_.DateTime() <= dat_fim and _.DateTime() >= dat_inicio)">   
+                    (Atual)
+                  </dtml-if>
+              </option>
+            </dtml-in>
+         </select>
+         <dtml-if expr="not _.has_key('hdn_num_legislatura')"> 
+           <dtml-call expr="REQUEST.set('hdn_num_legislatura', -1)">                            
+ 
+        </dtml-if>
+
+<dtml-if expr="not _.has_key('hdn_num_legislatura')">
+  <dtml-in expr="zsql.legislatura_obter_zsql()">
+      <dtml-if sequence-start>
+          <dtml-call expr="REQUEST.set('hdn_num_legislatura', num_legislatura)">
+      </dtml-if>
+   </dtml-in>
+</dtml-if>
+
+      <input type="hidden" name="hdn_num_legislatura" value="<dtml-var hdn_num_legislatura missing>" />
+        <td><input type="button" class="botao" name="btn_incluir" value="Incluir Sessão Legislativa" onClick="campos_criticar(document.index_form)" /></td>
+    </table>
+    
+    </td>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+<dtml-in expr="zsql.sessao_legislativa_obter_zsql(num_legislatura=hdn_num_legislatura)"> 
+    <dtml-if sequence-start>
+      <table width="95%" align="center" border="1" class="borda" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="98%" border="0" cellspacing="0" align="center" cellpadding="0">
+             <tr class="fundo"> 
+               <td width="15%" class="form-label">&nbsp;Nº. Sessão</td>
+               <td width="30%" class="form-label"> | Data Início</td>
+               <td width="30%" class="form-label"> | Data Fim</td>
+               <td width="25%" class="form-label"> | Tipo</td>
+             </tr>
+             </dtml-if sequence-start>
+             <tr>
+               <td width="15%" class="form-element" height="20">&nbsp;&nbsp;
+                <a href="sessao_legislativa_mostrar_proc?cod_sessao_leg=<dtml-var cod_sessao_leg>">
+                 <dtml-var num_sessao_leg></a></td>
+               <td width="30%" class="form-text">&nbsp;&nbsp;<dtml-var dat_inicio_conv></td>
+               <td width="30%" class="form-text">&nbsp;&nbsp;<dtml-var dat_fim_conv></td>
+               <td width="25%" class="form-text">&nbsp;&nbsp;
+               <dtml-in expr="['Ordinária','Extraordinária']">
+                   <dtml-if expr="tip_sessao_leg == _['sequence-item'][0]">
+                     <dtml-var sequence-item>
+                   </dtml-if>
+               </dtml-in></td>
+             </tr>
+    <dtml-if sequence-end>
+          </table>
+    </dtml-if sequence-end>
+  <dtml-else>
+      <table width="95%" align="center" border="1" class="borda" cellspacing="0">
+        <tr>
+          <td>
+            <table width="98%" border="0" cellspacing="2" align="center">
+              <tr><td><font size="2">&nbsp;</font></td></tr>
+              <tr><td class="form-text">Nenhuma Sessão Legislativa cadastrada.</td></tr>
+            </table>
+</dtml-in>
+   </td>
+  </tr>
+</table>
+
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

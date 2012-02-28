@@ -1,0 +1,97 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript">
+<!--
+  function submeter(tip_dependente, campo, form) {
+    if (campo.value == "") {
+      alert("O campo não pode ficar vazio!");
+      campo.focus();
+      return;
+    }
+
+    form.hdn_tip_dependente.value = tip_dependente;
+    form.hdn_des_tipo_dependente.value = campo.value;
+
+    form.submit();
+
+    /*----- comentada por Man Qi devido o não funcionamento no Netscape 4.76 em 27/07/01  
+    location.href = "<dtml-var absolute_url>/tipo_dependente_salvar_proc?txt_des_tipo_dependente=" + campo.value +
+                    "&tip_dependente=" + tip_dependente;
+    -----*/
+
+  }
+
+  function excluir(tip_dependente) {
+    location.href = "<dtml-var absolute_url>/tipo_dependente_excluir_proc?tip_dependente=" + tip_dependente;
+  }
+  
+//-->
+</SCRIPT>
+<form name="tipo_dependente_form" method="post" action="tipo_dependente_salvar_proc">  
+
+<input type="hidden" name="hdn_tip_dependente" value=0></input><br />  
+<input type="hidden" name="hdn_des_tipo_dependente"></input><br />  
+
+<dtml-comment>
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">| <a href="javascript:history.go(-1)">Voltar</a> |</td>
+   </tr>
+</table>  
+</dtml-comment>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tipo_dependente">juda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<dtml-comment>
+****************************************************************************
+*      O código abaixo gera uma lista com os nomes dos níveis de instrução *
+****************************************************************************
+</dtml-comment>
+<fieldset><legend>Dependentes</legend>
+  <dtml-in expr="zsql.tipo_dependente_obter_zsql()">
+    <dtml-if sequence-start>
+<table width="95%" align="center">
+   <tr>
+     <td>
+       <table width="98%" align="center">
+         <tr class="fundo"> 
+           <td width="10%" class="form-label">&nbsp;Código</td>
+           <td width="65%" class="form-label"> | Tipo de Dependente</td>
+           <td width="25%" class="form-label"> | Ação</td>
+       </tr>
+      </dtml-if sequence-start>
+         <tr style="height: 30"> 
+           <td width="10%" class="form-text">&nbsp;&nbsp;&nbsp;<dtml-var tip_dependente></td>
+           <td width="65%">&nbsp;&nbsp;<input type="text" name="txt_des_tipo_dependente_<dtml-var tip_dependente>" 
+              value="<dtml-var des_tipo_dependente>" size="40" maxlength="50"></input></td>
+           <td width="25%" class="form-element">&nbsp;
+                <a href="javascript:submeter(<dtml-var tip_dependente>,document.tipo_dependente_form.txt_des_tipo_dependente_<dtml-var tip_dependente>,document.tipo_dependente_form)">Atualizar</a> / <a href="javascript:excluir(<dtml-var tip_dependente>)">Excluir</a>
+        </tr>
+    <dtml-if sequence-end>
+      </table>
+    </dtml-if sequence-end>
+   <dtml-else>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr><td><font size="1">&nbsp;</font></td></tr>
+          <tr><td class="form-text">Nenhum tipo de dependente cadastrado.</td></tr>
+       </table>
+   </dtml-in>
+   </td>
+  </tr>
+ </table>
+ <table width="95%" align="center">
+  <tr style="height: 70">
+     <td align="center">
+      <input type="text" name="txt_des_tipo_dependente" size="40" maxlength="50"></input> 
+<br><br><input type="button" class="botao" name="btn_tipo_dependente_incluir" value="Incluir Tipo de Dependente" onClick="submeter(0, document.tipo_dependente_form.txt_des_tipo_dependente, document.tipo_dependente_form)">
+            </input>
+     </td>
+     </tr>
+ </table>
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

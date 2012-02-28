@@ -1,0 +1,13 @@
+#! /bin/sh
+
+PYTHON="/var/interlegis/SAPL-2.3/Python-2.4/bin/python2.4"
+ZOPE_HOME="/var/interlegis/SAPL-2.3/Zope-2.9"
+INSTANCE_HOME="/var/interlegis/SAPL-2.3/instances/sapl23"
+CONFIG_FILE="/var/interlegis/SAPL-2.3/instances/sapl23/etc/zope.conf"
+SOFTWARE_HOME="/var/interlegis/SAPL-2.3/Zope-2.9/lib/python"
+PYTHONPATH="$SOFTWARE_HOME:$PYTHONPATH"
+export PYTHONPATH INSTANCE_HOME SOFTWARE_HOME
+
+ZDCTL="$SOFTWARE_HOME/Zope2/Startup/zopectl.py"
+
+exec "$PYTHON" "$ZDCTL" -C "$CONFIG_FILE" "$@"

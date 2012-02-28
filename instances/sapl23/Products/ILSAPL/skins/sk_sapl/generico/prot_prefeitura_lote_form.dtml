@@ -1,0 +1,113 @@
+<dtml-var standard_html_header>
+
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_jvsc"></SCRIPT>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/prototype.js"></script>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/scriptaculous.js?load=effects"></script>
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/datepicker.css); --></style>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/datepicker.js"></script>
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+
+function campos_criticar(form){
+
+/*-----------------------------
+Função: Critica os campos obrigatórios do formulário. É chamada
+pelo botão btn_tramitacao_lote_salvar do formulário para
+validação dos campos.
+Argumentos: form : formulário - é o formulário em si.
+Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano
+falso ,caso haja algum campo incorreto, juntamente com uma
+uma mensagem de erro e o cursor no campo a ser corrigido.
+Sérgio Roberto Damiati em 03/01/2007.
+------------------------------*/
+     var dat_prot = form.txt_data.value.substring(6,10) + form.txt_data.value.substring(3,5) + form.txt_data.value.substring(0,2);
+
+      if (dat_prot > <dtml-var expr="_.DateTime.strftime(_.DateTime(), '%Y%m%d')">) {
+           alert("Data de protocolo deve ser menor ou igual à data corrente!");
+           form.txt_data.focus();
+           form.txt_data.select();
+           return false;
+      }
+
+      if (form.txt_data.value == ""){
+         alert("A data de protocolo deve ser preenchida!");
+         form.txt_data.focus();
+         return false;
+      }
+
+      if (!IsValidDate(form.txt_data.value)){
+         alert("Digite uma data de protocolo válida!");
+         form.txt_data.focus();
+         form.txt_data.select();
+         return false;
+      }
+
+form.submit();
+}
+
+//-->
+</SCRIPT>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/tramitacao_lote">Ajuda</a>
+<h1 class="firstHeading"> Protocolo em Lote </h1>
+
+<form name="prot_prefeitura_form" action="prot_prefeitura_lote_mostrar" method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td>
+<table width="97%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+
+<td width="11%" valign="middle" align="left">
+<font face="arial" size="3"><b>Indicação:</b></font> <input type="radio" name="tipo_propositura" value="9" checked>
+</td>
+<td width="20%" align="left">
+<font face="arial" size="3"><b>Requerimento:</b></font> <input type="radio" name="tipo_propositura" value="4">
+</td>
+</tr>
+</table><br>
+</td>
+</tr>
+<tr>
+ <td>
+  <table width="95%" border="1" cellspacing="0" cellpadding="1" align="center">
+   <tr class="fundo">
+    <td>
+     <table width="44%" border="0" cellspacing="0" cellpadding="0" align="left">
+   <tr>
+    <td width="8%" class="form-element">
+     &nbsp;Data Sessão:
+    </td>
+    <td width="17%" align="left">
+           <input type="text" name="txt_data" id="txt_data" size="10" maxlength="10" value="<dtml-var txt_data missing>" onBlur="formata_data(form.txt_data)"> <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_data',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+            </script>
+            <span class="nota">
+             (dd/mm/aaaa)
+            </span>
+    </td>
+   </tr>
+  </table>
+ </td>
+</tr>
+</td>
+</tr>
+</table><br>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td align="center">
+ <input type="button" name="btn_tramitacao_lote_tramitar" value="Enviar" onClick="campos_criticar(document.prot_prefeitura_form)">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+<dtml-var standard_html_footer>

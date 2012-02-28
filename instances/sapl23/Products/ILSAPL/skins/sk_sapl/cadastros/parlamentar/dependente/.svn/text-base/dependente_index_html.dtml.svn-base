@@ -1,0 +1,54 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_parlamentares">Ajuda</a> </div>
+<h1 class="firstHeading"> Parlamentares </h1> 
+
+<form name="index_form" method="post" action="dependente_form">
+  <input type="hidden" name="cod_parlamentar" value="<dtml-var cod_parlamentar>"/>
+
+<dtml-var parlamentar_menu>
+
+<dtml-comment>Busca o nom_parlamentar que será usado abaixo</dtml-comment>
+<dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+  <dtml-call expr="REQUEST.set('nom_parlamentar', nom_parlamentar)">
+  <input type="hidden" name="nom_parlamentar" value="<dtml-var nom_parlamentar>"/>
+</dtml-in>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+<dtml-in expr="zsql.dependente_obter_zsql(cod_parlamentar=cod_parlamentar)"> 
+  <dtml-if sequence-start>
+   <fieldset><legend><dtml-var nom_parlamentar></legend>
+       <fieldset><legend>Dependentes</legend>
+       <table width="98%" align="center">
+         <tr class="fundo"> 
+            <td width="59%" class="form-label">&nbsp;Nome Dependente</td>
+            <td width="16%" class="form-label"> | Tipo</td>
+            <td width="25%" class="form-label"> | Data Nascimento </td>
+         </tr>
+  </dtml-if sequende-start>
+         <tr style="height:17"> 
+           <td width="59%" class="form-element">&nbsp;
+              <a href="dependente_mostrar_proc?cod_parlamentar=<dtml-var cod_parlamentar>&amp;cod_dependente=<dtml-var cod_dependente>"><dtml-var nom_dependente></a>
+           </td>
+           <td width="16%" class="form-text">&nbsp;&nbsp;<dtml-var des_tipo_dependente></td>
+           <td width="25%" class="form-text">&nbsp;&nbsp;<dtml-var dat_nascimento null=""></td>
+         </tr>
+  <dtml-if sequence-end>
+       </table>
+       </fieldset>
+  </dtml-if sequence-end>
+<dtml-else>
+   <fieldset><legend><dtml-var nom_parlamentar></legend>
+      <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr><td class="form-text">Não há nenhum dependente cadastrado para esse parlamentar.</td></tr>
+      </table>
+   </fieldset>
+</dtml-in>
+<center><p>
+    <input type="submit" name="btn_incluir" class="botao" value="Incluir Dependente"/>
+  </p></center><br/>
+</fieldset>
+</form>
+</body>
+<dtml-var standard_html_footer>

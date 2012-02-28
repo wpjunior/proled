@@ -1,0 +1,103 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript">
+<!--
+  function submeter(cod_nivel_instrucao, campo, form) {
+    if (campo.value == "") {
+      alert("O campo não pode ficar vazio!");
+      campo.focus();
+      return; 
+    }
+   
+    form.hdn_cod_nivel_instrucao.value = cod_nivel_instrucao;
+    form.hdn_des_nivel_instrucao.value = campo.value;
+
+    form.submit(); 
+
+    /*----- comentada por Man Qi devido o não funcionamento no Netscape 4.76 em 30/07/01  
+    location.href = "<dtml-var absolute_url>/nivel_instrucao_salvar_proc?txt_des_nivel_instrucao=" + campo.value +
+                    "&cod_nivel_instrucao=" + cod_nivel_instrucao;
+    -----*/
+    
+  }
+
+  function excluir(cod_nivel_instrucao) {
+    location.href = "<dtml-var absolute_url>/nivel_instrucao_excluir_proc?cod_nivel_instrucao=" + cod_nivel_instrucao;
+  }
+
+  
+  
+//-->
+</script>
+<form name="nivel_instrucao_form" method="post" action="nivel_instrucao_salvar_proc">  
+
+<input type="hidden" name="hdn_cod_nivel_instrucao" value=0 /><br />   
+<input type="hidden" name="hdn_des_nivel_instrucao" /><br />  
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/nivel_instrucao">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<dtml-comment>
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">| <a href="javascript:history.go(-1)">Voltar</a> |</td>
+   </tr>
+</table>  
+</dtml-comment>
+
+<dtml-comment>
+****************************************************************************
+*      O código abaixo gera uma lista com os nomes dos níveis de instrução *
+****************************************************************************
+</dtml-comment>
+<fieldset><legend>Nível Instrução</legend>
+  <dtml-in expr="zsql.nivel_instrucao_obter_zsql()">
+    <dtml-if sequence-start>
+       <table width="95%" align="center">
+	<tr>
+          <td><br />
+           <table width="98%" align="center">
+             <tr class="fundo"> 
+               <td width="10%" class="form-label">&nbsp;Código</td>
+               <td width="65%" class="form-label"> | Nível de Instrução</td>
+               <td width="25%" class="form-label"> | Ação</td>
+             </tr>
+             
+     </dtml-if sequence-start>
+             <tr style="height:30"> 
+               <td width="10%" class="form-text">&nbsp;&nbsp;<dtml-var cod_nivel_instrucao></td>
+               <td width="65%">&nbsp;&nbsp;<input type="text" name="txt_des_nivel_instrucao_<dtml-var cod_nivel_instrucao>" value="<dtml-var des_nivel_instrucao>" size="40" maxlength="50" /></td>
+               <td width="25%" class="form-element">&nbsp;&nbsp;
+                <a href="javascript:submeter(<dtml-var cod_nivel_instrucao>,document.nivel_instrucao_form.txt_des_nivel_instrucao_<dtml-var cod_nivel_instrucao>,document.nivel_instrucao_form)">
+                 Atualizar</a> / <a href="javascript:excluir(<dtml-var cod_nivel_instrucao>)">Excluir</a>
+             </tr>
+    <dtml-if sequence-end>
+      </table>
+    </dtml-if sequence-end>
+ <dtml-else>
+   <table width="95%" align="center">
+     <tr>
+       <td>
+         <table width="98%" cellspacing="2" align="center">
+           <tr><td><font size="1">&nbsp;</font></td></tr>
+           <tr><td class="form-text">Nenhum nível de instrução cadastrado.</td></tr>
+         </table>
+ </dtml-in>
+   </td>
+  </tr>
+ </table>
+<table width="100%" align="center">
+            <tr><td height="10"></td></tr></table>
+ <table width="95%" align="center">
+  <tr style="height:70">
+     <td align="center"><br />
+      <input type="text" name="txt_des_nivel_instrucao" size="40" /><br /><br />
+            <input type="button" class="botao" name="btn_nivel_instrucao_incluir" value="Incluir Nível de Instrução" 
+                onClick="submeter(0, document.nivel_instrucao_form.txt_des_nivel_instrucao, document.nivel_instrucao_form)" />
+      <br /><br /> 
+     </td>
+   </tr>
+</table>
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

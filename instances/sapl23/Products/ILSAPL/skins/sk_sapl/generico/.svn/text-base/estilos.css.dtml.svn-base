@@ -1,0 +1,518 @@
+/* <dtml-with "sapl_documentos.props_sapl"> */
+
+/* Redefinicoes */
+
+body {
+  font: 75% Verdana, Helvetica, Arial, sans-serif;
+  background-color: &dtml-cor_fundo;;
+  color: #000;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6, form, dl, dt, dd, p, div, img, a {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+img {
+  border: none;
+}
+
+a {
+  color: #286ea0;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #60afe7;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  color: &dtml-cor_borda;;
+  background-color: &dtml-cor_borda;;
+  width: 50%;
+  text-align: center;
+}
+
+h1 {
+  border-bottom: 1px solid &dtml-cor_borda;;
+  margin-bottom: 0.5em;
+  font-size: 130%;
+}
+
+h2 {
+  font-size: 120%;
+}
+
+h3 {
+  font-size: 110%;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
+  color: #000;
+}
+
+table {
+}
+
+table td,
+table th {
+  padding: 0.3em 0;
+}
+
+fieldset {
+  border: 1px solid &dtml-cor_borda;;
+  margin: 1em 0;
+  padding: 0 1em 1em 1em;
+  line-height: 1.5em;
+  width: auto;
+}
+
+legend {
+  background-color: &dtml-cor_fundo;;
+  padding: 0.3em 1em;
+  font-size: 80%;
+  font-weight: bold;
+  color: #404040;
+}
+
+form {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+label,
+.label {
+  font-weight: bold;
+  font-size: 85%;
+  color: #404040;
+}
+
+textarea {
+  border: 1px solid &dtml-cor_borda;;
+  font-size: 110%;
+  color: #000;
+  background: #fff url(&dtml-portal_url;/imagens/input_background.gif) top left repeat-x;
+  width: 100%;
+}
+
+input {
+  border: 1px solid &dtml-cor_borda;;
+  visibility: visible;
+  font-size: 85%;
+  color: #000;
+  background: #fff url(&dtml-portal_url;/imagens/input_background.gif) top left repeat-x;
+  vertical-align: middle;
+}
+
+select {
+  border: 1px solid &dtml-cor_borda;;
+  font-size: 85%;
+  color: #000;
+  background-color: #fff;
+  vertical-align: top;
+}
+
+/* Layout */
+
+#pagina {
+  background-color: &dtml-cor_fundo;;
+}
+
+#topo {
+  clear: both;
+  display: block;
+  _height: 2.5em;
+}
+
+#logo {
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  border: none;
+  font-size: 200%;
+}
+
+#logo img {
+  margin: 0.4em 0 0.3em 0.8em;
+  display: block;
+}
+
+#identidade {
+ margin: 2em 0 0 2em;
+ display: block;
+ float: left;
+}
+
+#identidade h2 {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  color: #4070af;
+  font-size: 150%;
+}
+
+#identidade h3 {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  color: #505050;
+  font-size: 130%;
+}
+
+#busca {
+  position: relative;
+  float: right;
+  display: block;
+  top: 2em;
+  right: 1em;
+}
+
+#busca label {
+  font-weight: normal;
+  font-size: 70%;
+  color: #000;
+}
+
+#busca input.botaoBusca {
+  margin-bottom: 1px !important;
+  background: #fff url(&dtml-portal_url;/imagens/busca.gif) 2px 1px no-repeat;
+  cursor: pointer;
+  padding: 1px 1px 1px 15px;
+}
+
+.campoObrigatorio  {
+  background-color: transparent;
+  background-image: url(&dtml-portal_url;/imagens/required.gif);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: left center;
+  padding-top: 0pt;
+  padding-right: 0pt;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  margin-left: 3px;
+  color: White;
+  font-weight: normal;
+  font-size: 70%;
+}
+
+#funcoes {
+  margin: 0.2em 0;
+  clear: both;
+  background-color: &dtml-cor_principal;;
+  display: block;
+  height: 2.2em;
+}
+
+#funcoes span {
+  float: left;
+  color: #fff;
+  padding: 0.4em 0.5em;
+}
+
+#funcoes ul {
+  display: block;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+#funcoes ul li {
+  display: block;
+  float: left;
+  list-style-type: none;
+  width: 7.9em;
+  margin: 0;
+  padding: 0;
+}
+
+#funcoes ul li a.inicio {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/inicio.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.impressao {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/impressao.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.manual {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/manual.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.sair {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/sair.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.acessar {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/acessar.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.voltar {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/seta_volta.gif) no-repeat 0.5em;
+}
+
+#funcoes ul li a.pdf {
+  background: &dtml-cor_principal; url(&dtml-portal_url;/imagens/pdf_button.png) no-repeat 0.5em;
+}
+
+
+#funcoes ul li a {
+  display: block;
+  border-left: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6em 0 0.6em 2.5em;
+  font-size: 90%;
+  _width: 8.7em;
+}
+
+#funcoes ul li a:hover {
+  background-color: #7dabcf;
+}
+
+#corpo {
+  clear: both;
+  border-top: 1px solid &dtml-cor_borda;;
+  height: 100%;
+}
+
+#menu {
+  width: 17%;
+  float: left;
+  margin-top: 0.5em;
+}
+
+#menu h5 {
+  display: none;
+}
+
+#menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  border-bottom: 1px solid &dtml-cor_borda;;
+  list-style-type: none;
+  margin: 1px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 85%;
+}
+
+#menu li a {
+  background-color: #f7f7f7;
+  border-left: 4px solid &dtml-cor_borda;;
+  color: #404040;
+  display: block;
+  padding: 0.5em 0.3em;
+  _width: 90%;
+}
+
+#menu li a:hover {
+  background-color: #dedede;
+  border-left: 4px solid #7dabcf;
+}
+
+#menu fieldset {
+  margin: 1em 0.2em;
+  white-space: nowrap;
+}
+
+#conteudo {
+  padding: 1em 1em 1em 1.5em;
+  border-left: 1px solid &dtml-cor_borda;;
+  width: 78%;
+  float: left;
+  min-height: 30em;
+  overflow: hidden;
+}
+
+#conteudo ul {
+ margin-top: 0;
+ margin-bottom: 2px;
+ padding: 5px;
+ border: 1px solid #ccc;
+ border-style: solid solid solid solid;
+ text-align: left;
+ font-size: 85%;
+ line-height: 2.5em;
+ background-color: #f7f7f7;
+}
+
+#conteudo ul li {
+ list-style: none;
+ display: inline;
+ padding-right: 5px;
+}
+
+#conteudo ul li a {
+ padding: 1px 4px 1px 4px;
+ border: 1px solid #ccc;
+ border-style: none;
+ text-decoration: none;
+ position: relative;
+ top: 0;
+ color: #303030;
+ background-color: #fff;
+}
+
+#conteudo ul li a:hover {
+ background-color: #cde2a7;
+ border-color: #ccc;
+ color: #565656;
+}
+
+#ajuda {
+  position: relative;
+  float:right;
+  font-size: 85%;
+  text-transform: lowercase;
+  background: transparent url(&dtml-portal_url;/imagens/link.gif) center left no-repeat;
+  padding-left: 10px;
+}
+
+#system-message {
+    background-color: #ffce7b;
+    border: 1px solid #ffa500;
+    color: #303030;
+    font-size: 85%;
+    font-weight: bold;
+    margin: 1em 0em;
+    padding: 0.5em 1em 0.5em 3em;
+    vertical-align: middle;
+    background-image: url(&dtml-portal_url;/imagens/info_icon.gif);
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
+}
+
+#rodape {
+  clear: both;
+  text-align: center;
+  background-color: &dtml-cor_principal;;
+  border-top: 1px solid &dtml-cor_borda;;
+}
+
+#rodape address {
+  border-bottom: 1px solid &dtml-cor_borda;;
+  padding: 0.3em 1em;
+  background-color: #f7f7f7;
+  color: #666;
+  font-size: 80%;
+  font-style: normal;
+}
+
+#rodape address a {
+  color: #666;
+}
+
+#rodape div {
+  padding: 0.3em 1em 0 0;
+}
+
+/* Especificos */
+
+.botao,
+.botaoSelecionar,
+.botaoIn,
+.botaoExtra {
+  margin-right: 1em;
+  margin-bottom: 1px !important;
+  background: transparent url(&dtml-portal_url;/imagens/botao.gif) 9px 1px no-repeat;
+  cursor: pointer;
+  padding: 1px 1px 1px 15px;
+  text-transform: lowercase;
+}
+
+.botaoSelecionar {
+  background: transparent url(&dtml-portal_url;/imagens/botao_selecionar.gif) 5px 6px no-repeat;
+}
+
+.botaoExtra {
+  background: transparent url(&dtml-portal_url;/imagens/botao_extra.gif) 9px 1px no-repeat;
+}
+
+.botaoIn {
+  background: transparent url(&dtml-portal_url;/imagens/botao_seta_esquerda.gif) 5px 1px no-repeat;
+}
+
+.campoRadio input,
+.campoRadio label {
+  font-weight: normal;
+  border: none;
+  background-color: transparent;
+  background-image: none;
+}
+
+table .listing {
+  border-collapse: collapse;
+  border-left: 1px solid &dtml-cor_borda;;
+  border-bottom: 1px solid &dtml-cor_borda;;
+  font-size: 90%;
+  margin: 1em 0em 1em 0em;
+}
+
+table .listing th {
+  background: &dtml-cor_fundo;;
+  border-top: 1px solid &dtml-cor_borda;;
+  border-bottom: 1px solid &dtml-cor_borda;;
+  border-right: 1px solid &dtml-cor_borda;;
+  font-weight: normal;
+  padding: 0.25em 1em;
+}
+
+table .listing td {
+  border-right: 1px solid &dtml-cor_borda;;
+  padding: 0.25em 1em;
+}
+
+#homeGrid h2 {
+  border-bottom: 1px solid &dtml-cor_borda;;
+  margin-bottom: 0.3em;
+  font-size: 100%;
+}
+
+#homeGrid a {
+  font-size: 85%;
+  color: #404040;
+}
+
+#homeGrid a:hover {
+  color: &dtml-cor_borda;;
+}
+
+#homeGrid .columnOne {
+  padding-right: 1em;
+}
+
+#homeGrid .columnTwo {
+  padding-left: 1em;
+}
+
+#homeGrid .homeIcon {
+  float: left;
+  margin-right: 0.5em;
+}
+
+texto,
+.texto {
+  font-weight: normal;
+  font-size: 85%;
+  color: #404040;
+}
+
+/* </dtml-with> */

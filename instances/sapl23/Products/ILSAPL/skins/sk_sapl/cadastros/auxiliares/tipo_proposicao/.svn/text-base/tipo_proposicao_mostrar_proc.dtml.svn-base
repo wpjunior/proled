@@ -1,0 +1,20 @@
+<dtml-comment>
+**************************************************************************
+*  Função: Obtém os dados do tipo de proposição selecionado e mostra-os  *
+*      no formulário de atualização.                                     *
+*  Argumentos: tip_proposicao: int - número do tipo de proposicao seleci-*
+*      nada.                                                             *
+*  Retorno: Mostra ao usuário o formulário de atualização.               *
+*  Carlos Eduardo da Cruz Cunha em 28/11/2003.                           *
+**************************************************************************
+</dtml-comment>
+
+<dtml-try>
+<dtml-in expr="zsql.tipo_proposicao_obter_zsql(tip_proposicao=tip_proposicao)">
+  <dtml-var tipo_proposicao_form>
+</dtml-in>
+<dtml-except>
+  <dtml-let mensagem="'Houve erro!'">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+</dtml-try>  

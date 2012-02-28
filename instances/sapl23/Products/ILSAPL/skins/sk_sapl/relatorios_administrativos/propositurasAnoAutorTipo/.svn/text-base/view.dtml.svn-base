@@ -1,0 +1,71 @@
+<dtml-var standard_html_header>
+<div class="helpsapl"><a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#relatorios_administrativos">Ajuda</a></div>
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="fundo"> 
+    <td width="100%" height="10%" class="form-title" align="center"><b> Relat&oacute;rio de Proposi&ccedil;&otilde;es - <dtml-var ano missing></b></td>
+  </tr>
+</table>
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+
+<dtml-in "autorMateriaAno(ano=ano)">
+
+<div <dtml-if sequence>style="background: #f0f0f0;"</dtml-if>>
+
+   <table class="borda" width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr class="fundo">           
+        <td class="form-label" colspan="2" align="center">
+            <dtml-var nom_parlamentar null=""> 
+            <dtml-var nom_comissao null=""> 
+            <dtml-var nom_autor null=""> 
+        </td>                 
+      </tr>
+      <tr>
+           <td class="form-element" align="center"><b>Natureza da Propositura</b></td>
+           <td class="form-element" width="20%" align="center"><b>Quantidade</b></td>
+      </tr>
+         <dtml-in expr="tipoQtdeAutor(autor=cod_autor,ano=ano)" >
+             <tr>
+                <td class="form-element" ><dtml-var des_tipo_materia></td>
+                <td class="form-element" align="right"><dtml-var qtde></td>
+             </tr>
+               
+         </dtml-in>
+
+         <dtml-in "qtdeAutor(autor=cod_autor,ano=ano)">
+            <tr>
+               <td class="form-element" align="right"><b>TOTAL</b></td>
+               <td class="form-element" align="center"><dtml-var qtde></td>
+            </tr>
+         </dtml-in>
+
+    </table>
+  </div> 
+</dtml-in>
+<br />
+<table class="borda" width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+    <tr class="fundo" >
+          <td class="form-label" colspan="2" align="center"> Total Geral</td>
+    </tr>         
+    <tr>
+          <td class="form-element" align="center"><b>Natureza da Propositura</b></td>
+          <td class="form-element" width="20%" align="center"><b>Quantidade</b></td> 
+    </tr>
+          <dtml-in "tipoQtdeGeral(ano=ano)">
+             <tr>
+                <td class="form-element"><dtml-var des_tipo_materia></td>
+                <td class="form-element" align="right"><dtml-var qtde></td>
+             </tr>
+          </dtml-in>
+
+          <dtml-in "qtdeGeral(ano=ano)">
+             <tr>
+                <td class="form-element" align="right"><b>TOTAL</b></td>
+                <td class="form-element" align="center"><dtml-var qtde></td>
+             </tr>
+          </dtml-in>
+</table>
+<dtml-var standard_html_footer>

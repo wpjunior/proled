@@ -1,0 +1,117 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+<adapter
+    for="*"
+    factory="zope.app.traversing.adapters.Traverser"
+    provides="zope.app.traversing.interfaces.ITraverser" />
+
+<adapter
+    for="*"
+    factory="zope.app.traversing.adapters.DefaultTraversable"
+    provides="zope.app.traversing.interfaces.ITraversable" />
+
+<adapter
+    provides="zope.app.traversing.interfaces.IPhysicallyLocatable"
+    for="zope.app.traversing.interfaces.IContainmentRoot"
+    factory="zope.app.traversing.adapters.RootPhysicallyLocatable" />
+
+<adapter
+    name="etc"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.etc"
+    />
+<view
+    name="etc"
+    type="zope.interface.Interface"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.etc"
+    />
+
+<adapter
+    name="attribute"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.attr"
+    />
+<view
+    name="attribute"
+    type="zope.interface.Interface"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.attr"
+    />
+
+<adapter
+    name="adapter"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.adapter"
+    />
+<view
+    name="adapter"
+    type="zope.interface.Interface"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.adapter"
+    />
+
+<adapter
+    name="item"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.item"
+    />
+<view
+    name="item" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.item"
+    />
+
+<adapter
+    name="acquire"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.acquire"
+    />
+<view
+    name="acquire" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.acquire"
+    />
+
+<view
+    name="view" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.view"
+    />
+
+<view
+    name="resource" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.resource"
+    />
+
+<adapter
+    name="lang"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.lang"
+    />
+<view
+    name="lang" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.lang"
+    />
+
+<view
+    name="skin" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.skin"
+    />
+
+<view
+    name="vh" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.vh"
+    />
+
+<view
+    name="debug" type="*"
+    provides="zope.app.traversing.interfaces.ITraversable" for="*"
+    factory="zope.app.traversing.namespace.debug"
+    />
+
+</configure>

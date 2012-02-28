@@ -1,0 +1,33 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:mail="http://namespaces.zope.org/mail"
+   i18n_domain="zope"
+   >
+
+  <permission
+      id="zope.SendMail"
+      title="[send-mail-permission]
+             Send out mail with arbitrary from and to addresses"
+      />
+
+  <mail:smtpMailer name="smtp" hostname="localhost" port="25" />
+
+  <!--
+    To send mail, uncomment the following directive and be sure to
+    create the queue directory.
+
+  <mail:queuedDelivery permission="zope.SendMail"
+                      queuePath="./queue"
+                      mailer="smtp" />
+   -->
+
+  <interface interface="zope.app.mail.interfaces.IMailDelivery" />
+
+  <vocabulary
+      name="Mail Delivery Names"
+      factory="zope.app.component.vocabulary.UtilityVocabulary"
+      interface="zope.app.mail.interfaces.IMailDelivery"
+      nameOnly="True" />
+
+
+</configure>

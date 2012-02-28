@@ -1,0 +1,24 @@
+<dtml-comment>
+     Função: Esse método apenas chama o Método SQL de 
+           exclusão da composição, isto é, o método
+           que atribui a verdadeiro (1) o campo ind_excluido
+           da composição cujo o cod_comp_comissao é recebido.
+     Argumentos: cod_comp_comissao : int - o código da
+           comissão a ser excluída.
+     Retorno: Atribuição do flag ind_excluido da composição
+           e redirecionamento para a página de
+           composições ou mensagem de erro.
+     Michael S. Onishi / Daniel C. Azevedo em 14-03-2001.
+</dtml-comment>
+ 
+  <dtml-try>
+    <dtml-call expr="zsql.composicao_comissao_excluir_zsql(cod_comp_comissao=cod_comp_comissao)">
+  <dtml-except>
+    <dtml-let mensagem="'Houve um erro!'">
+       <dtml-var mensagem_emitir> 
+    </dtml-let>
+  <dtml-else>
+    <dtml-let mensagem="'Composição excluída com sucesso!'" sucesso="1" url="'index_html?cod_comissao=' + cod_comissao + '&cod_periodo_comp_=' + cod_periodo_comp">
+      <dtml-var mensagem_emitir>
+    </dtml-let>
+  </dtml-try>

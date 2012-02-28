@@ -1,0 +1,3 @@
+nome_relatorio:string=Proposituras por Autor
+desc_relatorio:string=Resumo de Proposituras de um determinado ano, agrupadas por Autor.
+acesso_publico:boolean=True

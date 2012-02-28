@@ -1,0 +1,105 @@
+<dtml-var standard_html_header>
+<script type="text/javascript" language="Javascript">
+function submeter(endereco){
+
+        var form = document.ordem_dia_sessao_form;
+        endereco += '?cod_sessao_plen=' + form.hdn_cod_sessao_plen.value;
+        endereco += '&cod_sessao_leg='+ form.hdn_cod_sessao_leg.value;
+        endereco += '&cod_num_legislatura=' + form.hdn_num_legislatura.value;
+        endereco += '&dat_sessao=' + form.hdn_dat_sessao.value;
+        endereco += '&tip_sessao=' + form.hdn_tip_sessao.value;
+
+        if (form.hdn_cod_sessao_plen.value!=""){
+            location.href = endereco;
+        }
+        return;
+    }
+</script>
+<a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_plenaria_materias">Ajuda</a>
+<h1 class="firstHeading"> Mat&eacute;rias da Ordem do Dia </h1>
+<h3 align="center"><dtml-var sessao_plenaria_header></h3>
+
+<form name="ordem_dia_sessao_form" method="post">
+    <dtml-var sessao_plenaria_menu>
+    <dtml-in expr="zsql.ordem_dia_obter_zsql(dat_ordem = pysc.data_converter_pysc(data=dat_sessao),cod_sessao_plen = cod_sessao_plen, ind_excluido=0)" size=8 start=query_start orphan=2>
+        <dtml-if sequence-start>
+        <fieldset>
+        <legend>Mat&eacute;rias da Ordem do Dia</legend>
+        <table width="100%">
+            <tr class="fundo">
+                <td width="25%" class="label">&nbsp;Mat&eacute;ria (N&ordm; Ordem/Tipo/Autor)</td>
+                <td width="50%" class="label">&nbsp;Ementa</td>
+                <td width="25%" class="label">&nbsp;Observa&ccedil;&atilde;o</td>
+            </tr>
+            <dtml-if previous-sequence>
+            <tr>
+                <td class="form-element" colspan="2">
+                    <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+                        P&aacute;gina Anterior (<dtml-var previous-sequence-size>)</a>
+                </td>
+            </tr>
+            </dtml-if previous-sequence>
+        </dtml-if sequence-start>
+        <tr>
+            <td>
+                <p class="num-ordem">
+                    <dtml-var num_ordem>
+                </p>
+                <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
+                    <a href="ordem_dia/ordem_dia_mostrar_proc?cod_ordem=<dtml-var cod_ordem>">
+                        <dtml-var sgl_tipo_materia missing> <dtml-var num_ident_basica missing> <dtml-var ano_ident_basica missing> - <dtml-var des_tipo_materia><br />
+                    </a>
+                </dtml-in>
+                <dtml-in expr="zsql.autoria_obter_zsql(cod_materia=cod_materia, ind_primeiro_autor=1)">
+                <dtml-in expr="zsql.autor_obter_zsql(cod_autor=cod_autor)">
+                    <dtml-if cod_parlamentar>
+                        <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+                            <dtml-var nom_parlamentar>
+                        </dtml-in>
+                    <dtml-elif cod_comissao>
+                        <dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+                            <dtml-var nom_comissao>
+                        </dtml-in>
+                    <dtml-else>
+                        <dtml-var nom_autor>
+                    </dtml-if>
+                </dtml-in>
+                </dtml-in>
+            </td>
+            <td>
+                <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
+                    <dtml-var txt_ementa>
+                </dtml-in>
+            </td>
+            <td>
+                <dtml-var txt_observacao>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr /></td>
+        </tr>
+    <dtml-if sequence-end>
+    <dtml-if next-sequence>
+        <tr>
+            <td class="form-element" colspan="2">
+                <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+                    Pr&oacute;xima P&aacute;gina (<dtml-var next-sequence-size>)</a>
+            </td>
+        </tr>
+    </dtml-if next-sequence>
+    </table>
+    </td>
+  </tr>
+</table>
+  </dtml-if sequence-end>
+  <dtml-else>
+        <table width="90%">
+            <tr><td></td></tr>
+            <tr>
+                <td class="form-text">Nenhuma ordem do dia cadastrada.</td>
+            </tr>
+       </table>
+</dtml-in>
+</form>
+<form> <p align="center"><input class="botao" type="button" value="Retornar" OnClick="history.go(-1)" /></p></form>
+<dtml-var standard_html_footer>

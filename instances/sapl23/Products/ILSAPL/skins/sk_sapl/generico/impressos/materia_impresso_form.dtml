@@ -1,0 +1,42 @@
+<dtml-var standard_html_header>
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/impressos">Ajuda</a> </div>
+<h1 class="firstHeading"> Impressos </h1>
+
+<dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Operador', 'Operador Materia'])">
+
+<fieldset><legend>Etiqueta</legend>
+   <table width="92%" align="center">
+    <tr>
+      <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/materia_etiqueta_faixa_form?incluir=1">Por faixa</a></u></h3></td></tr>
+    <tr>
+      <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/materia_etiqueta_selec_form?incluir=1">Selecionada</a></u></h3></td></tr>
+   </table>
+</fieldset>
+<fieldset><legend>Ficha</legend>
+    <table width="92%" align="center">
+    <tr>
+    <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/materia_ficha_faixa_form?incluir=1">Por faixa</a></u> </h3></td></tr>
+    <tr>
+    <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/materia_ficha_selec_form?incluir=1">Selecionada</a></u></h3></td></tr>
+   </table>
+   </fieldset>
+<fieldset><legend>Guia de Remessa</legend>
+   <table width="92%" align="center">
+   <tr>
+    <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/guia_remessa_indreq_form?incluir=1">Indica&ccedil;&atilde;o/Requerimento</a></u></h3></td></tr>
+   <tr>
+    <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/guia_remessa_autografo_form?incluir=1">Autógrafo</a></u></h3></td></tr>
+   </table>
+</fieldset>
+
+<dtml-else>
+ <fieldset><legend>Etiqueta</legend>
+  <table width="92%" align="left">
+   <tr>
+    <td class="form-element" height="20" align="center"><h3><u><a href="&dtml-portal_url;/generico/impressos/materia_etiqueta_selec_form?incluir=1">Selecionada (Norma)</a></u></h3></td>
+   </tr>
+  </table>
+
+</dtml-if>
+
+<dtml-var standard_html_footer>

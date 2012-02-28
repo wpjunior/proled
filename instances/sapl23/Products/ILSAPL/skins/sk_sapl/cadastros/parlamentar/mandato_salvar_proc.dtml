@@ -1,0 +1,38 @@
+<script type='text/javascript'>
+  
+  function valida_autor(){
+      /*-----------------------------
+         Função: Valida a inclusão de um autor para o parlamentar recem-criado
+         Argumentos: QUERY_STRING : recebido do REQUEST que contém o cod_parlamentar
+                     e o num_leg numero da legislatura
+         Retorno: Alerta se o campo login não for preenchido, caso contrário
+                  Direciona para o método autor_salvar_proc, com os parâmetros recebidos
+                  Além do campo Login
+
+         Rogério Ueda em 11/12/2003.
+      ------------------------------*/
+
+       if(document.form_login.login.value!=""){
+          location.href="autor_salvar_proc?<dtml-var QUERY_STRING>&txt_login="+document.form_login.login.value;
+       }else{
+          alert("O campo Login deve ser preenchido");
+       }
+}
+
+</script>
+
+<dtml-try>
+  <dtml-call expr="zsql.mandato_incluir_zsql(num_legislatura=num_leg, cod_parlamentar=cod_parlamentar)">
+<dtml-except>
+  <dtml-let mensagem="'Não foi possível salvar um mandato na '+num_leg+'ª legislatura para esse parlamentar.'">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+<dtml-else>
+  <dtml-let mensagem="'Foi salvo um mandato para esse parlamentar na '+num_leg+'ª legislatura.<br /><br />
+                       Clique <a href='+portal_url()+'/cadastros/auxiliares/autor/autor_form?cod_parlamentar='+cod_parlamentar+'>AQUI</a> para cadastrar esse parlamentar como um autor,<br />
+                       ou clique em <b>Continuar</b> para não cadastrá-lo como autor agora.<br /><br />'"
+            sucesso="1"
+            url="'parlamentar_mostrar_proc?cod_parlamentar='+cod_parlamentar">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+</dtml-try>

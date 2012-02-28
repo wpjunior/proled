@@ -1,0 +1,117 @@
+<dtml-var standard_html_header>
+
+<script language="javascript">
+<!--
+    function atualiza_sessao_leg(cod_sessao_leg, num_legislatura){  
+        location.href = "<dtml-var absolute_url>/index_html?cod_sessao_leg_sel="+cod_sessao_leg+"&num_legislatura_sel="+num_legislatura;
+
+    }   
+
+    function atualiza_num_leg(num_legislatura){    
+        location.href = "<dtml-var absolute_url>/index_html?num_legislatura_sel="+num_legislatura;
+    }
+    //-->
+</script>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_mesadir">Ajuda</a>
+<h1>Mesa Diretora</h1>
+
+<form name="composicao_mesa_form">
+  <fieldset>
+   <legend>Selecione o Período</legend>
+     <table>
+        <tr>
+         <th><label for="lst_num_legislatura">Legislatura:</label></th>
+         <td colspan="2">
+           <select id="lst_num_legislatura" name="lst_num_legislatura" size="1" onChange="atualiza_num_leg(form.lst_num_legislatura [form.lst_num_legislatura.selectedIndex].value)">
+            <dtml-in expr="zsql.legislatura_obter_zsql(ind_excluido=0)">
+             <option
+              <dtml-if expr="(not _.has_key('num_legislatura_sel') and (_.DateTime() >= dat_inicio and _.DateTime() <= dat_fim))
+                           or (_.has_key('num_legislatura_sel') and num_legislatura == _.int(num_legislatura_sel))">
+                    selected
+               <dtml-call expr="REQUEST.set('num_legislatura_sel', num_legislatura)">
+              </dtml-if>
+                    value="<dtml-var num_legislatura>">
+               <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura, dat_inicio, dat_fim)">
+               <dtml-if expr="(_.DateTime() >= dat_inicio) and (_.DateTime() <= dat_fim)">(Atual)</dtml-if>
+             </option>
+              <dtml-else>
+             <option selected value="-1"></option>
+               <dtml-call expr="REQUEST.set('num_legislatura_sel', '-1')">
+            </dtml-in>
+           </select>
+       <dtml-if expr="not _.has_key('num_legislatura_sel')">
+        <dtml-in expr="zsql.legislatura_obter_zsql(ind_excluido=0)">
+            <dtml-if sequence-start>
+               <dtml-call expr="REQUEST.set('num_legislatura_sel', num_legislatura)">
+            </dtml-if>
+        </dtml-in>
+       </dtml-if>
+       </td>
+       <td></td>
+      <th><label for="lst_sessao_leg">&nbsp;Sess&atilde;o Legislativa:</th>
+       <td>
+              <select id="lst_sessao_leg" name="lst_sessao_leg" size="1" onChange="atualiza_sessao_leg(form.lst_sessao_leg[form.lst_sessao_leg.selectedIndex].value,
+                            form.lst_num_legislatura[form.lst_num_legislatura.selectedIndex].value)">
+      <dtml-in expr="zsql.sessao_legislativa_obter_zsql(ind_excluido=0)">
+            <dtml-if expr="num_legislatura == num_legislatura_sel">
+              <option
+                <dtml-if expr="(not _.has_key('cod_sessao_leg_sel') and not _.has_key('prim_sel'))
+                                or
+                               (_.has_key('cod_sessao_leg_sel') and cod_sessao_leg == cod_sessao_leg_sel)">
+                     selected
+                     <dtml-call expr="REQUEST.set('prim_sel', cod_sessao_leg)">
+                     <dtml-call expr="REQUEST.set('cod_sessao_leg_sel', cod_sessao_leg)">
+                </dtml-if>
+                 value="<dtml-var cod_sessao_leg>">
+                 <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_sessao_leg, dat_inicio, dat_fim)">
+		<dtml-if expr="(_.DateTime() >= dat_inicio) and (_.DateTime() <= dat_fim)">(Atual)</dtml-if>
+              </option>
+            </dtml-if>
+      </dtml-in>
+     </select>
+    </td>
+   </tr>
+   </table>
+  </fieldset>
+  <fieldset>
+   <legend>Composição da Mesa Diretora</legend>
+     <table>
+    <dtml-if cod_sessao_leg_sel>
+      <dtml-in expr="zsql.composicao_mesa_obter_zsql(cod_sessao_leg=cod_sessao_leg_sel, ind_excluido=0)">
+
+        <dtml-if sequence-start>
+          <tr>
+            <th class="label">Nome do Parlamentar</th>
+            <th class="label">&nbsp;Partido</th>
+            <th class="label">&nbsp;Cargo</th>
+          </tr>
+          
+        </dtml-if sequence-start>
+        <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar, ind_excluido=0)">
+          <dtml-in expr="zsql.cargo_mesa_obter_zsql(cod_cargo=cod_cargo, ind_excluido=0)">         
+            <tr>
+              <td class="texto"><a href="<dtml-var URL1>/parlamentar/parlamentar_mostrar_proc?cod_parlamentar=<dtml-var cod_parlamentar>"><b><dtml-var nom_parlamentar></b></a></td>              
+              <td class="texto">&nbsp;<dtml-var sgl_partido missing null=""></td>
+              <td class="texto">&nbsp;<dtml-var des_cargo></td>
+            </tr>               
+          </dtml-in>                
+        </dtml-in>
+      <dtml-else>
+        <tr><td class="texto">Nenhum parlamentar cadastrado na Composição da Mesa Diretora.</td></tr>
+      </dtml-in> 
+    <dtml-else>
+        <tr><td class="texto">
+          <dtml-if expr="num_legislatura_sel=='-1'">
+               Não há nenhuma Legislatura cadastrada.
+          <dtml-else>
+               Não há nenhuma Sessão Legislativa cadastrada para a Legislatura selecionada.
+          </dtml-if>
+        </td></tr>        
+     </dtml-if>
+
+   </table>
+  </fieldset>
+ </form>
+
+<dtml-var standard_html_footer>

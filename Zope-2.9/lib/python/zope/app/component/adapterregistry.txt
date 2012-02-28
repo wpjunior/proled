@@ -1,0 +1,213 @@
+==========================
+The Local Adapter Registry
+==========================
+
+The local adapter registry, like its global parent at
+`zope.interface.adapter`, is responsible for managing registered
+adapters. However, local adapter registries must always be instantiated by
+providing their base (or global registry), which will always be a global
+adapter registry isntance:
+
+  >>> import zope.interface
+  >>> gar = zope.interface.adapter.AdapterRegistry()
+
+  >>> from zope.app.component import adapter
+  >>> lar = adapter.LocalAdapterRegistry(gar)
+  >>> lar.base is gar
+  True
+
+The local adapter registry uses the registration framework (introduced in
+`registration.txt`) to manage the adapter registrations. To demonstrate we
+need to create an adapter first. Let's say we have a file
+
+  >>> class IFile(zope.interface.Interface):
+  ...     content = zope.interface.Attribute('File Content')
+
+and we want to know the size of the file, which can be gotten by having a
+component providing the `ISized` interface:
+
+  >>> class ISized(zope.interface.Interface):
+  ...     def getSize():
+  ...         """Return the size of the component."""
+
+  >>> FileSize = '<FileSize>'
+
+As you can see, the adapter itself has no meaning in the adapter registry,
+which is merely responsible for looking up the component, but asserts no
+interpretation. Thus the adapter component can be any Python object.
+
+Instead of registering the adapter with the registry directly, we use an
+adapter registration to register the adapter with the local adapter registry:
+
+  >>> reg = adapter.AdapterRegistration(
+  ...         required = (IFile,), 
+  ...         provided = ISized,
+  ...         factory = FileSize,
+  ...         registry = lar)
+  >>> reg.status
+  u'Inactive'
+
+The adapter registration is an extended `ComponentRegistration`. Here the
+factory is the component. We can register the registration with the adapter
+registry using
+ 
+  >>> lar.register(reg)
+
+Note that the registration's status is automatically set to active, when you
+register a registration:
+
+  >>> reg.status
+  u'Active'
+
+What really happens behind the scene is that the registry keeps track of a
+list of registrations and the registration's status property calls the
+registry's `registered()` method to determine whether the registration is
+activated. 
+
+  >>> lar.registered(reg)
+  True
+
+You can also ask the registry for all of its registrations:
+
+  >>> lar.registrations() #doctest: +NORMALIZE_WHITESPACE
+  (<AdapterRegistration: 
+        required=<InterfaceClass __builtin__.IFile>, 
+        with=(), 
+        provided=<InterfaceClass __builtin__.ISized>, 
+        name='', 
+        component='<FileSize>', 
+        permission=None>,)
+
+Later you can unregister the adapter registration:
+
+  >>> lar.unregister(reg)
+  >>> lar.registered(reg)
+  False
+  >>> lar.registrations()
+  ()
+  >>> reg.status
+  u'Inactive'
+
+Of course, the same can be achieved by setting the registration's status:
+
+  >>> from zope.app.component import interfaces
+  >>> reg.status = interfaces.registration.ActiveStatus
+  >>> lar.registered(reg)
+  True
+
+  >>> reg.status = interfaces.registration.InactiveStatus
+  >>> lar.registered(reg)
+  False
+
+But the true flexibility of the local adapter registry is that it can be
+located in an adapter registry tree. Each node of the tree is a location and
+can override existing and register new adapters. The parent of a node can be
+accessed using
+
+  >>> lar.next is None
+  True
+
+In our case there is no nect registry, since the `lar` instance is the root
+node. The base registry, which is always a global one, can be accessed using
+
+  >>> lar.base is gar
+  True
+
+The node also knows about its children via
+
+  >>> lar.subs
+  ()
+
+Thus this is a double-linked tree. If I now create a second local adapter
+registry in which `lar` is the parent
+
+  >>> lar2 = adapter.LocalAdapterRegistry(gar, lar)
+
+then we have
+
+  >>> lar2.next is lar
+  True
+  >>> lar.subs == (lar2,)
+  True
+  >>> lar2.base is lar.base is gar
+  True
+
+Let's now register our adapter with `lar` again:
+
+  >>> reg.status = interfaces.registration.ActiveStatus
+
+On the second level, however, the size should be a word count instead of a
+character count:
+
+  >>> FileWordCount = '<FileWordCount>'
+
+
+  >>> reg2 = adapter.AdapterRegistration(
+  ...          required = (IFile,), 
+  ...          provided = ISized,
+  ...          factory = FileWordCount,
+  ...          registry = lar2)
+  >>> reg2.status = interfaces.registration.ActiveStatus
+
+If we now lookup the adapter in `lar`, we get the original `ISized` adapter:
+
+  >>> lar.lookup((IFile,), ISized)
+  '<FileSize>'
+
+but from the second registry we get
+
+  >>> lar2.lookup((IFile,), ISized)
+  '<FileWordCount>'
+
+If we now unregister the word counting size adapter
+
+  >>> reg2.status = interfaces.registration.InactiveStatus
+
+then `lar2` will get the adapter from its parent:
+
+  >>> lar2.lookup((IFile,), ISized)
+  '<FileSize>'
+
+We can also change the location of a local adapter registry using
+
+  >>> lar2.setNext(None)
+  >>> lar2.next
+  >>> lar.subs
+  ()
+
+In this case we made `lar2` a root node itself. Clearly, now the `FileSize`
+adapter should not be available anymore:
+
+  >>> lar2.lookup((IFile,), ISized)
+
+Now we make `lar` a sub registry of `lar2`:
+
+  >>> lar.setNext(lar2)
+  >>> lar.next is lar2
+  True
+  >>> lar2.subs == (lar,)
+  True
+
+Note that you should never set the next attribute directly, but always use the
+`setNext()` method, since it ensures the integrety of all the links in the
+tree and updates the adapter lookup caches. 
+
+The global adapter registry is taken into account during the lookup too, of
+course. Let's say we want to have an adapter that determines the type of the
+file and register it globally:
+
+  >>> class IFileType(zope.interface.Interface):
+  ...     def getType():
+  ...         """Return the type of the file."""
+
+  >>> FileType = '<FileType>'
+
+  >>> gar.register((IFile,), IFileType, '', FileType)
+
+Then this adapter will be available in any local adapter registry:
+
+  >>> lar.lookup((IFile,), IFileType, '')
+  '<FileType>'
+  >>> lar2.lookup((IFile,), IFileType, '')
+  '<FileType>'
+

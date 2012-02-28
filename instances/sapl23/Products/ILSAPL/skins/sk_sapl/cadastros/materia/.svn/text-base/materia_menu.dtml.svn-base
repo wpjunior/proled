@@ -1,0 +1,29 @@
+<ul style="text-align: center;">
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/anexada/index_html?cod_materia=<dtml-var cod_materia>">Anexada</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/autoria/index_html?cod_materia=<dtml-var cod_materia>&dat_apresentacao=<dtml-var dat_apresentacao missing null="">">Autoria</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/despacho_inicial/index_html?cod_materia=<dtml-var cod_materia>">Despacho Inicial</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/documento_acessorio/index_html?cod_materia=<dtml-var cod_materia>">Documento Acess&oacute;rio</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/legislacao_citada/index_html?cod_materia=<dtml-var cod_materia>">Legisla&ccedil;&atilde;o Citada</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/numeracao/index_html?cod_materia=<dtml-var cod_materia>">Numera&ccedil;&atilde;o</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/tramitacao/index_html?cod_materia=<dtml-var cod_materia>">Tramita&ccedil;&atilde;o</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/relatoria/index_html?cod_materia=<dtml-var cod_materia>">Relatoria</a>
+    </li>
+    <li style="padding-right: 2em;">
+        <a href="&dtml-portal_url;/cadastros/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>">In&iacute;cio</a>
+    </li>
+</ul>

@@ -1,0 +1,183 @@
+10
+
+dir
+5324
+http://repositorio.interlegis.gov.br/ILSAPL/branches/2.3/skins/sk_sapl/cadastros/auxiliares
+http://repositorio.interlegis.gov.br
+
+
+
+2011-09-05T21:48:05.124591Z
+5255
+claudiomorale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bee1b3ed-c3eb-0310-9994-b88e04532788
+
+auxiliares_index_html.dtml
+file
+
+
+
+
+2011-09-06T16:15:51.000000Z
+46f1440fe1379e7bbe2263022fd9be66
+2011-09-05T21:48:05.124591Z
+5255
+claudiomorale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6381
+
+sessao_legislativa
+dir
+
+tipo_expediente
+dir
+
+status_tramitacao
+dir
+
+cargo_comissao
+dir
+
+cargo_mesa
+dir
+
+tipo_materia_legislativa
+dir
+
+partido
+dir
+
+tipo_dependente
+dir
+
+tipo_fim_relatoria
+dir
+
+tipo_resultado_votacao
+dir
+
+tipo_proposicao
+dir
+
+legislatura
+dir
+
+regime_tramitacao
+dir
+
+unidade_tramitacao
+dir
+
+coligacao
+dir
+
+tipo_norma_juridica
+dir
+
+origem
+dir
+
+andamento_sessao
+dir
+
+tipo_situacao_militar
+dir
+
+tipo_autor
+dir
+
+tipo_documento
+dir
+
+autor
+dir
+
+casa_legislativa
+dir
+
+tipo_afastamento
+dir
+
+auxiliares_index_html.dtml.metadata
+file
+
+
+
+
+2011-08-21T20:58:11.000000Z
+56f788a2889d946abe824b41b88fd09a
+2011-08-10T23:47:13.567525Z
+5186
+angeloneto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+62
+
+tipo_sessao_plenaria
+dir
+
+nivel_instrucao
+dir
+
+orgao
+dir
+
+tipo_comissao
+dir
+
+periodo_comp_comissao
+dir
+

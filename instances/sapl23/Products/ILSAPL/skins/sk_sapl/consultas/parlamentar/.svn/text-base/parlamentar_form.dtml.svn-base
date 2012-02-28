@@ -1,0 +1,87 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_dadosparl">Ajuda</a>
+<h1>Parlamentares</h1>
+
+  <fieldset>
+   <legend><dtml-var nom_parlamentar></legend>
+    <table>
+     <tr>
+    <td colspan="3" class="texto"> 
+      | <a href="<dtml-var URL1>/proposicao/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Proposi&ccedil;&otilde;es</a> |
+      | <a href="<dtml-var URL1>/relatoria/relatoria_index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Relatorias</a> |
+      | <a href="<dtml-var URL1>/mandato/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Mandatos</a> |
+      | <a href="<dtml-var URL1>/filiacao_partidaria/index_html?cod_parlamentar=<dtml-var cod_parlamentar>">
+      Filia&ccedil;&atilde;o partid&aacute;ria</a> |</td>
+  </tr>
+<tr>
+<dtml-in expr="sapl_documentos.parlamentar.fotos.objectValues('Image')">
+<dtml-if expr=" _.str(cod_parlamentar)+'_'+sapl_documentos.parlamentar.fotos.nom_documento == id() ">
+<td class="texto">
+<a href="<dtml-var absolute_url>"><img border="0" src="<dtml-var absolute_url>"></a>
+</td>
+<td class="texto">&nbsp;&nbsp;</td> 
+</dtml-if>
+</dtml-in>
+<td class="texto"><b>Nome Parlamentar: </b>&nbsp;<dtml-var nom_parlamentar>
+<dtml-if sgl_partido>
+<b>&nbsp;Partido: </b>&nbsp;<dtml-var sgl_partido missing null="">
+</dtml-if><br>
+<b>Nome Completo: </b>&nbsp;<dtml-var nom_completo><br>
+<dtml-if dat_nascimento>
+<b>Data Nascimento: </b><dtml-var dat_nascimento missing null="">&nbsp;
+</dtml-if>
+<b>Sexo: </b>&nbsp;<dtml-if expr="sex_parlamentar == 'M'">
+Masculino<dtml-else> Feminino</dtml-if><br>
+<dtml-if expr="nom_profissao or num_tit_eleitor or num_rg">
+<dtml-if nom_profissao>
+<br>
+<b>Profiss&atilde;o: </b>&nbsp;<dtml-var nom_profissao missing><br>
+</dtml-if>
+</td>
+</tr>
+</dtml-if>
+<dtml-if expr="num_gab_parlamentar or num_tel_parlamentar or num_fax_parlamentar">
+<tr>
+<td colspan="3" class="texto"><b>Gabinete</b><br>
+ <dtml-if num_gab_parlamentar>
+<b>Sala: </b>&nbsp;<dtml-var num_gab_parlamentar missing>
+ </dtml-if>
+ <dtml-if num_tel_parlamentar>
+<b>Telefone: </b>&nbsp;<dtml-var num_tel_parlamentar missing>
+ </dtml-if>
+ <dtml-if num_fax_parlamentar>
+<b>Fax: </b>&nbsp;<dtml-var num_fax_parlamentar missing><br >
+ </dtml-if>
+</dtml-if>
+<dtml-if end_email>
+<b>E-mail:</b>&nbsp;<a href="mailto:<dtml-var end_email>"><dtml-var end_email missing></a><br>
+</dtml-if>
+<dtml-if end_web>
+<b>Homepage: </b><a href="<dtml-var end_web>"><dtml-var end_web missing></a>
+</dtml-if>
+</tr>
+</td></tr>
+<tr>
+<td colspan="3" class="texto"><b>Outras Informa&ccedil;&otilde;es</b><br>
+<b>Ativo na Casa?: </b><dtml-if expr="ind_ativo == 1">
+SIM
+<dtml-else>
+NÃO
+</dtml-if><br>
+<dtml-if des_local_atuacao>
+<b>Locais de Atua&ccedil;&atilde;o: </b><dtml-var des_local_atuacao missing><br>
+</dtml-if>
+</tr>
+<dtml-if txt_biografia>
+<tr>
+<td colspan="3" class="texto"><b>Biografia</b><br />
+<dtml-var txt_biografia missing>
+</td></tr>
+</dtml-if>
+</fieldset>
+</table>
+<dtml-var standard_html_footer>

@@ -1,0 +1,183 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_materia">Ajuda</a>
+<h1>Mat&eacute;rias Legislativas</h1>
+
+<dtml-if expr="incluir=='1'">
+  <table>
+    <tr class="fundo">
+      <td class="label">
+        | <a href="&dtml-portal_url;/cadastros/materia/materia_form">Incluir Matéria</a> |
+      </td>
+    </tr>
+  </table>
+</dtml-if>
+    
+   <fieldset>
+   <legend>Pesquisa B&aacute;sica</legend>
+     <table>
+<dtml-call "REQUEST.set('existe_seq_anterior', 0)">
+<dtml-call "REQUEST.set('existe_seq_posterior', 0)">
+<dtml-if page>
+  <dtml-call "REQUEST.set('page', _.int(page))">
+<dtml-else>
+  <dtml-call "REQUEST.set('page', 1)">
+</dtml-if>
+<dtml-if step>
+  <dtml-call "REQUEST.set('step', _.int(step))">
+<dtml-else>
+  <dtml-call "REQUEST.set('step', 8)">
+</dtml-if>
+<dtml-call "REQUEST.set('start',(page-1) * step + 1)">
+
+<dtml-in expr="zsql.materia_pesquisar_zsql(tip_id_basica=lst_tip_materia, num_ident_basica=txt_numero,
+                                           ano_ident_basica=txt_ano, ind_tramitacao=rad_tramitando,
+                                           des_assunto=txt_assunto, nom_relator=txt_relator,
+                                           cod_status=lst_status, des_tipo_autor=lst_tip_autor,
+                                           cod_partido=lst_cod_partido, cod_autor=hdn_cod_autor,
+                                           npc=txt_npc, dat_apresentacao=dt_apres, cod_unid_tramitacao=lst_localizacao, 
+                                           dat_apresentacao2=dt_apres2, dat_publicacao=dt_public, dat_publicacao2=dt_public2)"
+                                           size="step" start="start" orphan=0>
+    <dtml-if sequence-start>
+  <tr>
+   <td colspan="3" class="texto">
+    <b>Resultado da Pesquisa: <dtml-var sequence-length> matéria(s) encontrada(s).</b>
+   </td>
+  </tr>
+    <dtml-if previous-sequence>
+      <dtml-call "REQUEST.set('existe_seq_anterior', 1)">
+    </dtml-if previous-sequence>
+   </dtml-if sequence-start>
+            <tr>            
+              <td class="texto">
+                <dtml-comment> ---------------------------- em construção ------------------------
+                <dtml-if expr="txt_nome and txt_email">
+                        <input type="checkbox" id="txt_item_materia" name="txt_item_materia" value="" />
+                </dtml-if> 
+                </dtml-comment>
+                <dtml-if expr="incluir=='1'">
+                  <a href="&dtml-portal_url;/cadastros/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>">
+                <dtml-else>
+                  <a href="&dtml-portal_url;/consultas/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>" >
+                </dtml-if>
+                <b><dtml-var sgl_tipo_materia> <dtml-var num_ident_basica>/<dtml-var ano_ident_basica> - <dtml-var des_tipo_materia></b>
+               <dtml-comment>obtém a primeira numeração da matéria.</dtml-comment>
+               <dtml-in expr="zsql.numeracao_obter_zsql(cod_materia=cod_materia)">
+               <dtml-if num_materia>
+               <b>/&nbsp;&nbsp;Processo <dtml-var num_materia>/<dtml-var ano_materia></b>
+               </dtml-if>
+               </dtml-in>
+               </a><br>
+                <dtml-var txt_ementa missing><br>
+                <dtml-comment>obtém o primeiro autor da matéria.</dtml-comment>
+                <dtml-if expr="pysc.conta_autores_pysc(cod_materia)">
+                  <dtml-if expr="pysc.conta_autores_pysc(cod_materia)>1">
+                      <b>Autores:</b>
+                  <dtml-else>
+                      <b>Autor:</b>
+                  </dtml-if>
+                </dtml-if>  
+                <dtml-in expr="zsql.autoria_obter_zsql(cod_materia=cod_materia)">
+                  <dtml-in expr="zsql.autor_obter_zsql(cod_autor=cod_autor)">
+                    <dtml-if expr="des_tipo_autor=='Parlamentar'">
+                      <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+                               <dtml-var nom_completo><br>
+                      </dtml-in>
+                    <dtml-elif expr="des_tipo_autor=='Comissao'">
+                      <dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+                               <dtml-var nom_comissao><br>
+                      </dtml-in>
+                    <dtml-else>
+                               <dtml-var nom_autor><br>
+                    </dtml-if>
+                  </dtml-in>
+                </dtml-in>
+                <dtml-call expr="REQUEST.set('des_status', '')">
+                <dtml-call expr="REQUEST.set('txt_tramitacao', '')">
+                <dtml-comment>obtém a última tramitação da matéria.</dtml-comment>
+                <dtml-in expr="zsql.tramitacao_obter_zsql(cod_materia=cod_materia, ind_ult_tramitacao=1)">
+                  <dtml-if cod_unid_tram_dest>
+                    <dtml-call expr="REQUEST.set('cod_unid_tram', cod_unid_tram_dest)">
+                  <dtml-else>
+                    <dtml-call expr="REQUEST.set('cod_unid_tram', cod_unid_tram_local)">
+                  </dtml-if>
+                  <dtml-comment>obtém a unidade de tramitação da matéria.</dtml-comment>
+                  <dtml-in expr="zsql.unidade_tramitacao_obter_zsql(cod_unid_tramitacao=cod_unid_tram)">
+                    <dtml-if cod_orgao>
+                      <b>Localiza&ccedil;&atilde;o Atual: </b><dtml-var nom_orgao><br>
+                    <dtml-elif cod_comissao>
+                      <b>Localiza&ccedil;&atilde;o Atual: </b><dtml-var nom_comissao><br>
+                    <dtml-else> 
+                      <b>Localiza&ccedil;&atilde;o Atual: </b><dtml-var nom_parlamentar><br> 
+                    </dtml-if>
+                  </dtml-in>
+                  <dtml-call expr="REQUEST.set('des_status', des_status)">
+                  <dtml-call expr="REQUEST.set('txt_tramitacao', txt_tramitacao)">
+                <dtml-if des_status>
+                  <b>Situação: </b><dtml-var des_status null=""><br>
+                </dtml-if>
+                <dtml-if txt_tramitacao>
+                  <b>&Uacute;ltima A&ccedil;&atilde;o: </b><dtml-var txt_tramitacao>&nbsp;&nbsp;-&nbsp;&nbsp;<b>Em:</b>&nbsp;<dtml-var dat_tramitacao><br>
+                </dtml-if>
+                <dtml-if dat_fim_prazo>
+                  <b>Data Fim do Prazo: </b> <dtml-var dat_fim_prazo><br>
+                </dtml-if>
+               </dtml-in>
+                <dtml-comment>obtém normas jurídicas vinculadas </dtml-comment>
+                <b>Norma Jurídica Vinculada:</b>
+                <dtml-call expr="REQUEST.set('existe_njv', 1)">
+                <dtml-in expr="zsql.materia_buscar_norma_juridica_zsql(cod_materia=cod_materia)">
+                   <br>- <a href="&dtml-portal_url;/consultas/norma_juridica/norma_juridica_mostrar_proc?cod_norma=<dtml-var cod_norma>"><b><dtml-var des_norma> - <dtml-var num_norma>/<dtml-var ano_norma></b></a>
+                   <dtml-call expr="REQUEST.set('existe_njv', 2)">
+                <dtml-else>
+                   <dtml-if expr="existe_njv==1">
+                       N&atilde;o h&aacute;
+                   </dtml-if>
+                </dtml-in> 
+               </td>
+               <td class="texto">&nbsp;&nbsp;</td> 
+              <td>
+                <dtml-let id_documento="_.str(cod_materia)+'_texto_integral'">
+                  <dtml-if "_.hasattr(sapl_documentos.materia,id_documento)">
+                    <dtml-let documento="_.getattr(sapl_documentos.materia,id_documento).absolute_url">
+                      <div style="font-size: smaller;">Texto</div>
+                      <a target="_blank" href="<dtml-var documento>"><img align="middle" border="0" src="sapl/imagens/archiv.gif" alt="Texto Integral"></a>
+                      <div style="font-size: smaller;">Integral</div>
+                    </dtml-let>
+                  <dtml-else>
+                    <br>
+                  </dtml-if>
+                </dtml-let>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr width="50%" height="1" align="center" class="fundo"></td>
+            </tr>
+  <dtml-if sequence-end>
+    <dtml-if next-sequence>
+      <dtml-call "REQUEST.set('existe_seq_posterior', 1)">
+    </dtml-if next-sequence>
+    <dtml-if expr="existe_seq_anterior or existe_seq_posterior">
+      <tr> <td align="center" class="texto"><b>          
+          <dtml-var "sapl.pysc.PageListOutput_pysc('materia_pesquisar_proc', page, step, _['sequence-length'], incluir=incluir, txt_npc=txt_npc,
+                    existe_ocorrencia=existe_ocorrencia,lst_tip_materia=lst_tip_materia,txt_numero=txt_numero,txt_ano=txt_ano,dt_apres=dt_apres,
+                    dt_apres2=dt_apres2,dt_public=dt_public,dt_public2=dt_public2,hdn_txt_autor=hdn_txt_autor,hdn_cod_autor=hdn_cod_autor,
+                    lst_tip_autor=lst_tip_autor,lst_cod_partido=lst_cod_partido,txt_relator=txt_relator,txt_assunto=txt_assunto,
+                    rad_tramitando=rad_tramitando,lst_status=lst_status,lst_localizacao=lst_localizacao,btn_materia_pesquisar=btn_materia_pesquisar)">
+      </b></td> </tr>
+    </dtml-if>
+</dtml-if sequence-end>
+<dtml-else>
+<tr>
+<td class="texto"><b>Resultado da Pesquisa</b></td>
+</tr>
+<tr>
+<td class="texto">Nenhuma ocorrência encontrada.</td>
+</tr>
+</dtml-in>
+</td>
+</tr>
+</table>
+</fieldset>
+
+<dtml-var standard_html_footer>

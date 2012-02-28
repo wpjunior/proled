@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Sistema de Apoio ao Processo Legislativo</title>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/geral.js"></script>
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/manage_page_style); --></style>
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/estilos.css); --></style>
+</head>
+
+<dtml-in expr="zsql.norma_juridica_obter_zsql(cod_norma = cod_norma)">
+<h1> <dtml-var des_tipo_norma> <dtml-var num_norma missing>/<dtml-var ano_norma missing> </h1>
+</dtml-in>
+
+ <fieldset>
+   <legend>Identificação Básica</legend>
+      <table>
+            <tr> 
+              <td colspan="2" class="texto"><b>Tipo: </b>
+                 <dtml-var sgl_tipo_norma> - <dtml-var des_tipo_norma></td>
+              <td class="texto"><b>N&uacute;mero: </b>
+                 <dtml-var num_norma></td>
+              <td class="texto"><b>Ano: </b>
+                 <dtml-var ano_norma></td>
+            </tr>
+
+           <tr>
+	     <dtml-if tip_esfera_federacao>
+              <td colspan="2" class="texto"><b>Esfera Federa&ccedil;&atilde;o: </b>
+                  <dtml-in expr="['Municipal', 'Estadual', 'Federal']">
+                      <dtml-if expr="tip_esfera_federacao==_['sequence-item'][0]">
+                          <dtml-var sequence-item>
+                      </dtml-if>
+                  </dtml-in></td>
+             </dtml-if>
+	     <dtml-if dat_norma>
+               <td class="texto"><b>Data: </b>
+                  <dtml-var dat_norma missing null=""></td>
+              </dtml-if>
+	      <dtml-if ind_complemento>
+              <td class="texto"><b>Complementar: </b>
+                  <dtml-in expr="[(1,'Sim'),(0,'Não')]">
+                      <dtml-if expr="ind_complemento==_['sequence-key']">
+                          <dtml-var sequence-item>
+                      </dtml-if>
+                  </dtml-in></td>
+	       </dtml-if>	  
+          </tr>
+          <tr> 
+	  <dtml-if tip_id_basica_sel>
+              <td colspan="0" class="texto"><b>Mat&eacute;ria Legislativa: </b>
+                  <dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql(ind_excluido=0)">
+                    <dtml-if tip_id_basica_sel>
+                      <dtml-if expr="_.int(tip_materia) == _.int(tip_id_basica_sel)">
+			  <a href="&dtml-portal_url;/consultas/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>">
+                          <dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia>
+                       	  <dtml-if num_ident_basica_sel>
+                           <dtml-var num_ident_basica_sel missing>
+	                  </dtml-if>
+	                  <dtml-if ano_ident_basica_sel>
+                           <dtml-var ano_ident_basica_sel missing>
+                          </dtml-if> 
+                      </dtml-if>
+                    </dtml-if> 
+                  </dtml-in></td>
+	  </dtml-if>
+          </tr>
+          <tr> 
+	  <dtml-if des_veiculo_publicacao>
+              <td colspan="2" class="texto"><b>Ve&iacute;culo Publica&ccedil;&atilde;o: </b>
+                  <dtml-var des_veiculo_publicacao missing null=""></td>
+	  </dtml-if>
+	  <dtml-if dat_publicacao>	  
+              <td colspan="2" class="texto"><b>Data Publica&ccedil;&atilde;o: </b>
+                  <dtml-var dat_publicacao missing null=""></td>
+	  </dtml-if>	  
+          </tr>
+          <tr> 
+	  <dtml-if num_pag_inicio_publ>
+              <td colspan="2" class="texto"><b>N&ordm;. Pg. In&iacute;cio Public.: </b>
+                  <dtml-var num_pag_inicio_publ missing null=""></td> 
+	  </dtml-if>
+	  <dtml-if num_pag_fim_publ>	  
+              <td colspan="2" class="texto"><b>N&ordm;. Pg. Fim Public.: </b>
+                  <dtml-var num_pag_fim_publ missing null=""></td>
+	  </dtml-if>
+          </tr>
+            <tr>
+              <td colspan="2" class="texto"><b>Texto Integral da Norma:</b> 
+                <dtml-call expr="REQUEST.set('id_documento', _.str(cod_norma)+'_'+sapl_documentos.norma_juridica.nom_documento)">
+                <dtml-if "_.hasattr(sapl_documentos.norma_juridica,id_documento)">
+                  <dtml-let documento="_.getattr(sapl_documentos.norma_juridica,id_documento).absolute_url">
+                    <a target="_blank" href="<dtml-var documento>">
+                      <img align=middle border=0 src=sapl/imagens/archiv.gif alt="Texto Integral"></a>
+                  </dtml-let>
+                <dtml-else>
+                  <b> NÃO DISPONÍVEL</b>
+                </dtml-if>  
+              </td>
+            </tr> 
+     </table>
+</fieldset>
+
+<fieldset>
+   <legend>Ementa</legend>
+     <table>
+            <tr>
+             <td class="texto">
+               <dtml-var txt_ementa missing></td>
+            </tr>
+	    <dtml-if txt_indexacao>
+            <tr>
+             <td class="texto"><b>Indexação:</b> 
+             <br><dtml-var txt_indexacao missing></td>
+            </tr>
+	    </dtml-if>
+	    <dtml-if txt_observacao>
+            <tr>
+             <td class="texto"><b>Observa&ccedil;&atilde;o:</b><br>
+             <dtml-var txt_observacao missing></td>
+          </tr>
+	  </dtml-if>
+     </table>
+</fieldset>
+
+<fieldset>
+   <legend>Normas Relacionadas</legend>
+     <table>
+      <tr>  
+         <td class="label">Relacionamento</td>
+         <td class="label"> &nbsp; </td>
+         <td class="label">Norma</td>
+         <td class="label"> &nbsp; </td>
+         <td class="label">Publicação </td>
+      </tr>
+  <dtml-in expr="zsql.vinculo_norma_juridica_referentes_obter_zsql(cod_norma=cod_norma)">
+      <tr> 
+         <td class="texto">
+            <dtml-if "tip_vinculo=='A'">Alterado(o) pelo(a)
+            <dtml-elif "tip_vinculo=='R'">Revogado(a) totalmente pelo(a)
+            <dtml-elif "tip_vinculo=='P'">Revogado(a) parcialmente pelo(a)
+            <dtml-elif "tip_vinculo=='T'">Revogado(a) integralmente por consolidação
+            <dtml-elif "tip_vinculo=='C'">Norma correlata
+            <dtml-elif "tip_vinculo=='S'">Ressalvada pelo(a)
+            <dtml-elif "tip_vinculo=='E'">Reeditada pelo(a)
+            <dtml-elif "tip_vinculo=='I'">Reeditada com alteração pelo(a)
+            <dtml-elif "tip_vinculo=='G'">Regulamentada pelo(a)
+            </dtml-if>
+         </td>
+         <td class="texto">&nbsp;</td>
+         <td class="texto">
+            <a href="&dtml-portal_url;/consultas/norma_juridica/norma_juridica_mostrar_proc?cod_norma=<dtml-var cod_norma_referente>">
+            <b><dtml-var des_tipo_norma> <dtml-var num_norma>/<dtml-var ano_norma></b></a>
+         </td>
+         <td class="texto">&nbsp;</td>
+         <td class="texto">
+            <dtml-var dat_publicacao null="">
+         </td> 
+      </tr>
+  </dtml-in>
+  <dtml-in expr="zsql.vinculo_norma_juridica_referidas_obter_zsql(cod_norma=cod_norma)">
+      <tr> 
+         <td class="texto">
+            <dtml-if "tip_vinculo=='A'">Altera o(a)
+            <dtml-elif "tip_vinculo=='R'">Revoga totalmente o(a)
+            <dtml-elif "tip_vinculo=='P'">Revoga parcialmente o(a)
+            <dtml-elif "tip_vinculo=='T'">Revoga integralmente a norma por consolidação
+            <dtml-elif "tip_vinculo=='C'">Norma correlata
+            <dtml-elif "tip_vinculo=='S'">Ressalva o(a)
+            <dtml-elif "tip_vinculo=='E'">Reedita o(a)
+            <dtml-elif "tip_vinculo=='I'">Reedita com alteração o(a)
+            <dtml-elif "tip_vinculo=='G'">Regulamenta o(a)
+            </dtml-if>
+         </td>
+         <td class="texto">&nbsp;</td>
+         <td class="texto">
+            <a href="&dtml-portal_url;/consultas/norma_juridica/norma_juridica_mostrar_proc?cod_norma=<dtml-var cod_norma_referida>">
+            <b><dtml-var des_tipo_norma> <dtml-var num_norma>/<dtml-var ano_norma></b></a>
+         </td>
+         <td class="texto">&nbsp;</td>
+         <td class="texto">
+            <dtml-var dat_publicacao null="">
+         </td>
+         </tr>
+         </dtml-in>
+           <dtml-unless "zsql.vinculo_norma_juridica_referidas_obter_zsql(cod_norma=cod_norma)
+                or zsql.vinculo_norma_juridica_referentes_obter_zsql(cod_norma=cod_norma)">
+       <tr><td class="texto" colspan="5">Nenhum vínculo encontrado para esta norma.</td></tr>
+       </dtml-unless>
+  </table>
+</fieldset>
+<form><p align="center"><input class="botao" type="button" value="Retornar" onClick="history.go(-1)"></p></form>

@@ -1,0 +1,86 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/orgao">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td width="34%" class="form-label">| <a href="orgao_form">Incluir Orgão</a> |</td>
+<dtml-comment>
+    <td align="right" class="form-label">
+     | <a href="javascript:history.go(-1)">Voltar</a> |</td>
+</dtml-comment>
+   </tr>
+</table>
+
+<dtml-comment>
+**********************************************************************************
+*      O código abaixo gera uma lista com os nomes dos tipos de órgãos           *
+*   e utiliza o processo de BATCHING para quebrar a lista em sequências. O n. de *
+*   comissões em uma página pode atingir no máximo 10.                           *
+**********************************************************************************
+</dtml-comment>
+<fieldset><legend>Órgão</legend>
+<dtml-call "REQUEST.set('existe_seq_anterior', 0)">
+<dtml-call "REQUEST.set('existe_seq_posterior', 0)">
+<dtml-if page>
+  <dtml-call "REQUEST.set('page', _.int(page))">
+<dtml-else>
+  <dtml-call "REQUEST.set('page', 1)">
+</dtml-if>
+<dtml-if step>
+  <dtml-call "REQUEST.set('step', _.int(step))">
+<dtml-else>
+  <dtml-call "REQUEST.set('step', 8)">
+</dtml-if>
+<dtml-call "REQUEST.set('start',(page-1) * step + 1)">
+  <dtml-in expr="zsql.orgao_obter_zsql()" size="step" start="start" orphan=0>
+    <dtml-if sequence-start>
+ <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr class="fundo"> 
+            <td width="80%" class="form-label">Nome do Órgão</td>
+            <td width="20%" class="form-label"> | Sigla</td>
+          </tr>
+          
+      <dtml-if previous-sequence>
+	<dtml-call "REQUEST.set('existe_seq_anterior', 1)">
+      </dtml-if previous-sequence>
+    </dtml-if sequence-start>
+<dtml-comment>
+****************************************************************************
+*     O código abaixo gera o link para o método que busca todas as infor-  *
+*  mações do tipo de autor e mostra o formulário com os dados preenchidos. *
+****************************************************************************
+</dtml-comment>
+          <tr style="height:17">
+            <td width="80%" class="form-element">
+             <a href="orgao_mostrar_proc?cod_orgao=<dtml-var cod_orgao>"><dtml-var nom_orgao></a></td>
+            <td width="20%" class="form-text">&nbsp;&nbsp;<dtml-var sgl_orgao></td>
+          </tr>
+    <dtml-if sequence-end>
+      <dtml-if next-sequence>
+	<dtml-call "REQUEST.set('existe_seq_posterior', 1)">
+      </dtml-if next-sequence>
+<dtml-if expr="existe_seq_anterior or existe_seq_posterior">
+      <tr> <td align="center" class="form-text"><b>          
+          <dtml-var "sapl.pysc.PageListOutput_pysc('orgao_index_html', page, step, _['sequence-length'])">
+      </b></td> </tr>
+    </dtml-if>
+       </table>
+    </dtml-if sequence-end>
+ <dtml-else>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr><td class="form-text">Nenhum órgão cadastrado.</td></tr>
+       </table>
+ </dtml-in>
+  </td>
+ </tr>
+</table>
+</fieldset>
+<dtml-var standard_html_footer>

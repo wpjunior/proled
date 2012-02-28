@@ -1,0 +1,279 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript" language="Javascript" src="javascript/data_validar_jvsc"></script>
+<script type="text/javascript" language="Javascript">
+<!--
+
+function campos_criticar(form){
+/*-----------------------------
+Função: Verifica se os campos estão preenchidos corretamente.
+Argumentos: form : formulário em si.
+Retorno: False - caso detecte na validação algum erro no preenchimento dos campos;
+caso contrário, invoca o SUBMIT do formulário.
+Rommel Carvalho e Danilo Custódio em 20/04/01.
+------------------------------*/
+
+var regexp_digitos = /\D+/;
+
+if (form.lst_tip_norma.value == "") {
+alert("O tipo de norma deve ser selecionado!");
+form.lst_tip_norma.focus();
+return false;
+}
+
+if (form.txt_num_norma.value == "") {
+alert("O número da norma deve ser preenchido!");
+form.txt_num_norma.focus();
+return false;
+}
+
+if (regexp_digitos.test(form.txt_num_norma.value)) {
+alert("O número da norma deve ser um número natural!");
+form.txt_num_norma.focus();
+return false;
+}
+
+if (form.txt_ano_norma.value == "") {
+alert("O ano da norma deve ser preenchido!");
+form.txt_ano_norma.focus();
+return false;
+}
+
+if (regexp_digitos.test(form.txt_ano_norma.value)) {
+alert("O ano da norma deve ser um número natural!");
+form.txt_ano_norma.focus();
+return false;
+}
+
+if (form.txt_dat_norma.value == "") {
+alert ("A data da norma deve ser preenchida!")
+form.txt_dat_norma.focus();
+form.txt_dat_norma.select();
+return false;
+}
+if (!IsValidDate(form.txt_dat_norma.value)) {
+alert("Digite uma data válida!");
+form.txt_dat_norma.focus();
+form.txt_dat_norma.select();
+return false;
+}
+
+if (form.txt_dat_publicacao.value != "") {
+if (!IsValidDate(form.txt_dat_publicacao.value)) {
+alert("Digite uma data válida!");
+form.txt_dat_publicacao.focus();
+return false;
+}
+}
+
+if (regexp_digitos.test(form.txt_num_pag_inicio_publ.value)) {
+alert("O número da página inicial deve ser um número natural!");
+form.txt_num_pag_inicio_publ.focus();
+return false;
+}
+
+if (regexp_digitos.test(form.txt_num_pag_fim_publ.value)) {
+alert("O número da página final deve ser um número natural!");
+form.txt_num_pag_fim_publ.focus();
+return false;
+}
+
+if (form.txt_num_pag_inicio_publ.value > form.txt_num_pag_fim_publ.value) {
+alert("A página inicial deve ser menor ou igual que a página final!");
+form.txt_num_pag_fim_publ.focus();
+form.txt_num_pag_fim_publ.selec();
+return false;
+}
+
+if (form.txa_txt_ementa.value == "") {
+alert("A ementa deve ser preenchida!");
+form.txa_txt_ementa.focus();
+return false;
+}
+
+if (form.file_nom_arquivo.value != "") {
+form.hdn_file.value = 1;
+}
+
+form.submit();
+}
+
+function norma_juridica_excluir() {
+/*-----------------------------
+Função: Solicita a confirmação e chama o Método DTML de exclusão da norma juridica.
+Argumentos:
+Retorno: Retorna uma mensagem de exclusão bem sucedida e redireciona à página 'index_html'.
+Michael em 20/04/01.
+------------------------------*/
+
+if (confirm("Deseja realmente excluir?")) {
+location.href = "norma_juridica_excluir_proc?cod_norma=<dtml-var cod_norma missing>";
+}
+
+}
+
+function ativa_desativa_file_field(form) {
+form.file_nom_arquivo.disabled = !(form.radTI[2].checked);
+}
+
+//-->
+</script>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/norma_juridica">Ajuda</a> </div>
+<h1 class="firstHeading"> Norma Jur&iacute;dica </h1>
+
+<dtml-if expr="_.has_key('cod_norma')">
+<table width="100%" align="center">
+<tr class="fundo">
+<td width="34%" class="form-label2">
+| <a href="&dtml-portal_url;/cadastros/norma_juridica/vinculo_norma_juridica/vinculo_norma_juridica_index_html?cod_norma=<dtml-var cod_norma>">
+Normas Relacionadas</a> |
+</td>
+</tr>
+</table>
+</dtml-if>
+<br />
+<form name="norma_juridica_form" method="post" action="norma_juridica_salvar_proc" enctype="multipart/form-data">
+<fieldset><legend>Norma Jurídica - inclusão / edição </legend>
+<table width="100%" align="center">
+<tr style="height:50">
+<td colspan="2" class="form-element">Tipo (*)<br/>
+<select name="lst_tip_norma">
+<option>Selecione</option>
+<dtml-in expr="zsql.tipo_norma_juridica_obter_zsql(ind_excluido=0)">
+<option
+<dtml-if tip_norma_sel>
+<dtml-if expr="_.int(tip_norma) == _.int(tip_norma_sel)">
+selected
+</dtml-if>
+</dtml-if>
+value="<dtml-var tip_norma missing>">
+<dtml-var sgl_tipo_norma> - <dtml-var des_tipo_norma></option>
+</dtml-in>
+</select></td>
+<td width="25%" class="form-element">N&uacute;mero (*)<br/>
+<input type="text" name="txt_num_norma" size="6" maxlength="6" value="<dtml-var num_norma missing null="">"/></td>
+<td width="25%" class="form-element">Ano (*)<br/>
+<dtml-unless ano_norma>
+<dtml-call expr="REQUEST.set('ano_norma', _.DateTime.year(_.DateTime()))">
+</dtml-unless>
+<input type="text" name="txt_ano_norma" size="4" maxlength="4" value="<dtml-var ano_norma missing>"/></td>
+</tr>
+<tr style="height:60" valign="top">
+<td width="25%" class="form-text"><b>Data (*)</b><br/>
+<input type="text" name="txt_dat_norma" value="<dtml-var dat_norma missing>" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_norma)" />
+            <span class="nota">(dd/mm/aaaa)</span></td>
+<td width="25%" class="form-element">Esfera Federa&ccedil;&atilde;o (*)<br/>
+<select name="lst_tip_esfera_federacao">
+<option>Selecione</option>
+<dtml-in expr="['Municipal', 'Estadual', 'Federal']">
+<option
+<dtml-if expr="_.has_key('cod_norma') and tip_esfera_federacao==_['sequence-item'][0]"> selected
+</dtml-if>
+value="<dtml-var expr="_['sequence-item'][0]">">
+<dtml-var expr="_['sequence-item']"></option>
+</dtml-in>
+</select></td>
+<td colspan="2" class="form-element">&Eacute; Complementar<br/>
+<dtml-in expr="[(1,'Sim'),(0,'Não')]">
+<input type="radio" name="rad_ind_complemento" value="<dtml-var expr="_['sequence-key']">"
+<dtml-if expr="_.has_key('cod_norma') and ind_complemento==_['sequence-key']"> checked="1"
+</dtml-if> />
+<dtml-var expr="_['sequence-item']">
+</dtml-in></td>
+</tr>
+          <tr style="height=60"> 
+              <td colspan="2" class="form-element">Mat&eacute;ria Legislativa<br>
+               <select name="lst_tip_id_basica">
+                <option>
+                <dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql(ind_excluido=0)">
+                   <option
+                     <dtml-if tip_id_basica_sel>
+                       <dtml-if expr="_.int(tip_materia) == _.int(tip_id_basica_sel)">
+                         selected
+                       </dtml-if>
+                     </dtml-if>
+                    value="<dtml-var tip_materia missing>"> 
+                    <dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia></option>
+                </dtml-in>
+                </select></td>
+             <td width="25%" class="form-element">N&uacute;mero<br>
+              <input type="text" name="txt_num_ident_basica" size="5" value="<dtml-var num_ident_basica_sel missing>" maxlength="5"></td>
+             <td width="25%" class="form-element">Ano:<br>
+              <input type="text" name="txt_ano_ident_basica" size="4" value="<dtml-var ano_ident_basica_sel missing>" maxlength="4"></td>
+          </tr>
+<tr style="height:60" valign="top">
+<td width="25%" class="form-text"><b>Data Publica&ccedil;&atilde;o</b><br/>
+<input type="text" name="txt_dat_publicacao" size="10" value="<dtml-var dat_publicacao missing null="">" maxlength="10" onBlur="formata_data(form.txt_dat_publicacao)"/>
+<span class="nota" style="font-size:10px">(dd/mm/aaaa)</span></td>
+<td width="25%" class="form-element">Ve&iacute;culo Publica&ccedil;&atilde;o<br/>
+<input type="text" name="txt_des_veiculo_publicacao" size="20" value="<dtml-var des_veiculo_publicacao missing null="">" maxlength="30"/></td>
+<td width="25%" class="form-element">Pg. In&iacute;cio<br/>
+<input type="text" name="txt_num_pag_inicio_publ" size="5" value="<dtml-var num_pag_inicio_publ missing null="">" maxlength="5"/></td>
+<td width="25%" class="form-element">Pg. Fim<br/>
+<input type="text" name="txt_num_pag_fim_publ" size="5" value="<dtml-var num_pag_fim_publ missing null="">" maxlength="5"/></td>
+</tr>
+<!-- tr height="40">
+<td colspan="4" class="form-element">Texto Integral<br/>
+<input type="file" name="file_nom_arquivo" size="45" maxlength="100"/>
+<input type="hidden" name="hdn_file" value=0/>
+</td>
+</tr -->
+<tr>
+<td colspan="4" class="form-element">Texto Integral<br/>
+<input type="hidden" name="hdn_file" value="0"/>
+<dtml-if cod_norma>
+<dtml-call expr="REQUEST.set('id_documento', _.str(cod_norma)+'_'+sapl_documentos.norma_juridica.nom_documento)">
+<dtml-if "_.hasattr(sapl_documentos.norma_juridica,id_documento)">
+<dtml-let documento="_.getattr(sapl_documentos.norma_juridica,id_documento).absolute_url">
+<a href="<dtml-var documento>"><img align="middle" border="0" src="sapl/imagens/archiv.gif" alt="Texto Integral"></a>
+</dtml-let>
+<input type="radio" name="radTI" value="M" checked="true" onClick="ativa_desativa_file_field(document.norma_juridica_form)"/>Manter<br/>
+<input type="radio" name="radTI" value="E" onClick="ativa_desativa_file_field(document.norma_juridica_form)"/>Excluir
+<input type="radio" name="radTI" value="S" onClick="ativa_desativa_file_field(document.norma_juridica_form)"/>Substituir:
+<input type="file" name="file_nom_arquivo" size="45" maxlength="100" disabled="1"/>
+<dtml-else>
+<input type="file" name="file_nom_arquivo" size="45" maxlength="100"/>
+<input type="hidden" name="radTI" value="I"/>
+</dtml-if>
+<dtml-else>
+<input type="file" name="file_nom_arquivo" size="45" maxlength="100"/>
+<input type="hidden" name="radTI" value="I"/>
+</dtml-if>
+</td>
+</tr>
+<tr>
+<td colspan="4" class="form-element">Ementa (*)<br/>
+<textarea name="txa_txt_ementa" cols="60"
+onBlur="form.txa_txt_ementa.value = form.txa_txt_ementa.value.toUpperCase()"><dtml-var txt_ementa missing></textarea>
+</td>
+</tr>
+<tr>
+<td colspan="4" class="form-element">Indexação<br/>
+<textarea name="txa_txt_indexacao" cols="60"
+onBlur="form.txa_txt_indexacao.value = form.txa_txt_indexacao.value.toUpperCase()"><dtml-var txt_indexacao missing null=""></textarea>
+</td>
+</tr>
+<tr>
+<td colspan="4" class="form-element">Observa&ccedil;&atilde;o<br/>
+<textarea name="txa_txt_observacao" cols="60"><dtml-var txt_observacao missing null=""></textarea>
+</td>
+</tr>
+</table>
+</fieldset>
+<p align="center">
+<input type="button" class="botao" name="btn_norma_juridica_salvar" value="Salvar" onClick="campos_criticar(document.norma_juridica_form)"/>
+&nbsp;&nbsp;
+<dtml-if cod_norma>
+<input type="button" class="botao" name="btn_norma_juridica_excluir" value="Excluir" onClick="norma_juridica_excluir(document.norma_juridica_form)"/>
+</dtml-if>
+</p>
+
+<input type="hidden" name="hdn_tip_norma_ant" value="<dtml-var tip_norma_ant missing>"/>
+<input type="hidden" name="hdn_num_norma_ant" value="<dtml-var num_norma_ant missing>"/>
+<input type="hidden" name="hdn_ano_norma_ant" value="<dtml-var ano_norma_ant missing>"/>
+<input type="hidden" name="hdn_cod_norma" value="<dtml-var cod_norma missing>"/>
+
+</form>
+
+<dtml-var standard_html_footer>

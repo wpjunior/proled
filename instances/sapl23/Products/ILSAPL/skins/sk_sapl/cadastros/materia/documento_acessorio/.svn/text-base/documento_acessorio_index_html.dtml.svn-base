@@ -1,0 +1,78 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/doc_acessorio">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="index_form" action="documento_acessorio_form">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>" />
+
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>
+    <dtml-var materia_menu>
+    <table width="100%" align="center">
+       <tr><td colspan=5><dtml-var materia_header></td></tr>
+    </table>
+    <fieldset><legend>Documentos Acess&oacute;rios</legend>
+    <table width="98%" align="center">
+
+<dtml-in expr="zsql.documento_acessorio_obter_zsql(cod_materia=cod_materia,ind_excluido=0)" size=20 start=query_start orphan=2>
+  <dtml-if sequence-start>   
+
+       
+       <tr class="fundo"> 
+          <td width="6%" valign="top" class="form-label">&nbsp;Doc</td>
+          <td width="27%" valign="top" class="form-label">| Nome</td>
+          <td width="20%" valign="top" class="form-label">| Tipo</td>
+          <td width="20%" valign="top" class="form-label">| Data</td>
+          <td width="27%" valign="top" class="form-label">| Autor</td>
+       </tr>
+       
+     <dtml-if previous-sequence>
+       <tr><td class="form-element">
+           <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+           Página Anterior (<dtml-var previous-sequence-size> resultados)</a>
+       </td></tr>
+       <tr><td>&nbsp;</td></tr>
+     </dtml-if previous-sequence>  
+   </dtml-if sequence-start> 
+       <tr> 
+          <td width="6%">
+             <dtml-call expr="REQUEST.set('id_documento', _.str(cod_documento))">
+             <dtml-if expr="_.hasattr(sapl_documentos.materia,id_documento)">
+               <dtml-let documento="_.getattr(sapl_documentos.materia,id_documento).absolute_url">
+                 <a href="<dtml-var documento>">
+                 <img alt="" align=middle border=0 src=sapl/imagens/archiv.gif /></a>
+               </dtml-let>
+             </dtml-if>
+          </td>
+ 
+           <td width="27%" class="form-element">&nbsp;&nbsp;<a href="documento_acessorio_mostrar_proc?cod_documento=<dtml-var cod_documento missing>">
+             <dtml-var nom_documento missing null=""></a></td>
+           <td width="20%" class="form-text">&nbsp;
+              <dtml-in expr="zsql.tipo_documento_obter_zsql(ind_excluido=0,tip_documento=tip_documento)">
+                 <dtml-var des_tipo_documento missing null="">
+              </dtml-in></td>
+           <td width="20%" class="form-text">&nbsp;&nbsp;<dtml-var dat_documento missing null=""></td>
+           <td width="27%" class="form-text">&nbsp;&nbsp;<dtml-var nom_autor_documento missing null=""></td>
+       </tr>
+   <dtml-if sequence-end>
+     <dtml-if next-sequence>
+       <tr><td><font size="1">&nbsp;</font></td></tr>
+       <tr><td class="form-element">
+           <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+           Próxima Página (<dtml-var next-sequence-size> resultados)</a>
+       </td></tr>
+     </dtml-if next-sequence>
+       </table>
+  </dtml-if sequence-end>
+<dtml-else>
+       <tr><td class="form-text">Nenhum documento acessório cadastrado para essa matéria.</td></tr>
+     </table>
+</dtml-in>
+    </fieldset>
+     <center><p>
+          <input type="submit" class="botao" name="btn_incluir" value="Incluir Documento Acessório" />
+     </p></center><br />
+   </fieldset> 
+</body>
+</form>
+<dtml-var standard_html_footer>

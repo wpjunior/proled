@@ -1,0 +1,85 @@
+<dtml-var standard_html_header>
+<h1>Sistema de Apoio ao Processo Legislativo - SAPL</h1>
+<dtml-if expr="(REQUEST['HTTP_REFERER'].split('/')[-1]=='login_form') and (str(REQUEST['AUTHENTICATED_USER']).strip()=='Anonymous User')">
+  <p align="center">
+    <b>ATENÇÃO: Tentativa de Login Falhou !!!<br /><br />USU&Aacute;RIO e/ou SENHA inválidos.</b>
+  </p>
+<dtml-else>
+  <dtml-if "sapl_documentos.props_sapl.txt_informacao_geral">
+    <p class="texto">
+      <dtml-var "sapl_documentos.props_sapl.txt_informacao_geral">
+    </p>
+  <dtml-else>
+    <p class="texto">O Sistema de Apoio ao Processo Legislativo (SAPL) tem como finalidade apoiar as Casas Legislativas nas suas atividades relacionadas ao processo legislativo em geral, tais como: elaboração de proposições, recepção e tramitação das matérias legislativas, organização das sessões plenárias, manutenção atualizada da base de leis, entre outras. Ele também disponibiliza consultas às informações sobre mesa diretora, comissões, parlamentares, ordem do dia, proposições, matérias legislativas, normas jurídicas e outras. O SAPL facilita as atividades dos parlamentares, servidores da Casa e permite aos cidadãos acompanharem o andamento dos processos legislativos, além de pesquisar a legislação.</p>
+  </dtml-if>
+<table id="homeGrid">
+  <dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Autor'])">
+  <tr>
+    <td class="columnOne">
+      <h2>Proposições</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/cadastros/proposicao"><img src="&dtml-portal_url;/imagens/icon_proposicoes.gif" /></a>
+      <a href="&dtml-portal_url;/cadastros/proposicao">Proposta legislativa elaborada e encaminhada à Casa Legislativa pelo parlamentar. Em geral, os tipos de proposição são: Moção, Indicação, Requerimento, Projetos de Lei, Projetos de Decreto Legislativo, Projetos de Resolução, Projeto Substitutivo, Emenda, Projeto de Iniciativa Popular.</a>
+    </td>
+    <td></td>
+  </tr>
+  </dtml-if>
+  <tr>
+    <td class="columnOne">
+      <h2>Mesa Diretora</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/consultas/mesa_diretora"><img src="&dtml-portal_url;/imagens/icon_mesa_diretora.gif" /></a>
+      <a href="&dtml-portal_url;/consultas/mesa_diretora">Órgão colegiado, composto de no mínimo três membros efetivos - Presidente e 1º e 2º Secretários - a quem cabe a direção dos trabalhos legislativos. Os parlamentares integrantes da Mesa Diretora são eleitos por seus pares na primeira reunião de instalação do período legislativo, para um mandato de dois anos.</a>
+    </td>
+    <td class="columnTwo">
+      <h2>Comissões</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/consultas/comissao"><img src="&dtml-portal_url;/imagens/icon_comissoes.gif" /></a>
+      <a href="&dtml-portal_url;/consultas/comissao">Órgãos da Casa Legislativa, de natureza técnica especializada e que têm por objetivo prestar melhores esclarecimentos aos parlamentares para a tomada de decisões. Assim, as comissões elaboram estudos, pareceres a respeito de determinados projetos de lei e investigação de irregularidades sobre o fato determinado.</a> </td>
+  </tr>
+  <tr>
+    <td class="columnOne">
+      <h2>Parlamentares</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/consultas/parlamentar"><img src="&dtml-portal_url;/imagens/icon_parlamentares.gif" /></a>
+      <a href="&dtml-portal_url;/consultas/parlamentar">O Poder Legislativo, exercido pelo sistema de representação, tem nos parlamentares a sua expressão máxima. Devem transformar os anseios de seus representados em ações diretas, na forma de leis ou buscando junto do Executivo obras e atos que beneficiem a sua comunidade. Possuem funções legisladora, administrativa, julgadora e de fiscalização sobre a conduta do Executivo.</a>
+    </td>
+    <td class="columnTwo">
+      <h2>Ordem do Dia</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/consultas/ordem_dia"><img src="&dtml-portal_url;/imagens/icon_ordem_dia.gif" /></a>
+      <a href="&dtml-portal_url;/consultas/ordem_dia">Utilizada para se determinar quais projetos serão discutidos e votados. A responsabilidade pela elaboração da Ordem do Dia é definida no Regimento Interno que, em geral, dá poderes ao Presidente da Casa Legislativa para a sua elaboração. Também, pode ficar a cargo de um colégio de líderes dos partidos políticos.</a> 
+    </td>
+  </tr>
+  <tr>
+    <td class="columnOne">
+      <h2>Sessão Plenária</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/consultas/sessao_plenaria"><img src="&dtml-portal_url;/imagens/icon_plenarias.gif" /></a>
+      <a href="&dtml-portal_url;/consultas/sessao_plenaria">Foro apropriado para a tomada de decisões sobre os projetos de lei e outras matérias legislativas ou administrativas, aprovadas ou rejeitadas em votação pelos parlamentares. É dirigida pela Mesa Diretora de acordo com o Regimento Interno da Casa. As decisões votadas em plenário são soberanas e prevalecem sobre interesses ou vontades individuais.</a>
+    </td>
+    <td class="columnTwo">
+      <h2>Matérias Legislativas</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/generico/materia_pesquisar_form?incluir=0"><img src="&dtml-portal_url;/imagens/icon_materia_legislativa.gif" /></a>
+      <a href="&dtml-portal_url;/generico/materia_pesquisar_form?incluir=0">Tem início com o processo de criação de lei e a apresentação de projeto no Poder Legislativo. Na apreciação de matérias, podem haver eventuais conflitos de interpretação ou de entendimento entre o que estabelece o Regimento Interno da Casa e a Lei Orgânica do Município. Nestes casos, prevalece a Lei Orgânica.</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="columnOne">
+      <h2>Normas Jurídicas</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/generico/norma_juridica_pesquisar_form?incluir=0"><img src="&dtml-portal_url;/imagens/icon_normas_juridicas.gif" /></a>
+      <a href="&dtml-portal_url;/generico/norma_juridica_pesquisar_form?incluir=0">Nos municípios, referem-se as emendas à Lei Orgânica, as leis complementares, as leis ordinárias, os decretos legislativos e as resoluções.</a>
+    </td>
+    <td class="columnTwo">
+      <h2>Relatórios</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/relatorios_administrativos"><img src="&dtml-portal_url;/imagens/icon_relatorios.gif" /></a>
+      <a href="&dtml-portal_url;/relatorios_administrativos">Contém informações estatísticas sobre a produção legislativa dos parlamentares e da Casa, dispostas e agrupadas de diferentes formas de acordo com parâmetros fornecidos.</a>
+    </td>
+  </tr>
+  <dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Autor'])">
+  <tr>
+    <td class="columnOne">
+      <h2>Proposições</h2>
+      <a class="homeIcon" href="&dtml-portal_url;/cadastros/proposicao"><img src="&dtml-portal_url;/imagens/icon_proposicoes.gif" /></a>
+      <a href="&dtml-portal_url;/cadastros/proposicao">Refere-se a proposta legislativa elaborada e encaminhada a Casa Legislativa pelo parlamentar. Em geral, os tipos de proposição são: Moção, Indicação, Requerimento, Projetos de Lei, Projetos de Decreto Legislativo, Projetos de Resolução, Projeto Substitutivo, Emenda, Projeto de Iniciativa Popular.</a>
+    </td>
+    <td></td>
+  </tr>
+  </dtml-if>
+</table>
+</dtml-if>
+<dtml-var standard_html_footer>

@@ -1,0 +1,34 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/relatorios#rel_topo">Ajuda</a>
+<h1>Relat&oacute;rios</h1>
+
+ <fieldset>
+  <legend>Relat&oacute;rios Administrativos</legend>  
+   <table>
+       <tr> 
+         <th class="label">Relat&oacute;rio</th>
+         <th class="label">&nbsp;&nbsp;</th>
+         <th class="label">Descrição</th>
+       </tr>
+<dtml-in expr="objectValues('Filesystem Directory View')">
+  <dtml-if expr="propriedades.nome_relatorio">
+    <dtml-if expr="(propriedades.acesso_publico and _.str(AUTHENTICATED_USER)=='Anonymous User') or not _.str(AUTHENTICATED_USER)=='Anonymous User'">
+       <tr>
+         <td class="texto">
+            <a href="&dtml-portal_url;/relatorios_administrativos/<dtml-var id>">
+              <b><dtml-var expr="propriedades.nome_relatorio"></b>
+            </a>
+         </td>
+         <td class="texto">&nbsp;&nbsp;</td>
+         <td class="texto">
+           <dtml-var expr="propriedades.desc_relatorio">
+         </td>
+       </tr>
+   </dtml-if>
+  </dtml-if>
+</dtml-in>
+</table>
+</fieldset>
+
+<dtml-var standard_html_footer>

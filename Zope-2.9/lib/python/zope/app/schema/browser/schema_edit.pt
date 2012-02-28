@@ -1,0 +1,81 @@
+<html metal:use-macro="context/@@standard_macros/view"
+    i18n:domain="zope">
+  <body>
+  <div metal:fill-slot="body">
+
+  <div metal:define-macro="body">
+
+    <h3 i18n:translate="">
+      Schema Name: 
+      <span tal:content="view/name" i18n:name="schema_name"/>
+    </h3>
+
+    <form action="." tal:attributes="action request/URL" method="post"
+          enctype="multipart/form-data">
+
+    <p tal:define="status view/update"
+       tal:condition="status"
+       tal:content="status" />
+
+    <p tal:condition="view/errors" i18n:translate="">
+           There are  <strong tal:content="python:len(view.errors)"
+                              i18n:name="num_errors">6</strong> input errors.
+    </p>
+
+    <tal:block repeat="error view/errors">
+       <div class="error" tal:content="error">error</div>
+    </tal:block>
+
+    <div metal:define-macro="formbody">
+
+      <table id="sortable" class="listing" summary="Content listing"
+             i18n:attributes="summary">
+
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th i18n:translate="">Name</th>
+            <th i18n:translate="">Type</th>
+            <th i18n:translate="">Title</th>
+            <th i18n:translate="">Required</th>
+            <th i18n:translate="">Read-Only</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        <tr tal:repeat="row view/fields">
+          <td><input type="checkbox" name="ids:list"
+                     value=""
+                     tal:attributes="value row/name" /></td>
+          <td><a href="#"
+                 tal:attributes="href string:${request/URL/-1}/${row/name}/@@edit.html"
+                 tal:content="row/name">Name</a></td>
+          <td tal:content="row/type">Type</td>
+          <tal:block define="field row/field">
+          <td tal:content="field/title">Title</td>
+          <td tal:content="field/required">Required</td>
+          <td tal:content="field/readonly">Read-Only</td>
+          </tal:block>
+        </tr>
+
+        </tbody>
+      </table>
+
+      </div>
+
+      <div class="row">
+        <div class="controls">
+          <input type="submit" name="DELETE" value="Delete"
+              i18n:attributes="value delete-field-button" />
+        </div>
+      </div>
+
+  </form>
+
+  </div>
+
+  </div>
+  </body>
+
+</html>

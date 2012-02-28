@@ -1,0 +1,139 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript" src="javascript/data_validar_jvsc"></SCRIPT>
+<script type="text/javascript">
+<!--
+
+function campos_criticar(form){  
+/*-----------------------------
+  Função: Verifica se os campos estão preenchidos corretamente.
+  Argumentos: form : formulário em si.                     
+  Retorno: False - caso detecte na validação algum erro no preenchimento dos campos;
+           caso contrário, invoca o SUBMIT do formulário.
+  Michael em 19/03/01.
+------------------------------*/   
+
+  if (form.hdn_num_legislatura.value == "" &&
+      form.txt_num_legislatura.value == "") {
+    alert("Digite o número da legislatura!");
+    form.txt_num_legislatura.focus();
+    return false;
+  }
+
+  if (form.txt_dat_inicio.value == "") {
+    alert("A data início deve ser preenchida.");
+    form.txt_dat_inicio.focus();
+    return false;
+  }
+  
+  if (!IsValidDate(form.txt_dat_inicio.value)) {
+    alert("Digite uma data início válida!");
+    form.txt_dat_inicio.focus();
+    form.txt_dat_inicio.select();
+    return false;
+  }
+
+  if (form.txt_dat_fim.value == "") {
+    alert("A data fim deve ser preenchida.");
+    form.txt_dat_fim.focus();
+    return false;
+  }
+
+  if (!IsValidDate(form.txt_dat_fim.value)) {
+    alert("Digite uma data fim válida!");
+    form.txt_dat_fim.focus();
+    form.txt_dat_fim.select();
+    return false;
+  }
+
+  var dat_fim = form.txt_dat_fim.value;
+  dat_fim = dat_fim.substring(6,10) + dat_fim.substring(3,5) + dat_fim.substring(0,2);
+
+  var dat_inicio = form.txt_dat_inicio.value;
+  dat_inicio = dat_inicio.substring(6,10) + dat_inicio.substring(3,5) + dat_inicio.substring(0,2);
+  
+  if (dat_inicio >= dat_fim) {
+     alert("A data início deve ser menor que a data fim!");
+     return false;
+  }
+
+  if (form.txt_dat_eleicao.value == "") {
+    alert("A data de eleição deve ser preenchida.");
+    form.txt_dat_eleicao.focus();
+    return false;
+  }
+
+  if (!IsValidDate(form.txt_dat_eleicao.value)) {
+    alert("Digite uma data de eleição válida!");
+    form.txt_dat_eleicao.focus();
+    form.txt_dat_eleicao.select();
+    return false;
+  }
+
+  form.submit();
+}
+
+function legislatura_excluir(form) {
+/*-----------------------------
+  Função: Solicita a confirmação e chama o Método DTML de exclusão da legislatura.
+  Argumentos: 
+  Retorno: Retorna uma mensagem de exclusão bem sucedida e redireciona à página 'index_html'.
+  Michael em 19/03/01.
+------------------------------*/
+       
+  if (confirm("Deseja realmente excluir?")) {  
+    location.href = "legislatura_excluir_proc?num_legislatura=" + form.hdn_num_legislatura.value;
+  }
+  
+}
+
+//-->
+</script>
+<form name="legislatura_form" method="post" action="legislatura_salvar_proc">
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/legislatura">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">| <a href="index_html">Início</a> |</td>
+   </tr>
+</table>  
+ <input type="hidden" name="hdn_num_legislatura" value="<dtml-var num_legislatura missing>" />
+ <fieldset><legend>Legislatura</legend>
+  <table width="95%" align="center" >
+    <tr>
+      <td>
+        <table width="98%" align="center">
+          <tr> 
+<dtml-unless num_legislatura>
+            <td colspan="3" class="form-element">Nº Legislatura (*)<br />
+             <input type="text" name="txt_num_legislatura" /></td>
+          </tr>
+</dtml-unless>
+         
+          <tr>
+            <td width="33%" class="form-text"><b>Data Início (*)</b><br />
+              <input type="text" name="txt_dat_inicio" value="<dtml-var dat_inicio_conv missing>" size="12" maxlength="10" onBlur="formata_data(form.txt_dat_inicio)" />
+             <br /><span class="nota">(dd/mm/aaaa)</span></td>     
+             <td width="33%" class="form-text"><b>Data Fim (*)</b><br />
+               <input type="text" name="txt_dat_fim" value="<dtml-var dat_fim_conv missing>" size="12" maxlength="10" onBlur="formata_data(form.txt_dat_fim)" />
+               <br /><span class="nota">(dd/mm/aaaa)</span></td>
+             <td width="33%" class="form-text"><b>Data Eleição (*)</b><br />
+              <input type="text" name="txt_dat_eleicao" value="<dtml-var dat_eleicao_conv missing>" size="12" maxlength="10" onBlur="formata_data(form.txt_dat_eleicao)" />
+             <br /><span class="nota">(dd/mm/aaaa)</span></td>
+         </tr>
+      </table>
+   </fieldset>
+  <center><p>
+  <input type="button" class="botao" name="btn_legislatura_salvar" value="Salvar" onClick="campos_criticar(document.legislatura_form)" />
+  &nbsp;&nbsp;
+  <dtml-if num_legislatura>
+    <input type="button" class="botao" name="btn_legislatura_excluir" value="Excluir" onClick="legislatura_excluir(document.legislatura_form)" />
+  </dtml-if>
+  </p></center>
+   </td>
+  </tr>
+ </table>
+</form>
+<dtml-var standard_html_footer>

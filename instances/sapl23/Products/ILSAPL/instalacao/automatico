@@ -1,0 +1,13 @@
+
+#SAPL2.0-------------------------------------------
+#Comando inseridos pelo instalador do Sistema SAPL
+#Para inicialização automática do ZOPE
+
+if [ -f /usr/local/interlegis/Zope-2.7.0-sapl/bin/runzope ] ; then
+        pushd /usr/local/interlegis/Zope-2.7.0-sapl/bin
+	./runzope &
+	popd
+fi
+#-------------------------------------------------
+
+

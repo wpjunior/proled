@@ -1,0 +1,83 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/proposicao#consulta">Ajuda</a>
+<h1 class="firstHeading"> Proposi&ccedil;&atilde;o </h1> 
+
+<ul>
+    <li>
+        <a href="proposicao_form">Elaborar Nova Proposição</a>
+    </li>
+</ul>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+
+<dtml-comment>
+**************************************************************************
+*      O código abaixo gera uma lista com os nomes das comissões e utili-*
+*   za o processo de BATCHING para quebrar a lista em sequências. O n. de*
+*   comissões em uma página pode atingir no máximo 10.                   *
+**************************************************************************
+</dtml-comment>
+
+<dtml-in expr="zsql.proposicao_obter_zsql(ind_excluido=0, col_username=AUTHENTICATED_USER.getUserName())" size=8 start=query_start orphan=2>
+  <dtml-if sequence-start>    
+    <table width="98%" border="1" cellpadding="0" cellspacing="0" class="borda" align="center">    
+      <tr>
+        <td> 
+          <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr class="fundo">  
+              <td width="18%" class="form-label">Enviada em</td>
+              <td width="15%" class="form-label"> | Tipo</td>
+              <td width="55%" class="form-label">| Descrição</td>
+              <td width="12%" class="form-label" align="center">| Recebida?</td>
+            </tr>
+      <dtml-if previous-sequence>
+            <tr>
+              <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">Página Anterior (<dtml-var previous-sequence-size>)</a></td>
+            </tr>
+            <tr>
+              <td><font size="1">&nbsp;</font></td>
+            </tr>
+      </dtml-if previous-sequence>
+    </dtml-if sequence-start>
+            <tr height="17"> 
+              <td width="18%" valign="top" class="form-element"><a href="proposicao_mostrar_proc?cod_proposicao=<dtml-var cod_proposicao >"><dtml-if expr="dat_envio=='00/00/0000 00:00:00'">Em Elabora&ccedil;&atilde;o...<dtml-else><dtml-var dat_envio></dtml-if></a></td>
+              <td width="15%" valign="top" class="form-text">&nbsp;<dtml-var des_tipo_proposicao></td>
+              <td width="55%" valign="top" class="form-text">&nbsp;<dtml-var txt_descricao></td>
+              <td width="12%" valign="top" class="form-text" align="center">&nbsp;
+	      <dtml-if expr="dat_recebimento and dat_devolucao">Devolvida
+	      <dtml-else><dtml-if expr="dat_recebimento and not dat_devolucao">Sim<dtml-else>Não</dtml-if>
+	      </dtml-if></td>
+            </tr>
+    <dtml-if sequence-end>
+      <dtml-if next-sequence>
+            <tr>
+              <td><font size="1">&nbsp;</font></td>
+            </tr>
+            <tr>
+              <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">Próxima Página (<dtml-var next-sequence-size>)</a></td>
+            </tr>
+      </dtml-if next-sequence>
+          </table>
+    </dtml-if sequence-end>
+<dtml-else>
+  <table width="95%" border="1" cellspacing="0" cellpadding="0" align="center" class="borda">
+    <tr>
+      <td>
+        <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="form-text">Nenhuma proposição foi enviada ainda.</td>
+          </tr>
+        </table>
+</dtml-in>
+      </td>
+    </tr>
+  </table> 
+<dtml-var standard_html_footer>

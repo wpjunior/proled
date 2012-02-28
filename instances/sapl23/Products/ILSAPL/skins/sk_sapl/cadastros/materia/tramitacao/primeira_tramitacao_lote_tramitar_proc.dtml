@@ -1,0 +1,434 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tramitacao_lote">
+Ajuda</a> </div>
+<h1 class="firstHeading"> Tramitação em Lote </h1>
+
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_jvsc"></SCRIPT>
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+  
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                pelo botão btn_tramitacao_salvar do formulário para 
+                validação dos campos.
+         Argumentos: form : formulário - é o formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Observação: Este formulário atende o caso específico de tramitação
+                     em lote quando é a primeira tramitação da matéria.
+         Sérgio Damiati 08/02/2005.
+      ------------------------------*/ 
+
+      if (form.lst_cod_unid_tram_local.selectedIndex == 0){
+          alert("A unidade local deve ser preenchida!");
+          form.lst_cod_unid_tram_local.focus();
+          return false;
+      }
+
+      if (form.txt_dat_encaminha.value!="") {
+         if (!IsValidDate(form.txt_dat_encaminha.value)){
+           alert("Digite uma data de encaminhamento válida!");
+           form.txt_dat_encaminha.focus();
+           form.txt_dat_encaminha.select();
+           return false;
+         }
+   
+         var dat_tramitacao = form.txt_dat_tramitacao.value.substring(6,10) + form.txt_dat_tramitacao.value.substring(3,5) + form.txt_dat_tramitacao.value.substring(0,2);
+         var dat_encaminha = form.txt_dat_encaminha.value.substring(6,10) + form.txt_dat_encaminha.value.substring(3,5) + form.txt_dat_encaminha.value.substring(0,2);
+         if (dat_encaminha < dat_tramitacao) {
+            alert("A data de encaminhamento deve ser maior ou igual à data de tramitação!");
+            form.txt_dat_encaminha.focus();
+            form.txt_dat_encaminha.select();
+            return false;
+         }
+         
+      }
+
+      if (form.lst_cod_status.selectedIndex == 0){
+          alert("O status da matéria deve ser preenchido!");
+          form.lst_cod_status.focus();
+          return false;
+      }
+      
+      if (form.lst_cod_unid_tram_dest.selectedIndex == 0){
+          alert("A unidade destino deve ser preenchida!");
+          form.lst_cod_unid_tram_dest.focus();
+          return false;
+      }
+
+      if (!(form.rad_ind_urgencia[0].checked ||
+            form.rad_ind_urgencia[1].checked)){
+         alert("O índice de urgência deve ser preenchido!");
+         form.rad_ind_urgencia[1].focus();
+         return false;
+      }
+
+      if (form.txt_dat_fim_prazo.value!="") {
+         if (!IsValidDate(form.txt_dat_fim_prazo.value)){
+           alert("Digite uma data de fim de prazo válida!");
+           form.txt_dat_fim_prazo.focus();
+           form.txt_dat_fim_prazo.select();
+           return false;
+         }
+         var dat_fim_prazo = form.txt_dat_fim_prazo.value.substring(6,10) + form.txt_dat_fim_prazo.value.substring(3,5) + form.txt_dat_fim_prazo.value.substring(0,2);
+
+         if (dat_fim_prazo < dat_tramitacao) {
+           alert("A data de fim de prazo tem que ser maior ou igual à data de tramitação!");
+           form.txt_dat_fim_prazo.focus();
+           form.txt_dat_fim_prazo.select();
+           return false;
+         }
+      }
+
+      if (form.txa_txt_tramitacao.value == "") {
+         alert("O texto da tramitação deve ser preenchido!");
+         form.txa_txt_tramitacao.focus();
+         form.txa_txt_tramitacao.select();
+         return false;
+      }
+
+      var check = 0;
+      for (var i = 0; i < form.txt_tamanho.value; i++) {
+         if (form.txt_tamanho.value == 1) {
+           if (form.check_tram.checked) check++;
+         }
+         else {
+           if (form.check_tram[i].checked) check++;
+         }
+      }       
+      if (check == 0) {
+         alert("Nenhuma propositura foi selecionada!");
+         return false;
+      }
+            
+      form.txt_check.value = check;
+      form.hdn_dat_tramitacao.value = form.txt_dat_tramitacao.value;
+      form.hdn_cod_unid_tram_local.value = form.lst_cod_unid_tram_local.value;
+
+      form.submit();
+  }
+
+  function selecao(form) {
+     if (form.select_all.value == 'Selecionar Tudo') {
+        form.select_all.value = 'Desfazer';
+        if (form.txt_tamanho.value != 1) {
+          for (var i = 0; i < form.txt_tamanho.value; i++) {
+            form.check_tram[i].checked = true;
+          }
+        }
+        else form.check_tram.checked = true;
+      }
+      else {
+        form.select_all.value = 'Selecionar Tudo';
+        if (form.txt_tamanho.value != 1) {
+          for (var i = 0; i < form.txt_tamanho.value; i++) {
+            form.check_tram[i].checked = false;
+          }
+        }
+        else form.check_tram.checked = false;
+      }
+  }
+  
+//-->
+</SCRIPT>
+
+<body class="fundo">
+<dtml-call expr="REQUEST.set('check_ocorrencia', 0)">
+<dtml-call expr="REQUEST.set('primeira_vez', '1')">
+<dtml-call expr="REQUEST.set('contador', 0)">
+
+<dtml-in expr="zsql.materia_legislativa_pesquisar_zsql(tip_id_basica=tram_tip_materia,  
+                                                       dat_tramitacao=pysc.data_converter_pysc(data=tram_dat_tramitacao),
+                                                       data_inicial=pysc.data_converter_pysc(txt_data_inicial), 
+                                                       data_final=pysc.data_converter_pysc(txt_data_final))">
+
+  <dtml-in expr="zsql.tramitacao_pesquisar_zsql(cod_materia=cod_materia)">
+    <dtml-comment>Se achar alguma tramitação, a matéria é descartada e nada é feito</dtml-comment>
+  <dtml-else>
+    <dtml-call expr="REQUEST.set('contador', contador + 1)">
+	
+   <dtml-if primeira_vez>
+
+    <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+     <tr class="fundo">
+     <td width="25%" align="left" class="form-label">&nbsp;| Primeira Tramitação |</td>
+     <td width="25%" align="left" class="form-label">&nbsp;| <a href="<dtml-var URL>/tramitacao_lote_form">Tramitação em Lote</a> |</td>
+     <td width="50%" align="left" class="form-label">&nbsp;</td>
+     </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <tr height="7">
+      <td></td>
+     </tr>
+    </table>
+    <table width="95%" border="1" cellspacing="0" cellpadding="0" align="center" class="borda">
+    <tr>
+     <td>
+         <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr class="fundo">
+           <td class="form-label" colspan="3">&nbsp;&nbsp;Primeira Tramitação</td>
+          </tr>
+          <tr height="55" align="left" valign="bottom">
+
+      <dtml-call expr="REQUEST.set('check_ocorrencia', '1')">
+      <dtml-call expr="REQUEST.set('primeira_vez', '')">
+   <form name="primeira_tramitacao_lote_tramitar_proc" method="post" action="tramitacao_lote_salvar_proc">
+        <input type="hidden" name="txt_check" value="">
+        <input type="hidden" name="hdn_cod_tramitacao" value="<dtml-var cod_tramitacao missing>">
+        <input type="hidden" name="hdn_dat_tramitacao" value="<dtml-var tram_dat_tramitacao missing>">
+        <input type="hidden" name="hdn_cod_unid_tram_local" value="">
+
+           <td class="form-element" width="33%">&nbsp;&nbsp;
+            <b>Data A&ccedil;&atilde;o</b><br>
+            &nbsp;&nbsp;&nbsp;<input type="text" name="txt_dat_tramitacao" size="10" maxlength="10" value="<dtml-var tram_dat_tramitacao missing>" disabled>
+           <span class="nota">
+             (dd/mm/aaaa)
+            </span>
+           </td>
+	   <td width="33%" class="form-element" valign="bottom">
+            Data Inicial<br>
+             <input type="text" name="txt_data_inicial" size="10" maxlength="10" value="<dtml-var txt_data_inicial>" disabled>
+	     <span class="nota">
+             (dd/mm/aaaa)
+             </span>
+           </td>
+           <td width="33%" class="form-element" valign="bottom">
+            Data Final<br>
+             <input type="text" name="txt_data_final" size="10" maxlength="10" value="<dtml-var txt_data_final>" disabled>
+             <span class="nota">
+              (dd/mm/aaaa)
+             </span>
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <table width="100%" border="0" align="left">
+          <tr>
+           <td class="form-element" valign="top"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Tipo da Mat&eacute;ria<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<select name="tram_tip_materia" disabled>
+            <dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql(tip_materia=tram_tip_materia,ind_excluido=0)">
+             <option value="<dtml-var tip_materia>">
+              <dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia>
+             </option>
+            </dtml-in>
+           </select>  
+          </td>
+         </tr>
+        </table>
+       </td>
+      </tr>
+      <tr>
+       <td><br><hr width="99%" height="1" align="center">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+         <tr>
+          <td></td>  
+         </tr>
+         <tr valign="top">
+          <td class="form-text"><br>
+           <table width="100%" border="0">
+            <tr>
+             <td width="70%" class="form-element" valign="top">
+              &nbsp;&nbsp;&nbsp;&nbsp;Unidade Local (*)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<select name="lst_cod_unid_tram_local">
+              <option></option>
+              <dtml-in expr="zsql.unidade_tramitacao_obter_zsql()">
+               <option value="<dtml-var cod_unid_tramitacao>">
+               <dtml-if cod_orgao>
+                <dtml-var nom_orgao>
+               <dtml-elif cod_comissao>
+                <dtml-var nom_comissao> 
+               <dtml-else>
+                <dtml-var nom_parlamentar> 
+               </dtml-if>
+               </option>
+              </dtml-in>
+              </select>
+             </td>
+             <td width="23%" align="left" class="form-element" valign="top">
+              Data Encaminhamento<br>
+              <input type="text" name="txt_dat_encaminha" id="txt_dat_encaminha" size="10" maxlength="10" value="" onBlur="formata_data(form.txt_dat_encaminha)">
+              <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_dat_encaminha',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+              <span class="nota">
+               (dd/mm/aaaa)
+              </span>
+             </td>
+            </tr>
+           </table>
+          </td>
+         </tr>
+         <tr>
+          <td><br>
+           <table width="100%" border="0">
+            <tr>          
+             <td width="70%" class="form-element">
+              &nbsp;&nbsp;&nbsp;&nbsp;Status (*)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<select name="lst_cod_status" onChange="javascript:form.hdn_alterou.value=1">
+               <option></option>
+               <dtml-in expr="zsql.status_tramitacao_obter_zsql()">
+               <option <dtml-if expr="_.has_key('cod_tramitacao') and cod_status==tramitacao_form.cod_status">
+                        selected
+                       </dtml-if> value="<dtml-var cod_status>">
+                <dtml-var sgl_status> - <dtml-var des_status>
+               </option>
+               </dtml-in>
+              </select>
+             </td>
+	     <td width="23%" align="left" valign="bottom" class="form-element">
+              Data Fim do Prazo<br>
+              <input type="text" name="txt_dat_fim_prazo" id="txt_dat_fim_prazo" size="10" maxlength="10" value="<dtml-var dat_fim_prazo missing null="">" onChange="javascript:form.hdn_alterou.value=1" onBlur="formata_data(form.txt_dat_fim_prazo)">
+              <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_dat_fim_prazo',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+              <span class="nota">
+               (dd/mm/aaaa)
+              </span>
+             </td>
+            </tr>
+           </table>
+          </td>
+         </tr>
+         <tr>        
+          <td width="60%" class="form-element"><br>
+           <table width="100%" border="0">
+            <tr>
+             <td class="form-element" width="50%">          
+              &nbsp;&nbsp;&nbsp;&nbsp;Unidade Destino (*)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<select name="lst_cod_unid_tram_dest" onChange="javascript:form.hdn_alterou.value=1">
+               <option></option>
+              <dtml-in expr="zsql.unidade_tramitacao_obter_zsql()">
+               <option <dtml-if expr="_.has_key('cod_tramitacao') and cod_unid_tram_dest==cod_unid_tramitacao">
+                        selected
+                       </dtml-if> value="<dtml-var cod_unid_tramitacao>">
+                       <dtml-if cod_orgao>
+                        <dtml-var nom_orgao>
+                       <dtml-elif cod_comissao>
+                        <dtml-var nom_comissao> 
+                       <dtml-else>
+                        <dtml-var nom_parlamentar> 
+                       </dtml-if>
+               </option>
+              </dtml-in>
+              </select>
+             </td>
+             <td width="23%" align="left" class="form-text">
+              <b>Urgente? (*)</b><br>
+              <dtml-in expr="[(1,'Sim'),(0,'Não')]">
+               <input type="radio" name="rad_ind_urgencia" value="<dtml-var sequence-key>" 
+                      onChange="javascript:form.hdn_alterou.value=1"><dtml-var sequence-item>
+              </dtml-in>
+             </td>
+             <td width="24%" class="form-text">
+              <b>Turno</b><br>
+              <select name="lst_sgl_turno" onChange="javascript:form.hdn_alterou.value=1">
+               <option></option>
+
+          <dtml-comment> comentada e alterada pela Man Qi pelo fato de não estar funcionando corretamente. 13/05/02
+              <dtml-in expr="['Primeiro','Segundo','Único','Suplementar']">
+               <option <dtml-if expr="_.has_key('cod_tramitacao') and sgl_turno==_['sequence-item'][0]">
+                        selected
+                       </dtml-if> value="<dtml-var expr="_['sequence-item'][0]">">
+                <dtml-var sequence-item>
+               </option>
+              </dtml-in>
+          </dtml-comment>
+              <dtml-in expr="[('P','Primeiro'),('S','Segundo'),('U','Único'),('L','Suplementar'),('F','Final'),('A','Votação Única em Regime de Urgência'),('B','1ª Votação'),('C','2ª e 3ª Votação')]">
+               <option <dtml-if expr="_.has_key('cod_tramitacao') and sgl_turno==_['sequence-key']"> 
+                        selected
+                       </dtml-if> value="<dtml-var expr="_['sequence-key']">">
+                <dtml-var sequence-item>
+               </option>
+              </dtml-in>
+              </select>
+             </td>
+            </tr>
+           </table>
+          </td>
+         </tr>
+         <tr> 
+          <td width="50%" class="form-element"><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;Texto da A&ccedil;&atilde;o (*)<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;<textarea name="txa_txt_tramitacao" cols="45"></textarea>
+          </td>
+         </tr>
+        </table><br>
+        <table width="95%" border="1" cellpadding="0" cellspacing="0" class="borda" align="center">
+         <tr>
+          <td><br>
+           <table width="98%" border="0" align="center" cellspacing="0" cellpadding="0">
+   </dtml-if primeira_vez>
+
+    <dtml-in expr="zsql.numeracao_pesquisar_zsql(cod_materia=cod_materia, ind_excluido=0)">
+      <dtml-call expr="REQUEST.set('num_materia', _['sequence-item'][0])">
+    <dtml-else>
+      <dtml-call expr="REQUEST.set('num_materia', '')">
+    </dtml-in>
+      <tr>
+       <td class="texto">
+        <input type="checkbox" name="check_tram" value="<dtml-var cod_materia>">
+         <b><dtml-var num_materia missing></b> - <dtml-var sgl_tipo_materia> <dtml-var num_ident_basica> <dtml-var ano_ident_basica> - <dtml-var des_tipo_materia>
+       </td>
+      </tr>
+      <tr>
+       <td colspan="3"><hr width="50%" height="1" align="center"></td>
+      </tr>
+  </dtml-in>
+</dtml-in>
+<dtml-if check_ocorrencia>
+  <table width="100%">
+        <tr class="fundo">
+          <td colspan="3" class="form-label">&nbsp;Resultado da Pesquisa: <dtml-var contador> matéria(s) encontrada(s).</td>
+          <input type="hidden" name="txt_tamanho" value="<dtml-var contador>">
+        </tr>
+        <tr height="45">
+          <td width="26%" align="center" valign="middle">
+            <input class="botao" type="button" name="btn_tramitacao_lote_tramitar" value="Tramitar" 
+                   onClick="campos_criticar(document.primeira_tramitacao_lote_tramitar_proc)">&nbsp;&nbsp;
+            <input class="botao" type="reset" name="btn_limpar" value="Limpar">
+            <input type="button" name="select_all" value="Selecionar Tudo" onClick="selecao(this.form)">
+          </td>
+        </tr>
+      </table>
+<dtml-else>  
+              <br>
+                <table width="98%" align="center"> 
+                  <tr>
+                    <td><fieldset><legend>Resultado da Pesquisa</legend> 
+                      <table width="98%" border="0" align="center" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" class="form-text">Nenhuma ocorrência encontrada.</td>
+                        </tr>
+                      </table></fieldset>
+      <table width="100%">
+       <tr>
+        <td width="26%" align="center" valign="bottom">
+          <input class="botao" type="button" name="btn-retornar" value="Retornar" onClick="history.go(-1)">
+        </td>
+       </tr>
+     </table>   
+</dtml-if check>
+</table></table>
+</form>
+
+<dtml-var standard_html_footer>

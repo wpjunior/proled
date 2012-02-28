@@ -1,0 +1,132 @@
+<dtml-var standard_html_header>
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+   function submeter(endereco){
+      var form = document.comissao_form;      
+      endereco += '?cod_comissao=<dtml-var cod_comissao>&incluir=0';
+      location.href = endereco;
+  }   
+//-->
+</SCRIPT>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_comissoes">Ajuda</a>
+<h1>Comiss&otilde;es</h1>
+
+  <fieldset>
+   <legend><dtml-var nom_comissao></legend>
+    <table>
+		  <tr>
+		    <td colspan="0">
+			<ul>
+                         <dtml-if expr="zsql.composicao_comissao_obter_zsql(cod_comissao=cod_comissao)">
+			 <li> <a href="javascript:submeter('composicao/index_html')">Composi&ccedil;&atilde;o</a></li>
+                         </dtml-if>
+                         <dtml-if expr="zsql.unidade_tramitacao_obter_zsql(cod_comissao=cod_comissao)">
+			 <li> <a href="&dtml-portal_url;/consultas/comissao/materia/materia_index_html?cod_comissao=<dtml-var cod_comissao>&txt_npc=&existe_ocorrencia=&lst_tip_materia=&txt_numero=&txt_ano=&dt_apres=&dt_apres2=&dt_public=&dt_public2=&hdn_txt_autor=&hdn_cod_autor=&lst_tip_autor=&lst_cod_partido=&txt_relator=&txt_assunto=&rad_tramitando=&lst_status=&lst_localizacao=&btn_materia_pesquisar=&incluir=0">Mat&eacute;rias em Tramita&ccedil;&atilde;o</a></li>
+                         </dtml-if>
+			</ul>
+                    </td>
+                  </tr>
+     <td class="texto"><b>Dados Básicos</b></td>
+     <tr>
+        <td colspan="0" class="texto">Nome da Comissão: <b> <dtml-var nom_comissao></b></td>
+        <td class="texto">&nbsp;Sigla:<b> <dtml-var sgl_comissao></b></td>
+     </tr>
+     <tr>
+        <td class="texto">Tipo: <b>
+           <dtml-in expr="zsql.tipo_comissao_obter_zsql(tip_comissao=tip_comissao)">
+           <dtml-var nom_tipo_comissao>
+           </dtml-in></b></td>
+        <td class="texto">&nbsp;Data Criação: <b><dtml-var dat_criacao></b></td>
+     </tr>
+     <tr>
+         <td class="texto">Unidade deliberativa: <b>
+            <dtml-if expr="ind_unid_deliberativa==1">Sim
+            <dtml-else>Não</dtml-if></b></td>
+      </tr>
+
+<dtml-if expr="loc_reuniao or des_agenda_reuniao or num_tel_reuniao or end_secretaria or
+               nom_secretario or num_tel_secretaria or num_fax_secretaria or end_email or txt_finalidade">
+     <tr> 
+       <td class="texto"><b>Complementares</b></td>
+     </tr>
+<dtml-if loc_reuniao>
+     <tr> 
+       <td class="texto">Local Reunião: <b>
+         <dtml-var loc_reuniao missing></b></td>
+     </tr>
+</dtml-if>
+<dtml-if expr="des_agenda_reuniao or num_tel_reuniao">
+     <tr> 
+       <td class="texto">Data/Hora Reunião: <b>
+         <dtml-var des_agenda_reuniao missing></b></td>
+       <td class="texto">&nbsp;Tel. Sala Reunião: <b>
+          <dtml-var num_tel_reuniao missing></b></td>
+     </tr>
+</dtml-if>
+<dtml-if end_secretaria>
+     <tr>
+       <td class="texto">End. Secretaria: <b>
+         <dtml-var end_secretaria missing null=""></b></td>
+    </tr>
+</dtml-if>
+<dtml-if nom_secretario>
+     <tr> 
+       <td class="texto">Secretário: <b>
+         <dtml-var nom_secretario missing></b></td>
+     </tr>
+</dtml-if>
+<dtml-if expr="num_tel_secretaria or num_fax_secretaria">
+     <tr> 
+       <td class="texto">Tel. Secretaria: <b>
+          <dtml-var num_tel_secretaria missing></b></td>
+       <td class="texto">&nbsp;Fax Secretaria: <b>
+         <dtml-var num_fax_secretaria missing></b></td>
+     </tr>
+</dtml-if>
+<dtml-if end_email>
+     <tr> 
+       <td class="texto">E-mail: <b>
+          <dtml-var end_email missing></b></td>
+     </tr>
+</dtml-if>
+<dtml-if txt_finalidade>
+     <tr> 
+       <td colspan="0" class="texto">Finalidade: <b>
+         <dtml-var txt_finalidade missing></b></td>
+     </tr>
+</dtml-if>
+</dtml-if>
+
+<dtml-if expr="nom_apelido_temp or dat_instalacao_temp or dat_final_prevista_temp or
+               dat_prorrogada_temp or dat_fim_comissao">
+      <tr> 
+        <td class="texto"><b>Tempor&aacute;ria</b></td>
+      </tr>
+      <tr>
+        <td class="texto">Apelido: <b>
+          <dtml-var nom_apelido_temp missing></b></td>
+        <td class="texto">&nbsp;Data Instalação: <b>
+         <dtml-var dat_instalacao_temp missing null=""></b></td>
+      </tr>
+      <tr> 
+        <td class="texto">Data Prevista Término: <b>
+         <dtml-var dat_final_prevista_temp missing null=""></b></td>
+<dtml-if dat_prorrogada_temp>
+        <td class="texto">&nbsp;Novo Prazo: <b>
+          <dtml-var dat_prorrogada_temp missing null=""></b></td>
+</dtml-if>
+<dtml-if dat_fim_comissao>
+        <td class="texto">&nbsp;Data Término: <b>
+         <dtml-var dat_fim_comissao missing null=""></b></td>
+</dtml-if>
+      </tr>
+    </table>
+</dtml-if>
+   </td>
+  </tr>
+</table>
+</fieldset>
+
+<dtml-var standard_html_footer>

@@ -1,0 +1,184 @@
+<dtml-var standard_html_header>
+
+<script language="javascript">
+<!--
+   function submeter(endereco){
+      /*-----------------------------
+         Função: Confirma se o usuário deseja salvar os dados ao clicar em
+               link do formulário que não os botões SALVAR ou EXCLUIR.
+         Argumentos: endereco : txt - é o endereço que deve ser renderizado
+                     apos a confirmação ou não de salvar os dados. 
+         Retorno: Uma janela de confirmação. Se o usuário confirmar, ele 
+                invoca o método materia_salvar_proc.
+                Se ele cancelar, a função apenas renderiza o endereço
+                (caso esteja na atualizacao).
+         Michael Onishi , Daniel C. Azevedo em 09/04/01.
+      ------------------------------*/
+      
+      var form = document.autoria_form;
+
+      endereco += '?cod_materia=' + form.hdn_cod_materia.value + '&dat_apresentacao=' + form.dat_apresentacao.value;
+
+      if (form.hdn_alterou.value=="1"){
+         if (confirm("Deseja salvar os dados?")){
+            form.hdn_url.value = endereco;
+            campos_criticar(form);
+         }else {location.href = endereco}
+      }
+      location.href = endereco;
+
+   }
+
+   function campos_criticar(form){
+      var tipo_autor = form.lst_tip_autor[form.lst_tip_autor.selectedIndex].value;
+      if (tipo_autor=='0'){
+         alert("Um tipo de autor deve ser excolhido!");
+         form.lst_tip_autor.focus();
+         return false;
+      }
+
+      var cod_autor = form.lst_cod_autor[form.lst_cod_autor.selectedIndex].value;
+      if (cod_autor=='0'){
+         alert("Um autor deve ser excolhido!");
+         form.lst_cod_autor.focus();
+         return false; 
+      }
+
+
+      if (!(form.rad_ind_primeiro_autor[0].checked || 
+            form.rad_ind_primeiro_autor[1].checked)){
+         alert("A opção 'Primeiro Autor' deve ser preenchida!"); 
+         return false;
+      }  
+
+      form.submit();   
+   }
+
+   function tipo_autor_mudou(form){
+      /*-----------------------------
+         Função: Reinvoca a página atribuindo à 'tip_autor_' o valor do tipo
+               de autor selecionado e à 'des_tipo_autor' o a descrição do 
+               tipo de autor selecionado.
+         Argumentos: form : formulário - é o formulario em si.
+         Retorno: A página atualizada com a combo lst_cod_autor tendo os nomes
+               dos possíveis autores listados.
+         Daniel C. Azevedo em 16/04/2001.
+      ------------------------------*/
+      var valor = form.lst_tip_autor[form.lst_tip_autor.selectedIndex].value;      
+      var separador = valor.indexOf("&");
+      var URL = 'autoria_form?tip_autor=' + valor.substring(0,separador) + '&des_tipo_autor=' +
+                valor.substring(separador+1,valor.length)+ '&hdn_cod_materia=' + 
+                form.hdn_cod_materia.value + '&cod_materia=' + form.cod_materia.value + 
+                '&dat_apresentacao=' + form.dat_apresentacao.value + '&cod_autor=' + form.hdn_cod_autor.value;      
+      location.href= URL;
+   }
+
+   function autoria_excluir(form){
+       /*-----------------------------
+          Função: Chama o Método DTML de exclusão da autoria
+          Argumentos: ().
+          Retorno: Retorna uma mensagem de exclusão bem sucessida e
+                redireciona à página 'index_html'.
+          Daniel C. Azevedo em 19/04/2001.
+       ------------------------------*/
+       var URL = 'autoria_excluir_proc?hdn_cod_materia=' + form.hdn_cod_materia.value + '&hdn_cod_autor=' + form.hdn_cod_autor.value + '&dat_apresentacao=' + form.dat_apresentacao.value;
+
+       if (confirm("Deseja realmente excluir?")) {
+          location.href=URL;
+       }
+   }   
+
+-->
+</script>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/despacho_autoria#autoria">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="autoria_form" method="post" action="autoria_salvar_proc">
+<input type="hidden" name="hdn_cod_materia" value="<dtml-var hdn_cod_materia>">
+<input type="hidden" name="cod_materia" value="<dtml-var cod_materia>">
+<input type="hidden" name="dat_apresentacao" value="<dtml-var dat_apresentacao missing>">
+<input type="hidden" name="hdn_cod_autor" value="<dtml-var cod_autor missing>">
+<input type="hidden" name="hdn_url" value="index_html?cod_materia=<dtml-var cod_materia>&dat_apresentacao=<dtml-var dat_apresentacao>">
+<input type="hidden" name="hdn_alterou" value="<dtml-if expr="REQUEST.has_key('des_tipo_autor')">1<dtml-else>0</dtml-if>">
+<body bgcolor="#FFFFFF">
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>
+    <dtml-var materia_menu>
+         <table width="100%" align="center">
+           <tr><td><dtml-var materia_header></td></tr>
+         </table>
+       
+        <fieldset><legend>Autoria</legend>
+        <table width="98%" align="center">
+           <tr height="45"> 
+             <td width="30%" class="form-element">Tipo de Autor (*)<br>
+              <select name="lst_tip_autor" size="1" onChange="tipo_autor_mudou(document.autoria_form)">
+              <dtml-unless tip_autor>
+               <option value="0"></option>
+             </dtml-unless>
+              <dtml-in expr="zsql.tipo_autor_obter_zsql(tip_autor='')">            
+               <option <dtml-if expr="REQUEST.has_key('tip_autor') and tip_autor==_.int(REQUEST['tip_autor'])">
+                      selected </dtml-if>
+                      value="<dtml-var tip_autor>&<dtml-var des_tipo_autor url_quote>">
+              <dtml-var des_tipo_autor></option>
+              </dtml-in>
+             </select>
+             </td>
+
+             <td width="50%" class="form-element">Autor (*)<br>
+              <dtml-if expr="_.has_key('des_tipo_autor')"> 
+              <select name="lst_cod_autor" size="1" onChange="javascript:form.hdn_alterou.value=1">
+               <option value=0></option>
+               <dtml-if expr="des_tipo_autor=='Parlamentar'">
+                  <dtml-in expr="zsql.autor_obter_zsql(parlamentar='1', ind_col_username='1')">
+                     <option <dtml-if expr="REQUEST.has_key('cod_parlamentar') and cod_parlamentar==REQUEST['cod_parlamentar']">
+                        selected</dtml-if>
+                        value="<dtml-var cod_autor>">
+                        <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+                           <dtml-if  expr="pysc.autoria_parlamentar_validar_pysc(txt_dat_apresentacao=dat_apresentacao, cod_parlamentar=cod_parlamentar)"> <dtml-var nom_parlamentar> - <dtml-var sgl_partido null=""> </dtml-if>
+                        </dtml-in></option>
+                  </dtml-in>
+               <dtml-elif expr="des_tipo_autor=='Comissao'">
+                  <dtml-in expr="zsql.autor_obter_zsql(comissao='1')">
+                      <option <dtml-if expr="REQUEST.has_key('cod_comissao') and cod_comissao==REQUEST['cod_comissao']">
+                         selected</dtml-if>
+                         value="<dtml-var cod_autor>">
+                         <dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+                            <dtml-var nom_comissao>
+                         </dtml-in></option>
+                  </dtml-in>
+                 <dtml-else>                                    
+                  <dtml-in expr="zsql.autor_obter_zsql(des_tipo_autor=des_tipo_autor)">
+                      <option <dtml-if expr="REQUEST.has_key('cod_autor') and cod_autor==REQUEST['cod_autor']">
+                         selected</dtml-if>
+                         value="<dtml-var cod_autor>">
+                         <dtml-var nom_autor> 
+                       </option>
+                    </dtml-in>
+                   </dtml-if>
+                </select>
+                <dtml-else>
+                 <input type="text" name="txt_nom_autor" disabled>
+              </dtml-if>
+             </td>
+             <td width="20%" class="form-text" nowrap><b>Primeiro Autor (*)</b><br>
+               <dtml-in expr="[('1','Sim'),('0','Não')]">
+                <input type="radio" name="rad_ind_primeiro_autor" value="<dtml-var expr="_['sequence-key']">"
+                   <dtml-if expr="_.has_key('ind_primeiro_autor') and ind_primeiro_autor==_['sequence-key']">checked=1 </dtml-if> onChange="javascript:form.hdn_alterou.value=1">
+                 <dtml-var sequence-item>
+              </dtml-in>
+             </td>
+           </tr>
+        </table>
+        </fieldset>
+        <p><center>
+        <input type="button" class="botao" name="btn_autoria_atualiza" value="Salvar" onClick="campos_criticar(document.autoria_form)">
+         &nbsp;&nbsp;
+        <dtml-if expr="_.has_key('cod_autor') and cod_autor!=''">
+         <input type="button" class="botao" name="btn_autoria_excluir" value="Excluir" onClick="autoria_excluir(document.autoria_form)">
+        </dtml-if></center></p>
+       <p>&nbsp;</p>
+     </fieldset>
+ </body>
+</form>
+<dtml-var standard_html_footer>

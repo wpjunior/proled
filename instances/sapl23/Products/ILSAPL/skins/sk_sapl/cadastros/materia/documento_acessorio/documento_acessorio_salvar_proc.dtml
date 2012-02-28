@@ -1,0 +1,86 @@
+<dtml-comment> script alterado para incorporar documento acessório a partir de proposição elaborada. Man Qi em 09/01/04 </dtml-comment>
+
+<dtml-if hdn_cod_documento>
+  <dtml-call expr="REQUEST.set('id_documento', _.str(hdn_cod_documento))">
+  <dtml-call expr="REQUEST.set('metodo', zsql.documento_acessorio_atualizar_zsql)">   
+<dtml-else>
+  <dtml-comment> verifica se o tipo de documento é compatível com o tipo de proposição escolhida. Man Qi em 21/01/04 </dtml-comment>
+  <dtml-if expr="hdn_tip_texto=='Prop'">      
+    <dtml-in expr="zsql.proposicao_obter_zsql(cod_proposicao=hdn_cod_proposicao)">
+      <dtml-if expr="tip_mat_ou_doc!=_.int(hdn_tip_documento)">
+        <dtml-call expr="REQUEST.set('erro', 1)">
+        <dtml-let mensagem="'O tipo do documento não é compatível com o tipo de proposição escolhida. Corrija um dos campos e tente novamente!'">
+          <dtml-var mensagem_emitir>
+        </dtml-let>
+      </dtml-if>
+    </dtml-in>
+  </dtml-if> 
+
+  <dtml-call expr="REQUEST.set('metodo', zsql.documento_acessorio_incluir_zsql)">
+</dtml-if>
+
+<dtml-unless erro>
+
+<dtml-try>
+  <dtml-call expr="metodo(cod_documento = hdn_cod_documento,
+                          tip_documento = hdn_tip_documento,
+                          nom_documento = txt_nom_documento,
+                          nom_autor_documento = txt_nom_autor_documento,
+                          cod_materia = hdn_cod_materia,
+                          txt_indexacao = txa_txt_indexacao,
+                          txt_ementa = txa_txt_ementa, 
+                          dat_documento = pysc.data_converter_pysc(data=txt_dat_documento),
+                          ind_excluido = 0)">
+
+
+<dtml-except>
+  <dtml-let mensagem="'Não foi possível salvar o Documento Acess&oacute;rio. Tente novamente!'">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+
+<dtml-else>
+  <dtml-comment> salva o arquivo do documento. Man Qi em 09/01/04 </dtml-comment>
+  <dtml-if hdn_cod_documento> 
+    <dtml-comment><dtml-call expr="REQUEST.set('dat_recebimento', '00/00/0000')"></dtml-comment>
+  <dtml-else> 
+    <dtml-call expr="REQUEST.set('dat_recebimento', pysc.data_atual_iso_pysc())">    
+    <dtml-try>
+      <dtml-in expr="zsql.documento_acessorio_incluido_codigo_obter_zsql()">
+        <dtml-call expr="REQUEST.set('id_documento', _.str(cod_documento))">
+      </dtml-in>
+    <dtml-except>
+      <dtml-call expr="REQUEST.set('erro', 1)">
+    </dtml-try>
+
+    <dtml-unless erro>
+      <dtml-try>
+        <dtml-if expr="hdn_tip_texto=='Prop'">      
+          <dtml-let ok="pysc.proposicao_salvar_como_documento_acessorio_pysc(hdn_cod_proposicao,id_documento,0)">
+            <dtml-if ok>
+              <dtml-call expr="zsql.proposicao_registrar_recebimento_zsql(cod_proposicao = hdn_cod_proposicao,
+                                                                          dat_recebimento = dat_recebimento,
+                                                                          cod_mat_ou_doc = _.int(id_documento))">  
+            <dtml-else>
+              <dtml-call expr="REQUEST.set('erro', 1)">
+            </dtml-if>
+          </dtml-let>
+        <dtml-else>
+          <dtml-call expr="sapl_documentos.materia.manage_addFile(id_documento, file=file_nom_arquivo)">
+        </dtml-if>
+      <dtml-except>
+        <dtml-call expr="REQUEST.set('erro', 1)">
+      </dtml-try>
+    </dtml-unless>
+  </dtml-if>
+
+  <dtml-if erro>
+    <dtml-let mensagem="'Não foi possível salvar o texto do Documento Acess&oacute;rio. Tente novamente!'">
+      <dtml-var mensagem_emitir>
+    </dtml-let>
+  <dtml-else>
+    <dtml-let mensagem="'Documento Acess&oacute;rio salvo com sucesso!'" sucesso="1" url=hdn_url>
+      <dtml-var mensagem_emitir>
+    </dtml-let>
+  </dtml-if>
+</dtml-try>
+</dtml-unless>

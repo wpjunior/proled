@@ -1,0 +1,46 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+  <!-- BBB: 12/15/2004 -->
+  <modulealias
+    module="zope.app.error"
+    alias="zope.app.errorservice" />
+
+
+  <localUtility class=".error.ErrorReportingUtility">
+    <factory
+        id="zope.app.ErrorLogging"
+        />
+    <require
+        permission="zope.Public"
+        interface=".interfaces.IErrorReportingUtility"
+        />
+    <require
+        permission="zope.ManageServices"
+        interface=".interfaces.ILocalErrorReportingUtility"
+        />
+  </localUtility>
+
+  <content class=".error.RootErrorReportingUtility">
+    <require
+        permission="zope.Public"
+        interface=".interfaces.IErrorReportingUtility"
+        />
+    <require
+        permission="zope.ManageServices"
+        interface=".interfaces.ILocalErrorReportingUtility"
+        />
+  </content>
+
+  <utility
+      provides=".interfaces.IErrorReportingUtility"
+      component=".error.globalErrorReportingUtility" />
+
+  <subscriber
+      for="zope.app.appsetup.IDatabaseOpenedEvent"
+      handler=".bootstrap.bootStrapSubscriber"
+      />
+
+  <include package=".browser" />
+
+</configure>

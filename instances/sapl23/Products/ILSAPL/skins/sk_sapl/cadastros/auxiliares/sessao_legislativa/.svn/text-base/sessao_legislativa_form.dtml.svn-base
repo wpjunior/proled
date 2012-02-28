@@ -1,0 +1,200 @@
+<dtml-var standard_html_header>
+
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" src="javascript/data_validar_jvsc"></SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+<!--
+
+function campos_criticar(form){  
+/*-----------------------------
+  Função: Verifica se os campos estão preenchidos corretamente.
+  Argumentos: form : formulário em si.                     
+  Retorno: False - caso detecte na validação algum erro no 
+         preenchimento dos campos; caso contrário, invoca o
+         SUBMIT do formulário.
+  Daniel em 19/03/01.
+------------------------------*/   
+
+  if (form.txt_num_sessao_leg.value == "") {
+     alert("O número da Sessão Legislativa deve ser preenchido.");
+     form.txt_num_sessao_leg.focus();
+     return false;
+  }
+
+  if (form.txt_dat_inicio.value == "") {
+    alert("A data início deve ser preenchida.");
+    form.txt_dat_inicio.focus();
+    return false;
+  }
+  
+  if (!IsValidDate(form.txt_dat_inicio.value)) {
+    alert("Digite uma data início válida!");
+    form.txt_dat_inicio.focus();
+    form.txt_dat_inicio.select();
+    return false;
+  }
+
+  if (form.txt_dat_fim.value == "") {
+    alert("A data fim deve ser preenchida.");
+    form.txt_dat_fim.focus();
+    return false;
+  }
+
+  if (!IsValidDate(form.txt_dat_fim.value)) {
+    alert("Digite uma data fim válida!");
+    form.txt_dat_fim.focus();
+    form.txt_dat_fim.select();
+    return false;
+  }
+
+  var dat_fim = form.txt_dat_fim.value;
+  dat_fim = dat_fim.substring(6,10) +'/'+ dat_fim.substring(3,5) +'/'+ dat_fim.substring(0,2);
+
+  var dat_inicio = form.txt_dat_inicio.value;
+  dat_inicio = dat_inicio.substring(6,10) +'/'+ dat_inicio.substring(3,5) +'/'+ dat_inicio.substring(0,2);
+  
+  if (dat_inicio >= dat_fim) {
+     alert("A data início deve ser menor que a data fim!");
+     return false;
+  }
+     <dtml-comment>  
+     *************************************************
+     *Abaixo, em meio ao código JAVASCRIPT, os coman-*
+     *dos em DTML servem para trazer os valores para *
+     *que ocorra a comparação durante a validação.   *
+     *************************************************
+     </dtml-comment>
+  <dtml-try>
+      <dtml-comment>
+      **************************************************
+      *O comando abaixo apenas atribui o valor para ao *
+      *parâmetro certo para o DTML-IN abaixo.          *
+      **************************************************
+      </dtml-comment>
+    <dtml-call expr="REQUEST.set('num_legislatura', hdn_num_legislatura)">
+    <dtml-except>
+  </dtml-try>
+  <dtml-in expr="zsql.legislatura_obter_zsql(num_legislatura=num_legislatura)">
+
+  if ((dat_inicio > '<dtml-var dat_fim>')||('<dtml-var dat_inicio>' >dat_inicio)) {
+     alert("A data início deve estar entre o período da\nlegislatura (<dtml-var dat_inicio_conv> - <dtml-var dat_fim_conv>)!");
+     form.txt_dat_inicio.focus();
+     form.txt_dat_inicio.select();
+     return false;
+  }
+
+  if ((dat_fim < '<dtml-var dat_inicio>')||('<dtml-var dat_fim>' < dat_fim)){
+     alert("A data fim deve estar entre o período da\nlegislatura (<dtml-var dat_inicio_conv> - <dtml-var dat_fim_conv>)!");
+     form.txt_dat_fim.focus(); 
+     form.txt_dat_fim.select();
+     return false;
+  }
+
+  </dtml-in>
+
+  if (form.txt_dat_inicio_intervalo.value != "" && !IsValidDate(form.txt_dat_inicio_intervalo.value)) {
+    alert("A data de início de intervalo deve ser válida!");
+    form.txt_dat_inicio_intervalo.focus();
+    form.txt_dat_inicio_intervalo.select();
+    return false;
+  }
+
+  if (form.txt_dat_fim_intervalo.value != "" && !IsValidDate(form.txt_dat_fim_intervalo.value)) {
+    alert("A data de fim de intervalo deve ser válida!");
+    form.txt_dat_fim_intervalo.focus();
+    form.txt_dat_fim_intervalo.select();
+    return false;
+  }
+
+  form.submit();
+}
+
+function sessao_leg_excluir() {
+/*-----------------------------
+  Função: Solicita a confirmação e chama o Método DTML de exclusão 
+        sessão legislativa.
+  Argumentos: 
+  Retorno: Retorna uma mensagem de exclusão bem sucedida e redire-
+        ciona à página 'index_html'.
+  Daniel em 19/03/01.
+------------------------------*/
+       
+  if (confirm("Deseja realmente excluir?")) {  
+    location.href = "sessao_legislativa_excluir_proc?cod_sessao_leg=<dtml-var cod_sessao_leg missing>&num_legislatura=<dtml-var num_legislatura missing>";
+  }
+  
+ }
+
+//-->
+</script>
+
+<form name="sessao_legislativa_form" method="post" action="sessao_legislativa_salvar_proc">
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_legislativa">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">| <a href="index_html">Início</a> |</td>
+   </tr>
+</table>  
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr><td height="10"></td></tr></table>
+<dtml-comment>
+*************************************************************
+*    O parâmetro hdn_cod_sessao_leg serve para levar para o *
+*  salvar_proc o a identificação de uma sessão legislativa  *
+*  caso ela esteja sendo atualizada.                        *
+*    O parâmetro hdn_num_legislatura é atribuído para passar*
+*  para o salvar_proc o num_legislatura.                    *
+*************************************************************
+</dtml-comment>
+<fieldset><legend>Sessão Legislativa</legend>
+  <input type="hidden" name="hdn_cod_sessao_leg" value="<dtml-var cod_sessao_leg missing>" />
+  <dtml-try>
+     <input type="hidden" name="hdn_num_legislatura" value="<dtml-var num_legislatura>" />    
+  <dtml-except>
+     <input type="hidden" name="hdn_num_legislatura" value="<dtml-var hdn_num_legislatura>" />
+  </dtml-try>
+
+  <table width="95%" align="center">
+   <tr>
+     <td>
+       <table width="98%" border="0" cellspacing="0" align="center" cellpadding="0">
+         <tr>
+           <td style="width:23%" class="form-element" height="50">Número (*)<br />
+            <input type="text" name="txt_num_sessao_leg" value="<dtml-var num_sessao_leg missing>" size="10" /></td>
+           <td style="width:23%" class="form-text"><b>Tipo </b><br />
+              <select name="lst_tip_sessao_leg" size="1">
+               <dtml-in expr="['Ordinária','Extraordinária']">
+                 <option <dtml-if expr="_.has_key('tip_sessao_leg') and tip_sessao_leg == _['sequence-item'][0]">selected</dtml-if> value="<dtml-var expr="_['sequence-item'][0]">"><dtml-var expr="_['sequence-item']"></option>
+               </dtml-in>
+            </select></td>
+           <td style="width:27%" class="form-text"><b>Data Início (*)</b><br />
+            <input type="text" name="txt_dat_inicio" value="<dtml-var dat_inicio_conv missing>" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_inicio)" />
+            <span class="nota">(dd/mm/aaaa)</span></td>
+           <td style="widht:27%" class="form-text"><b>Data Fim (*)</b><br />
+             <input type="text" name="txt_dat_fim" value="<dtml-var dat_fim_conv missing>" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_fim)" />
+             <span class="nota">(dd/mm/aaaa)</span></td>
+        </tr>
+        <tr> 
+           <td colspan="2" height="50" class="form-text"><b>Início Intervalo</b><br />
+             <input type="text" name="txt_dat_inicio_intervalo" value="<dtml-var dat_inicio_intervalo missing="" null="">" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_inicio_intervalo)" />
+             <span class="nota">(dd/mm/aaaa)</span></td>
+           <td colspan="2" class="form-text"><b>Fim Intervalo </b><br />
+            <input type="text" name="txt_dat_fim_intervalo" value="<dtml-var dat_fim_intervalo missing="" null="">" size="10" maxlength="10" onBlur="formata_data(form.txt_dat_fim_intervalo)" />
+            <span class="nota">(dd/mm/aaaa)</span></td>
+        </tr>
+     </table><br>
+  <center><p>
+  <input type="button" class="botao" name="btn_sessao_leg_salvar" value="Salvar" onClick="campos_criticar(document.sessao_legislativa_form)" >
+  &nbsp;&nbsp;
+  <dtml-if cod_sessao_leg>
+    <input type="button" class="botao" name="btn_sessao_leg_excluir" value="Excluir" onClick="sessao_leg_excluir(document.sessao_legislativa_form)" >
+  </dtml-if>
+  </p></center>
+	   </td>
+  </tr>
+</table>
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

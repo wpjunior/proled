@@ -1,0 +1,56 @@
+<table width="100%" border="0" cellspacing="2" align="center">
+  <tr> 
+  <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
+    <dtml-if expr="pysc.browser_verificar_pysc(HTTP_USER_AGENT)">
+
+    <dtml-in expr="zsql.numeracao_obter_zsql(cod_materia=cod_materia)">
+    <dtml-if num_materia>
+    <td width="20%" class="form-text">Processo:
+    <input type="text" name="txt_sgl_tipo_materia" value="<dtml-var num_materia>/<dtml-var ano_materia>" size="8" disabled>
+    </td>
+    </dtml-if>
+    </dtml-in>
+      <td width="20%" class="form-text">Tipo: 
+       <input type="text" name="txt_sgl_tipo_materia" value="<dtml-var sgl_tipo_materia>" size="8" disabled>
+      </td>
+      <td width="20%" class="form-text">N&uacute;mero: 
+       <input type="text" name="txt_num_ident_basica" value="<dtml-var num_ident_basica>" size="8" disabled>
+       </td>
+      <td width="20%" class="form-text">Ano: 
+       <input type="text" name="txt_ano_ident_basica" value="<dtml-var ano_ident_basica>" size="4" disabled>
+       </td>
+    <dtml-else>
+    <dtml-comment>obtém a primeira numeração da matéria.</dtml-comment>
+    <dtml-in expr="zsql.numeracao_obter_zsql(cod_materia=cod_materia)">
+    <dtml-if num_materia>
+    <td width="20%" class="form-text">
+    Processo <b><dtml-var num_materia>/<dtml-var ano_materia></b>
+    </td>
+    </dtml-if>
+    </dtml-in>
+      <td width="20%" align="left" class="form-text">
+        Tipo: <b> <dtml-var sgl_tipo_materia></b>
+      </td>
+      <td width="20%" align="left" class="form-text">
+        N&uacute;mero: <b> <dtml-var num_ident_basica></b>
+      </td>
+      <td width="20%" align="left" class="form-text">
+        Ano: <b> <dtml-var ano_ident_basica></b>
+      </td>   
+    </dtml-if>
+  </dtml-in>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="2" align="center">
+  <tr>
+      <td width="100%" class="form-text">
+      <dtml-comment>obtém a ementa da matéria.</dtml-comment>
+      <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia)">
+      <dtml-if txt_ementa>
+      Ementa: <b> <dtml-var txt_ementa></b>
+      </dtml-if>
+      </dtml-in>
+      </td>
+  </tr>
+</table>

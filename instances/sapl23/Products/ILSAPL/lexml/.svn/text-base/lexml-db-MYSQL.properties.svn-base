@@ -1,0 +1,6 @@
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.connection.driver_class=com.mysql.jdbc.Driver
+hibernate.connection.url=jdbc:mysql://127.0.0.1/LEXMLDB
+hibernate.connection.username=USUARIO
+hibernate.connection.password=SENHA
+hibernate.cache.provider_class=org.hibernate.cache.NoCacheProvider

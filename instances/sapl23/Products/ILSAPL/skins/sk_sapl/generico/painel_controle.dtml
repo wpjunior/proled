@@ -1,0 +1,15 @@
+<dtml-var standard_html_header>
+<div class="helpsapl"><a id="ajuda" href="&dtml-portal_url;/ajuda/painel_controle">Ajuda</a></div>
+<h1>Painel de Controle</h1>
+<p>O Sistema de Apoio ao Processo Legislativo foi desenvolvido pelo <a href="http://www.interlegis.gov.br/">Interlegis</a> e pela <a href="http://colab.interlegis.gov.br/">Comunidade GITEC</a>.
+<center>
+  <a href="http://www.interlegis.gov.br"><img src="<dtml-var absolute_url>/imagens/logo_gr_tela.jpg" width="50" height="58" alt="Interlegis" /></a>
+</center>
+<fieldset>
+  <legend>Versão do SAPL</legend>
+  <dtml-var expr="pysc.versao_ILSAPL_pysc()">
+</fieldset>
+<br /><br />
+<strong>Em contrucao - sera implementado na versao 2.3</strong>
+<p>Esta pagina devera permitir a habilitacao de cada modulo do SAPL, que trara todos os modulos habilitados por padrao mas permitira que o administrador desabilite os modulos que nao deseja utilizar no sistema.
+<dtml-var standard_html_footer>

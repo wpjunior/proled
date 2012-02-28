@@ -1,0 +1,2867 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/5250/ILSAPL/branches/2.3/skins/sk_sapl/zsql
+END
+nivel_instrucao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_excluir_zsql.zsql.metadata
+END
+tipo_autor_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_excluir_zsql.zsql
+END
+composicao_comissao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_atualizar_zsql.zsql.metadata
+END
+composicao_coligacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_excluir_zsql.zsql
+END
+vinculo_norma_juridica_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_incluir_zsql.zsql.metadata
+END
+anexada_estado_alterar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_estado_alterar_zsql.zsql.metadata
+END
+lote_origem_externa_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4945/ILSAPL/branches/2.3/skins/sk_sapl/zsql/lote_origem_externa_zsql.zsql
+END
+tipo_norma_juridica_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_excluir_zsql.zsql.metadata
+END
+coligacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_excluir_zsql.zsql.metadata
+END
+tipo_autor_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_excluir_zsql.zsql.metadata
+END
+sessao_plenaria_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_plenaria_incluida_codigo_obter_zsql.zsql
+END
+andamento_sessao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_atualizar_zsql.zsql
+END
+numeracao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_incluir_zsql.zsql
+END
+tipo_dependente_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_obter_zsql.zsql
+END
+orgao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_atualizar_zsql.zsql.metadata
+END
+vinculo_norma_juridica_referidas_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_referidas_obter_zsql.zsql
+END
+tipo_resultado_votacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_obter_zsql.zsql
+END
+proposicao_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_incluida_codigo_obter_zsql.zsql
+END
+tipo_afastamento_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_excluir_zsql.zsql.metadata
+END
+unidade_tramitacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4951/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_obter_zsql.zsql
+END
+tipo_afastamento_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_atualizar_zsql.zsql
+END
+filiacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_incluir_zsql.zsql.metadata
+END
+orgao_incluido_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_incluido_codigo_obter_zsql.zsql
+END
+coligacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_obter_zsql.zsql
+END
+tipo_norma_juridica_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_obter_zsql.zsql
+END
+norma_juridica_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_incluida_codigo_obter_zsql.zsql
+END
+tipo_sessao_plenaria_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_excluir_zsql.zsql.metadata
+END
+ordem_dia_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_atualizar_zsql.zsql.metadata
+END
+documento_acessorio_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_atualizar_zsql.zsql
+END
+tipo_expediente_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_atualizar_zsql.zsql.metadata
+END
+vinculo_norma_juridica_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_obter_zsql.zsql
+END
+status_tramitacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_excluir_zsql.zsql
+END
+assunto_materia_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_incluir_zsql.zsql
+END
+materia_assunto_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_incluir_zsql.zsql
+END
+autor_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_atualizar_zsql.zsql.metadata
+END
+data_desfiliacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/data_desfiliacao_obter_zsql.zsql
+END
+periodo_comp_comissao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_atualizar_zsql.zsql
+END
+despacho_inicial_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_excluir_zsql.zsql.metadata
+END
+numero_sessao_plenaria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numero_sessao_plenaria_obter_zsql.zsql
+END
+composicao_mesa_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_obter_zsql.zsql
+END
+mandato_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_excluir_zsql.zsql.metadata
+END
+tipo_proposicao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_incluir_zsql.zsql
+END
+trans_commit_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/trans_commit_zsql.zsql
+END
+documento_acessorio_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_obter_zsql.zsql
+END
+documento_acessorio_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_atualizar_zsql.zsql.metadata
+END
+autoria_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_excluir_zsql.zsql
+END
+parlamentar_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_atualizar_zsql.zsql.metadata
+END
+presenca_sessao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_sessao_incluir_zsql.zsql
+END
+materia_legislativa_pesquisar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_legislativa_pesquisar_zsql.zsql
+END
+legislacao_citada_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_atualizar_zsql.zsql.metadata
+END
+npc_lote_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/npc_lote_zsql.zsql
+END
+parlamentar_obter_relatoria_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_obter_relatoria_zsql.zsql
+END
+tipo_resultado_votacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_atualizar_zsql.zsql.metadata
+END
+numeracao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_obter_zsql.zsql
+END
+periodo_comp_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4811/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_obter_zsql.zsql
+END
+voto_parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/5208/ILSAPL/branches/2.3/skins/sk_sapl/zsql/voto_parlamentar_obter_zsql.zsql
+END
+comissao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_excluir_zsql.zsql
+END
+assunto_materia_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_atualizar_zsql.zsql
+END
+materia_assunto_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_atualizar_zsql.zsql
+END
+parlamentar_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_incluir_zsql.zsql.metadata
+END
+mandato_verificar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/5208/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_verificar_zsql.zsql
+END
+origem_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_excluir_zsql.zsql
+END
+documento_acessorio_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_excluir_zsql.zsql.metadata
+END
+proposicao_ultima_numeracao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4610/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_ultima_numeracao_obter_zsql.zsql
+END
+autor_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_incluir_zsql.zsql
+END
+tramitacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_excluir_zsql.zsql
+END
+tipo_autor_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_atualizar_zsql.zsql.metadata
+END
+tramitacao_pesquisar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_pesquisar_zsql.zsql
+END
+status_tramitacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_obter_zsql.zsql
+END
+tipo_afastamento_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_incluir_zsql.zsql
+END
+parlamentar_partido_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_partido_obter_zsql.zsql
+END
+composicao_comissao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_excluir_zsql.zsql
+END
+oradores_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_alterar_zsql.zsql
+END
+legislatura_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_atualizar_zsql.zsql
+END
+tipo_afastamento_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_atualizar_zsql.zsql.metadata
+END
+nivel_instrucao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_incluir_zsql.zsql
+END
+votacao_materia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/5216/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_materia_obter_zsql.zsql
+END
+orgao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_incluir_zsql.zsql
+END
+proposicao_incluir_numeracao_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4610/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_incluir_numeracao_zsql.zsql
+END
+materia_espelho_pesquisar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4945/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_espelho_pesquisar_zsql.zsql
+END
+tipo_sessao_plenaria_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_excluir_zsql.zsql
+END
+norma_juridica_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_excluir_zsql.zsql.metadata
+END
+filiacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_atualizar_zsql.zsql.metadata
+END
+materia_novo_numero_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_novo_numero_obter_zsql.zsql
+END
+proposicao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_incluir_zsql.zsql
+END
+expediente_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/expediente_alterar_zsql.zsql
+END
+composicao_comissao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_atualizar_zsql.zsql
+END
+numeracao_pesquisar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_pesquisar_zsql.zsql
+END
+dependente_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_atualizar_zsql.zsql.metadata
+END
+sessao_legislativa_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_incluir_zsql.zsql
+END
+legislatura_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_obter_zsql.zsql
+END
+regime_tramitacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_atualizar_zsql.zsql.metadata
+END
+oradores_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_obter_zsql.zsql
+END
+materia_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_incluida_codigo_obter_zsql.zsql
+END
+despacho_inicial_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_obter_zsql.zsql
+END
+cargo_mesa_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_excluir_zsql.zsql.metadata
+END
+norma_juridica_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_incluir_zsql.zsql
+END
+origem_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_atualizar_zsql.zsql.metadata
+END
+materia_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_excluir_zsql.zsql
+END
+cargo_comissao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_incluir_zsql.zsql
+END
+mandato_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_excluir_zsql.zsql
+END
+autor_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_obter_zsql.zsql
+END
+comp_mesa_sessao_cargo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comp_mesa_sessao_cargo_obter_zsql.zsql
+END
+regime_tramitacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_excluir_zsql.zsql.metadata
+END
+dependente_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_atualizar_zsql.zsql
+END
+composicao_mesa_sessao_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_sessao_alterar_zsql.zsql
+END
+tipo_autor_prox_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_prox_obter_zsql.zsql
+END
+tipo_expediente_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_incluir_zsql.zsql.metadata
+END
+proposicao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_atualizar_zsql.zsql
+END
+tramitacao_fim_processo_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_fim_processo_zsql.zsql
+END
+partido_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_excluir_zsql.zsql
+END
+ordem_dia_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_excluir_zsql.zsql.metadata
+END
+votacao_parlamentar_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_parlamentar_atualizar_zsql.zsql
+END
+materia_pesquisar_impresso_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_pesquisar_impresso_zsql.zsql
+END
+status_tramitacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_excluir_zsql.zsql.metadata
+END
+norma_juridica_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_atualizar_zsql.zsql
+END
+tipo_resultado_votacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_excluir_zsql.zsql
+END
+despacho_inicial_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/5222/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_comissao_obter_zsql.zsql
+END
+regime_tramitacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_excluir_zsql.zsql
+END
+nivel_instrucao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_incluir_zsql.zsql.metadata
+END
+composicao_mesa_sessao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_sessao_obter_zsql.zsql
+END
+coligacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_excluir_zsql.zsql
+END
+tipo_norma_juridica_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_excluir_zsql.zsql
+END
+materia_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_atualizar_zsql.zsql.metadata
+END
+tipo_expediente_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_obter_zsql.zsql
+END
+numeracao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_excluir_zsql.zsql.metadata
+END
+coligacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_incluir_zsql.zsql.metadata
+END
+tipo_norma_juridica_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_incluir_zsql.zsql.metadata
+END
+tipo_resultado_votacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_atualizar_zsql.zsql
+END
+documento_acessorio_inclui_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_inclui_zsql.zsql.metadata
+END
+unidade_tramitacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_excluir_zsql.zsql.metadata
+END
+tipo_autor_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_incluir_zsql.zsql.metadata
+END
+documento_acessorio_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_incluir_zsql.zsql
+END
+unidade_tramitacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4945/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_atualizar_zsql.zsql
+END
+proposicao_registrar_recebimento_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_registrar_recebimento_zsql.zsql.metadata
+END
+filiacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_incluir_zsql.zsql
+END
+tipo_norma_juridica_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_atualizar_zsql.zsql
+END
+tipo_comissao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_incluir_zsql.zsql
+END
+coligacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_atualizar_zsql.zsql
+END
+partido_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_atualizar_zsql.zsql.metadata
+END
+origem_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_atualizar_zsql.zsql
+END
+tipo_situacao_militar_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_atualizar_zsql.zsql
+END
+vinculo_norma_juridica_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_atualizar_zsql.zsql
+END
+tipo_afastamento_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_incluir_zsql.zsql.metadata
+END
+periodo_comp_comissao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_incluir_zsql.zsql
+END
+parlamentar_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_excluir_zsql.zsql
+END
+vinculo_norma_juridica_referentes_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_referentes_obter_zsql.zsql
+END
+cargo_comissao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_excluir_zsql.zsql.metadata
+END
+tipo_proposicao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_obter_zsql.zsql
+END
+composicao_mesa_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_incluir_zsql.zsql.metadata
+END
+tipo_sessao_plenaria_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_incluir_zsql.zsql.metadata
+END
+despacho_inicial_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_atualizar_zsql.zsql.metadata
+END
+comp_mesa_cargo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comp_mesa_cargo_obter_zsql.zsql
+END
+relatoria_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4832/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_comissao_obter_zsql.zsql
+END
+autores_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/5084/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autores_obter_zsql.zsql
+END
+relatoria_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_excluir_zsql.zsql
+END
+presenca_ordem_dia_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_ordem_dia_alterar_zsql.zsql
+END
+andamento_sessao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_obter_zsql.zsql
+END
+ordem_dia_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_excluir_zsql.zsql
+END
+tipo_situacao_militar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_obter_zsql.zsql
+END
+tipo_situacao_militar_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_atualizar_zsql.zsql.metadata
+END
+tipo_autor_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_obter_zsql.zsql
+END
+despacho_inicial_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_incluir_zsql.zsql.metadata
+END
+orgao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_atualizar_zsql.zsql
+END
+dependente_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_excluir_zsql.zsql.metadata
+END
+mandato_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_incluir_zsql.zsql.metadata
+END
+composicao_coligacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_obter_zsql.zsql
+END
+sessao_legislativa_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_excluir_zsql.zsql.metadata
+END
+tipo_materia_legislativa_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_atualizar_zsql.zsql.metadata
+END
+anexada_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_atualizar_zsql.zsql.metadata
+END
+tipo_fim_relatoria_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_incluir_zsql.zsql
+END
+tipo_situacao_militar_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_excluir_zsql.zsql.metadata
+END
+materia_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_atualizar_zsql.zsql
+END
+legislatura_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_incluir_zsql.zsql
+END
+materia_pesquisar_tram_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_pesquisar_tram_zsql.zsql
+END
+unidade_tramitacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_incluir_zsql.zsql
+END
+tipo_proposicao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_atualizar_zsql.zsql.metadata
+END
+autor_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_excluir_zsql.zsql.metadata
+END
+unidade_tramitacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_atualizar_zsql.zsql.metadata
+END
+documento_acessorio_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_incluir_zsql.zsql.metadata
+END
+andamento_sessao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_incluir_zsql.zsql
+END
+coligacao_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_incluida_codigo_obter_zsql.zsql
+END
+relatoria_parlamentar_validar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4957/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_parlamentar_validar_zsql.zsql
+END
+vinculo_norma_juridica_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_incluir_zsql.zsql
+END
+anexada_estado_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_estado_alterar_zsql.zsql
+END
+sessao_legislativa_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_obter_zsql.zsql
+END
+tipo_documento_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_incluir_zsql.zsql
+END
+relatoria_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_atualizar_zsql.zsql.metadata
+END
+partido_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_atualizar_zsql.zsql
+END
+norma_juridica_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_atualizar_zsql.zsql.metadata
+END
+tipo_comissao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_excluir_zsql.zsql.metadata
+END
+tramitacao_ind_ultima_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_ind_ultima_atualizar_zsql.zsql.metadata
+END
+proposicao_ano_ult_numeracao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_ano_ult_numeracao_obter_zsql.zsql
+END
+norma_juridica_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_incluir_zsql.zsql.metadata
+END
+numeracao_novo_numero_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_novo_numero_obter_zsql.zsql
+END
+sessao_plenaria_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_plenaria_incluir_zsql.zsql
+END
+materia_selec_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_selec_zsql.zsql
+END
+parlamentar_obter_proposicao_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4812/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_obter_proposicao_zsql.zsql
+END
+composicao_comissao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_excluir_zsql.zsql.metadata
+END
+proposicao_obter_tipo_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4611/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_obter_tipo_zsql.zsql
+END
+cargo_mesa_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_incluir_zsql.zsql.metadata
+END
+numeracao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_excluir_zsql.zsql
+END
+comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_obter_zsql.zsql
+END
+tipo_sessao_plenaria_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_atualizar_zsql.zsql
+END
+tipo_dependente_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_excluir_zsql.zsql.metadata
+END
+regime_tramitacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_incluir_zsql.zsql.metadata
+END
+parlamentar_data_filiacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_data_filiacao_obter_zsql.zsql
+END
+tipo_fim_relatoria_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_excluir_zsql.zsql.metadata
+END
+filiacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_atualizar_zsql.zsql
+END
+proposicao_desincorporar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_desincorporar_zsql.zsql.metadata
+END
+ordem_dia_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_incluir_zsql.zsql.metadata
+END
+assunto_materia_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_excluir_zsql.zsql
+END
+materia_assunto_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_excluir_zsql.zsql
+END
+trans_begin_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/trans_begin_zsql.zsql
+END
+tipo_dependente_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_incluir_zsql.zsql
+END
+status_tramitacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_incluir_zsql.zsql.metadata
+END
+origem_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_excluir_zsql.zsql.metadata
+END
+relatoria_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_atualizar_zsql.zsql
+END
+mandato_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_atualizar_zsql.zsql
+END
+proposicao_registrar_envio_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_registrar_envio_zsql.zsql
+END
+tipo_expediente_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_atualizar_zsql.zsql
+END
+parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/5145/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_obter_zsql.zsql
+END
+tipo_documento_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_excluir_zsql.zsql.metadata
+END
+tipo_proposicao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_excluir_zsql.zsql
+END
+cargo_comissao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_atualizar_zsql.zsql
+END
+dependente_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_obter_zsql.zsql
+END
+votacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_atualizar_zsql.zsql
+END
+tramitacao_retorno_processo_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4964/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_retorno_processo_zsql.zsql
+END
+tipo_situacao_militar_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_incluir_zsql.zsql
+END
+proposicao_registrar_recebimento_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_registrar_recebimento_zsql.zsql
+END
+andamento_sessao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_atualizar_zsql.zsql.metadata
+END
+numeracao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_incluir_zsql.zsql.metadata
+END
+proposicao_registrar_envio_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_registrar_envio_zsql.zsql.metadata
+END
+autoria_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_atualizar_zsql.zsql
+END
+unidade_tramitacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_incluir_zsql.zsql.metadata
+END
+tipo_dependente_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_atualizar_zsql.zsql
+END
+tipo_resultado_votacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_excluir_zsql.zsql.metadata
+END
+cargo_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_obter_zsql.zsql
+END
+tipo_proposicao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_atualizar_zsql.zsql
+END
+autor_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_excluir_zsql.zsql
+END
+proposicao_retomar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_retomar_zsql.zsql.metadata
+END
+votacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_obter_zsql.zsql
+END
+tipo_afastamento_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_excluir_zsql.zsql
+END
+comissao_instalada_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_instalada_obter_zsql.zsql
+END
+mandato_tipo_afastamento_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_tipo_afastamento_obter_zsql.zsql
+END
+cargo_comissao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_incluir_zsql.zsql.metadata
+END
+materia_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_excluir_zsql.zsql.metadata
+END
+legislacao_citada_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_incluir_zsql.zsql
+END
+autoria_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_atualizar_zsql.zsql.metadata
+END
+autoria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_obter_zsql.zsql
+END
+nivel_instrucao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_excluir_zsql.zsql
+END
+tramitacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_atualizar_zsql.zsql
+END
+dependente_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_incluir_zsql.zsql
+END
+tipo_autor_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_atualizar_zsql.zsql
+END
+comp_mesa_sessao_parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comp_mesa_sessao_parlamentar_obter_zsql.zsql
+END
+orgao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_excluir_zsql.zsql
+END
+tramitacao_ind_ultima_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_ind_ultima_atualizar_zsql.zsql
+END
+composicao_coligacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_excluir_zsql.zsql.metadata
+END
+proposicao_retomar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_retomar_zsql.zsql
+END
+materia_assunto_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_excluir_zsql.zsql.metadata
+END
+assunto_materia_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_excluir_zsql.zsql.metadata
+END
+composicao_coligacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_atualizar_zsql.zsql
+END
+documento_acessorio_incluido_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_incluido_codigo_obter_zsql.zsql
+END
+proposicao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_excluir_zsql.zsql
+END
+tipo_expediente_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_incluir_zsql.zsql
+END
+localidade_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/localidade_obter_zsql.zsql
+END
+partido_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_excluir_zsql.zsql.metadata
+END
+sessao_legislativa_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_excluir_zsql.zsql
+END
+autoria_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_excluir_zsql.zsql.metadata
+END
+dependente_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_incluir_zsql.zsql.metadata
+END
+tramitacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_atualizar_zsql.zsql.metadata
+END
+tramitacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/5103/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_obter_zsql.zsql
+END
+norma_juridica_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_excluir_zsql.zsql
+END
+status_tramitacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_atualizar_zsql.zsql.metadata
+END
+cargo_comissao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_excluir_zsql.zsql
+END
+tipo_comissao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_atualizar_zsql.zsql
+END
+cargo_mesa_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_incluir_zsql.zsql
+END
+sessao_legislativa_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_incluir_zsql.zsql.metadata
+END
+numeracao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_atualizar_zsql.zsql
+END
+anexada_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_incluir_zsql.zsql
+END
+tipo_materia_legislativa_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_incluir_zsql.zsql
+END
+tipo_situacao_militar_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_incluir_zsql.zsql.metadata
+END
+sessao_legislativa_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_atualizar_zsql.zsql
+END
+autor_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_incluir_zsql.zsql.metadata
+END
+tramitacao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_excluir_zsql.zsql.metadata
+END
+ordem_dia_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_atualizar_zsql.zsql
+END
+votacao_incluida_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4623/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_incluida_obter_zsql.zsql
+END
+trans_rollback_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/trans_rollback_zsql.zsql
+END
+parlamentar_verificar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/5208/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_verificar_zsql.zsql
+END
+orgao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_obter_zsql.zsql
+END
+oradores_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_incluir_zsql.zsql
+END
+despacho_inicial_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_incluir_zsql.zsql
+END
+tipo_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_obter_zsql.zsql
+END
+parlamentar_somar_proposicao_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_somar_proposicao_zsql.zsql
+END
+periodo_comp_comissao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_atualizar_zsql.zsql.metadata
+END
+relatoria_parlamentar_candidato_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4838/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_parlamentar_candidato_obter_zsql.zsql
+END
+tipo_autor_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_autor_incluir_zsql.zsql
+END
+votacao_restaurar_parlamentar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/5250/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_restaurar_parlamentar_zsql.zsql
+END
+coligacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_atualizar_zsql.zsql.metadata
+END
+tipo_comissao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_incluir_zsql.zsql.metadata
+END
+tipo_norma_juridica_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_atualizar_zsql.zsql.metadata
+END
+expediente_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/expediente_incluir_zsql.zsql
+END
+mandato_obterum_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_obterum_zsql.zsql
+END
+legislacao_citada_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_excluir_zsql.zsql.metadata
+END
+composicao_coligacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_incluir_zsql.zsql
+END
+composicao_estado_alterar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_estado_alterar_zsql.zsql.metadata
+END
+tipo_fim_relatoria_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_atualizar_zsql.zsql
+END
+votacao_restaurar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/5250/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_restaurar_zsql.zsql
+END
+datamax_ordem_dia_obter_zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/datamax_ordem_dia_obter_zsql
+END
+periodo_comp_comissao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_excluir_zsql.zsql.metadata
+END
+comissao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_excluir_zsql.zsql.metadata
+END
+presenca_sessao_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_sessao_alterar_zsql.zsql
+END
+composicao_coligacao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_atualizar_zsql.zsql.metadata
+END
+proposicao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_excluir_zsql.zsql.metadata
+END
+regime_tramitacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_atualizar_zsql.zsql
+END
+materia_assunto_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_obter_zsql.zsql
+END
+comissao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_atualizar_zsql.zsql
+END
+assunto_materia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_obter_zsql.zsql
+END
+despacho_inicial_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_atualizar_zsql.zsql
+END
+votacao_ordem_dia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_ordem_dia_obter_zsql.zsql
+END
+cargo_mesa_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_atualizar_zsql.zsql.metadata
+END
+relatoria_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_excluir_zsql.zsql.metadata
+END
+designacao_comissao_validar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/5153/ILSAPL/branches/2.3/skins/sk_sapl/zsql/designacao_comissao_validar_zsql.zsql
+END
+andamento_sessao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_excluir_zsql.zsql.metadata
+END
+composicao_comissao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_incluir_zsql.zsql.metadata
+END
+documento_acessorio_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/documento_acessorio_excluir_zsql.zsql
+END
+composicao_comissao_obter_proximo_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4595/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_obter_proximo_zsql.zsql
+END
+tipo_dependente_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_atualizar_zsql.zsql.metadata
+END
+composicao_mesa_sessao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_sessao_incluir_zsql.zsql
+END
+tipo_comissao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_excluir_zsql.zsql
+END
+tipo_fim_relatoria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_obter_zsql.zsql
+END
+tipo_documento_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_atualizar_zsql.zsql
+END
+tipo_fim_mandato_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_mandato_obter_zsql.zsql
+END
+autor_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_atualizar_zsql.zsql
+END
+legislatura_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_atualizar_zsql.zsql.metadata
+END
+data_ordem_dia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/data_ordem_dia_obter_zsql.zsql
+END
+periodo_comp_comissao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_excluir_zsql.zsql
+END
+regime_tramitacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_obter_zsql.zsql
+END
+votacao_parlamentar_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_parlamentar_incluir_zsql.zsql
+END
+resultado_votacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4617/ILSAPL/branches/2.3/skins/sk_sapl/zsql/resultado_votacao_obter_zsql.zsql
+END
+tipo_dependente_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_incluir_zsql.zsql.metadata
+END
+status_tramitacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_incluir_zsql.zsql
+END
+tipo_fim_relatoria_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_incluir_zsql.zsql.metadata
+END
+materia_pesquisar_impresso_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_pesquisar_impresso_zsql.zsql.metadata
+END
+filiacao_estado_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_estado_alterar_zsql.zsql
+END
+orgao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_excluir_zsql.zsql.metadata
+END
+votacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_incluir_zsql.zsql
+END
+tipo_documento_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/5073/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_obter_zsql.zsql
+END
+sessao_plenaria_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_plenaria_atualizar_zsql.zsql
+END
+expediente_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/expediente_obter_zsql.zsql
+END
+origem_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_incluir_zsql.zsql.metadata
+END
+legislatura_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_excluir_zsql.zsql.metadata
+END
+autoria_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_incluir_zsql.zsql
+END
+proposicao_atualizar_devolucao_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_atualizar_devolucao_zsql.zsql
+END
+sessao_plenaria_painel_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_plenaria_painel_obter_zsql.zsql
+END
+tipo_documento_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_incluir_zsql.zsql.metadata
+END
+presenca_ordem_dia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/5216/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_ordem_dia_obter_zsql.zsql
+END
+tipo_sessao_plenaria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_obter_zsql.zsql
+END
+filiacao_estado_alterar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_estado_alterar_zsql.zsql.metadata
+END
+filiacao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/filiacao_obter_zsql.zsql
+END
+comissao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_incluir_zsql.zsql
+END
+sessao_plenaria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4733/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_plenaria_obter_zsql.zsql
+END
+tipo_fim_relatoria_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_excluir_zsql.zsql
+END
+comissao_incluida_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_incluida_codigo_obter_zsql.zsql
+END
+origem_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_incluir_zsql.zsql
+END
+legislatura_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_excluir_zsql.zsql
+END
+parlamentar_nao_autor_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_nao_autor_obter_zsql.zsql
+END
+comissao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_atualizar_zsql.zsql.metadata
+END
+unidade_tramitacao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/unidade_tramitacao_excluir_zsql.zsql
+END
+proposicao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/5039/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_obter_zsql.zsql
+END
+tramitacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_incluir_zsql.zsql
+END
+anexada_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_excluir_zsql.zsql.metadata
+END
+tipo_materia_legislativa_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_excluir_zsql.zsql.metadata
+END
+tipo_resultado_votacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_incluir_zsql.zsql.metadata
+END
+votacao_parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/5208/ILSAPL/branches/2.3/skins/sk_sapl/zsql/votacao_parlamentar_obter_zsql.zsql
+END
+mandato_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_obter_zsql.zsql
+END
+andamento_sessao_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_excluir_zsql.zsql
+END
+composicao_comissao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_incluir_zsql.zsql
+END
+vinculo_norma_juridica_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_excluir_zsql.zsql
+END
+norma_juridica_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4945/ILSAPL/branches/2.3/skins/sk_sapl/zsql/norma_juridica_obter_zsql.zsql
+END
+cargo_comissao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_comissao_atualizar_zsql.zsql.metadata
+END
+tipo_documento_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_excluir_zsql.zsql
+END
+tipo_proposicao_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_excluir_zsql.zsql.metadata
+END
+comp_mesa_parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comp_mesa_parlamentar_obter_zsql.zsql
+END
+materia_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_incluir_zsql.zsql.metadata
+END
+presenca_ordem_dia_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_ordem_dia_incluir_zsql.zsql
+END
+tipo_sessao_plenaria_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_incluir_zsql.zsql
+END
+materia_guia_indreq_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_guia_indreq_zsql.zsql
+END
+materia_assunto_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_atualizar_zsql.zsql.metadata
+END
+assunto_materia_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_atualizar_zsql.zsql.metadata
+END
+anexada_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_obter_zsql.zsql
+END
+tipo_materia_legislativa_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4736/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_obter_zsql.zsql
+END
+vinculo_norma_juridica_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_excluir_zsql.zsql.metadata
+END
+composicao_coligacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_coligacao_incluir_zsql.zsql.metadata
+END
+materia_assunto_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_assunto_incluir_zsql.zsql.metadata
+END
+assunto_materia_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/assunto_materia_incluir_zsql.zsql.metadata
+END
+legislatura_estado_alterar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_estado_alterar_zsql.zsql.metadata
+END
+composicao_estado_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_estado_alterar_zsql.zsql
+END
+partido_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_incluir_zsql.zsql.metadata
+END
+materia_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_incluir_zsql.zsql
+END
+mandato_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_incluir_zsql.zsql
+END
+autoria_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autoria_incluir_zsql.zsql.metadata
+END
+presenca_sessao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4617/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_sessao_obter_zsql.zsql
+END
+num_prot_pref_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/num_prot_pref_obter_zsql.zsql
+END
+origem_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/origem_obter_zsql.zsql
+END
+legislacao_citada_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_atualizar_zsql.zsql
+END
+materia_buscar_norma_juridica_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/5070/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_buscar_norma_juridica_zsql.zsql
+END
+partido_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_incluir_zsql.zsql
+END
+tipo_afastamento_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_afastamento_obter_zsql.zsql
+END
+tramitacao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tramitacao_incluir_zsql.zsql.metadata
+END
+tipo_resultado_votacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_resultado_votacao_incluir_zsql.zsql
+END
+autor_contar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/4755/ILSAPL/branches/2.3/skins/sk_sapl/zsql/autor_contar_zsql.zsql
+END
+regime_tramitacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/regime_tramitacao_incluir_zsql.zsql
+END
+tipo_dependente_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_dependente_excluir_zsql.zsql
+END
+legislacao_citada_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_obter_zsql.zsql
+END
+status_tramitacao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/status_tramitacao_atualizar_zsql.zsql
+END
+tipo_comissao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_comissao_atualizar_zsql.zsql.metadata
+END
+oradores_parlamentar_incl_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_parlamentar_incl_obter_zsql.zsql
+END
+coligacao_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/coligacao_incluir_zsql.zsql
+END
+tipo_norma_juridica_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_norma_juridica_incluir_zsql.zsql
+END
+proposicao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_atualizar_zsql.zsql.metadata
+END
+legislacao_citada_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_incluir_zsql.zsql.metadata
+END
+cargo_mesa_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_atualizar_zsql.zsql
+END
+materia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4737/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_obter_zsql.zsql
+END
+ordem_dia_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_obter_zsql.zsql
+END
+tipo_situacao_militar_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_situacao_militar_excluir_zsql.zsql
+END
+parlamentar_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_excluir_zsql.zsql.metadata
+END
+periodo_comp_comissao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/periodo_comp_comissao_incluir_zsql.zsql.metadata
+END
+vinculo_norma_juridica_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/vinculo_norma_juridica_atualizar_zsql.zsql.metadata
+END
+comissao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/comissao_incluir_zsql.zsql.metadata
+END
+proposicao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_incluir_zsql.zsql.metadata
+END
+composicao_mesa_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_mesa_incluir_zsql.zsql
+END
+relatoria_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_incluir_zsql.zsql.metadata
+END
+andamento_sessao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/andamento_sessao_incluir_zsql.zsql.metadata
+END
+parlamentar_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/4997/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_incluir_zsql.zsql
+END
+cargo_mesa_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_obter_zsql.zsql
+END
+data_sessao_plenaria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/data_sessao_plenaria_obter_zsql.zsql
+END
+partido_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/partido_obter_zsql.zsql
+END
+tipo_sessao_plenaria_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_sessao_plenaria_atualizar_zsql.zsql.metadata
+END
+oradores_parlamentar_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_parlamentar_obter_zsql.zsql
+END
+legislacao_citada_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislacao_citada_excluir_zsql.zsql
+END
+tipo_fim_relatoria_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_fim_relatoria_atualizar_zsql.zsql.metadata
+END
+dependente_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/dependente_excluir_zsql.zsql
+END
+relatoria_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_incluir_zsql.zsql
+END
+ordem_dia_incluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/ordem_dia_incluir_zsql.zsql
+END
+proposicao_desincorporar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_desincorporar_zsql.zsql
+END
+parlamentar_somar_relatoria_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_somar_relatoria_zsql.zsql
+END
+presenca_ordem_dia_contar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/5149/ILSAPL/branches/2.3/skins/sk_sapl/zsql/presenca_ordem_dia_contar_zsql.zsql
+END
+proposicao_atualizar_devolucao_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/proposicao_atualizar_devolucao_zsql.zsql.metadata
+END
+parlamentar_incluido_codigo_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_incluido_codigo_obter_zsql.zsql
+END
+orgao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/orgao_incluir_zsql.zsql.metadata
+END
+sessao_legislativa_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/sessao_legislativa_atualizar_zsql.zsql.metadata
+END
+materia_pesquisar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4812/ILSAPL/branches/2.3/skins/sk_sapl/zsql/materia_pesquisar_zsql.zsql
+END
+mandato_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/mandato_atualizar_zsql.zsql.metadata
+END
+nivel_instrucao_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_atualizar_zsql.zsql
+END
+legislatura_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_incluir_zsql.zsql.metadata
+END
+tipo_expediente_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_excluir_zsql.zsql
+END
+composicao_comissao_validar_parlamentar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/5138/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_validar_parlamentar_zsql.zsql
+END
+parlamentar_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4997/ILSAPL/branches/2.3/skins/sk_sapl/zsql/parlamentar_atualizar_zsql.zsql
+END
+tipo_documento_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_documento_atualizar_zsql.zsql.metadata
+END
+composicao_comissao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/4815/ILSAPL/branches/2.3/skins/sk_sapl/zsql/composicao_comissao_obter_zsql.zsql
+END
+legislatura_estado_alterar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/legislatura_estado_alterar_zsql.zsql
+END
+cargo_mesa_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/cargo_mesa_excluir_zsql.zsql
+END
+anexada_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_excluir_zsql.zsql
+END
+tipo_materia_legislativa_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_excluir_zsql.zsql
+END
+nivel_instrucao_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_obter_zsql.zsql
+END
+nivel_instrucao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/nivel_instrucao_atualizar_zsql.zsql.metadata
+END
+tipo_expediente_excluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_expediente_excluir_zsql.zsql.metadata
+END
+numeracao_atualizar_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/numeracao_atualizar_zsql.zsql.metadata
+END
+anexada_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_incluir_zsql.zsql.metadata
+END
+tipo_materia_legislativa_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_incluir_zsql.zsql.metadata
+END
+oradores_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/oradores_excluir_zsql.zsql
+END
+despacho_inicial_excluir_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/despacho_inicial_excluir_zsql.zsql
+END
+anexada_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/anexada_atualizar_zsql.zsql
+END
+relatoria_obter_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/relatoria_obter_zsql.zsql
+END
+tipo_materia_legislativa_atualizar_zsql.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_materia_legislativa_atualizar_zsql.zsql
+END
+tipo_proposicao_incluir_zsql.zsql.metadata
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/zsql/tipo_proposicao_incluir_zsql.zsql.metadata
+END

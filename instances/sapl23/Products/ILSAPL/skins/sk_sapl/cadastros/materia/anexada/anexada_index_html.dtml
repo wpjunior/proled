@@ -1,0 +1,62 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/legislacao_cita_matanexada">Ajuda</a> </div>
+<h1 class="firstHeading"> M&aacute;teria Legislativa </h1>
+
+<form name="index_form" action="anexada_form" >
+   <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>" />
+   <input type="hidden" name="incluir_anexada" value="1" />
+
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>  
+	<dtml-var materia_menu>  
+	<table width="98%" align="center">
+	<tr><td colspan=3><dtml-var materia_header></td></tr>
+	</table>
+	<fieldset><legend>Mat&eacute;rias Anexadas</legend>
+    <table width="100%" align="center">
+   <dtml-in expr="zsql.anexada_obter_zsql(cod_materia_principal=cod_materia,ind_excluido=0)" size=8 start=query_start orphan=2>
+    <dtml-if sequence-start>   
+      
+         <tr class="fundo"> 
+           <td width="55%" class="form-label">&nbsp;Matéria Anexada</td>
+           <td width="18%" class="form-label">|&nbsp;Data Anexação </td>
+           <td width="25%" class="form-label">|&nbsp;Data Desanexação</td>
+      </tr>
+     <dtml-if previous-sequence>
+         <tr><td class="form-element">
+             <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+             Página Anterior (<dtml-var previous-sequence-size> resultados)</a></td></td>
+         
+      </dtml-if previous-sequence>
+    </dtml-if sequence-start>
+         <tr>
+           <td width="50%" height="17" class="form-element">&nbsp;
+             <dtml-in expr="zsql.materia_obter_zsql(cod_materia = cod_materia_anexada, ind_excluido = 0)">
+                <a href="anexada_mostrar_proc?cod_materia_anexada=<dtml-var cod_materia_anexada>&amp;cod_materia=<dtml-var cod_materia_principal>&amp;dat_anexacao=<dtml-var dat_anexacao>">
+                <dtml-var sgl_tipo_materia>/<dtml-var num_ident_basica missing>/<dtml-var ano_ident_basica></dtml-in></a></td>        
+           <td width="20%" align="center" class="form-text"><dtml-var dat_anexacao missing></td>
+           <td width="30%" align="center" class="form-text"><dtml-var dat_desanexacao missing null=""></td>
+         </tr>
+    <dtml-if sequence-end>   
+      <dtml-if next-sequence>
+         <tr><td class="form-element">
+             <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+             Próxima Página (<dtml-var next-sequence-size> resultados)</a></td></tr>
+      </dtml-if next-sequence>
+     </dtml-if sequence-end>
+   <dtml-else>
+      
+      <tr><td class="form-text">Nenhuma matéria anexada cadastrada para essa matéria.</td></tr>
+   </dtml-in>
+    </table>
+    </fieldset>
+      <center><p>
+          <input type="submit" class="botao" name="btn_incluir" value="Incluir Matéria Anexada" />
+      </p></center><br />
+    </td>
+  </tr>
+</table>
+</fieldset>
+</body>
+</form>
+<dtml-var standard_html_footer>

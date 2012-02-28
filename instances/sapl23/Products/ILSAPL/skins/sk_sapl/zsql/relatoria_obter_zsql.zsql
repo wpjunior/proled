@@ -1,0 +1,48 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+arguments : ind_excluido=0 cod_relatoria="" cod_materia="" cod_parlamentar="" ncod_relatoria=""
+max_rows : 1000
+max_cache : 100
+</dtml-comment>
+<dtml-if expr="pysc.verifica_conector_bd_pysc() == 1">
+SELECT
+     REPLACE(cod_relatoria, 'L', '') as cod_relatoria,
+     DATE_FORMAT(dat_desig_relator, '%d/%m/%Y') as dat_desig_relator,
+     DATE_FORMAT(dat_destit_relator, '%d/%m/%Y') as dat_destit_relator,
+     REPLACE(cod_materia, 'L', '') as cod_materia,
+     REPLACE(cod_parlamentar, 'L', '') as cod_parlamentar,
+     REPLACE(cod_comissao, 'L', '') as cod_comissao,
+     REPLACE(tip_fim_relatoria, 'L', '') as tip_fim_relatoria
+FROM
+     relatoria
+
+<dtml-sqlgroup where>
+  <dtml-sqltest cod_relatoria   op="=" type="int" optional><dtml-and>
+  <dtml-sqltest ncod_relatoria  column="cod_relatoria" op="!=" type="int" optional><dtml-and>
+  <dtml-sqltest cod_materia     op="=" type="int" optional><dtml-and>
+  <dtml-sqltest cod_parlamentar op="=" type="int" optional><dtml-and>
+  <dtml-sqltest ind_excluido    op="=" type="int">
+</dtml-sqlgroup>
+
+<dtml-else>
+
+SELECT
+     cod_relatoria,
+     TO_CHAR(dat_desig_relator, 'DD/MM/YYYY') as dat_desig_relator,
+     TO_CHAR(dat_destit_relator, 'DD/MM/YYYY') as dat_destit_relator,
+     cod_materia,
+     cod_parlamentar,
+     cod_comissao,
+     tip_fim_relatoria
+FROM
+     relatoria
+
+<dtml-sqlgroup where>
+  <dtml-sqltest cod_relatoria   op="=" type="int" optional><dtml-and>
+  <dtml-sqltest ncod_relatoria  column="cod_relatoria" op="!=" type="int" optional><dtml-and>
+  <dtml-sqltest cod_materia     op="=" type="int" optional><dtml-and>
+  <dtml-sqltest cod_parlamentar op="=" type="int" optional><dtml-and>
+  <dtml-sqltest ind_excluido    op="=" type="int">
+</dtml-sqlgroup>
+
+</dtml-if>

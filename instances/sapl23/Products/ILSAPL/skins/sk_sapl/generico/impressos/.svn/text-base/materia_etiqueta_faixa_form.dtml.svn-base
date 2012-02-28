@@ -1,0 +1,69 @@
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+  var form = document.etiqueta_form;
+
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                pelo botão OK do formulário para validação dos campos.
+         Argumentos: form : formulário - é o formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Sérgio Damiati em 18/07/2006.
+      ------------------------------*/
+
+  if (form.txt_npc_inicial.value == ""){
+         alert("O número de processo inicial deve ser preenchido!");
+         form.txt_npc_inicial.focus();
+         return false;
+      }
+
+  if (form.txt_npc_final.value == ""){
+         alert("O número de processo final deve ser preenchido!");
+         form.txt_npc_final.focus();
+         return false;
+      }
+  
+  form.submit();
+  }
+
+//-->
+</SCRIPT>
+<dtml-var standard_html_header>
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/impressos">Ajuda</a> </div>
+<h1 class="firstHeading"> Impressos </h1>
+<form name="etiqueta_form" action="materia_etiqueta_faixa_proc" method="post">
+  <fieldset><legend>Formulário de Etiqueta - por faixa</legend>
+  <table width="70%" align="center">
+    <tr class="fundo">
+      <td>
+        <table width="35%" align="left">
+          <tr>
+            <td width="20%" align="right" class="form-element" nowrap>Processo Inicial:&nbsp;</td>
+            <td width="1%" align="left"> 
+              <input type="text" name="txt_npc_inicial" null="" missing="" size="8" maxlength="6">
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="fundo">
+      <td>
+        <table width="35%" align="left">
+          <tr>
+            <td width="20%" align="right" class="form-element" nowrap>Processo Final:&nbsp;&nbsp; </td>
+            <td width="1%" align="left"> 
+              <input type="text" name="txt_npc_final" null="" missing="" size="8" maxlength="6">
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  </fieldset>
+  <p align="center">
+        <input type="button" class="botao" name="OK" value="Enviar" onClick="campos_criticar(document.etiqueta_form)">
+  </p>
+</form>
+<dtml-var standard_html_footer>

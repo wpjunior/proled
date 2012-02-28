@@ -1,0 +1,54 @@
+<dtml-var standard_html_header>
+
+<div><a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_plenaria_agenda">Ajuda</a>
+<h1 class="firstHeading">Sess&atilde;o Plen&aacute;ria</h1>
+<h3 align="center"><dtml-var sessao_plenaria_header></h3>
+<dtml-var sessao_plenaria_menu>
+<br />
+<dtml-in expr="zsql.votacao_ordem_dia_obter_zsql(cod_sessao_plen = cod_sessao_plen, ind_excluido=0)"> 
+<fieldset>
+    <legend>Resultado da Vota&ccedil;&atilde;o</legend>
+    
+    <table width="100%">
+        <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
+        <tr>
+            <td class="texto">
+                <b>Mat&eacute;ria</b>:&nbsp; <dtml-var sgl_tipo_materia missing>&nbsp;-<dtml-var num_ident_basica missing>&nbsp;<dtml-var ano_ident_basica missing>&nbsp;-&nbsp;<dtml-var des_tipo_materia missing> 
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Ementa</b>:&nbsp; <dtml-var txt_ementa>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Resultado da Vota&ccedil;&atilde;o</b>:&nbsp
+               <dtml-if tip_resultado_votacao>
+                  <dtml-in expr="zsql.tipo_resultado_votacao_obter_zsql(tip_resultado_votacao=tip_resultado_votacao)">
+                    <dtml-var nom_resultado>
+                </dtml-in>
+               <dtml-else> mat&eacute;ria ainda n&atilde;o votada
+               </dtml-if>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de votos n&atilde;o</b>:&nbsp;<dtml-var num_votos_nao missing null="">
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de votos sim</b>:&nbsp; <dtml-var num_votos_sim missing null="">
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de absten&ccedil;&otilde;es</b>:&nbsp;<dtml-var num_abstencao missing null="">
+            </td>
+        </tr>
+        </dtml-in>
+     </table>
+</fieldset>
+</dtml-in>
+<dtml-var standard_html_footer>

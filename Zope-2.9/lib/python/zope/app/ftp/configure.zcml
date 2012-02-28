@@ -1,0 +1,161 @@
+<configure xmlns='http://namespaces.zope.org/zope'>
+
+  <!-- Note that the views ehere are public because
+
+       - They are generic
+
+       - Protection is provided by the security proxies around their contexts.
+
+    -->
+  
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      provides="zope.publisher.interfaces.ftp.IFTPPublisher"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="type"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="names"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="ls"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="readfile"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="lsinfo"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="mtime"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="size"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="mkdir"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="remove"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="rmdir"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="rename"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+  <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="writefile"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+    <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="writable"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+    <view 
+      for="zope.app.container.interfaces.IReadContainer"
+      name="readable"
+      type="zope.publisher.interfaces.ftp.IFTPRequest"
+      factory=".FTPView"
+      permission="zope.Public"
+      allowed_interface=
+          "zope.app.publisher.interfaces.ftp.IFTPDirectoryPublisher"
+      />
+
+</configure>

@@ -1,0 +1,21 @@
+<dtml-comment>
+*************************************************************
+*   Esse metodo tem como finalidade chamar o metodo         *       
+*   despacho_inicial_excluir_zsql que ira excluir o despacho*
+*   desejado setando o valor do ind_excluido para 1         *
+*   by Rommel Carvalho e Danilo Custódio em 04/04/2001      *
+*************************************************************
+</dtml-comment>
+
+<dtml-try>
+  <dtml-call expr="zsql.despacho_inicial_excluir_zsql(num_ordem = num_ordem, cod_materia = cod_materia)">
+
+<dtml-except>
+  <dtml-let mensagem="'Ocorreu um erro ao tentar excluir esse despacho inicial!'">
+     <dtml-var mensagem_emitir>
+  </dtml-let>
+<dtml-else>
+  <dtml-let mensagem="'Despacho Inicial excluído com sucesso!'" sucesso="1" url="'index_html?cod_materia='+cod_materia">
+     <dtml-var mensagem_emitir>
+  </dtml-let>
+</dtml-try>

@@ -1,0 +1,191 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tramitacao_lote">Ajuda</a> </div>
+<h1 class="firstHeading"> Tramitação em Lote </h1>
+
+
+<SCRIPT LANGUAGE = "JavaScript" src="javascript/data_validar_jvsc"></SCRIPT>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/prototype.js"></script>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/scriptaculous.js?load=effects"></script>
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/datepicker.css); --></style>
+<script type="text/javascript" src="&dtml-portal_url;/javascript/datepicker.js"></script>
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+  
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                pelo botão btn_tramitacao_lote_salvar do formulário para 
+                validação dos campos.
+         Argumentos: form : formulário - é o formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Sérgio Roberto Damiati em 24/01/2005.
+      ------------------------------*/ 
+
+      var dat_tramitacao = form.tram_dat_tramitacao.value.substring(6,10) + form.tram_dat_tramitacao.value.substring(3,5) + form.tram_dat_tramitacao.value.substring(0,2);
+
+      if (dat_tramitacao > <dtml-var expr="_.DateTime.strftime(_.DateTime(), '%Y%m%d')">) {
+           alert("Data de tramitação deve ser menor ou igual à data corrente!");
+           form.tram_dat_tramitacao.focus();
+           form.tram_dat_tramitacao.select();
+           return false;
+      }
+
+      if (form.tram_dat_tramitacao.value == ""){
+         alert("A data de tramitação deve ser preenchida!");
+         form.tram_dat_tramitacao.focus();
+         return false;
+      }
+
+      if (!IsValidDate(form.tram_dat_tramitacao.value)){
+         alert("Digite uma data de tramitação válida!");
+         form.tram_dat_tramitacao.focus();
+         form.tram_dat_tramitacao.select();
+         return false;
+      }
+
+      if (form.tram_tip_materia.selectedIndex == 0){
+          alert("O Tipo da Matéria deve ser preenchida!");
+          form.lst_tip_materia.focus();
+          return false;
+      }
+
+      if (form.txt_data_inicial.value == ""){
+         alert("A data inicial deve ser preenchida!");
+         form.txt_data_inicial.focus();
+         return false;
+      }
+
+      if (form.txt_data_inicial.value != ""){ 
+           if (!IsValidDate(form.txt_data_inicial.value)){
+             alert("Digite uma data válida!");
+             form.txt_data_inicial.focus();
+             form.txt_data_inicial.select();
+             return false;
+           }
+      }
+
+      if (form.txt_data_final.value == ""){
+         alert("A data final deve ser preenchida!");
+         form.txt_data_final.focus();
+         return false;
+      }
+
+      if (form.txt_data_final.value != ""){ 
+             if (!IsValidDate(form.txt_data_final.value)){
+               alert("Digite uma data válida!");
+               form.txt_data_final.focus();
+               form.txt_data_final.select();
+               return false;
+             }
+      }
+
+      form.submit();
+  }
+
+//-->
+</SCRIPT>
+<ul>
+    <li>
+        Primeira Tramitação
+    </li>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/materia/tramitacao/tramitacao_lote_form">Tramitação em Lote</a>
+    </li>
+</ul>
+   <fieldset><legend>Primeira Tramitação</legend>
+   <table width="100%" align="center">
+    <tr>
+     <td>
+         <table width="100%" align="center">
+          <tr height="50" align="left" valign="bottom">
+
+  <form name="primeira_tramitacao_lote_form" method="post" action="primeira_tramitacao_lote_tramitar_proc">
+
+           <td class="form-element" width="33%">&nbsp;&nbsp;
+            <b>Data A&ccedil;&atilde;o (*)</b><br>
+            &nbsp;&nbsp;&nbsp;<input type="text" name="tram_dat_tramitacao" id="tram_dat_tramitacao"size="10" maxlength="10" value="<dtml-var dat_tramitacao missing>" onBlur="formata_data(form.tram_dat_tramitacao)">
+            <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'tram_dat_tramitacao',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+            <span class="nota">
+             (dd/mm/aaaa)
+            </span>
+           </td>
+           <td width="33%" class="form-element" valign="bottom">
+            Data Inicial (*)<br>
+            <input type="text" name="txt_data_inicial" id="txt_data_inicial" size="10" maxlength="10" value="" onBlur="formata_data(form.txt_data_inicial)">
+            <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_data_inicial',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+	    <span class="nota">
+             (dd/mm/aaaa)
+            </span>
+           </td>
+           <td width="33%" class="form-element" valign="bottom">
+            Data Final (*)<br>
+            <input type="text" name="txt_data_final" id="txt_data_final" size="10" maxlength="10" value="" onBlur="formata_data(form.txt_data_final)">
+            <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_data_final',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+            <span class="nota">
+             (dd/mm/aaaa)
+            </span>
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <table width="100%" border="0" align="left">
+          <tr>
+           <td class="form-element" valign="top"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Tipo da Mat&eacute;ria (*)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<select name="tram_tip_materia">
+            <option value=""></option>
+            <dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql(ind_excluido=0)">
+             <option value="<dtml-var tip_materia missing>"> 
+              <dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia>
+             </option>
+            </dtml-in>
+            </select>      
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+       <tr>
+        <td><br>
+         <table width="100%" height="40" border="0" cellspacing="0" cellpadding="" align="left" valign="middle">
+          <tr>
+           <td align="center">
+            <input type="button" name="btn__primeira_tramitacao_lote_pesquisar" class="botao" value="Pesquisar" 
+                   onClick="campos_criticar(document.primeira_tramitacao_lote_form)">&nbsp;&nbsp;
+            <input type="reset" name="btn_form_limpar" class="botaoExtra" value="Limpar"">
+           </td>
+          </tr>
+         </table>
+        </td>
+      </table>
+   </fieldset>
+  </form>
+</body>
+<dtml-var standard_html_footer>

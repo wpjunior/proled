@@ -1,0 +1,17 @@
+<ul style="margin-top: 0; margin-bottom: 0" i18n:domain="zope">
+  <li>
+    <i i18n:translate="">provided:</i>
+    <span tal:content="view/provided">zope.app.interfaces.IMyUtility</span>
+  </li>
+  <li>
+    <i i18n:translate="">name:</i>
+    <span tal:content="view/name" i18n:translate="">myutility</span>
+  </li>
+  <li tal:define="component view/component">
+    <i i18n:translate="">component:</i>
+    <a href=""
+       tal:attributes="href
+         string:${component/url}/@@SelectedManagementView.html"
+       tal:content="component/name" i18n:translate="">myutility</a>
+  </li>
+</ul>

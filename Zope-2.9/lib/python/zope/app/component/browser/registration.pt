@@ -1,0 +1,58 @@
+<html metal:use-macro="context/@@standard_macros/view"
+    i18n:domain="zope">
+<body>
+<div metal:fill-slot="body">
+
+<form tal:attributes="action request/URL" method="POST"
+      tal:define="ignored view/update">
+
+  <div tal:condition="view/registered">
+    <div tal:define="registration view/registration">
+      <p i18n:translate="">This object is registered as:</p>
+
+      <div class="registrationSummary">
+        <div tal:content="structure registration/details">
+          Details
+        </div>
+        <div class="modificationLink">
+          <a tal:attributes="href registration/url"
+             i18n:translate="">(modify)</a>
+        </div>
+      </div>
+
+      <tal:block condition="view/active">
+        <p i18n:translate="">This object is currently active.</p>
+        <input type="submit" i18n:attributes="value deactivate-button"
+          value="Deactivate" name="deactivate" />
+      </tal:block>
+      <tal:block condition="not:view/active">
+        <p i18n:translate="">This object is currently inactive.</p>
+        <input type="submit" i18n:attributes="value activate-button"
+          value="Activate" name="activate" />
+      </tal:block>
+    </div>
+
+    <hr />
+    <a href="registrations.html" i18n:translate="">
+      Advanced Options
+    </a>
+
+  </div>
+
+  <div tal:condition="not:view/registered">
+    <p i18n:translate="">This object is not currently active.</p>
+
+    <p i18n:translate="">
+      This object won't actually be used unless it is registered to
+      perform a specific function and is activated.
+    </p>
+
+    <input type="submit" value="Register" name="activate"
+      i18n:attributes="value register-button" />
+  </div>
+
+</form>
+
+</div>
+</body>
+</html>

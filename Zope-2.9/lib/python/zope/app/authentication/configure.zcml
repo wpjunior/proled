@@ -1,0 +1,73 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="zope"
+    >
+
+  <localUtility class=".PluggableAuthentication">
+    <require
+        permission="zope.ManageSite"
+        interface=".interfaces.IPluggableAuthentication"
+        set_schema=".interfaces.IPluggableAuthentication"
+        />
+    <require
+        permission="zope.ManageServices"
+        attributes="registrationManager"
+        />
+  </localUtility>
+
+  <adapter
+    for=".interfaces.IQuerySchemaSearch
+         .interfaces.IPluggableAuthentication"
+    provides=".interfaces.IQueriableAuthenticator"
+    factory=".authentication.QuerySchemaSearchAdapter" />
+
+  <!-- This explicit declaration is needed indirectly by vocabulary to make
+    the interface available as an IInterface utility. This is bogus...the
+    vocabulary directive should make sure this registration happens. -->
+  <interface interface=".interfaces.IAuthenticatorPlugin" />
+  <vocabulary
+    name="CredentialsPlugins"
+    factory="zope.app.component.vocabulary.UtilityVocabulary"
+    interface="zope.app.authentication.interfaces.ICredentialsPlugin"
+    nameOnly="True"
+   />
+
+  <vocabulary
+    name="AuthenticatorPlugins"
+    factory="zope.app.component.vocabulary.UtilityVocabulary"
+    interface="zope.app.authentication.interfaces.IAuthenticatorPlugin"
+    nameOnly="True"
+   />
+
+  <utility
+      name="No Challenge if Authenticated"
+      factory=".generic.NoChallengeCredentialsPlugin"
+      provides=".interfaces.ICredentialsPlugin"
+      />
+
+  <!-- Registering documentation with API doc -->
+  <configure
+      xmlns:apidoc="http://namespaces.zope.org/apidoc"
+      xmlns:zcml="http://namespaces.zope.org/zcml"
+      zcml:condition="have apidoc">
+
+    <apidoc:bookchapter
+        id="authentication"
+        title="Pluggable Authentication"
+        doc_path="README.txt"
+        parent="security"
+        />
+
+  </configure>
+
+  <include file="password.zcml" />
+  <include file="session.zcml" />
+  <include file="httpplugins.zcml" />
+  <include file="principalfolder.zcml" />
+  <include file="groupfolder.zcml" />
+  <include file="ftpplugins.zcml" />
+
+  <include package=".browser" />
+
+</configure>

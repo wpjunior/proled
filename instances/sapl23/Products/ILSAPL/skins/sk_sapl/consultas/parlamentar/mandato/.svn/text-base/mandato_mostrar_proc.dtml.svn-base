@@ -1,0 +1,12 @@
+<dtml-comment>
+*************************************************************************
+*   O metodo dtml compara em um loop se um determinado                  *
+*   codigo e igual a algum codigo do banco de dados , e se for igual    *
+*   ele retorna os dados do mandato.                                    *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                  *
+*************************************************************************
+</dtml-comment>
+
+<dtml-in expr="zsql.mandato_obter_zsql(cod_mandato=cod_mandato)">
+  <dtml-var mandato_form>
+</dtml-in>

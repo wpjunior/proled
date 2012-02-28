@@ -1,0 +1,100 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript">
+<!--
+  function submeter(tip_fim_relatoria, campo, form) {
+    if (campo.value == "") {
+      alert("O campo não pode ficar vazio!");
+      campo.focus();
+      return;
+    }
+
+    form.hdn_tip_fim_relatoria.value = tip_fim_relatoria;
+    form.hdn_des_fim_relatoria.value = campo.value;
+
+    form.submit();
+
+    /*----- comentada por Man Qi devido o não funcionamento no Netscape 4.76 em 30/07/01  
+    location.href = "<dtml-var absolute_url>/tipo_fim_relatoria_salvar_proc?txt_des_fim_relatoria=" + campo.value +
+                    "&tip_fim_relatoria=" + tip_fim_relatoria;
+    -----*/
+
+  }
+
+  function excluir(tip_fim_relatoria) {
+    location.href = "<dtml-var absolute_url>/tipo_fim_relatoria_excluir_proc?tip_fim_relatoria=" + tip_fim_relatoria;
+  }
+
+  
+//-->
+</SCRIPT>
+<form name="tipo_fim_relatoria_form" method="post" action="tipo_fim_relatoria_salvar_proc">
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/fim_relatoria">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<input type="hidden" name="hdn_tip_fim_relatoria" value=0 />  
+<input type="hidden" name="hdn_des_fim_relatoria" />  
+
+<dtml-comment>
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="right" class="form-label">
+      | <a href="javascript:history.go(-1)">Voltar</a> |</td>
+   </tr>
+</table>  
+</dtml-comment>
+  
+<dtml-comment>
+****************************************************************************
+*      O código abaixo gera uma lista com os nomes dos níveis de instrução *
+****************************************************************************
+</dtml-comment>
+<fieldset><legend>Tipo Fim Relatoria</legend>
+  <dtml-in expr="zsql.tipo_fim_relatoria_obter_zsql()">
+    <dtml-if sequence-start>
+ <table width="95%" align="center">
+    <tr>
+     <td>
+       <table width="98%" align="center">
+         <tr class="fundo">
+           <td width="10%" class="form-label">&nbsp;Código</td>
+           <td width="65%" class="form-label"> | Tipo Fim Relatoria</td>
+           <td width="25%" class="form-label"> | Ação</td>
+         </tr>
+     </dtml-if sequence-start>
+         <tr style="height: 30"> 
+          <td width="10%" class="form-text">&nbsp;&nbsp;<dtml-var tip_fim_relatoria></td>
+          <td width="65%">&nbsp;<input type="text" name="txt_des_fim_relatoria_<dtml-var tip_fim_relatoria>" 
+             value="<dtml-var des_fim_relatoria>" size="40" maxlength="50" /></td>
+          <td width="25%" class="form-element">&nbsp;
+             <a href="javascript:submeter(<dtml-var tip_fim_relatoria>,document.tipo_fim_relatoria_form.txt_des_fim_relatoria_<dtml-var tip_fim_relatoria>,document.tipo_fim_relatoria_form)">Atualizar</a> / <a href="javascript:excluir(<dtml-var tip_fim_relatoria>)">Excluir</a>
+     </tr>
+    <dtml-if sequence-end>
+       </table>
+    </dtml-if sequence-end>
+   <dtml-else>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr><td><font size="1">&nbsp;</font></td></tr>
+          <tr><td class="form-text"><font face="Verdana, Helvetica, Arial" size="2">Nenhum Tipo Fim Relatoria cadastrado.</font></td></tr>
+       </table>
+   </dtml-in>
+    </td>
+  </tr>
+</table>
+ <table width="95%" align="center">
+  <tr style="height: 70">
+    <td align="center"><p>
+     <input type="text" name="txt_des_fim_relatoria" maxlength="50 "size="40" /><br>
+     <br /><input type="button" class="botao" name="btn_tipo_fim_relatoria_incluir" value="Incluir Tipo Fim Relatoria"
+             onClick="submeter(0, document.tipo_fim_relatoria_form.txt_des_fim_relatoria, document.tipo_fim_relatoria_form)" />
+     
+     </td>
+   </tr>
+</table>
+</fieldset>
+</form>
+<dtml-var standard_html_footer>

@@ -1,0 +1,161 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/recebimento_proposicao">Ajuda</a> </div>
+
+<h1 class="firstHeading"> Recebimento de Proposi&ccedil;&atilde;o </h1> 
+
+<dtml-if expr="envrec=='E'">
+    <dtml-var proposicao_menu>
+    <fieldset>
+        <legend>Proposi&ccedil;&otilde;oes N&atilde;o recebidas</legend>
+        <dtml-in expr="zsql.proposicao_obter_zsql(ind_excluido=0, ind_enviado=1)" size=8 start=query_start orphan=2>
+        <dtml-if sequence-start>
+		    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+		        <tr class="fundo">  
+		            <td width="18%" class="form-label">Envio</td>
+		            <td width="15%" class="form-label"> | Tipo</td>
+		            <td width="45%" class="form-label"> | Descri&ccedil;&atilde;o</td>
+		            <td width="22%" class="form-label"> | Autor</td>
+		        </tr>
+                <dtml-if previous-sequence>
+                <tr>
+                    <td class="form-element">
+                        <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">P&aacute;gina Anterior (<dtml-var previous-sequence-size>)</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font size="1">&nbsp;</font></td>
+                </tr>
+                </dtml-if previous-sequence>
+        </dtml-if sequence-start>
+             <dtml-if expr="(dat_envio!='00/00/0000 00:00:00')">
+                  <dtml-if expr="(dat_recebimento==None)">
+                   <tr style="height:17"> 
+                    <td width="18%"valign="top" class="form-element">
+                        <a href="proposicao/proposicao_mostrar_proc?cod_proposicao=<dtml-var cod_proposicao>&ind_enviado=1">
+                            <dtml-var dat_envio>
+                        </a>
+                    </td>
+                    <td width="15%" valign="top" class="form-text">&nbsp;<dtml-var des_tipo_proposicao></td>
+                    <td width="45%" valign="top" class="form-text">&nbsp;<dtml-var txt_descricao></td>
+                    <td width="22%" valign="top" class="form-text">&nbsp;<dtml-var nom_autor></td>
+                  </tr>
+                 </dtml-if>
+            </dtml-if>
+        <dtml-if sequence-end>
+            <dtml-if next-sequence>
+                <tr>
+                    <td><font size="1">&nbsp;</font></td>
+                </tr>
+                <tr>
+                    <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">Pr&oacute;xima P&aacute;gina (<dtml-var next-sequence-size>)</a></td>
+                </tr>
+            </dtml-if next-sequence>
+            </table>
+        </dtml-if sequence-end>
+        <dtml-else>
+            <p class="form-text">N&atilde;o h&aacute; nenhuma proposi&ccedil;&atilde;o a ser recebida.</p>
+        </dtml-in>
+    </fieldset>
+  <dtml-elif expr="envrec=='R'">
+        <dtml-var proposicao_menu>
+        <fieldset>
+        <legend>Proposi&ccedil;&otilde;es N&atilde;o Incorporadas</legend>
+        <dtml-in expr="zsql.proposicao_obter_zsql(ind_excluido=0, ind_recebido=1)" size=8 start=query_start orphan=2>
+        <dtml-if sequence-start>
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr class="fundo">  
+                    <td width="18%" class="form-label" align="center">Envio</td><td class="form-label" width="1%">|</td>
+                    <td width="18%" class="form-label" align="center" nowrap>Devolu&ccedil;&atilde;o</td><td class="form-label" width="1%">|</td>
+                    <td width="8%" class="form-label" align="center">Tipo</td><td class="form-label" width="1%">|</td>
+                    <td width="44%" class="form-label" align="center">Descri&ccedil;&atilde;o</td><td class="form-label" width="1%">|</td>
+                    <td width="8%" class="form-label" align="center" nowrap>Recebida?</td>
+                </tr>
+            <dtml-if previous-sequence>
+                <tr>
+                    <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">P&aacute;gina Anterior (<dtml-var previous-sequence-size>)</a></td>
+                </tr>
+            </dtml-if previous-sequence>
+        </dtml-if sequence-start>
+         <dtml-if expr="(dat_envio!='00/00/0000 00:00:00')">
+          <tr style="height:17"> 
+            <td width="18%" valign="top" class="form-element" align="center"><a href="proposicao/proposicao_mostrar_proc?cod_proposicao=<dtml-var cod_proposicao >"><dtml-var dat_envio></a></td>
+                        <td class="form-label" width="1%">|</td>
+			<td width="18%" valign="top" class="form-element"><a href="proposicao/proposicao_mostrar_proc?cod_proposicao=<dtml-var cod_proposicao >"><dtml-var dat_devolucao missing null=""></a></td><td class="form-label" width="1%">|</td>
+            <td width="8%" valign="top" class="form-text" nowrap align="center">&nbsp;<dtml-var des_tipo_proposicao></td><td class="form-label" width="1%">|</td>
+            <td width="44%" valign="top" class="form-text" nowrap>&nbsp;<dtml-var txt_descricao></td><td class="form-label" width="1%">|</td>
+            <td width="8%" valign="top" class="form-text" align="center">&nbsp;<dtml-if dat_recebimento>Sim<dtml-else>N&atilde;o</dtml-if></td>
+          </tr>
+       </dtml-if>
+        <dtml-if sequence-end>
+            <dtml-if next-sequence>
+                <tr>
+                    <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">Pr&oacute;xima P&aacute;gina (<dtml-var next-sequence-size>)</a></td>
+                </tr>
+            </dtml-if next-sequence>
+            </table>
+        </dtml-if sequence-end>
+        <dtml-else>
+            <p class="form-text">N&atilde;o h&aacute; proposi&ccedil;&atilde;o recebida a ser incorporada ou devolvida.</p>
+        </dtml-in>
+        </fieldset>
+   <dtml-elif expr="envrec=='I'">
+        <dtml-var proposicao_menu>
+    <fieldset>
+        <legend>Proposi&ccedil;&otilde;es Incorporadas</legend>
+        <dtml-in expr="zsql.proposicao_obter_zsql(ind_excluido=0, ind_incorporado=1)" size=8 start=query_start orphan=2>
+        <dtml-if sequence-start>
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr class="fundo">  
+                    <td width="18%" class="form-label">Envio</td>
+                    <td width="15%" class="form-label"> | Tipo</td>
+                    <td width="45%" class="form-label">| Descri&ccedil;&atilde;o</td>
+                    <td width="22%" class="form-label" align="left">| Incorpora&ccedil;&atilde;o</td>
+                </tr>
+            <dtml-if previous-sequence>
+                <tr>
+                    <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">P&aacute;gina Anterior (<dtml-var previous-sequence-size>)</a></td>
+                </tr>
+            </dtml-if previous-sequence>
+        </dtml-if sequence-start>
+                <dtml-if expr="(dat_envio!='00/00/0000 00:00:00')">
+                  <tr style="height:17"> 
+                    <td width="18%" valign="top" class="form-element"><a href="proposicao/proposicao_mostrar_proc?cod_proposicao=<dtml-var cod_proposicao >"><dtml-var dat_envio></a></td>
+                    <td width="15%" valign="top" class="form-text">&nbsp;<dtml-var des_tipo_proposicao></td>
+                    <td width="45%" valign="top" class="form-text">&nbsp;<dtml-var txt_descricao></td>
+                    <dtml-if expr="ind_mat_ou_doc=='D'">
+                    <dtml-in expr="zsql.documento_acessorio_obter_zsql(cod_documento=cod_mat_ou_doc)">
+                      <dtml-call expr="REQUEST.set('cod_mat', cod_materia)">
+                      <dtml-else><dtml-var cod_mat_ou_doc>&nbsp;-&nbsp;falha ao tentar acesso ao documento acess&ocute;rio - contactar suporte do sistema.
+                      </dtml-in>
+                    <dtml-else>
+                    <dtml-call expr="REQUEST.set('cod_mat', cod_mat_ou_doc)">
+                    </dtml-if>
+                  <dtml-if cod_mat>
+                     <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_mat)">
+                          <td width="22%" valign="top" class="form-text" align="left">&nbsp;<dtml-var sgl_tipo_materia>-<dtml-var num_ident_basica>/<dtml-var ano_ident_basica></td>
+                    <dtml-else> 
+                          <td width="22%" valign="top" class="form-text" align="left"><dtml-var cod_mat missing>&nbsp;Ocorreu uma falha ao tentar acessar a(o) matéria/documento - Contactar suporte do sistema.</td>
+                    </dtml-in>
+
+                  <dtml-elif expr="cod_mat==None">
+                          <td width="22%" valign="top" class="form-text" align="left">&nbsp;-&nbsp;Proposi&ccedil;&atilde;o ainda n&atilde;o recebida.</td>
+                  <dtml-else>
+                          <td width="22%" valign="top" class="form-text" align="left"><b><dtml-var cod_mat missing></b>&nbsp;-&nbsp;exce&ccedil;&atilde;o: falha na identifica&ccedil;&atilde;o da mat&eacute;ria!</td>
+                </dtml-if>
+                </tr>
+             </dtml-if>
+        <dtml-if sequence-end>
+            <dtml-if next-sequence>
+                <tr>
+                    <td class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">Pr&oacute;xima P&aacute;gina (<dtml-var next-sequence-size>)</a></td>
+                </tr>
+            </dtml-if next-sequence>
+            </table>
+        </dtml-if sequence-end>
+        <dtml-else>
+            <p class="form-text">Nenhuma proposi&ccedil;&atilde;o foi incorporada ainda.</p>
+        </dtml-in>
+    </fieldset>
+</dtml-if>
+<dtml-var standard_html_footer>

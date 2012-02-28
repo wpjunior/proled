@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:global_translation="http://namespaces.zope.org/gts"
+    i18n_domain="zope"
+    >
+
+  <adapter
+      for="*"
+      factory="zope.app.size.DefaultSized"
+      provides="zope.app.size.interfaces.ISized"
+      permission="zope.View" />
+
+</configure>

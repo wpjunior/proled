@@ -1,0 +1,66 @@
+<dtml-var standard_html_header>
+ 
+<dtml-comment>
+*******************************************************************
+*    A listagem abaixo é feita em seqüência do loop do dtml-in que*
+*  invoca o resultado de uma query. Se for o 1º resultado da query*
+*  é gerado o código da inicialização da tabela. Se for o último, *
+*  é gerado o código de finalização. Nos outros, ele apenas lista *
+*  os resultados da query.                                        *
+*******************************************************************
+</dtml-comment>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/status_tramitacao">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%"  align="center">
+  <tr class="fundo"> 
+    <td align="left" class="form-label">| <a href="status_tramitacao_form">
+      Incluir Status Tramitação</a> |</td>
+<dtml-comment>
+    <td align="right" class="form-label">
+      | <a href="javascript:history.go(-1)">Voltar</a> |</td>
+</dtml-comment>
+   </tr>
+</table>
+<fieldset><legend>Status Tramitação</legend>
+<dtml-in expr="zsql.status_tramitacao_obter_zsql()"> 
+    <dtml-if sequence-start>
+      <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr class="fundo"> 
+            <td width="20%" class="form-label">&nbsp;Sigla</td>
+            <td width="20%" class="form-label"> | Indicador</td>
+            <td width="60%" class="form-label"> | Descrição</td>
+          </tr>
+          
+    </dtml-if sequence-start>
+          <tr>
+            <td width="20%" class="form-element" height="18">&nbsp;
+            <a href="status_tramitacao_mostrar_proc?cod_status=<dtml-var cod_status>">
+             <dtml-var sgl_status></a></td>
+           <td width="20%" class="form-text">&nbsp;
+             <dtml-if ind_fim_tramitacao>Fim
+             <dtml-elif ind_retorno_tramitacao>Retorno
+             </dtml-if></td>
+           <td width="60%" class="form-text">&nbsp;&nbsp;<dtml-var des_status></td>
+         </tr>
+    <dtml-if sequence-end>
+       </table>
+    </dtml-if sequence-end>
+  <dtml-else>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr><td><font size="1">&nbsp;</font></td></tr>
+          <tr><td class="form-text">Nenhum Status de Tramitacao cadastrado.</td></tr>
+       </table>
+</dtml-in>
+  </td>
+ </tr>
+</table>
+</fieldset>
+<dtml-var standard_html_footer>

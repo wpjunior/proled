@@ -1,0 +1,35 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+arguments : cod_mandato num_legislatura cod_coligacao="" tip_causa_fim_mandato=0 num_votos_recebidos=0  cod_parlamentar tip_afastamento="" dat_fim_mandato="" dat_expedicao_diploma="" txt_observacao=""
+max_rows : 1000
+max_cache : 100
+</dtml-comment>
+<dtml-comment>
+*************************************************************
+*    Método sql para a inserção de valores no banco de dados*
+*  mas está com um problema ele não aceita o tipo date. Foi *
+*  usado o sqlvar para que não fosse usado o html quote     *
+*************************************************************
+</dtml-comment>
+
+INSERT INTO mandato
+              (num_legislatura,
+               cod_coligacao,
+               tip_causa_fim_mandato,
+               dat_fim_mandato,
+               num_votos_recebidos,
+               dat_expedicao_diploma,
+               cod_parlamentar,
+               tip_afastamento,
+               txt_observacao)
+
+VALUES
+   (<dtml-sqlvar num_legislatura       type="int"    optional>,
+    <dtml-sqlvar cod_coligacao         type="int"    optional>,
+    <dtml-sqlvar tip_causa_fim_mandato type="nb"     optional>,
+    <dtml-sqlvar dat_fim_mandato       type="nb"     optional>,
+    <dtml-sqlvar num_votos_recebidos   type="int"    optional>,
+    <dtml-sqlvar dat_expedicao_diploma type="nb"     optional>,
+    <dtml-sqlvar cod_parlamentar       type="int"    optional>,
+    <dtml-sqlvar tip_afastamento       type="nb"     optional>,
+    <dtml-sqlvar txt_observacao        type="string" optional>)

@@ -1,0 +1,60 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/relatorios#rel_autor">Ajuda</a> </div>
+<h1 class="firstHeading"> Proposituras por autor</h1>
+<br /> 
+
+<form method="post" action="resumoPropositurasAutor_index_html">
+  <dtml-if impressao>
+    <input type="hidden" name="impressao" value="<dtml-var impressao>">
+  </dtml-if>
+  <!--dtml-if expr="not _.has_key('impressao') or (_.has_key('impressao') and not _.has_key('selAno'))"-->
+  <dtml-if expr="not _.has_key('impressao') or (_.has_key('impressao') and not _.has_key('selAno'))">
+    <center>Selecione o Ano:
+      <select name="selAno">
+        <option value="" selected>---</option>
+<dtml-in listaAnosMaterias>
+        <option value="<dtml-var ano_mat>"><dtml-var ano_mat></option>
+</dtml-in>
+      </select>
+      <input type="submit" value="Pesquisar">
+    </center>
+  </dtml-if>
+</form>
+
+<dtml-if selAno>
+  <hr>
+  <h3><center><font color=Gray><dtml-var document_title> (Ano <dtml-var selAno>)</font></center></h3>
+  <hr>
+
+  <dtml-in "autorMateriaAno(ano=selAno)">
+  <div <dtml-if sequence>style="background: #f0f0f0;"</dtml-if>>
+  <big><big><font color=#000000><center><dtml-var nom_parlamentar null=""><dtml-var nom_comissao null=""><dtml-var nom_autor null=""></center></font></big></big>
+
+  <dtml-in "qtdeAutor(autor=cod_autor,ano=selAno)">
+  <br><b><center><font color=gray>Nº de Matérias apresentadas:</font></b> <dtml-var qtde>
+  </dtml-in></center>
+
+  <dtml-in "materiaAutorAno(autor=cod_autor,ano=selAno)">
+  <p style="font-size: 11.4px; margin-left: 25px;"><a style="font-size: 11.4px; font-weight: bold" href="&dtml-portal_url;/consultas/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>" rel='iframe' title='Detalhes da Mat&eacute;ria Legislativa :: M&oacute;dulo de Consulta :: width: 800, height: 600' class='lightview' ><dtml-var des_tipo_materia> <dtml-var num_ident_basica>/<dtml-var ano_ident_basica></a></b> - <dtml-var txt_ementa>
+  </dtml-in>
+
+  <hr>
+  </div>
+
+  </dtml-in>
+  <br />
+  <h4 align="center">Total Geral</h4>
+  <table width="95%" border="0" align="center">
+  <tr><td class="form-label"><font color=gray>Tipo da Matéria</b></td><td width="20%" class="form-label"><font color=gray><b>Quantidade</b></td></tr>
+  <dtml-in "tipoQtdeGeral(ano=selAno)">
+  <tr><td><dtml-var des_tipo_materia></td><td align="right"><dtml-var qtde></td></tr>
+  </dtml-in>
+
+  <dtml-in "qtdeGeral(ano=selAno)">
+  <tr><td align="right"><b>TOTAL</b></td><td align="right"><dtml-var qtde></td></tr>
+  </dtml-in>
+  </table>
+</dtml-if>
+
+<dtml-var standard_html_footer>

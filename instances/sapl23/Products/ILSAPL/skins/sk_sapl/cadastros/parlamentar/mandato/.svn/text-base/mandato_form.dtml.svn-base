@@ -1,0 +1,298 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript" src="javascript/data_validar_jvsc"></script>
+<script type="text/javascript" src="javascript/data_validar_fim_mandato_jvsc"></script>
+
+<script type="text/javascript">
+<!--
+   function submeter(endereco){
+      /*-----------------------------
+         Função: Confirma se o usuário deseja salvar os dados ao clicar em
+               link do formulário que não os botões SALVAR ou EXCLUIR.
+         Argumentos: endereco : txt - é o endereço que deve ser renderizado
+                     apos a confirmação ou não de salvar os dados.
+         Retorno: Uma janela de confirmação. Se o usuário confirmar, ele
+                invoca o método dependente_salvar_proc.
+                Se ele cancelar, a função apenas renderiza o endereço
+                (caso esteja na atualizacao).
+         Michael Onishi , Daniel C. Azevedo em 02/05/01.
+      ------------------------------*/
+      var form = document.mandato_form;
+
+      endereco += '?cod_parlamentar=' + form.hdn_cod_parlamentar.value;
+
+      if (form.hdn_alterou.value=="1"){
+         if (confirm("Deseja salvar os dados?")){
+            form.hdn_url.value = endereco;
+            campos_criticar(form);
+         }else {location.href = endereco}
+      }else
+          location.href = endereco;
+   }
+
+  function campos_criticar(form){
+     var regexp_digitos = /\D+/;
+
+     if (regexp_digitos.test(form.txt_num_votos_recebidos.value)){
+        alert("O Número de votos deve ser um número natural!");
+        form.txt_num_votos_recebidos.focus();
+        return false;
+     }
+
+     if (form.lst_num_legislatura.value==""){
+        alert("A Legislatura deve ser preenchida!");
+        form.lst_num_legislatura.focus();
+        return false;
+     }
+
+     if (form.lst_num_legislatura.value=="--selecione--"){
+        alert("A Legislatura deve ser preenchida!");
+        form.lst_num_legislatura.focus();
+        return false;
+     }
+
+     if (!IsValidDate(form.txt_dat_fim_mandato.value)) {
+         alert("Digite uma data válida!");
+         form.txt_dat_fim_mandato.focus();
+         form.txt_dat_fim_mandato.select();
+         return false;
+     }
+
+    /* em testes -----------------------------------------------
+    if (!IsValidDateFimMandato(form.txt_dat_fim_mandato.value, form.data_inicio, form.data_fim)) {
+        alert("Digite uma data dentro da legislatura!");
+        form.txt_dat_fim_mandato.focus();
+        form.txt_dat_fim_mandato.select();
+        return false;
+     }
+    ------------------------------------------------ */
+     if (!IsValidDate(form.txt_dat_expedicao_diploma.value)) {
+         alert("Digite uma data válida!");
+         form.txt_dat_expedicao_diploma.focus();
+         form.txt_dat_expedicao_diploma.select();
+         return false;
+     }
+  form.submit();
+
+  }
+
+  function mandato_excluir() {
+  /*-----------------------------
+    Função: Solicita a confirmação e chama o Método DTML de exclusão do mandato.
+    Argumentos:
+    Retorno: Retorna uma mensagem de exclusão bem sucedida e redireciona à página 'index_html'.
+    Rommel Carvalho e Danilo Custódio em 26/02/2001.
+  ------------------------------*/
+
+    if (confirm("Deseja realmente excluir?")) {
+      location.href = "mandato_excluir_proc?cod_parlamentar=<dtml-var cod_parlamentar missing>&cod_mandato=<dtml-var cod_mandato missing>";
+    }
+  }
+//-->
+</script>
+<div class="helpsapl"><a id="ajuda" href="&dtml-portal_url;/ajuda/mandatos_parlamentar">Ajuda</a></div>
+<h1 class="firstHeading"> Parlamentares </h1>
+<form method="post" name="mandato_form" action="mandato_salvar_proc">
+<dtml-var parlamentar_menu>
+<dtml-comment>Busca o nom_parlamentar que será usado abaixo</dtml-comment>
+<dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+  <dtml-call expr="REQUEST.set('nom_parlamentar', nom_parlamentar)">
+  <input type="hidden" name="nom_parlamentar" value="<dtml-var nom_parlamentar>" />
+  <input type="hidden" name="dat_inicio" value="<dtml-var dat_inicio missing null="">" />
+  <input type="hidden" name="dat_fim"    value="<dtml-var dat_fim missing null="">" />
+</dtml-in>
+<table width="100%" align="center"></table>
+<fieldset>
+    <legend><dtml-var nom_parlamentar></legend>
+    <fieldset><legend>Mandato</legend>
+     <table width="100%"align="center">
+       <tr>
+         <td width="40%" height="65" class="form-element">Legislatura (*)<br />
+            <select name="lst_num_legislatura" style="value:<dtml-var num_legislatura missing>" onChange="javascript:form.hdn_alterou.value=1"><option><dtml-if num_legislatura><dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura,dat_inicio,dat_fim)"><dtml-else> --selecione-- </dtml-if></option>
+
+              <dtml-in expr="zsql.legislatura_obter_zsql(ind_excluido=0)">
+                <dtml-if expr="not(zsql.mandato_verificar_zsql(cod_parlamentar=cod_parlamentar, num_legislatura=num_legislatura))">
+                  <option  value="<dtml-var num_legislatura>">
+                     <dtml-var expr="pysc.periodo_legislatura_format_pysc(num_legislatura,dat_inicio,dat_fim)">
+                  </option>
+                </dtml-if>
+              </dtml-in>
+            </select></td>
+
+<dtml-comment>
+******************************************************************************************
+*   O dtml-in a seguir tem como finalidade obter os dados da tabela                      *
+*   legislatura onde o ind_excluido e igual a 0. Ja no dtml-var, nos chamamos um metodo  *
+*   python que ira formatar as opcoes que teremos para Legislatura Inicial.E os ifs      *
+*   que utilizamos foi para selecionar o num_legislatura que o mandato possui,           *
+*   se ele existir.                                                                      *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                                   *
+******************************************************************************************
+</dtml-comment>
+
+
+<dtml-comment>
+*******************************************************************************************
+*   O dtml-in a seguir tem como finalidade obter os dados da tabela                       *
+*   legislatura onde o ind_excluido e igual a 0. Ja no dtml-var, nos chamamos um metodo   *
+*   python que ira formatar as opcoes que teremos para Legislatura Final. E os ifs que    *
+*   utilizamos foi para selecionar o num_legislatura que o mandato possui,                *
+*   se ele existir.                                                                       *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                                    *
+*******************************************************************************************
+</dtml-comment>
+            <td width="33%" class="form-element">Coliga&ccedil;&atilde;o<br />
+             <select name="lst_cod_coligacao" style="value:<dtml-var cod_coligacao missing>" onChange="javascript:form.hdn_alterou.value=1"> 
+               <option value="<dtml-var cod_coligacao missing>"> 
+                <dtml-if cod_coligacao> <dtml-var nom_coligacao missing></dtml-if>
+               </option>
+               <dtml-if cod_coligacao><option></option></dtml-if>
+               <dtml-if num_legislatura>
+                 <dtml-in expr="zsql.coligacao_obter_zsql(num_legislatura=num_legislatura)">
+                    <option value="<dtml-var cod_coligacao missing>">
+                     <dtml-if cod_coligacao>
+                        <dtml-var nom_coligacao>
+                     </dtml-if>
+                    </option>
+                   </dtml-in>
+                <dtml-else>
+                 <dtml-in expr="zsql.coligacao_obter_zsql()">
+                  <option  value="<dtml-var cod_coligacao>">
+                    <dtml-var nom_coligacao>
+                  </option>
+                 </dtml-in>
+                </dtml-if>
+             </select>
+            </td>
+              <td width="25%" class="form-element">N&ordm;. Votos Recebidos<br />
+               <input type="text" name="txt_num_votos_recebidos" size="10" value="<dtml-var num_votos_recebidos missing null="1">" onChange="javascript:form.hdn_alterou.value=1" /></td>
+           </tr>
+           <tr>
+            <td width="40%" height="65" valign="top" class="form-text"><b>Data Fim Mandato (*)</b><br />
+
+<dtml-comment>
+*************************************************************************************
+*   O dtml-in a seguir tem como finalidade mostrar as opcoes presentes              *
+*   na tabela coligacao em uma combo box do mandato_form. E os ifs que utilizamos   *
+*   foi para selecionar a coligacao que o mandato possui, se ele existir.           *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                              *
+*************************************************************************************
+</dtml-comment>
+
+            <input type="text"
+                   name="txt_dat_fim_mandato"
+                   id="txt_dat_fim_mandato"
+                   value="<dtml-var dat_fim_mandato missing null="">" size="10" onBlur="formata_data(form.txt_dat_fim_mandato)" onChange="javascript:form.hdn_alterou.value=1" />
+            <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'txt_dat_fim_mandato',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script>
+             <br /><span class="nota">(dd/mm/aaaa)</span></td>
+           <td width="33%" nowrap valign="top" class="form-text"><b>Data Expedi&ccedil;&atilde;o Diploma (*)</b><br />
+           <input type="text"
+                  name="txt_dat_expedicao_diploma"
+                  id="txt_dat_expedicao_diploma"
+                  value="<dtml-var dat_expedicao_diploma missing null="">" size="10" onBlur="formata_data(form.txt_dat_expedicao_diploma)" onChange="javascript:form.hdn_alterou.value=1" />
+            <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'txt_dat_expedicao_diploma',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script>
+              
+              <br /><span class="nota">(dd/mm/aaaa)</span></td>
+           <td width="25%"></td>
+        </tr>
+        <tr>
+            <td width="40%" valign="top" class="form-element" height="65">Tipo Afastamento<br />
+
+
+<dtml-comment>
+***********************************************************************************************
+*   O dtml-in a seguir tem como finalidade obter os dados da tabela                           *
+*   tipo_afastamento onde o ind_excluido e igual a 0 e ind_fim_mandato=1. E alem disso        *
+*   mostra todas as opcoes possiveis de des_afastamento na tabela tipo_afastamento em         *
+*   uma combo box no mandato_form. Ja no dtml-var nos mostramos a descricao do afastamento    *
+*   relacionado a esse mandato, utilizando um if para saber qual mostrar e somente se o       *
+*   mandato existir.                                                                          *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                                        *
+***********************************************************************************************
+</dtml-comment>
+
+      <select name="lst_tip_afastamento" style="value:<dtml-var tip_afastamento missing>" onChange="javascript:form.hdn_alterou.value=1">
+<dtml-comment>
+**********************************************************************************************
+*   O dtml-in a seguir tem como finalidade obter os dados da tabela                          *
+*   tipo_afastamento onde o ind_excluido e igual a 0 e ind_afastamento=1. E alem disso       *
+*   mostra todas as opcoes possiveis de des_afastamento na tabela tipo_afastamento em        *
+*   uma combo box no mandato_form. Ja no dtml-var nos mostramos a descricao do afastamento   *
+*   relacionado a esse mandato, utilizando um if para saber qual mostrar e somente se o      *
+*   mandato existir.                                                                         *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                                       *
+**********************************************************************************************
+</dtml-comment>
+         <option value="<dtml-var tip_afastamento missing>">
+           <dtml-if tip_afastamento>
+             <dtml-var "zsql.tipo_afastamento_obter_zsql(tip_afastamento=tip_afastamento)[0].des_afastamento" missing>
+           </dtml-if>
+         </option>
+           <dtml-if tip_afastamento><option></option></dtml-if>
+           <dtml-in expr="zsql.tipo_afastamento_obter_zsql()">
+               <option value="<dtml-var tip_afastamento missing>">
+                    <dtml-var des_afastamento>
+               </option>
+           </dtml-in>
+          </select></td>
+          <td colspan="2" width="58%" valign="top" height="65" class="form-text"><b>Causa Afastamento - Dispositivo Legal</b><br /><dtml-if tip_afastamento><input type="text" name="dispositivo_causa_afastamento" value="<dtml-var "zsql.tipo_afastamento_obter_zsql(tip_afastamento=tip_afastamento)[0].des_dispositivo" missing null="">" readonly />
+    <dtml-else><input type="text" name="dispositivo_causa_afastamento" value="" readonly />
+    </dtml-if>
+           </td>
+          </tr>
+          <tr>
+             <td colspan="3" class="form-element" height="65">Observa&ccedil;&atilde;o<br />
+                <textarea name="txa_txt_observacao" cols="65" 
+                        onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_observacao missing></textarea></td>
+          </tr>
+        </table>
+        </fieldset>
+        <p align="center">
+        <input type="button" name="btn_mandato_salvar" class="botao" value="Salvar" onClick="return campos_criticar(document.mandato_form)" />
+        &nbsp;&nbsp;
+<dtml-comment>
+******************************************************************
+*   Teste para saber se devemos ou nao mostrar o botao excluir.  *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001           *
+******************************************************************
+</dtml-comment>
+
+         <dtml-unless btn_incluir_mandato>
+         <input type="button" name="btn_mandato_excluir" class="botao" value="Excluir" onClick="mandato_excluir()" />
+         &nbsp;&nbsp;
+         <input type="button" name="btn_retornar" class="botaoExtra" value="Retornar" onClick="javascript:history.go(-1)"/>
+</p><br />
+         </dtml-unless>
+        
+<dtml-comment>
+**********************************************************************************
+*   Esse input serve para passar o cod_comando como parametro atraves            *
+*   do form para que possamos fazer utiliza-lo para na nossa clausula where do   *
+*   mandato_atualizar_zsql method.                                               *
+*   by Rommel Carvalho e Danilo Custódio em 25/02/2001                           *
+**********************************************************************************
+</dtml-comment>
+
+     <input type="hidden" name="hdn_cod_mandato" value="<dtml-var cod_mandato missing>" />
+     <input type="hidden" name="hdn_cod_parlamentar" value="<dtml-var cod_parlamentar missing>" />
+     <input type="hidden" name="nom_parlamentar" value="<dtml-var nom_parlamentar missing>" />
+     <input type="hidden" name="hdn_url" value="index_html?cod_parlamentar=<dtml-var cod_parlamentar>" />
+     <input type="hidden" name="hdn_alterou" value="0" />
+ </fieldset>
+<br />
+</form>
+<dtml-var standard_html_footer>

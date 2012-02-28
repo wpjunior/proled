@@ -1,0 +1,73 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_comissoes">Ajuda</a> </div>
+
+<h1 class="firstHeading"> Comiss&otilde;es </h1> 
+
+<ul>
+    <li>
+        <a href="comissao_form">Incluir Comissão</a>
+    </li>
+</ul>
+<table width="100%" align="center"></table>
+
+<dtml-comment>
+**************************************************************************
+*      O código abaixo gera uma lista com os nomes das comissões e utili-*
+*   za o processo de BATCHING para quebrar a lista em sequências. O n. de*
+*   comissões em uma página pode atingir no máximo 10.                   *
+**************************************************************************
+</dtml-comment>
+
+<dtml-in expr="zsql.comissao_obter_zsql(ind_excluido=0)" size=8 start=query_start orphan=2>
+  <dtml-if sequence-start>
+    <fieldset>
+        <legend>Comiss&ccedil;&otilde;es</legend>
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr class="fundo">  
+                <td width="40%" class="form-label">Comiss&atilde;o</td>
+		         <td width="20%" class="form-label"> | Sigla</td>
+		         <td width="20%" class="form-label">| Tipo</td>
+		         <td width="20%" class="form-label">| Ativa</td>
+            </tr>
+        <dtml-if previous-sequence>
+            <tr>
+                <td class="form-element">
+                    <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+           P?gina Anterior (<dtml-var previous-sequence-size>)</a>
+                </td>
+            </tr>
+            <tr><td><font size="1">&nbsp;</font></td></tr>
+        </dtml-if previous-sequence>
+        </dtml-if sequence-start>
+<dtml-comment>
+**************************************************************************
+*     O código abaixo gera o link para o método que busca todas as infor-*
+*  mações da comissão e mostra o formulário com os dados preenchidos.    *
+**************************************************************************
+</dtml-comment>
+        <tr style="height:17"> 
+          <td width="40%" valign="top" class="form-element"><a href="comissao_mostrar_proc?cod_comissao=<dtml-var cod_comissao >"><dtml-var nom_comissao></a></td>
+          <td width="20%" valign="top" class="form-text">&nbsp;<dtml-var sgl_comissao></td>
+          <td width="20%" valign="top" class="form-text">&nbsp;<dtml-var nom_tipo_comissao></td>      
+          <dtml-if dat_extincao>
+            <td width="20%" valign="top" class="form-text">&nbsp;N&atilde;o</td>
+          <dtml-else>
+            <td width="20%" valign="top" class="form-text">&nbsp;Sim</td>
+          </dtml-if>
+        </tr>
+ <dtml-if sequence-end>
+    <dtml-if next-sequence>
+        <tr><td><font size="1">&nbsp;</font></td></tr>
+        <tr><td class="form-element">
+           <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+             Próxima Página (<dtml-var next-sequence-size>)</a></td></tr>
+    </dtml-if next-sequence>
+      </table>
+    </fieldset>
+ </dtml-if sequence-end>
+<dtml-else>
+  <p class="form-text">Nenhuma comiss&atilde;o cadastrada.</p>
+</dtml-in>
+</fieldset>
+<dtml-var standard_html_footer>

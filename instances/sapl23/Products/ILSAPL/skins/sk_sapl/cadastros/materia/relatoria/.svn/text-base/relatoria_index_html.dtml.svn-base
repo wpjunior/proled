@@ -1,0 +1,85 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript" language="Javascript" src="javascript/data_validar_jvsc"></script>
+<script type="text/javascript" language="Javascript">
+
+<!--
+   function submeter(endereco) {
+      var form = document.tramitacao_form;
+      endereco += '?cod_materia=<dtml-var cod_materia>';
+      location.href = endereco;
+   }   
+//--!>
+</script>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/relatoria">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="relatoria_form" action="relatoria_form">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia missing>" />
+
+<fieldset>
+    <legend>Mat&eacute;ria Legislativa</legend>
+
+      <ul style="text-align: center;">
+	<dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Operador','Operador Materia'])">
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/anexada')">Anexada</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/autoria')">Autoria</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/despacho_inicial')">Despacho Inicial</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/documento_acessorio')">Documento Acess&oacute;rio</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/legislacao_citada')">Legisla&ccedil;&atilde;o Citada</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/numeracao')">Numera&ccedil;&atilde;o</a></li></dtml-if>
+
+	<dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Operador','Operador Materia', 'Operador Comissao'])">
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/tramitacao')">Tramita&ccedil;&atilde;o</a></li>
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/relatoria')">Relatoria</a></li></dtml-if>
+
+	<dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Operador','Operador Materia'])">
+	 <li style="padding-right: 2em;"> <a href="javascript:submeter('<dtml-var sapl url>/cadastros/materia/materia_mostrar_proc')">Início</a></li>
+	</dtml-if>
+      </ul>
+
+ <table width="100%" align="center">
+  <tr>
+   <td colspan="5"><dtml-var materia_header></td>
+  </tr>
+ </table>
+
+<fieldset><legend>Relatoria</legend>
+<table width="100%" align="center">
+  <dtml-in expr="zsql.relatoria_obter_zsql(cod_materia=cod_materia)">
+   <dtml-if sequence-start>
+      <tr class="fundo"> 
+         <td width="20%" height="15" class="form-label">&nbsp;Data Designa&ccedil;&atilde;o </td>
+         <td width="3%" class="form-label" align="center"> | </td>
+         <td width="37%" height="15" class="form-label">Comiss&atilde;o</td>
+         <td width="3%" class="form-label" align="center"> | </td>
+         <td width="37%" height="15" class="form-label">Parlamentar</td>
+      </tr>
+   </dtml-if sequence-start>
+      <tr style="height:17"> 
+         <td width="20%" class="form-element">&nbsp;<a href="relatoria_mostrar_proc?cod_relatoria=<dtml-var cod_relatoria>&amp;cod_materia=<dtml-var cod_materia>"><dtml-var dat_desig_relator></a></td>
+         <td width="3%" class="form-text" align="center">&nbsp;</td>
+      <dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+         <td width="37%" class="form-text"><dtml-var nom_comissao></td>
+      </dtml-in>
+      <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+       <td width="3%" class="form-text" align="center">&nbsp;</td>
+         <td width="37%" class="form-text"><dtml-var nom_parlamentar></td>
+      </dtml-in>
+      </tr>
+   <dtml-if sequence-end>
+    </table>
+   </dtml-if sequence-end>
+  <dtml-else>
+      <tr><td><font size="1">&nbsp;</font></td></tr>
+      <tr><td class="form-text">Nenhuma Relatoria cadastrada para essa matéria.</td></tr>
+    </table>
+  </dtml-in>
+</fieldset>
+      <center><p>
+          <br><input type="submit" class="botao" name="btn_incluir" value="Incluir Relatoria" />
+      </p></center><br />
+ </fieldset>
+</form>
+<dtml-var standard_html_footer>

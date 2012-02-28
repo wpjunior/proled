@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    >
+
+  <include package=".browser"/>
+
+  <five:registerClass
+      class=".DCWorkflow.DCWorkflowDefinition"
+      meta_type="Workflow"
+      addview="addDCWorkflowDefinition.html"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+  <adapter
+      factory=".exportimport.DCWorkflowDefinitionBodyAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for=".interfaces.IDCWorkflowDefinition
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <five:implements
+      class=".DCWorkflow.DCWorkflowDefinition"
+      interface="Products.CMFCore.interfaces.IWorkflowDefinition"
+      />
+
+</configure>

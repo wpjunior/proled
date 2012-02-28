@@ -1,0 +1,57 @@
+<html metal:use-macro="context/@@standard_macros/view"
+    i18n:domain="zope">
+<head>
+  <title metal:fill-slot="title" i18n:translate="">
+    Registration Manager
+  </title>
+</head>
+<body>
+<div metal:fill-slot="body">
+
+  <h2 i18n:translate="">Registration Manager</h2>
+
+  <form action="." method="POST"
+        tal:define="message view/update"
+        tal:attributes="action request/URL">
+
+    <p tal:condition="message" tal:content="message" />
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th align="left" i18n:translate="">Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="reg view/registrationInfo">
+          <td valign="top">
+            <input type="checkbox" name="keys:list" value="1"
+                   tal:attributes="value reg/name" />
+          </td>
+          <td>
+            <a href="." tal:attributes="href reg/name" i18n:translate="">
+              Config item <span tal:content="reg/name" i18n:name="name"/>
+            </a>
+            <span tal:condition="not:reg/active"
+                i18n:translate="">(disabled)</span>
+            <br />
+            <span tal:content="structure reg/details">
+              Registration Details
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <input type="submit" name="refresh_submit" value="Refresh"
+             i18n:attributes="value refresh-button" />
+      <input type="submit" name="remove_submit" value="Remove"
+             i18n:attributes="value remove-button" />
+    </div>
+  </form>
+
+</div>
+</body>
+</html>

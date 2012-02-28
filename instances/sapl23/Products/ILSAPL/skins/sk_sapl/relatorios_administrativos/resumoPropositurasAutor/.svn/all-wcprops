@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor
+END
+qtdeAutor.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/qtdeAutor.zsql
+END
+qtdeGeral.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/qtdeGeral.zsql
+END
+autorMateriaAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/autorMateriaAno.zsql
+END
+materiaAutorAno.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/materiaAutorAno.zsql
+END
+propriedades.props
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/propriedades.props
+END
+resumoPropositurasAutor_index_html.dtml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/resumoPropositurasAutor_index_html.dtml
+END
+tramitacaoMaterias
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/tramitacaoMaterias
+END
+listaAnosMaterias.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/listaAnosMaterias.zsql
+END
+tipoQtdeGeral.zsql
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/4571/ILSAPL/branches/2.3/skins/sk_sapl/relatorios_administrativos/resumoPropositurasAutor/tipoQtdeGeral.zsql
+END

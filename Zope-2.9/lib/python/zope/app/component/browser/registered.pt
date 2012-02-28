@@ -1,0 +1,25 @@
+<html metal:use-macro="context/@@standard_macros/view"
+    i18n:domain="zope">
+<body>
+<div metal:fill-slot="body">
+
+  <p i18n:translate="">Registrations for this object:</p>
+
+  <ul>
+    <li tal:repeat="reg view/registrations">
+
+      <a href=""
+         tal:attributes="href reg/url"
+         tal:content="reg/name">Name</a>
+      (<span tal:replace="reg/status">Active</span>)
+      <span tal:replace="structure reg/details" />
+    </li>
+  </ul>
+
+  <p><a href="addRegistration.html" i18n:translate="">
+    Add a registration for this object
+  </a></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<dtml-var standard_html_header>
+
+<SCRIPT language="javascript">
+
+  function tipo_autor_trocar(form) {
+     /*-----------------------------
+         Função: Trata o caso de troca na lista de tipo de autor.
+         Argumentos: form : fomulário - o formulário em si.
+         Retorno: Atribui os campos TXT_AUTOR e HDN_COD_AUTOR para "".
+         Daniel C. Azevedo em 10/05/02.
+      ------------------------------*/
+
+     return;
+  } 
+
+//-->
+</SCRIPT>
+<!-- ============================================================ -->
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/relatorios#rel_materia">Ajuda</a> </div>
+<h1 class="firstHeading"> Tramita&ccedil;&atilde;o de mat&eacute;rias</h1> 
+
+<form method="post" action="tramitacaoMaterias_index_html">
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="borda">
+   <tr>
+     <td>  
+       <table width="98%" border="0" cellspacing="0" align="center" cellpadding="0">
+         <tr class="fundo">
+           <td colspan="4" class="form-label">&nbsp;Matérias Legislativas por Ano, status da tramitação e prazo limite informados&nbsp;</td> 
+         </tr>
+         <tr>
+           <td height="30" class="form-element" align="right">&nbsp;Ano da Matéria:&nbsp;</td>
+           <td colspan="3" align="left">
+            <select name="selAno">
+                <dtml-in listaAnosMaterias>
+                   <option value="<dtml-var ano_mat>"><dtml-var ano_mat></option>
+                </dtml-in>
+            </select>
+           </td>
+          </tr>
+          <tr> 
+           <td height="30" class="form-element" align="right">&nbsp;Tipo da Mat&eacute;ria:&nbsp;</td>
+            <td colspan="3" align="left"> 
+             <select id="lst_tip_materia" name="lst_tip_materia">
+               <option value="Todos">Todos</option>
+                 <dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql(ind_excluido=0)">
+                   <option value="<dtml-var tip_materia missing>"> 
+                    <dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia>
+                   </option>
+                 </dtml-in>
+             </select>      
+            </td>
+           </tr>
+           <tr> 
+           <td height="30" class="form-element" align="right">&nbsp;Local de Origem:&nbsp;</td>
+           <td colspan="3" align="left"> 
+             <select name="Org_cod_unid_tram_local">
+               <option value="">Todos</option>
+                 <dtml-in expr="zsql.unidade_tramitacao_obter_zsql()">
+                   <option 
+                  <dtml-if expr="_.has_key('cod_tramitacao') and cod_unid_tram_local==cod_unid_tramitacao"> selected
+                  </dtml-if>
+                 value="<dtml-var cod_unid_tramitacao>">
+               <dtml-if cod_orgao><dtml-var nom_orgao>
+               <dtml-else><dtml-var nom_comissao> 
+               </dtml-if></option>
+             </dtml-in>
+             </select>
+           </td>
+          </tr>
+          <tr> 
+           <td height="30" class="form-element" align="right">&nbsp;Local de Destino:&nbsp;</td>
+           <td colspan="3" align="left"> 
+             <select name="Dst_cod_unid_tram_local">
+               <option value="Todos">Todos</option>
+                 <dtml-in expr="zsql.unidade_tramitacao_obter_zsql()">
+                   <option 
+                  <dtml-if expr="_.has_key('cod_tramitacao') and cod_unid_tram_local==cod_unid_tramitacao"> selected
+                  </dtml-if>
+                 value="<dtml-var cod_unid_tramitacao>">
+               <dtml-if cod_orgao><dtml-var nom_orgao><dtml-else><dtml-var nom_comissao>
+             </dtml-if></option>
+             </dtml-in>
+             </select>
+           </td>
+         </tr>
+         <tr> 
+          <td height="30" class="form-element" align="right">&nbsp;Status da Tramitação:&nbsp;</td>
+          <td colspan="3" align="left"> 
+           <select name="lst_status">
+             <option selected value="Todos">Todos</option>
+             <dtml-in expr="zsql.status_tramitacao_obter_zsql()">
+               <option <dtml-if expr="_.has_key('cod_status')">
+                  </dtml-if>
+                 value="<dtml-var cod_status missing>">
+                        <dtml-var sgl_status> - <dtml-var des_status>
+               </option>
+             </dtml-in>
+           </select>      
+          </td>
+        </tr>
+         <tr>
+           <td height="30" class="form-element" align="right">&nbsp;Data fim do prazo até:&nbsp;</td>
+           <td colspan="3" align="left"> 
+             <input type="text" id="dat_przlim" name="dat_przlim" size="10" maxlength="10"  value="<dtml-var dat_przlim missing null=" ">" onblur="formata_data(form.dat_przlim)">
+    <script type="text/javascript">
+    /*<[CDATA[*/
+     var dpck	= new DatePicker({
+      relative	: 'dat_przlim',
+      language	: 'pt',
+      disableFutureDate : 'false'
+      });
+    /*]]>*/
+    </script>
+</td>
+         </tr> 
+       </table>
+       <p><center>
+    <input type="submit" class="botao" name="btn_materia_pesquisar" value="Pesquisar">&nbsp;&nbsp;
+    <input type="reset" class="botaoExtra" name="btn_materia_limpar"  value="Limpar">
+  </center></p>
+  </tr>
+ </td>
+</form>
+<table>
+<br />
+<dtml-if selAno>
+  <h3><center><font><dtml-var document_title> Ano <dtml-var selAno></font></center></h3>
+
+             <dtml-in "qtdeTipoAno(ano=selAno, tipo=lst_tip_materia)">
+             <p style="font-size: 11.4px; margin-left: 25px;">
+                     <dtml-var des_tipo_materia> - <dtml-var qtde></p>
+             </dtml-in>
+
+<br />
+    <dtml-call name="REQUEST">
+  <dtml-in "autorMateriaAno(ano=selAno)">
+  <div <dtml-if sequence>style="background: #f0f0f0;"</dtml-if>>
+  <b><font color=#000000><center><dtml-var nom_parlamentar null=""><dtml-var nom_comissao null=""><dtml-var nom_autor null=""></center></font></b>
+
+  <dtml-in "qtdeAutor(autor=cod_autor,ano=selAno)">
+  <br><b><center><font color=gray>Nº de Matérias apresentadas:</font></b> <dtml-var qtde>
+  </dtml-in></center>
+
+  <dtml-in "materiaAutorAno(autor=cod_autor,ano=selAno)">
+  <p style="font-size: 11.4px; margin-left: 25px;"><b><a style="font-size: 11.4px;" href="&dtml-portal_url;/consultas/materia/materia_mostrar_proc?cod_materia=<dtml-var cod_materia>" rel='iframe' title='Detalhes da Mat&eacute;ria Legislativa :: M&oacute;dulo de Consulta :: width: 800, height: 600' class='lightview' ><dtml-var des_tipo_materia> <dtml-var num_ident_basica>/<dtml-var ano_ident_basica></a></b><style="font-size: 11.4px;"> - <dtml-var txt_ementa></font>
+  </dtml-in>
+
+
+  </div>
+
+  </dtml-in>
+
+  <h4 align="center">Total Geral</h4>
+  <br />
+  <table width="95%" border="0" align="center" class="borda">
+  <tr><td class="form-label"><b><font color=gray>Tipo da Matéria</b></td><td width="20%" class="form-label"><font color=gray><b>Quantidade</b></td></tr>
+  <dtml-in "tipoQtdeGeral(ano=selAno)">
+  <tr><td class="form-element"><dtml-var des_tipo_materia></td><td class="form-element" align="right"><dtml-var qtde></td></tr>
+  </dtml-in>
+
+  <dtml-in "qtdeGeral(ano=selAno)">
+  <tr><td class="form-element" align="right"><b>TOTAL</b></td><td class="form-element"align="right"><dtml-var qtde></td></tr>
+  </dtml-in>
+</dtml-if>
+</table>
+<br>
+<dtml-var standard_html_footer>

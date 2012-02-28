@@ -1,0 +1,64 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/legislacao_cita_matanexada">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="index_form" action="legislacao_citada_form">
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>" />
+  <dtml-call expr="REQUEST.set('cod_materia_sel', cod_materia)">
+
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>
+    <dtml-var materia_menu>
+    <table width="100%" align="center">
+          <tr> <td><dtml-var materia_header></td></tr>
+    </table>
+    <fieldset><legend>Legislação Citada</legend>
+    <table width="95%" align="center">
+<dtml-in expr="zsql.legislacao_citada_obter_zsql(cod_materia=cod_materia, ind_excluido=0)" size=8 start=query_start orphan=2>
+  <dtml-if sequence-start>
+      <tr class="fundo"> 
+         <td width="6%" class="form-label">&nbsp;Tipo Norma</td>
+         <td width="6%" class="form-label">| N&uacute;mero </td>
+         <td width="3%" class="form-label">| Ano </td>
+         <td width="9%" class="form-label">| Disposi&ccedil;&atilde;o</td>
+      </tr>
+      
+    <dtml-if previous-sequence>
+      <tr><td class="form-element" colspan="4">
+        <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+          Página Anterior (<dtml-var previous-sequence-size> resultados)</a>
+      </td></tr>
+      <tr><td colspan="4"><font size="1">&nbsp;</font></td></tr>
+    </dtml-if previous-sequence>
+  </dtml-if sequence-start>
+      <tr> 
+        <dtml-in expr="zsql.norma_juridica_obter_zsql(cod_norma = cod_norma_sel, ind_excluido=0)">
+          <td width="6%" class="form-element">&nbsp;&nbsp;<a href="legislacao_citada_mostrar_proc?cod_norma=<dtml-var cod_norma>
+&cod_materia=<dtml-var cod_materia_sel>"><dtml-var des_tipo_norma></a></td>
+          <td width="6%" class="form-text">&nbsp;<dtml-var num_norma></td>
+          <td width="3%" class="form-text">&nbsp;<dtml-var ano_norma></td>
+          <td width="9%" class="form-text">&nbsp;<dtml-var des_disposicoes missing null=""></td>
+        </dtml-in>
+      </tr>
+  <dtml-if sequence-end>
+    <dtml-if next-sequence>
+      <tr><td colspan="4"><font size="1">&nbsp;</font></td></tr>
+      <tr><td class="form-element" colspan="4">
+          <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+          Próxima Página (<dtml-var next-sequence-size> resultados)</a>
+      </td></tr>
+    </dtml-if next-sequence>
+    </dtml-if sequence-end>
+<dtml-else>
+      <tr><td class="form-text" colspan="4">Nenhuma legislação citada cadastrada para essa matéria.</td></tr>
+      </dtml-in>
+      </table>
+      </fieldset>
+      <br />
+      <center><p>
+          <input type="submit" class="botao" name="btn_incluir" value="Incluir Legislação Citada" />
+      </p></center>
+</fieldset>
+</body>
+</form>
+<dtml-var standard_html_footer>

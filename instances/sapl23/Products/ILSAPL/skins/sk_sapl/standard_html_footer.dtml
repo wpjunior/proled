@@ -1,0 +1,45 @@
+<dtml-if expr="not _.has_key('impressao') and not _.has_key('iframe') and not REQUEST.SESSION.get('iframe', 0)">
+      </div>
+      <br clear="all" />
+    </div>
+    <div id="rodape">
+      <address>
+        <dtml-if "str(sapl_documentos.props_sapl.end_casa).strip()">
+          <dtml-var "sapl_documentos.props_sapl.end_casa">
+          <dtml-if "str(sapl_documentos.props_sapl.num_cep).strip()">
+            - CEP: <dtml-var "sapl_documentos.props_sapl.num_cep"> -
+          </dtml-if>
+        </dtml-if>
+        <dtml-if "str(sapl_documentos.props_sapl.num_tel).strip()">
+          <dtml-if "str(sapl_documentos.props_sapl.end_casa).strip()">
+          </dtml-if>
+          Telefone: <dtml-var "sapl_documentos.props_sapl.num_tel">
+          <dtml-if "str(sapl_documentos.props_sapl.num_fax).strip()">
+            - Fax: <dtml-var "sapl_documentos.props_sapl.num_fax">
+          </dtml-if>
+        </dtml-if>
+        <br />
+        <dtml-if "str(sapl_documentos.props_sapl.end_web_casa).strip()">
+          <dtml-if "str(sapl_documentos.props_sapl.end_casa).strip() or str(sapl_documentos.props_sapl.num_tel).strip()">
+          </dtml-if>
+          Portal: <a href="<dtml-var "sapl_documentos.props_sapl.end_web_casa">"><dtml-var "sapl_documentos.props_sapl.end_web_casa"></a> -
+        </dtml-if>
+        <dtml-if "str(sapl_documentos.props_sapl.end_email_casa).strip()">
+          <dtml-if "str(sapl_documentos.props_sapl.end_casa).strip() or str(sapl_documentos.props_sapl.num_tel).strip()">
+          </dtml-if>
+          E-mail: <a href="mailto:<dtml-var "sapl_documentos.props_sapl.end_email_casa">"><dtml-var "sapl_documentos.props_sapl.end_email_casa"></a>
+        </dtml-if>
+      </address>
+      <div align="center">
+       <a target="blank" href="http://www.midiacom.eti.br"><img src="&dtml-portal_url;/imagens/logo_midiacom.jpg" alt="Customiza&ccedil;&atilde;o e Implanta&ccedil;&atilde;o Midiacom Tecnologia" title="Customiza&ccedil;&atilde;o e Implanta&ccedil;&atilde;o Midiacom Tecnologia"></a>
+      <div align="center">
+      <div align="center">
+        <a href="&dtml-portal_url;/generico/licenca"><img src="&dtml-portal_url;/imagens/interlegis.gif" width="80" height="15" alt="Desenvolvido pelo Interlegis" /></a>
+        <a href="http://www.zope.org/Credits"><img src="&dtml-portal_url;/imagens/zope.png" width="80" height="15" alt="Desenvolvido em Zope" /></a> 
+      </div>
+      </div>
+    </div>
+  </div>
+</dtml-if>
+</body>
+</html>

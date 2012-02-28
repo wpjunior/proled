@@ -1,0 +1,38 @@
+<dtml-var standard_html_header>
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/impressos">Ajuda</a> </div>
+<h1 class="firstHeading"> Impressos </h1>
+<form name="impresso_form" action="guia_remessa_indreq_proc" method="post">
+  <fieldset><legend>Guia de Remessa</legend>
+  <table width="80%" align="center">
+   <tr>
+   <td valign="middle" align="center" colspan="2" cellpading="10%"><font face="arial" size="2">Assinale o Tipo de Propositura:&nbsp;&nbsp; <b>Indicação:</b></font>
+         <input type="radio" name="tipo_propositura" value="9" checked=1> 
+       <font face="arial" size="2"><b>&nbsp;&nbsp;Requerimento:</b></font> 
+         <input type="radio" name="tipo_propositura" value="4"></td>
+   </tr>
+   <tr class="fundo">
+      <td width="10%" class="form-element" align="right">Data Sessão:</td>
+      <td width="20%" align="left"> 
+          <input type="text" name="txt_data" id="txt_data" null="" missing="" size="11" maxlength="10" onBlur="formata_data(form.txt_data)">
+          <script type="text/javascript">
+                    /*<[CDATA[*/
+                        var dpck = new DatePicker({
+                            relative : 'txt_data',
+                            language : 'pt'
+                            });
+                    /*]]>*/
+                </script>
+          
+          <span class="nota" style="font-size:10px">(dd/mm/aaaa)</span>
+      </td>
+   </tr>
+   <tr class="fundo">
+      <td width="10%" class="form-element" align="right"> N. Sessão: </td>
+      <td width="10%" align="left">
+          <input type="text" name="txt_nsessao" null="" missing="" size="3" maxlength="2"></td>
+   </tr>
+   </table>
+   </fieldset>
+   <p align="center"> <input type="submit" class="botao" name="Ok" value="Enviar">
+</form>
+<dtml-var standard_html_footer>

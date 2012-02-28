@@ -1,0 +1,102 @@
+<dtml-var standard_html_header>
+ 
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/recebimento_proposicao">Ajuda</a> </div>
+<h1 class="firstHeading"> Recebimento de Proposi&ccedil;&atilde;o </h1> 
+
+<dtml-var proposicao_menu>
+<form method="post" action="proposicao_buscar_proc"> 
+<fieldset>
+	<legend>Receber Proposi&ccedil;&atilde;o</legend>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        	<tr style="height:30" align="left" valign="bottom">
+            	<td class="form-text" width="50%" colspan="2">
+                	<b>&nbsp;C&oacute;digo do Documento:&nbsp;&nbsp;</b>
+  			   		<dtml-if txtCodDoc>
+                    <a href="proposicao_exibir_texto_form?cod_documento=<dtml-var txtCodDoc>"><dtml-var txtCodDoc></a>
+                    	<input type="hidden" name="txtCodDoc" value="<dtml-var txtCodDoc>" />
+  			   		<dtml-else>
+                        <input type="text" name="txtCodDoc" size="15" />
+                    </dtml-if>
+                </td>
+                <dtml-if txtCodDoc>
+                <td class="form-text" colspan="2">
+	                <b>Tipo:</b>&nbsp;&nbsp;<dtml-var des_tipo_proposicao>
+                </td>
+                <dtml-else>
+                <td class="form-text" colspan="2" align="center">
+                	<input class="botao" type="submit" value="Buscar Dados..." />
+                </td>
+                </dtml-if>
+            </tr>
+            <dtml-if txtCodDoc>
+            <!-- form method="post" action="proposicao_receber_proc" -->
+            <tr style="height:25" valign="bottom">
+                <td class="form-text" width="15%">
+                    <b>&nbsp;Autor:</b>
+                </td>
+                <td class="form-text" width="85%" colspan="3">
+                    <dtml-var nom_autor>
+                </td>
+            </tr>
+            <tr style="height:25" valign="bottom">
+                <td class="form-text" width="15%">
+                    <b>&nbsp;Descri&ccedil;&atilde;o:</b>
+                </td>
+                <td class="form-text" width="85%" colspan="3">
+                    <dtml-var txt_descricao>
+                </td>
+            </tr>
+            <tr style="height:25" valign="bottom">
+                <td class="form-text" colspan="4" width="100%">
+                    <b>&nbsp;Data de Envio:</b>&nbsp;&nbsp;<dtml-var dat_envio missing>
+                </td>
+            </tr>  
+            <dtml-if cod_materia>
+            <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia,ind_excluido=0)">
+            <tr style="height:25" valign="bottom">
+                <td class="form-text" colspan="2">
+                    <b>&nbsp;Mat&eacute;ria Legislativa:</b>&nbsp;&nbsp;<dtml-var sgl_tipo_materia> - <dtml-var des_tipo_materia>
+                </td>
+                <td class="form-text" width="25%">
+                    <b>&nbsp;N&uacute;mero:</b>&nbsp;&nbsp;<dtml-var num_ident_basica>
+                </td>
+                <td class="form-text" width="25%">
+                    <b>&nbsp;Ano:</b>&nbsp;&nbsp;<dtml-var ano_ident_basica>
+                </td>
+            </tr>
+            </dtml-in> 
+            </dtml-if>
+            </dtml-if>
+            <tr>
+              <td style="height:10" colspan="4"></td>
+            </tr>
+        </table>
+</fieldset>
+</form>
+<table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr style="height:40" valign="bottom">
+        <td>
+        <dtml-if txtCodDoc>
+        <dtml-if expr="ind_mat_ou_doc=='M'">
+            <form method="post" action="../materia/materia_form">
+                <input type="hidden" name="hdnCodProposicao" value="<dtml-var cod_proposicao>" />
+                <input type="hidden" name="hdnCodCompleto" value="<dtml-var txtCodDoc>" />
+                <td align="center">
+                    <input class="botao"type="submit" name="cmdReceber" value="Criar Mat&eacute;ria" />
+                </td>
+            </form>
+        <dtml-else>
+            <form method="post" action="../materia/documento_acessorio/documento_acessorio_form">
+                <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>" />
+                <input type="hidden" name="hdnCodProposicao" value="<dtml-var cod_proposicao>" />    
+                <input type="hidden" name="hdnCodCompleto" value="<dtml-var txtCodDoc>" />
+                <td align="center">
+                    <input class="botao" type="submit" value="Criar Documento Acess&oacute;rio">
+                </td>
+            </form>
+        </dtml-if>
+        </dtml-if>
+        </td>
+    </tr>
+</table>
+<dtml-var standard_html_footer>

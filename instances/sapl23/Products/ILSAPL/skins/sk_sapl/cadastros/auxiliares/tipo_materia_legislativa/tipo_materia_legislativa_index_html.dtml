@@ -1,0 +1,61 @@
+<dtml-var standard_html_header>
+ 
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tipo_materia_legislativa">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="fundo"> 
+    <td align="left" class="form-label"> |<a href="tipo_materia_legislativa_form">
+     Incluir Tipo Materia Legislativa</a>|</td>
+<dtml-comment>
+    <td align="right" class="form-label">
+      <b>| <a href="javascript:history.go(-1)">Voltar</a> |</td>
+</dtml-comment>
+   </tr>
+</table>
+
+<dtml-comment>
+*******************************************************************
+*    A listagem abaixo é feita em seqüência do loop do dtml-in que*
+*  invoca o resultado de uma query. Se for o 1º resultado da query*
+*  é gerado o código da inicialização da tabela. Se for o último, *
+*  é gerado o código de finalização. Nos outros, ele apenas lista *
+*  os resultados da query.                                        *
+*******************************************************************
+</dtml-comment>
+
+<fieldset><legend>Tipo Matéria Legislativa</legend> 
+<dtml-in expr="zsql.tipo_materia_legislativa_obter_zsql()">
+    <dtml-if sequence-start>
+ <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr class="fundo"> 
+            <td width="15%" class="form-label">&nbsp;Sigla</td>
+            <td width="85%" class="form-label"> | Descrição</td>
+          </tr>
+    </dtml-if sequence-start>
+          <tr>
+            <td width="15%" height="17" class="form-element">&nbsp;&nbsp;
+              <a href="tipo_materia_legislativa_mostrar_proc?tip_materia=<dtml-var tip_materia>">
+               <dtml-var sgl_tipo_materia></a></td>
+            <td width="85%" class="form-text">&nbsp;&nbsp;<dtml-var des_tipo_materia></td>
+          </tr>
+    <dtml-if sequence-end>
+        </table>
+    </dtml-if sequence-end>
+  <dtml-else>
+<table align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr><td><font size="1">&nbsp;</font></td></tr>
+          <tr><td class="form-text">Nenhum Tipo de Materia Legislativa cadastrado.</td></tr>
+       </table>
+</dtml-in>
+   </td>
+  </tr>
+ </table>
+</fieldset>
+<dtml-var standard_html_footer>

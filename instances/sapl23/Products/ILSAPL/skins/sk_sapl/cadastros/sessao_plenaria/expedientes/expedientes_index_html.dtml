@@ -1,0 +1,129 @@
+<dtml-if expr="_.has_key('QUERY_STRING') and QUERY_STRING=='retry=1' and portal_membership.isAnonymousUser()">
+  <dtml-call expr="REQUEST['RESPONSE'].expireCookie('__ac', path='/')">
+  <dtml-call expr="REQUEST['RESPONSE'].redirect(portal_url() +'/index_html?retry=0')">
+<dtml-else>
+
+<dtml-comment>
+  <dtml-call "RESPONSE.setHeader('pragma', 'no-cache')">
+  <dtml-call "RESPONSE.setHeader('Cache-Control', 'no-cache')">
+  <dtml-call "RESPONSE.setHeader('Expires', '-1')">
+</dtml-comment>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Sistema de Apoio ao Processo Legislativo</title>
+
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/manage_page_style); --></style>
+<style type="text/css"><!-- @import url(&dtml-portal_url;/generico/estilos.css); --></style>
+<script type='text/javascript' src='&dtml-portal_url;/generico/ckeditor/ckeditor_basic.js'></script>
+<script type='text/javascript' src='&dtml-portal_url;/generico/ckeditor/samples/sample.js'></script>
+<link rel="shortcut icon" type="image/x-icon" href="&dtml-portal_url;/imagens/favicon.ico" />
+
+  <dtml-if expr="_.has_key('QUERY_STRING') and QUERY_STRING == 'retry=0'">
+    <script language="javascript" type="text/javascript">
+      <!--
+        alert("Nome do usuário e/ou senha não conferem!");
+      //-->
+    </script>
+  </dtml-if>
+
+</head>
+<body>
+  <dtml-if expr="_.has_key('impressao')">
+    <dtml-var printable_html_top_bar>
+  <dtml-elif expr="_.has_key('iframe') or REQUEST.SESSION.get('iframe')">
+    <dtml-call expr="REQUEST.SESSION.set('iframe', 1)">
+  <dtml-else>
+    <div id="pagina">
+      <dtml-var standard_html_top_bar>
+      <div id="corpo">
+        <dtml-var standard_html_lateral>
+        <div id="conteudo">
+  </dtml-if>
+</dtml-if>
+<dtml-if expr="REQUEST.has_key('portal_status_message')">
+  <p id="system-message"><dtml-var portal_status_message></p>
+</dtml-if>
+
+<script type="text/javascript" language="Javascript">
+    function campos_criticar(){
+
+        var form = document.expediente_form;
+        var regexp_digitos = /\D+/;
+
+        form.submit();
+    }
+
+    function submeter(endereco){
+
+        var form = document.expediente_form;
+        endereco += '?cod_sessao_plen=' + form.hdn_cod_sessao_plen.value;
+        endereco += '&cod_sessao_leg='+ form.hdn_cod_sessao_leg.value;
+        endereco += '&cod_num_legislatura=' + form.hdn_num_legislatura.value;
+        endereco += '&dat_sessao=' + form.hdn_dat_sessao.value;
+        endereco += '&tip_sessao=' + form.hdn_tip_sessao.value;
+
+        if (form.hdn_cod_sessao_plen.value!=""){
+            location.href = endereco;
+        }
+        return;
+    }
+</script>
+<a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_plenaria_expedientes">Ajuda</a>
+<h1 class="firstHeading">Expedientes</h1>
+<h3 align="center"><dtml-var sessao_plenaria_header></h3>
+
+<form name="expediente_form" method="post" action="expedientes_salvar_proc">
+    <dtml-var sessao_plenaria_menu>
+    <dtml-in expr="zsql.tipo_expediente_obter_zsql(ind_excluido=0)">
+        <fieldset>
+            <legend><dtml-var nom_expediente></legend>
+            <input type="hidden" name="hdn_cod_expediente" value="<dtml-var cod_expediente missing>" />
+            <table width="100%">
+                <tr>
+                    <td>
+                        <label for="txa_txt_expediente">Conteúdo do expediente</label>
+                        <dtml-if expr="zsql.expediente_obter_zsql(cod_sessao_plen=cod_sessao_plen,cod_expediente=cod_expediente, ind_excluido=0)">
+                            <dtml-in expr="zsql.expediente_obter_zsql(cod_sessao_plen=cod_sessao_plen,cod_expediente=cod_expediente, ind_excluido=0)">
+                                <textarea name="txa_txt_expediente" id="<dtml-var cod_expediente missing>" cols="60"><dtml-var txt_expediente missing></textarea>
+			<script type="text/javascript">
+			//<![CDATA[
+
+				CKEDITOR.replace( '<dtml-var cod_expediente missing>',
+					{
+						 skin : 'kama'
+					});
+
+			//]]>
+			</script>
+                            </dtml-in>
+                        <dtml-else>
+                            <textarea name="txa_txt_expediente" id="<dtml-var cod_expediente missing>" cols="60"></textarea>
+			<script type="text/javascript">
+			//<![CDATA[
+
+				CKEDITOR.replace( '<dtml-var cod_expediente missing>',
+					{
+						 skin : 'kama'
+					});
+
+			//]]>
+			</script>
+                        </dtml-if>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </dtml-in>
+    <table align="center">
+        <tr>
+            <td>
+                <input class="botao" type="submit" name="button" value="Salvar" />
+            </td>
+        </tr>
+    </table>
+</form>
+<dtml-var standard_html_footer>

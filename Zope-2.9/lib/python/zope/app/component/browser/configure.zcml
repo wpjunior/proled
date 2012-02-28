@@ -1,0 +1,286 @@
+<zope:configure
+   xmlns:zope="http://namespaces.zope.org/zope"
+   xmlns="http://namespaces.zope.org/browser">
+
+  <zope:interface
+    interface="zope.app.component.browser.tools.IToolType" />
+
+<!-- Registration Managemenet -->
+
+  <!-- BBB: Gone with 3.3 -->
+  <!--
+  <zope:view
+      for="zope.app.component.interfaces.registration.IComponentPath"
+      type="zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.app.form.interfaces.IInputWidget"
+      factory=".registration.ComponentPathWidget"
+      permission="zope.Public"
+      />
+
+  <zope:view
+      for="zope.app.component.interfaces.registration.IComponentPath"
+      type="zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.app.form.interfaces.IDisplayWidget"
+      factory=".registration.ComponentPathWidget"
+      permission="zope.Public"
+      />
+  -->
+  <!-- BBB: End of backward-compatibility block -->
+
+  <zope:view
+      for="zope.app.component.interfaces.registration.IComponent"
+      type="zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.app.form.interfaces.IInputWidget"
+      factory=".registration.ComponentWidget"
+      permission="zope.Public"
+      />
+
+  <zope:view
+      for="zope.app.component.interfaces.registration.IComponent"
+      type="zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.app.form.interfaces.IDisplayWidget"
+      factory=".registration.ComponentWidget"
+      permission="zope.Public"
+      />
+
+  <page
+      name="index.html"
+      for="zope.app.component.interfaces.registration.IRegistrationManager"
+      menu="zmi_views" title="Registration"
+      permission="zope.ManageSite"
+      class=".registration.EditRegistration"
+      template="editregistration.pt" />
+
+  <!-- For now, we'll allow CMs to be added, but we won't include them
+       in the add_component menu. -->
+
+  <view
+      for="zope.app.component.interfaces.registration.IRegistrationManager"
+      name="+"
+      menu="zmi_actions" title="Add"
+      permission="zope.ManageSite"
+      class=".registration.RegistrationAdding"
+      >
+    <page name="index.html"  attribute="index"  />
+    <page name="action.html" attribute="action" />
+  </view>
+
+  <!-- Generic page for objects that keep track of their registrations.
+       Objects that need to override one of these may need to override
+       both.  The "registrations.html" page is only used for objects
+       that have more than one registration. -->
+
+  <page
+      for="zope.app.component.interfaces.registration.IRegisterable"
+      name="registrations.html"
+      template="registered.pt"
+      class=".registration.Registered"
+      permission="zope.ManageSite"
+      />
+
+  <page
+      for="zope.app.component.interfaces.registration.IRegisterable"
+      name="registration.html"
+      template="registration.pt"
+      class=".registration.RegistrationView"
+      permission="zope.ManageSite"
+      menu="zmi_views" title="Registration"
+      />
+
+  <menuItem
+      menu="zmi_actions"
+      for="zope.app.component.interfaces.registration.IRegisterableContainer"
+      title="Registrations"
+      action="++registrations++/@@SelectedManagementView.html"
+      permission="zope.ManageSite"
+      />
+
+<!-- Site Management Folder -->
+
+  <addMenuItem
+      class="zope.app.component.site.SiteManagementFolder"
+      permission="zope.ManageSite"
+      title="Site-Management Folder"
+      />
+
+  <page
+      for="zope.app.component.interfaces.ISiteManagementFolder"
+      permission="zope.ManageSite"
+      class="zope.app.container.browser.contents.JustContents"
+      name="index.html" attribute="index"
+      />
+
+  <page
+      name="contents.html"
+      for="zope.app.component.interfaces.ISiteManagementFolder"
+      menu="zmi_views" title="Contents"
+      permission="zope.ManageSite"
+      class="zope.app.container.browser.contents.Contents"
+      attribute="contents"
+      />
+
+  <view
+      name="+"
+      menu="zmi_actions" title="Add"
+      for="zope.app.component.interfaces.ISiteManagementFolder"
+      permission="zope.ManageSite"
+      class="zope.app.component.browser.ComponentAdding"
+      >
+    <page name="index.html"  attribute="index"  />
+    <page name="action.html" attribute="action" />
+  </view>
+
+<!-- Site Manager navigation action -->
+
+  <page
+      for="zope.app.component.interfaces.IPossibleSite"
+      name="addSiteManager.html"
+      permission="zope.ManageSite"
+      class=".MakeSite"
+      attribute="addSiteManager"
+      />
+
+  <menuItem
+      menu="zmi_actions" title="Make a site"
+      for="zope.app.component.interfaces.IPossibleSite"
+      action="addSiteManager.html"
+      filter="python:
+         not modules['zope.app.component.interfaces'].ISite.providedBy(context)"
+      permission="zope.ManageSite"
+      />
+
+  <menuItem
+      menu="zmi_actions"
+      title="Manage Site"
+      for="zope.app.component.interfaces.ISite"
+      action="++etc++site/@@SelectedManagementView.html"
+      permission="zope.ManageSite"
+      />
+
+<!-- SiteManager -->
+
+  <menuItems
+      menu="zmi_actions"
+      for="zope.app.component.interfaces.ILocalSiteManager">
+
+    <menuItem
+        title="Visit default folder"
+        action="default/@@SelectedManagementView.html"
+        permission="zope.ManageSite"
+        />
+  </menuItems>
+
+  <page
+      name="contents.html"
+      for="zope.app.component.interfaces.ILocalSiteManager"
+      menu="zmi_views" title="Software"
+      permission="zope.ManageSite"
+      class="zope.app.container.browser.contents.Contents"
+      attribute="contents" />
+
+  <view
+      name="+"
+      menu="zmi_actions" title="Add Site Management Folder"
+      for="zope.app.component.interfaces.ILocalSiteManager"
+      permission="zope.ManageSite"
+      class="zope.app.container.browser.adding.Adding"
+      >
+    <page name="index.html" attribute="index"/>
+    <page name="action.html" attribute="action"/>
+  </view>
+
+  <pages
+      for="zope.app.component.interfaces.ILocalSiteManager"
+      permission="zope.ManageSite"
+      class="zope.app.container.browser.contents.JustContents"
+      >
+    <page name="index.html" attribute="index" />
+  </pages>
+
+  <view
+      name="SiteManagement"
+      for="zope.app.component.interfaces.ILocalSiteManager"
+      menu="zmi_views" title="Site Management"
+      class=".tools.SiteManagementView"
+      permission="zope.ManageSite"
+      >
+    <page name="index.html" template="site_management.pt" />
+  </view>
+
+
+<!-- Utility Registration -->
+
+  <!-- When creating a new utility object, you are taken to this
+       form to configure it.  The form lets you choose a name,
+       an interface, a permission, and a registration status
+       (Inactive or Active). -->
+  <addform
+      label="New Utility Registration"
+      for="zope.app.component.interfaces.ILocalUtility"
+      name="addRegistration.html"
+      schema="zope.app.component.interfaces.IUtilityRegistration"
+      class=".registration.AddComponentRegistration"
+      permission="zope.ManageSite"
+      content_factory="zope.app.component.site.UtilityRegistration"
+      arguments="name provided component"
+      fields="name provided component status permission"
+      >
+    <widget
+        field="name"
+        class="zope.app.form.browser.TextWidget"
+        required="False"
+        convert_missing_value="False"
+        />
+  </addform>
+
+  <!-- When editing the registration of an existing utility object,
+       you are taken to this form.  It is similar to the above add
+       form, but doesn't let you change the name, interface or path.
+       (Thus leaving only permission and registration status.) -->
+  <editform
+      menu="zmi_views" title="Edit"
+      label="Edit Utility Registration"
+      name="index.html"
+      schema="zope.app.component.interfaces.IUtilityRegistration"
+      permission="zope.ManageSite"
+      fields="name provided component status permission" />
+
+  <page
+      for="..interfaces.IUtilityRegistration"
+      name="details"
+      template="utilreg_details.pt"
+      class=".site.UtilityRegistrationDetails"
+      permission="zope.Public"
+      />
+
+
+<!-- Adapter Registration -->
+
+  <!-- addform
+      label="New Adapter Registration"
+      schema="zope.app.component.interfaces.IAdapterRegistration"
+      name="addRegistration.html"
+      content_factory="zope.app.component.site.AdapterRegistration"
+      arguments="required provided factoryName"
+      keyword_arguments="name permission"
+      permission="zope.ManageServices"
+      fields="required provided name permission factoryName"
+      menu="add_registration" title="Adapter Registration"
+      /-->
+
+  <!-- addMenuItem
+      view="addAdapterRegistration.html"
+      class="zope.app.component.site.AdapterRegistration"
+      permission="zope.ManageSite"
+      title="Adapter Registration"
+      /-->
+
+  <editform
+    schema="..interfaces.IAdapterRegistration"
+    name="index.html"
+    menu="zmi_views"
+    label="Change adapter"
+    permission="zope.ManageSite"
+    />
+
+</zope:configure>

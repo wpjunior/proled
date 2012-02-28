@@ -1,0 +1,46 @@
+<dtml-var standard_html_header>
+
+<a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_comissoes">Ajuda</a>
+<h1>Comiss&otilde;es</h1>
+
+  <fieldset>
+   <legend>Selecione Comissão</legend>
+   <dtml-in expr="zsql.comissao_obter_zsql(ind_excluido=0)" size=8 start=query_start orphan=2>
+    <dtml-if sequence-start>
+    <table>
+     <tr>
+      <th class="label">Nome da Comissão</th>
+      <th class="label">&nbsp;Sigla</th>
+      <th class="label">&nbsp;Tipo</th>
+      <th class="label">&nbsp;Data de Cria&ccedil;&atilde;o</th>
+     </tr>
+     <dtml-if previous-sequence>
+        <tr><td class="texto">
+            <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+            Página Anterior (<dtml-var previous-sequence-size>)</a>
+        </td></tr>
+      </dtml-if previous-sequence>
+     </dtml-if sequence-start>
+        <tr>
+           <td class="label"><a href="comissao_mostrar_proc?cod_comissao=<dtml-var cod_comissao >"><dtml-var nom_comissao></a></td>
+           <td class="texto">&nbsp;<dtml-var sgl_comissao></td>
+           <td class="texto">&nbsp;<dtml-var nom_tipo_comissao></td>
+           <td class="texto">&nbsp;<dtml-var dat_criacao></td>
+        </tr>
+     <dtml-if sequence-end>
+      <dtml-if next-sequence>
+        <tr><td class="texto">
+            <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+            Próxima Página (<dtml-var next-sequence-size>)</a>
+        </td></tr>
+      </dtml-if next-sequence>
+  </dtml-if sequence-end>
+ <dtml-else>
+   <tr>
+    <td class="texto">Nenhuma comissão cadastrada.</td>
+   </tr>
+    </dtml-in>
+   </table>
+  </fieldset>
+
+<dtml-var standard_html_footer>

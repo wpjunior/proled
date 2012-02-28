@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:event="http://namespaces.zope.org/event"
+    >
+
+<subscriber
+    for="zope.app.event.interfaces.IObjectEvent" 
+    handler=".objectevent.objectEventNotify"
+    />
+
+</configure>

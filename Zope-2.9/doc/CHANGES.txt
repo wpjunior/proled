@@ -1,0 +1,505 @@
+Zope Changes
+
+  This file contains change information for the current Zope release.
+  Change information for previous versions of Zope can be found in the
+  file HISTORY.txt.
+
+  Zope 2.9.12 (2010/01/12)
+
+      - LP #490514:  preserve tainting when calling into DTML from ZPT.
+
+      - LP #491224: proper escaping of rendered error message
+
+  Zope 2.9.11 (2009/08/06)
+
+   Bugs fixed
+
+      - Launchpad #373299: Removed bogus string exception in OFS.CopySupport.
+
+      - Launchpad ##332168: Connection.py: do not expose DB connection strings
+        through exceptions
+
+      - Fixed vulnerabilities in the ZEO network protocol 
+        affecting ZEO storage servers.
+
+  Zope 2.9.10 (2008/10/24)
+
+   Bugs fixed
+
+      - Ensure that response header values cannot embed CRLF pairs, which
+        violate the HTTP spec (RFC 2616).
+
+      - Launchpad #282677: fixed implementation of guarded_map and
+        provided tests and implementation for guarded_zip
+        (RestrictedPython).
+
+      - 'AccessControl.ZopeGuards.guarded_import' mapped some Unauthorized
+        exceptions onto ImportErrors:  don't do that!  Also, removed
+        mutable defaults from argument list, improved tests.
+
+      - LP #281156:  'AccessControl.SecurityInfo.secureModule' dropped
+        ModuleSecurity for failed imports, obscuring later attempts to
+        import the same broken module.
+
+      - LP #142667:  Updated to ZODB-3.6.4 to fix problem with product
+        auto-refresh.
+
+      - Launchpad #267545: DateTime(DateTime()) now preserves the
+        correct hour
+
+      - Launchpad #245649:  the Products package is now a proper
+        "namespace package" under the rules specified by setuptools.
+
+      - Launchpad #239636:  Ensure that HEAD requests lock an empty body
+        for NotFound errors.
+
+      - Launchpad #234209: De-tabify ZPublisher/HTTPRequest.py
+
+      - integrated Hotfix-2008-08-12
+
+  Zope 2.9.9 (2008/05/10)
+
+   Bugs fixed
+
+      - Launchpad #142350: Display description for properties as row title,
+        if present.
+
+      - Launchpad #200007: DateTime(anotherDateTime) now preserves the
+        timezone.
+
+      - Launchpad #143813: zopectl now exits non-zero when
+        child processes fail.
+
+      - Launchpad #143748: remove broken use of logging module in
+        Products.Five.fiveconfigure.handleBrokenProduct.  Fixed by
+        upgrading to Products.Five 1.3.11.
+
+      - Launchpad #147201: treat container-class in zope.conf as a string,
+        making it possible to use types from extra products directories.
+
+      - Collector #2287: form ':record' objects did not implement enough
+        of the mapping protocol.
+
+      - Collector #2346: username logging in FCGI crashed the server
+
+      - Collector #2332: SessionDataManger: don't swallow ConflictErrors
+
+      - Collector #146408: fixed broken logger call in Transience.py
+
+  Zope 2.9.8 (2007/07/05)
+
+   Bugs fixed
+
+      - updated to ZODB 3.6.3
+
+      - updated to Zope 3.2.3 codebase
+
+      - Collector #1306: Missing acquisition context on local roles screen.
+
+      - The REQUEST no longer accepts holds after it has been closed.
+
+      - Collector #2153: Supporting unquoted cookies with spaces.
+
+      - Collector #2295: Comments in PythonScripts could lead to syntax
+        errors
+
+      - Collector #2307: ObjectCopiedEvent not dispatched to sublocations.
+
+      - Fixed ZClass test breakage due to non-pickleability of
+        'zope.interface.Implements' 
+        
+        N.B.: updated 'zope.interface' package to Zope 3.2 branch;
+              should be pinned to a tag or a release before releasing
+              2.9.8).
+
+      - Collector #2260: fixed a bug in Examples.zexp
+
+      - Collector #2321: Skip trusted proxies when extracting the client IP
+        address from the request.
+
+      - Collector #2318: Allow override of zopectl's control socket in
+        zope.conf
+
+      - Collector #2316: correctly unpack DateTimeIndex dates when browsing the
+        index.
+
+      - Collector #1866: a 304 HTTP status should not have a content length.
+  
+      - Collector #2300: delimit *all* HTTP Response headers with CRLF.
+
+  Zope 2.9.7 (2007/03/25)
+
+   Bugs fixed
+
+      - Protected various security mutators with a new postonly decorator.
+        The decorator limits method publishing to POST requests only, and
+        is a backport from Zope 2.11's requestmethod decorator factory.
+
+      - Collector #2298: webdav.Resource.COPY and webdav.Resource.MOVE did
+        not send the expected copy/move events.
+
+      - Collector #2296: Fixed import of ZClass products, broken by removal
+        of BBB support for pasting objects whose meta_type info was
+        permission-free.
+
+      - Collector #2294: Protected DOS-able ControlPanel methods with the
+        same 'requestmethod' wrapper.
+
+      - Collector #2294: Protected various security mutators with a new
+        'postonly' decorator.  The decorator limits method publishing to
+        POST requests only, and is a backport from Zope 2.11's requestmethod
+        decorator factory.
+
+      - Collector #2288: @ and + should not be quoted when forming
+        request URLs in BaseRequest and HTTPRequest
+
+      - Undeprectated 'zLOG' package, which is going to remain a
+        backward-compatibility shim for the Python logger.
+
+      - Collector #2263: 'field2ulines' did not convert empty string
+        correctly.
+
+      - Reverted backward-incompatible fix for Collector #2191.
+
+      - added Python 2.4.4 as optimal Python version to 'configure'
+
+
+  Zope 2.9.6 (2006-11-22)
+
+   Bugs fixed
+
+      - Collector #2191: extended DateTime parser for better support
+        to the ISO8601 specification.
+
+      - Reworking of _cached_result in Shared.DC.ZRDB.DA.DA:
+
+        - fixed KeyError reported in Collector #2212
+
+        - fixed two memory leaks that occurred under high load
+
+        - fixed broken cache keys for people using the obscure
+          Shared.DC.ZRDB.DA.DA.connection_hook
+
+        - fixed incorrect cache ordering resulting in newer results
+          being dumped when the cache became too large.
+
+      - Collector #2237: 'make' doesn't tell you to run 'make inplace'
+        before running 'make instance'.
+
+      - Collector #2235: A number of ZCatalog methods were doing boolean
+        evaluation of objects that implemented __len__ instead of checking
+        them against None. Replaced a number of "if not obj" with
+        "if obj is None".
+
+      - Collector #2218: fixed wrong logger argument in OFS/Cache.py
+
+      - Collector #2205: fixed wrong logger argument in ZRDB/Connection.py
+
+      - Collector #2208: rewriting/setting the 'charset' part of the
+        content-type HTTP header will be done only for 'text/*'
+
+      - Collector #2206: Set PYTHONPATH to include existing PYTHONPATH
+        in skel/bin/zopectl.in and skel/bin/runzope.in
+
+  Zope 2.9.5 (2006/10/03)
+
+   Bugs fixed
+
+      - Call setDefaultSkin on new requests created as the result of
+        ConflictError retries.
+
+      - Collector #2189: Fix logging of errors during product refresh.
+
+      - Collector #2185: Log username for FCGI requests.
+
+      - Collector #2152: Fixed MailHost documentation; simple_send does not
+        process or validate its arguments in any way.
+
+      - Collector #2175: ZTUtils.make_hidden_input did not escape double-quotes.
+
+      - Collector #1907: Moved 'alt' property from File to Image.
+
+      - Collector #1983: Specifying session-resolution-seconds >= 1200 caused
+        Zope startup to fail.
+
+      - Collector #2169: webdav.Resource.COPY did not send ObjectClonedEvent.
+
+      - Updated Five to bugfix release 1.3.7.
+
+      - Collector #2157: Expose name of broken class in SystemError raised
+        from '__getstate__' of a broken instance.
+
+      - Usage of 'urljoin' in 'webdav.davcmds' could lead to wrongly
+        constructed urls.
+
+      - Collector #2155: Fix wrong parameter being passed to
+        logger's error() method, with tests.
+
+      - Collector #2178: Fix ZopeTestCase doctest support for layers
+
+      - included Zope 3.2.2
+
+  Zope 2.9.4 (2006/07/21)
+
+   Bugs fixed
+
+      - reStructuredText/ZReST: setting raw_enabled to 0 for security
+        reasons
+
+      - Collector #2113:  'zopectl test' often masked Ctrl-C.
+
+      - OFS Application: Updated deprecation warnings.
+        Support for '__ac_permissions__' and 'meta_types' will be removed in
+        Zope 2.11, 'methods' support might remain longer.
+
+      - Collector #2136: Map ResourceLockedError to the correct response code.
+
+      - Collector #2109: XML-RPC did not handle DateTime.DateTime objects.
+
+      - Collector #2016: DemoStorage couldn't wrap base storages without
+                         an '_oid' attribute.
+
+      - Collector #2133: standard_error_messages are out of sync.
+
+      - Updated Five to bugfix release 1.3.6.
+
+      - Collector #2116: sequence.sort() did not work properly
+        locale related comparison methods
+
+      - Collector 2077: fixed problem with ACTUAL_URL and SiteRoot
+
+      - Collector #2073: fixed misbehaviour of OFS.Owned.changeOwnership
+
+      - Collector #2063: cleaned up some mess in MailHost.sendTemplate()
+
+   Other Changes
+
+      - Disabled docutils file inclusion completely, rather than trying
+        to jigger it via configuration settings.
+
+      - Returned to the "classic" './configure && make && make install'
+        recipe, dropping the use of 'zpkg' for building Zope2 releases.
+
+      - Updated to ZODB 3.6.2
+
+  Zope 2.9.3 (2006/05/13)
+
+   Bugs fixed
+
+      - Collector #2083: 'make clean' leaves turds.
+
+      - Collector #2082: 'make install' broken.
+
+      - Collector #2081: 'make instance' forced inappropriate dir, credentials.
+
+      - Collector #1447: When editing content on a virtual-hosted zope,
+        AcceleratedHTTPCacheManager now purges the correct URL.
+
+      - Collector #2062: Fix manage_historyCopy, which was broken, and write
+        tests for it.
+
+      - Collector #2061: Fix problems where windows line endings are passed
+        to restricted code compilers.
+
+      - Collector #2072: Applied patch to fix problem with overly restrictive
+        __bobo_traverse__ security and tests.
+
+      - Added missing Zope 3 packages: zope.app.intid, zope.app.keyreference,
+        zope.app.session, zope.contentprovider, zope.viewlet
+
+      - Updated Five to bugfix release 1.3.5.
+
+      - OFS.PropertyManager: Provided missing security declarations.
+
+      - Products.SiteErrorLog: SiteErrorLog only copied the unformatted
+        traceback to the event.log, missing out on __traceback_supplement__.
+
+  Zope 2.9.2 (2006/03/27)
+
+    Bugs fixed
+
+      - Collector #2051: Applied patch by Yoshinori Okuji to fix some
+        XML export/import problems, and added tests for that feature.
+
+      - Missing import of NotFound in webdav.Resource.
+
+      - Collector #2037: fixed broken ACTUAL_URL for '/'
+
+      - Put the default skin interface on the request once it is
+        created, both in ZPublisher and ZopeTestCase.
+
+      - Updated Five to bugfix release 1.3.3.  See
+        Products/Five/CHANGES.txt for more info.
+
+  Zope 2.9.1  (2006/02/25)
+
+    Bugs fixed
+
+      - Collector #1819: fixed signature of
+        MountedObject.SimpleTrailblazer._construct()
+
+      - Collector #2019: removed validateValue() from cAccessControl (already
+        removed in former Zope versions from the AccessControl Python
+        implementation)
+
+      - Collector #1991: ZPublisher did not deal properly with a trailing
+        %20 in the URL
+
+      - Collector #1989:  'test.py' now copyied to $ZOPE_HOME/bin
+        during installation, which re-enables tests run from the instance
+        home.
+
+      - zope.app.introspector was not included with the source archive
+
+      - Collector #2013: improved XHTML conformance of error messages,
+        some of which did not close '<p>' tags.
+
+      - Collector #1999: fixed broken FTP rename functionality
+        (RNFR now returns 350 as status code instead 250)
+
+      - officially deprecated the zLOG module (to be removed in Zope 2.11).
+        Use the logging module of Python instead.
+
+      - Replaced used of deprecated 'OFS.content_types' module with cognates
+        from 'zope.app.content_types'.
+
+      - Collector #2002: fixed broken 'ls -R' functionality (didn't
+        recurse properly subclasses of OFS.Folder)
+
+  Zope 2.9.0 (2006/01/09)
+
+    Bugs fixed
+
+      - deprecated OFS.content_types
+
+      - Fixed ConflictError when using sessions.
+
+  Zope 2.9.0 beta 2 (2005/12/24)
+
+    Bugs fixed
+
+      - Collector #1939: When running as a service, Zope could
+        potentially collect too much log output filling the NT Event
+        Log. When that happened, a 'print' during exception handling
+        would cause an IOError in the restart code causing the service
+        not to restart automatically.
+
+        Problem is that a service/pythonw.exe process *always* has an
+        invalid sys.stdout.  But due to the magic of buffering, small
+        "print" statements would not fail - but once the file actually
+        got written to, the error happened.  Never a problem when
+        debugging, as the process has a console, and hence a valid
+        stdout.
+
+     - For content-type HTTP headers starting with 'text/' or 'application/'
+       the 'charset' field is automatically if not specified by the
+       application. The 'charset' is determined by the content-type header
+       specified by the application (if available) or from the
+       zpublisher_default_encoding value as configured in etc/zope.conf
+
+     - Collector #1976: FTP STOR command would load the file being
+       uploaded in memory. Changed to use a TemporaryFile.
+
+     - OFS ObjectManager: Fixed list_imports() to tolerate missing
+       import directories.
+
+     - Collector #1965: 'get_transaction' missing from builtins without
+       sufficient deprecation notice (ZODB 3.6 properly removed it, but
+       Zope needs to keep it for another release).
+
+     - Several zope.app packages were forgotten to be included in the
+       first beta due to the now zpkg-based build and release process.
+
+    Features added
+
+     - The SiteErrorLog now copies exceptions to the event log by default.
+
+     - Added a 'conflict-error-log-level' directive to zope.conf, to set
+       the level at which conflict errors (which are normally retried
+       automatically) are logged. The default is 'info'.
+
+  Zope 2.9.0 beta 1 (2005/12/06)
+
+    Features added
+
+      - ObjectManager now has an hasObject method to test presence. This
+        brings it in line with BTreeFolder.
+
+      - Using FastCGI is officially deprecated
+
+      - Improved logging of ConflictErrors. All conflict errors are
+        logged at INFO, with counts of how many occurred and how many
+        were resolved. Tracebacks for all conflicts are logged a DEBUG
+        level, although these won't help anyone much. If a conflict
+        error is unresolved, it will now bubble up to error_log and
+        standard_error_message.
+
+      - Fixed unclear security declarations. Warn when an attempt is
+        made to have a security declaration on a nonexistent method.
+
+      - updated to ZPL 2.1
+
+      - interfaces: Added 'Interfaces' tab to basic core objects.
+        This is a Five feature and only available if the classes are made
+        five:traversable. It allows to inspect interfaces and to assign
+        marker interfaces through the ZMI.
+
+      - webdav: Added support for the z3 WriteLock interface.
+        It is no longer necessary to have the WriteLockInterface in the
+        __implements__ list of lockable objects. All classes inheriting from
+        LockableItem inherit also the IWriteLock interface. Note that this
+        enables webdav locking for all subclasses by default even if they
+        don't specify the WriteLockInterface explicitly.
+
+      - App ProductContext: Made registerClass aware of z3 interfaces.
+        Z2 and z3 interfaces are registered side by side in the same tuple in
+        Products.meta_types. IFAwareObjectManagers like the ZCatalog work now
+        with z3 interfaces as well.
+
+      - Zope now sends Zope 3 events when objects are added or removed
+        from standard containers. manage_afterAdd, manage_beforeDelete
+        and manage_afterClone are now deprecated. See
+        lib/python/Products/Five/tests/event.txt for details.
+
+      - Zope now utilizes ZODB 3.6.  It had previously used
+        ZODB 3.4.  As a result, the DBTab package was removed, as
+        ZODB 3.6 has multidatabase support that makes DBTab
+        unnecessary.
+
+      - Added a 'product-config' section type to zope.conf, allowing
+        arbitrary key-value mappings.  Products can look for such
+        confgiurations to set product-specific options.  Products mwy
+        also register their own section types, extending the
+        'zope.product.base' type. (see the example '<product-config>'
+        section in skel/etc/zope.conf.in for sample usage).
+
+      - Collector #1490: Added a new zope.conf option to control the
+        character set used to encode unicode data that reaches
+        ZPublisher without any specified encoding.
+
+      - AccessControl, Acquisition, App, OFS, webdav, PluginIndexes,
+        ZCatalog and ZCTextIndex: Added some Zope 3 style interfaces.
+        This makes the bridged interfaces shipped with Five obsolete.
+
+      - ZConfig extension, address now also accepts symbolic port names
+        from etc/services (unix) or etc\services (win32)
+
+      - ZPublisher.HTTPRequest.FileUpload now supports full file
+        object interface.  This means Iterator support was added. (for
+        line in fileobject: ..., as well as fileobject.next() and
+        fileobject.xreadlines() ) Collector #1837
+
+      - Switched the bundled Zope 3 to release 3.2 and upgraded the
+        Five product to version 1.3 (see Products/Five/CHANGES.txt).
+
+      - The PageTemplate implementation now uses Zope 3 message
+        catalogs by default for translation.  Old-style translation
+        services such as Localizer or PlacelessTranslationService are
+        still supported as fall-backs.  See Products/Five/doc/i18n.txt
+        for more information.
+
+      - Switched to the new improved test runner from Zope 3.  Run
+        test.py with -h to find out more.
+
+      - Collector #1904: On Mac OS X avoid a spurious OSError when
+        zopectl exits.

@@ -1,0 +1,23 @@
+<dtml-var standard_html_header>
+<table border=0 align="center">
+  <tr><td colspan="2" class="titulo">&nbsp;</td></tr>
+  <tr>
+    <td width="20%" class="exclama" align="center" valign="top"> ! </td>
+    <td width="80%" class="texto"><dtml-var mensagem><br />
+  
+<dtml-if expr="_.has_key('sucesso')">
+  <dtml-if expr="_.has_key('url')">
+    <a href="<dtml-var url>">Continuar</a>
+  <dtml-else>
+    <a href="index_html">Continuar</a>
+  </dtml-if>
+<dtml-else>
+  <dtml-if expr="_.has_key('url')">
+    <a href="<dtml-var url>">Voltar</a>
+  <dtml-else>  
+    <a href="javascript:history.go(-1)">Voltar</a>
+  </dtml-if>
+</dtml-if>
+</td></tr>
+</table>
+<dtml-var standard_html_footer>

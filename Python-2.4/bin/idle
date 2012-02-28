@@ -1,0 +1,5 @@
+#!/var/interlegis/SAPL-2.3/Python-2.4/bin/python
+
+from idlelib.PyShell import main
+if __name__ == '__main__':
+    main()

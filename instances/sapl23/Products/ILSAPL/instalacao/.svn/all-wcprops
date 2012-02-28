@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/!svn/ver/5270/ILSAPL/branches/2.3/instalacao
+END
+sapl_create.sql
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/4650/ILSAPL/branches/2.3/instalacao/sapl_create.sql
+END
+sapl_migracao_edgy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_migracao_edgy.sh
+END
+sapl_pg.sql
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_pg.sql
+END
+imports.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/imports.py
+END
+conv_sde0_to_sde1.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/conv_sde0_to_sde1.py
+END
+instalar.sh
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/instalar.sh
+END
+sapl_configurador_old.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_configurador_old.py
+END
+sapl_migracao_old.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_migracao_old.py
+END
+zope.conf.add
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/zope.conf.add
+END
+sapl_configurador.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/5270/ILSAPL/branches/2.3/instalacao/sapl_configurador.py
+END
+sapl_migracao.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_migracao.py
+END
+my.cnf
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/my.cnf
+END
+sapl.sql
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/5263/ILSAPL/branches/2.3/instalacao/sapl.sql
+END
+sapl_configurador_edgy.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_configurador_edgy.py
+END
+sapl_migracao_banco.sql
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_migracao_banco.sql
+END
+zope.conf
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/zope.conf
+END
+automatico
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/automatico
+END
+sapl_migracao.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/4571/ILSAPL/branches/2.3/instalacao/sapl_migracao.sh
+END
+sapl23_alter16072010.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/4683/ILSAPL/branches/2.3/instalacao/sapl23_alter16072010.sql
+END

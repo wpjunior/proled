@@ -1,0 +1,47 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <content class=".viewpagetemplatefile.BoundPageTemplate">
+    <allow attributes="__call__ __str__ __name__" />
+  </content>
+
+  <adapter
+      for="*"
+      provides="zope.app.traversing.interfaces.IPathAdapter"
+      factory=".talesapi.ZopeTalesAPI"
+      name="zope" 
+      />
+
+  <adapter
+      for="*"
+      provides="zope.app.traversing.interfaces.IPathAdapter"
+      factory=".urlquote.URLQuote"
+      name="url"/> 
+
+ <content class="zope.tales.tales.Iterator">
+    <allow interface="zope.tales.interfaces.ITALESIterator" />
+ </content>
+
+ <class class=".engine.ZopePathExpr">
+    <allow attributes="__call__" />
+ </class>
+ <class class=".engine.TrustedZopePathExpr">
+    <allow attributes="__call__" />
+ </class>
+ <class class=".engine.ZopePythonExpr">
+    <allow attributes="__call__" />
+ </class>
+ <class class=".engine.PythonExpr">
+    <allow attributes="__call__" />
+ </class>
+
+ <class class="zope.tales.expressions.StringExpr">
+    <allow attributes="__call__" />
+ </class>
+ <class class="zope.tales.expressions.NotExpr">
+    <allow attributes="__call__" />
+ </class>
+ <class class="zope.tales.expressions.DeferExpr">
+    <allow attributes="__call__" />
+ </class>
+
+</configure>

@@ -1,0 +1,87 @@
+<dtml-var standard_html_header>
+<a id="ajuda" href="&dtml-portal_url;/ajuda/sessao_plenaria_painel">Ajuda</a>
+<dtml-call expr="REQUEST.set('cod_ordem', cod_ordem)">
+<h1><dtml-var sessao_plenaria_header> - In&iacute;cio: <dtml-var hr_inicio_sessao null="">&nbsp;- T&eacute;rmino:<dtml-var hr_fim_sessao null=""></h1>
+<dtml-var sessao_plenaria_menu> 
+<fieldset>
+    <legend>PAINEL DE VOTA&Ccedil;&Atilde;O</legend>
+    <br />
+    <table width="100%">
+        <dtml-in expr="zsql.votacao_ordem_dia_obter_zsql(cod_ordem = cod_ordem, ind_excluido=0)">
+        <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
+        <tr>
+            <td class="texto">
+                <b>Mat&eacute;ria</b>:&nbsp; <dtml-var sgl_tipo_materia missing>&nbsp;-<dtml-var num_ident_basica missing>&nbsp;<dtml-var ano_ident_basica missing>&nbsp;-&nbsp;<dtml-var des_tipo_materia missing> 
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Ementa</b>:&nbsp; <dtml-var txt_ementa>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Resultado da Vota&ccedil;&atilde;o</b>:&nbsp;
+                <dtml-in expr="zsql.tipo_resultado_votacao_obter_zsql(tip_resultado_votacao=tip_resultado_votacao)">
+                    <dtml-var nom_resultado>
+                </dtml-in>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de votos n&atilde;o</b>:&nbsp;<dtml-var num_votos_nao>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de votos sim</b>:&nbsp; <dtml-var num_votos_sim>
+            </td>
+        </tr>
+        <tr>
+            <td class="texto">
+                <b>Quantidade de absten&ccedil;&otilde;es</b>:&nbsp;<dtml-var num_abstencao>
+            </td>
+        </tr>
+        </dtml-in>
+        </dtml-in>
+     </table>
+    <fieldset>
+    <legend>Vota&ccedil;&atilde;o</legend>
+        <table width="85%" align="center" valign="center">
+        <tr class="fundo">
+            <td width="55%" class="label" align="center" rowspan="2">&nbsp;Parlamentar / Partido</td>
+            <td width="30%" class="label" align="center">Vota&ccedil;&atilde;o</td>
+        </tr>
+        <tr class="fundo">
+            <td width="20%" class="label" align="center">&nbsp;Sim&nbsp;&nbsp;N&atilde;o&nbsp;&nbsp;Absten&ccedil;&atilde;o</td>
+        </tr>
+        <dtml-in expr="zsql.presenca_ordem_dia_obter_zsql(dat_ordem = pysc.data_converter_pysc(data=dat_inicio_sessao), ind_excluido=0)">
+        <dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar, ind_excluido=0)">
+        <tr>
+            <td class="texto">
+                <dtml-var nom_parlamentar> / <dtml-var sgl_partido missing null="">
+            </td>
+            <td class="texto" align="center">
+            <dtml-call expr="REQUEST.set('voto', 0)">
+            <dtml-in expr="zsql.votacao_ordem_dia_obter_zsql(cod_ordem = cod_ordem, ind_excluido=0)">
+            <dtml-in expr="zsql.votacao_obter_zsql(cod_materia = cod_materia, ind_excluido=0)">
+            <dtml-in expr="zsql.votacao_parlamentar_obter_zsql(cod_votacao = cod_votacao, cod_parlamentar = cod_parlamentar, ind_excluido=0)">        
+            <span>
+                <dtml-var vot_parlamentar>
+                <dtml-call expr="REQUEST.set('voto', 1)">
+            </span>
+            </dtml-in>
+            </dtml-in>
+            </dtml-in>
+            <dtml-unless voto>
+                <span>Sem voto registrado</span>            
+            </dtml-unless>
+            </td>
+        </tr>
+        </dtml-in>
+        </dtml-in>
+        </table>
+    </fieldset>
+<form><p align="center"><input class="botao" type="button" value="Retornar" OnClick="history.go(-1)" /></p></form>
+<dtml-var standard_html_footer>
+

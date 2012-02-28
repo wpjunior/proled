@@ -1,0 +1,199 @@
+<dtml-var standard_html_header>
+
+<script type="text/javascript" language="Javascript">
+
+  function ordem() {
+    if(document.norma_pesquisar.txt_assunto.value == '') {
+       document.norma_pesquisar.rd_ordenacao[1].disabled = true;
+       document.norma_pesquisar.rd_ordenacao[0].checked = true; }
+    else {	
+       document.norma_pesquisar.rd_ordenacao[1].disabled = false; }
+
+    if(document.norma_pesquisar.rd_ordenacao[0].checked && document.norma_pesquisar.rd_ordenacao[1].checked) {
+       document.norma_pesquisar.rd_ordenacao[0].checked = false; }
+  }
+
+  function relevancia() {
+    if(document.norma_pesquisar.txt_assunto.value != '') {
+      document.norma_pesquisar.rd_ordenacao[1].checked = true;
+      document.norma_pesquisar.rd_ordenacao[0].checked = false;
+    }
+  }
+
+  function textual(form) {
+
+    if(form.chk_textual.checked == true) {
+      form.action = "norma_juridica_texto_pesquisar_proc";
+    }
+
+    else {
+      form.action = "norma_juridica_pesquisar_proc";
+    }
+
+    form.submit();
+  }
+
+</script>
+
+<div class="helpsapl"><a id="ajuda" href="&dtml-portal_url;/ajuda/consultas#cons_norma">Ajuda</a></div>
+<h1>Normas Jur&iacute;dicas</h1>
+
+<dtml-if expr="incluir=='1'">
+    <ul>
+        <li>
+            <a href="&dtml-portal_url;/cadastros/norma_juridica/norma_juridica_form">Incluir Norma Jurídica</a>
+        </li>
+    </ul>
+</dtml-if>
+
+<form name="norma_pesquisar" action="norma_juridica_pesquisar_proc" onChange="ordem()">
+  <fieldset>
+    <legend>Pesquisa Avan&ccedil;ada</legend>
+    <input type="hidden" name="incluir" value="<dtml-var incluir>" />
+    <table>
+      <tr>
+        <th><label for="lst_tip_norma">Tipo da Norma</label></th>
+        <td colspan="2">
+          <select id="lst_tip_norma" name="lst_tip_norma">
+            <option value="">Todos</option>
+            <dtml-in expr="zsql.tipo_norma_juridica_obter_zsql(ind_excluido=0)">
+              <option value="<dtml-var tip_norma missing>">
+                <dtml-var sgl_tipo_norma> - <dtml-var des_tipo_norma>
+              </option>
+            </dtml-in>
+          </select>      
+        </td>
+      </tr>
+      <tr>
+        <th class="label"></th>
+        <td align="left"><label for="txt_numero">Número</label>
+          <input id="txt_numero" type="text" name="txt_numero" null="" missing="" size="6" maxlength="6" />
+        </td>
+	<td align="left"><label for="txt_ano">Ano</label>
+          <input id="txt_ano" type="text" name="txt_ano" null="" size="4" maxlength="4" />
+        </td>
+      </tr>
+      <tr>
+        <th class="label">Período da Norma:</th>
+        <td>
+          <label for="dt_norma">Inicial</label>
+          <input type="text" id="dt_norma" name="dt_norma" size="10" maxlength=10 onblur="formata_data(form.dt_norma)" />
+          <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'dt_norma',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script>
+        </td>
+        <td>
+          <label for="dt_norma2">Final</label>
+          <input type="text" id="dt_norma2" name="dt_norma2" size="10" maxlength="10" onblur="formata_data(form.dt_norma2)" />
+          <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'dt_norma2',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script> 
+        </td>
+      </tr>
+      <tr>
+        <th class="label">Período de Publicação:&nbsp;</th>
+        <td>
+          <label for="dt_public">Inicial</label>
+          <input type="text" id="dt_public" name="dt_public" size="10" maxlength="10" onblur="formata_data(form.dt_public)" />
+          <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'dt_public',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script>
+        </td>
+        <td>
+          <label for="dt_public2">Final</label>
+          <input type="text" id="dt_public2" name="dt_public2" size="10" maxlength="10" onblur="formata_data(form.dt_public2)" />
+          <script type="text/javascript">
+            /*<[CDATA[*/
+            var dpck = new DatePicker({
+            relative : 'dt_public2',
+            language : 'pt'
+            });
+            /*]]>*/
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="txt_assunto">Assunto</label></th>
+        <td colspan="2">
+          <input id="txt_assunto" type="text" name="txt_assunto" null="" size="50" onKeyUp="ordem()" onBlur="relevancia()" />
+        </td>
+      </tr>
+      <tr></tr>
+      <tr> <th class="label">Ordenação do Resultado &nbsp;</th>
+          <td class="campoRadio" colspan="2">
+          <dtml-in expr="[('Tipo/Ano/Número', '1'), ('Relevância', '2')]">     
+           <input type="radio" name="rd_ordenacao" 
+                  value="<dtml-var expr="_['sequence-item']">"
+                  id="rd_ordenacao<dtml-var expr="_['sequence-item']">"
+                <dtml-if expr="_['sequence-item']=='1'">checked="1"</dtml-if> 
+                <dtml-if expr="_['sequence-item']=='2'">disabled</dtml-if> />
+             <label for="rd_ordenacao<dtml-var expr="_['sequence-item']">"><dtml-var expr="_['sequence-key']"> &nbsp;</label>
+          </dtml-in>
+      </tr>
+
+      <tr><th><label for="chk_textual">Pesquisar no texto da norma &nbsp;</label></th>
+          <td colspan="2">
+           <input type="checkbox" name="chk_textual" value="1" id="chk_textual">
+	  </td>
+      </tr>
+
+      <tr></tr>
+       <td colspan="3" align="center">
+          <input class="botao" type="button" id="btn_norma_pesquisar" name="btn_norma_pesquisar" value="Pesquisar" onClick="textual(document.norma_pesquisar)" />
+          <input class="botaoExtra" type="reset" name="btn_norma_limpar" value="Limpar" />
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</form>
+
+<dtml-comment>
+<form name="norma_textual_pesquisar" action="norma_juridica_texto_pesquisar_proc">
+  <input type="hidden" name="incluir" value="<dtml-var incluir>" />
+  <fieldset>
+    <legend>Pesquisa Textual</legend>
+    <table>
+      <tr> 
+        <th><label for="txt_texto">Texto</label></th>
+        <td>
+          <input id="txt_texto" type="text" name="txt_texto" null="" size="50" />
+        </td>
+      </tr>
+      <tr> <th class="label">Ordenação do Resultado &nbsp;</th>
+          <td class="campoRadio" colspan="2">
+          <dtml-in expr="[('Tipo/Ano/Número', '1'), ('Relevância', '2')]">     
+           <input type="radio" name="rd_ordenacao" value="<dtml-var expr="_['sequence-item']">"
+                  id="rd_ordenacao<dtml-var expr="_['sequence-item']">"
+                <dtml-if expr="_['sequence-item']=='1'">checked="1"</dtml-if> 
+                <dtml-if expr="_['sequence-item']=='2'">checked="2"</dtml-if> />
+             <label for="rd_ordenacao_t<dtml-var expr="_['sequence-item']">"><dtml-var expr="_['sequence-key']"> &nbsp;</label>
+          </dtml-in>
+      </tr>
+      <tr> 
+        <th></th>
+        <td>
+          <input class="botao" type="submit" name="btn_norma_pesquisar" value="Pesquisar" />
+          <input class="botaoExtra" type="reset" name="btn_norma_limpar" value="Limpar" />
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+</form>
+</dtml-comment>
+
+<dtml-var standard_html_footer>

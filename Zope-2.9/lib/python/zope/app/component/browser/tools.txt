@@ -1,0 +1,160 @@
+==============
+The Tools View
+==============
+
+  >>> from zope import interface
+
+First we define a utility to work with :
+
+  >>> from zope.app.content.interfaces import IContentType
+  >>> from zope.app.component.interfaces.registration import IRegisterable
+  >>> class IFooUtil(interface.Interface):
+  ...     pass
+  >>> class FooUtil(object):
+  ...     __parent__ = None
+  ...     __name__ = u''
+  ...     interface.implements(IFooUtil, IRegisterable, IContentType)
+
+  >>> from zope.app.component.browser import tools
+  >>> from zope import component
+
+  >>> toolConfig = tools.ToolConfiguration(IFooUtil, 'FooUtil')
+  >>> component.provideUtility(toolConfig, tools.IToolConfiguration, 'IFooUtil')
+
+We need a factory to create our new utility :
+
+  >>> from zope.component.interfaces import IFactory
+  >>> from zope.component.factory import Factory
+
+  >>> from zope.app.security import protectclass
+  >>> protectclass.protectName(Factory, '__call__', 'zope.public')
+
+  >>> factory = Factory(FooUtil, 
+  ...                   'Utility for foo',
+  ...                   'This factory creates a foo utility.')
+  >>> component.provideUtility(factory, IFactory, 'IFooUtil')
+
+Let's now invoke our site management :
+
+  >>> from zope.publisher.browser import TestRequest
+  >>> request = TestRequest()
+  >>> request.form['activeTool']='IFooUtil'
+
+  >>> from zope.app import zapi
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u''
+  >>> request.form['ADD-TOOL-SUBMIT']='submit'
+  >>> request.form['type_name']='IFooUtil'
+  >>> request.form['id']='foo1'
+  >>> view.update()
+  u''
+  >>> util = component.getUtility(IFooUtil, 'foo1')
+  >>> util is not None
+  True
+  >>> current_tools = view.getTools()
+  >>> len(current_tools)
+  1
+  >>> current_tools[0]['instances'][0]['name']
+  'foo1'
+
+Registering with the same name
+------------------------------
+
+  >>> print view.update()
+  The given tool name is already being used.
+
+  >>> request.form['id']='foo2'
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u''
+  >>> current_tools = view.getTools()
+  >>> current_tools[0]['instances'][0]['name']
+  'foo1'
+  >>> current_tools[0]['instances'][1]['name']
+  'foo2'
+
+Creating a utility without a name
+---------------------------------
+
+  >>> request.form['id']=''
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u''
+  >>> current_tools = view.getTools()
+  >>> current_tools[0]['instances'][0]['name']
+  'foo1'
+  >>> current_tools[0]['instances'][1]['name']
+  'foo2'
+  >>> current_tools[0]['instances'][2]['name']
+  u''
+
+Renaming utilities
+------------------
+
+  >>> request = TestRequest()
+  >>> request.form['activeTool']='IFooUtil'
+  >>> request.form['RENAME-SUBMIT']='submit'
+
+First we rename a single utility :
+
+  >>> request.form['old_names']=['foo1']
+  >>> request.form['new_names']=['JohnDoe']
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u'Tools successfully renamed.'
+  >>> current_tools = view.getTools()
+  >>> current_tools[0]['instances'][0]['name']
+  'JohnDoe'
+  >>> current_tools[0]['instances'][1]['name']
+  'foo2'
+  >>> current_tools[0]['instances'][2]['name']
+  u''
+
+  >>> request.form['old_names']=['JohnDoe', 'foo2']
+  >>> request.form['new_names']=['foo1', 'Tres']
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u'Tools successfully renamed.'
+  >>> current_tools = view.getTools()
+  >>> current_tools[0]['instances'][0]['name']
+  'foo1'
+  >>> current_tools[0]['instances'][1]['name']
+  'Tres'
+  >>> current_tools[0]['instances'][2]['name']
+  u''
+
+Deleting utilities
+------------------
+
+  >>> request = TestRequest()
+  >>> request.form['activeTool']='IFooUtil'
+  >>> request.form['DELETE-SUBMIT']='submit'
+
+First we try without a selected utility :
+
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u'No tools selected.'
+
+Now select one utility :
+
+  >>> request.form['selected']=['']
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u'Tools successfully deleted.'
+  >>> current_tools = view.getTools()
+  >>> current_tools[0]['instances'][0]['name']
+  'foo1'
+  >>> current_tools[0]['instances'][1]['name']
+  'Tres'
+
+Select all the remaining utilities :
+
+  >>> request.form['selected']=['foo1', 'Tres']
+  >>> view = tools.SiteManagementView(zapi.getSiteManager(), request)
+  >>> view.update()
+  u'Tools successfully deleted.'
+  >>> view.getTools()[0]['instances']
+  []
+

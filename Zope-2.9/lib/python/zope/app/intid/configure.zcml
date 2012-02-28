@@ -1,0 +1,43 @@
+<configure xmlns="http://namespaces.zope.org/zope" i18n_domain="zope">
+
+  <localUtility class=".IntIds">
+    <factory
+        id="zope.app.intid.IntIds"
+        />
+
+    <implements
+        interface="zope.app.annotation.interfaces.IAttributeAnnotatable"
+        />
+
+    <require
+        permission="zope.Public"
+        interface=".interfaces.IIntIdsQuery"
+        />
+
+    <require
+        permission="zope.ManageContent"
+        interface=".interfaces.IIntIdsSet"
+        />
+    <require
+        permission="zope.Public"
+        interface=".interfaces.IIntIdsManage"
+        />
+
+  </localUtility>
+
+  <subscriber
+      handler=".removeIntIdSubscriber"
+      for="zope.app.location.interfaces.ILocation
+           zope.app.container.interfaces.IObjectRemovedEvent"
+      />
+
+  <subscriber
+      handler=".addIntIdSubscriber"
+      for="zope.app.location.interfaces.ILocation
+           zope.app.container.interfaces.IObjectAddedEvent"
+      />
+
+  <!-- Views -->
+  <include package=".browser" />
+
+</configure>

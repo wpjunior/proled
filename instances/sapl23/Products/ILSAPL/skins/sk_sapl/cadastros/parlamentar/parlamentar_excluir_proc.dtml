@@ -1,0 +1,48 @@
+<dtml-comment>
+*****************************************************************
+*   Função: Esse método apenas chama o Método SQL de exclusão do*
+*       parlamentar, isto é, o método que atribui a verdadeiro o*
+*       campo ind_excluido do parlamentar cujo o cod_parlamentar* 
+*       é recebido.                                             *
+*   Argumentos: cod_parlamentar : int - o código do parlamentar *
+*       a ser escluído.                                         *
+*   Retorno: Atribuição do flag ind_excluido do parlamentar e   *
+*       redirecionamento para a página de parlamentares.        *
+*   Michael S. Onishi / Daniel C. Azevedo em 01-03-2001.        *
+*****************************************************************
+* UPDATE                                                        *
+*    Ao se excluir um parlamentar, alteramos o índice da tabela *
+*  com o autor correspondente (ind_excluido=1) representado a   *
+*  exclusão desse relacionamento, além da exclusão, se houver,  *
+*  do username cadastrado no acl_user como login.               *
+*  Rogério Ueda em 18-12-2003                                   *
+*****************************************************************
+
+</dtml-comment>
+
+<dtml-try>
+   <dtml-call expr="zsql.parlamentar_excluir_zsql(cod_parlamentar=cod_parlamentar)">
+<dtml-except>
+  <dtml-let mensagem="'Houve um erro! Parlamentar não excluído!'">
+     <dtml-var mensagem_emitir>
+  </dtml-let>
+  <dtml-call expr="REQUEST.set('erro', 1)">
+</dtml-try>
+
+<dtml-unless erro>
+  <dtml-try>
+     <dtml-in expr="zsql.autor_obter_zsql(cod_parlamentar=cod_parlamentar)">
+        <dtml-call expr="zsql.autor_excluir_zsql(cod_autor)">
+        <dtml-call expr="pysc.username_excluir_pysc(username=col_username)">
+     </dtml-in>
+  <dtml-except>
+     <dtml-let mensagem="'Parlamentar Excluído com Sucesso!<BR>Houve um erro! Autor Não Excluído!'">
+        <dtml-var mensagem_emitir>
+     </dtml-let>  
+  <dtml-else>
+     <dtml-let mensagem="'Parlamentar Excluído com Sucesso!'" sucesso="1">
+        <dtml-var mensagem_emitir>
+     </dtml-let>
+  </dtml-try>
+
+</dtml-unless>

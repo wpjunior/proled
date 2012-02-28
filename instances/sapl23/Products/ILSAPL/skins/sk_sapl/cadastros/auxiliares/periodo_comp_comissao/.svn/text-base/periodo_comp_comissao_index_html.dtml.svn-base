@@ -1,0 +1,48 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/periodo_composicao_comissao">Ajuda</a> </div>
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="left" class="form-label"> | <a href="periodo_comp_comissao_form">Incluir Período</a> |</td>
+<dtml-comment>
+    <td align="right" class="form-label">| <a href="javascript:history.go(-1)">Voltar</a> |</td>
+</dtml-comment>
+   </tr>
+</table>
+<fieldset><legend>Período Composição de Comissão</legend>
+  <dtml-in expr="zsql.periodo_comp_comissao_obter_zsql()"> 
+  <dtml-if sequence-start>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+          <tr class="fundo"> 
+            <td class="form-label">&nbsp;Data Início</td>
+            <td class="form-label"> | Data Fim</td>
+          </tr>
+  </dtml-if>
+          <tr>
+            <td height="20" class="form-element">&nbsp;&nbsp;
+             <a href="periodo_comp_comissao_mostrar_proc?cod_periodo_comp=<dtml-var cod_periodo_comp>">
+              <dtml-var dat_inicio_periodo></a></td>
+            <td class="form-text">&nbsp;&nbsp;<dtml-var dat_fim_periodo></td>
+          </tr>
+    <dtml-if sequence-end>
+       </table>
+    </dtml-if sequence-end>
+    <dtml-else>
+<table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" align="center">
+         <tr><td><font size="1">&nbsp;</font></td></tr>
+         <tr><td class="form-text">Nenhum período cadastrado.</td></tr>
+       </table>
+    </dtml-in>
+  </td>
+ </tr>
+</table>
+</fieldset>
+<dtml-var standard_html_footer>

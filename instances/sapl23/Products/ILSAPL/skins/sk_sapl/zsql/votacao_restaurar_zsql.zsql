@@ -1,0 +1,17 @@
+<dtml-comment>
+connection_id : dbcon_interlegis
+arguments : cod_materia=""
+max_rows : 100
+max_cache : 100
+</dtml-comment
+>
+<dtml-if expr="pysc.verifica_conector_bd_pysc() == 1">
+
+  delete from registro_votacao 
+         where cod_materia=<dtml-sqlvar cod_materia type="int" optional>
+
+<dtml-else>
+
+ <dtml-comment> escrever sql para postgresql </dtml-comment>
+
+</dtml-if>

@@ -1,0 +1,20 @@
+#
+# Incluido pelo instalador do SAPL
+#
+
+<zodb_db documentos>
+    # Zodb para conter documento do sapl
+    <filestorage>
+      path $INSTANCE/var/DocumentosSapl.fs
+    </filestorage>
+    mount-point /sapl/sapl_documentos
+</zodb_db>
+
+<zodb_db antigo>
+    # Mount-point apontando para um Data.fs
+    # de versão anterior
+    <filestorage>
+      path $INSTANCE/old/Data.fs
+    </filestorage>
+    mount-point /sapl_old
+</zodb_db>

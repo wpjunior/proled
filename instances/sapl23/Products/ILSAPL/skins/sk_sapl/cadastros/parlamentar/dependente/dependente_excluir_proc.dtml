@@ -1,0 +1,19 @@
+<dtml-comment> 
+  Função: Exclui o dependente.
+  Argumentos: cod_dependente: int - código do dependente a ser excluído. 
+              cod_parlamentar: int - código do parlamentar 
+  Retorno: Mensagem de sucesso ou erro.                       
+  Man Qi em 14/03/2001
+</dtml-comment>   
+
+<dtml-try>
+  <dtml-call expr="zsql.dependente_excluir_zsql(cod_dependente = cod_dependente)">
+<dtml-except>
+  <dtml-let mensagem="'Não foi possível excluir o dependente. Tente novamente!!'">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+<dtml-else>   
+  <dtml-let mensagem="'Dependente excluído com sucesso!'" sucesso="1" url="'index_html?cod_parlamentar='+hdn_cod_parlamentar">
+    <dtml-var mensagem_emitir>
+  </dtml-let>
+</dtml-try>

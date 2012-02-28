@@ -1,0 +1,151 @@
+<dtml-var standard_html_header>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+function campos_criticar(form){  
+/*-----------------------------
+  Função: Verifica se os campos estão preenchidos corretamente.
+  Argumentos: form : formulário em si.                     
+  Retorno: False - caso detecte na validação algum erro no preenchimento dos campos;
+           caso contrário, invoca o SUBMIT do formulário.
+  Rommel Carvalho e Danilo Custódio em 20/04/01.
+------------------------------*/   
+  
+  var regexp_digitos = /\D+/; 
+
+  if (form.lst_tip_norma.value == "") {
+     alert("O tipo de norma deve ser selecionado!");
+     form.lst_tip_norma.focus();
+     return false;
+  }
+
+  if (form.txt_num_norma.value == "") {
+     alert("O número da norma deve ser preenchido!");
+     form.txt_num_norma.focus();
+     return false;
+  }
+
+  if (form.txt_ano_norma.value == "") {
+     alert("O ano da norma deve ser preenchido!");
+     form.txt_ano_norma.focus();
+     return false;
+  }
+
+
+  if (form.lst_tip_vinculo.value == "") {
+     alert("A natureza do relacionamento deve ser selecionada!");
+     form.lst_tip_vinculo.focus();
+     return false;
+  }
+
+
+  form.submit();
+}
+
+function vinculo_norma_juridica_excluir() {
+/*-----------------------------
+  Função: Solicita a confirmação e chama o Método DTML de exclusão da norma juridica.
+  Argumentos: 
+  Retorno: Retorna uma mensagem de exclusão bem sucedida e redireciona à página 'index_html'.
+  Michael em 20/04/01.
+------------------------------*/
+       
+  if (confirm("Deseja realmente excluir?")) {  
+    location.href = "vinculo_norma_juridica_excluir_proc?cod_vinculo=<dtml-var cod_vinculo missing>&cod_norma=<dtml-var cod_norma missing>";
+  }
+  
+}
+//-->
+</script>
+
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/norma_juridica">Ajuda</a> </div>
+<h1 class="firstHeading"> Norma Jur&iacute;dica </h1>
+
+<table width="95%" align="center">
+   <tr class="fundo"> 
+      <td width="34%" class="form-label"> 
+         | <a href="&dtml-portal_url;/cadastros/norma_juridica/vinculo_norma_juridica/vinculo_norma_juridica_index_html?cod_norma=<dtml-var cod_norma missing>">
+         Normas Relacionadas</a> |
+      </td>
+   </tr>
+</table>
+
+<form name="vinculo_norma_juridica_form" method="post" action="vinculo_norma_juridica_salvar_proc" enctype="multipart/form-data">
+  <table width="95%" align="center">
+    <tr>
+       <td> <fieldset><legend>Relacionamento de Normas</legend>
+          <table width="98%" align="center">
+             <tr>
+                <td colspan="6">
+                  <dtml-var norma_header missing>
+                </td>
+             </tr>
+    <tr height="60" valign="middle">
+       <td class="form-element">Natureza do Relacionamento (*)<br>
+                <select name="lst_tip_vinculo">
+                <option value =""></option>
+                <dtml-in expr="[('A','Altera a norma'),
+                                ('R','Revoga integralmente a norma'),
+                                ('P','Revoga parcialmente a norma'),
+                                ('T','Revoga integralmente por consolidação'),
+                                ('C','Norma Correlata'),
+                                ('S','Ressalva a Norma'),
+                                ('E','Reedita a Norma'),
+                                ('I','Reedita a Norma com Alteração'),
+                                ('G','Regulamenta a Norma')]">
+                  <option
+                    <dtml-if expr="_.has_key('tip_vinculo') and tip_vinculo==_['sequence-key']"> selected
+                   </dtml-if>
+                   value="<dtml-var expr="_['sequence-key']">">
+                 <dtml-var expr="_['sequence-item']"></option>
+                </dtml-in>
+              </select>
+      </td>
+    </tr>
+
+             <tr>
+                <td class="form-element"> Tipo (*)<br>
+              <select name="lst_tip_norma">
+               <option> 
+               <dtml-in expr="zsql.tipo_norma_juridica_obter_zsql(ind_excluido=0)">
+                  <option
+                      <dtml-if expr="_.has_key('tip_norma_juridica') and _.int(tip_norma) == _.int(tip_norma_juridica)">
+                        selected
+                      </dtml-if>
+                   value="<dtml-var tip_norma missing>"> 
+                   <dtml-var sgl_tipo_norma> - <dtml-var des_tipo_norma></option>
+               </dtml-in>
+              </select>
+       </td>
+       <td class="form-element">N&uacute;mero (*)<br>
+              <input type="text" name="txt_num_norma" size="6" maxlength="6" value="<dtml-var num_norma missing null="">">
+       </td>
+       <td class="form-element">Ano (*)<br>
+               <dtml-unless ano_norma>
+                <dtml-call expr="REQUEST.set('ano_norma', _.DateTime.year(_.DateTime()))">
+              </dtml-unless>
+             <input type="text" name="txt_ano_norma" size="4" maxlength="4" value="<dtml-var ano_norma missing>">
+       </td>
+    </tr>
+  </table>
+</fieldset><br/>
+  <p align="center">
+  <input type="button" class="botao" value="Salvar" onClick="campos_criticar(document.vinculo_norma_juridica_form)">
+  &nbsp;&nbsp;
+  <dtml-if cod_vinculo>
+    <input type="button" class="botao" value="Excluir" onClick="vinculo_norma_juridica_excluir(document.vinculo_norma_juridica_form)">
+  <dtml-else>
+    <input type="reset" class="botaoExtra" value="Limpar">
+  </dtml-if>
+  </p>
+    </td>
+   </tr>
+ </table>
+ <input type="hidden" name="cod_norma_referente" value="<dtml-var cod_norma>">
+ <input type="hidden" name="cod_vinculo" value="<dtml-var cod_vinculo missing>">
+</form>
+
+
+
+<dtml-var standard_html_footer>

@@ -1,0 +1,150 @@
+<html metal:use-macro="context/@@standard_macros/page"
+    i18n:domain="zope">
+<body>
+<div metal:fill-slot="body">
+
+  <h1 i18n:translate="">
+    <b>Site Management</b>
+  </h1>
+
+  <div class="message"
+       tal:define="message view/update"
+       tal:condition="message"
+       tal:content="message" i18n:translate="">
+    Status Message
+  </div>
+
+  <h2>
+    <b i18n:translate="">Unique Utilities</b>
+  </h2>
+  <div i18n:translate="">
+    Unique utilities can only exist once per site manager and have no name.
+  </div>
+  <br/>
+  <form action="." method="post">
+    <div tal:repeat="tool view/getUniqueTools">
+      <input type="checkbox" name="selected:list" value=""
+             tal:attributes="value tool/name" />
+      <span 
+          tal:content="tool/title"
+          tal:condition="not:tool/exists" i18n:translate="">
+        Authentication
+      </span>
+      <a href="" style="color: green"
+          tal:content="tool/title"
+          tal:condition="tool/exists" i18n:translate="">
+        Authentication
+      </a>
+    </div>
+    <br/>
+    <input type="submit" name="INSTALL-SUBMIT" value="Install"
+     i18n:attributes="value INSTALL-SUBMIT">&nbsp;
+    <input type="submit" name="UNINSTALL-SUBMIT" value="Uninstall"
+     i18n:attributes="value UNINSTALL-SUBMIT">
+  </form>
+
+  <form action="." method="post"
+      tal:repeat="tool view/getTools"
+      tal:attributes="action string:#${tool/name}">
+    <a name="" tal:attributes="name tool/name" />
+    <input type="hidden" name="activeTool" value=""
+           tal:attributes="value tool/name" />
+    <h3>
+      <b tal:content="tool/title" i18n:translate="">Caches</b>
+    </h3>
+    <div tal:content="tool/description" i18n:translate="">
+      Description of the tool
+    </div>
+    <br/>
+    <div class="message"
+         tal:define="message tool/message"
+         tal:condition="message"
+         tal:content="message" i18n:translate="">
+      Status Message
+    </div>
+    <br/>
+    <div tal:define="instances tool/instances">
+      <div tal:repeat="instance instances"
+           tal:condition="instances">
+        <input type="checkbox" name="selected:list" value=""
+               tal:attributes="value instance/name" />
+
+        <span tal:condition="not:instance/rename">
+          <span tal:condition="instance/active" i18n:translate="">
+            <a href="" style="color: green"
+               tal:attributes="href string:${instance/url}/@@SelectedManagementView.html"
+               tal:content="instance/name" i18n:name="name">
+              sql-queries
+            </a>
+            (Active)
+          </span>
+          <span tal:condition="not:instance/active" i18n:translate="">
+            <a href="" style="color: red"
+               tal:attributes="href string:${instance/url}/@@SelectedManagementView.html"
+               tal:content="instance/name" i18n:name="name">
+              sql-queries
+            </a>
+            (Inactive)
+          </span>
+        </span>
+        <span tal:condition="instance/rename">
+          <input type="hidden" name="old_names:list" value=""
+                 tal:attributes="value instance/name" />
+          <input type="text" size="20" name="new_names:list" value=""
+                 tal:condition="not:instance/renameNew"
+                 tal:attributes="value instance/name" />
+          <input type="text" size="20" name="new_names:list" value=""
+                 tal:condition="instance/renameNew"
+                 tal:attributes="value instance/renameNew" />
+        </span>
+
+      </div>
+      <div tal:condition="not:instances"
+         i18n:translate="">
+        <i>No instances of this utility are available yet.</i>
+      </div>
+    </div>
+    <div tal:condition="tool/add">
+      <div tal:define="info view/addingInfo">
+        <input type="text" width="20" name="id" value=""
+          tal:attributes="value tool/addname"
+          />
+        <select name="type_name">
+          <option tal:repeat="entry info"
+                  tal:attributes="value entry/action"
+                  tal:content="entry/title" i18n:translate="">RAM Cache</option>
+        </select>
+        &nbsp;
+        <input type="submit" name="ADD-TOOL-SUBMIT" value="Add"
+          i18n:attributes="value ADD-TOOL-SUBMIT">
+        <input type="submit" name="CANCEL-ADD-TOOL-SUBMIT" value="Cancel"
+          i18n:attributes="value CANCEL-ADD-TOOL-SUBMIT">
+      </div>
+    </div>
+    <br/>
+    <div>
+      <input type="submit" name="ACTIVATE-SUBMIT" value="Activate"
+             i18n:attributes="value ACTIVATE-SUBMIT"
+             tal:condition="not:tool/rename">&nbsp;
+      <input type="submit" name="DEACTIVATE-SUBMIT" value="Deactivate"
+             i18n:attributes="value DEACTIVATE-SUBMIT"
+             tal:condition="not:tool/rename">
+      &nbsp;&nbsp;
+      <input type="submit" name="ADD-SUBMIT" value="Add"
+             i18n:attributes="value ADD-SUBMIT"
+             tal:condition="not:tool/rename">&nbsp;
+      <input type="submit" name="DELETE-SUBMIT" value="Delete"
+             i18n:attributes="value DELETE-SUBMIT"
+             tal:condition="not:tool/rename">&nbsp;
+      <input type="submit" name="RENAME-SUBMIT" value="Rename"
+             i18n:attributes="value RENAME-SUBMIT">&nbsp;
+      <input type="submit" name="RENAME-CANCEL-SUBMIT" value="Cancel"
+             i18n:attributes="value RENAME-CANCEL-SUBMIT"
+             tal:condition="tool/rename">&nbsp;
+    </div>
+    <br/>
+  </form>
+
+</div>
+</body>
+</html>

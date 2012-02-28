@@ -1,0 +1,56 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="zope">
+
+  <include package="zope.app.schema" file="meta.zcml" />
+  <include package="zope.app.component" file="meta.zcml" />
+  <include package="zope.app.publisher" file="meta.zcml" />
+  <include package="zope.app.security" file="meta.zcml" />
+  <include package="zope.app.security" file="configure.zcml" />
+
+  <content class="zope.schema.Field">
+
+    <factory
+	title="Basic Field"
+	description="Basic Field" />
+
+    <!--
+    <require
+	permission="zope.View"
+	interface="zope.schema.interfaces.IField"
+	/>
+
+    <require
+	permission="zope.ManageContent"
+	attributes="bind set"
+	/>
+    -->
+
+    <!-- TODO: put the whole interface under one permission for now -->
+    <require
+	permission="zope.ManageContent"
+	interface="zope.schema.interfaces.IField"
+	/>
+
+  </content>
+
+  <content class="zope.schema.Text">
+
+    <factory
+	title="Text Field"
+	description="Text Field" />
+
+    <require like_class="zope.schema.Field" />
+
+  </content>
+
+  <content class="zope.schema.TextLine">
+
+    <factory
+	title="Text Line Field"
+	description="Text Line Field" />
+
+    <require like_class="zope.schema.Field" />
+
+  </content>
+
+</configure>

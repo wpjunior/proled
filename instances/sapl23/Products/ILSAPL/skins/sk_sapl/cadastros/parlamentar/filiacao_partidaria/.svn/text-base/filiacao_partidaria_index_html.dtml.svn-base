@@ -1,0 +1,78 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_parlamentares">Ajuda</a> </div>
+<h1 class="firstHeading"> Parlamentares </h1> 
+
+<form name="inclui_form" action="filiacao_form">
+  <input type="hidden" name="cod_parlamentar" value="<dtml-var cod_parlamentar>"/>
+
+<dtml-var parlamentar_menu>
+
+<dtml-comment>Busca o nom_parlamentar que será usado abaixo</dtml-comment>
+<dtml-in expr="zsql.parlamentar_obter_zsql(cod_parlamentar=cod_parlamentar)">
+  <dtml-call expr="REQUEST.set('nom_parlamentar', nom_parlamentar)">
+  <input type="hidden" name="nom_parlamentar" value="<dtml-var nom_parlamentar>"/>
+</dtml-in>
+
+<table width="100%" align="center"></table>
+
+<dtml-in expr="zsql.filiacao_obter_zsql(ind_excluido=0, cod_parlamentar=cod_parlamentar)" size=8 start=query_start orphan=2>
+  <dtml-if sequence-start>
+    <fieldset><legend><dtml-var nom_parlamentar></legend>
+       <fieldset><legend>Filia&ccedil;&otilde;es Partid&aacute;rias</legend>
+        <table width="100%" align="center">
+          <tr class="fundo"> 
+             <td width="33%" class="form-label">&nbsp;Partido</td>
+             <td width="33%" class="form-label"> | Data Filia&ccedil;&atilde;o</td>
+             <td width="33%" class="form-label"> | Data Desfilia&ccedil;&atilde;o</td>
+             </tr>
+             
+      <dtml-if previous-sequence>
+             <tr><td colspan="3" class="form-element">
+                <a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var previous-sequence-start-number>">
+                Página Anterior (<dtml-var previous-sequence-size> resultados)</a></td></tr>
+             
+      </dtml-if previous-sequence>
+  </dtml-if sequence-start>
+<dtml-comment>
+*************************************************************
+*    O dtml-in abaixo serve para buscar a sigla do partido e*
+*  a imprime como  um link com o cod_partido como argumento *
+*  quando o cod_partido do form for igual ao cod partido da *
+*  tabela.                                                  *
+*  by Rommel Carvalho e Danilo Custódio em 25/02/2001       *
+*************************************************************
+</dtml-comment>
+             <tr>
+               <td width="33%" class="form-element">&nbsp;&nbsp;
+                  <a href="filiacao_mostrar_proc?cod_parlamentar=<dtml-var cod_parlamentar>&amp;cod_partido=<dtml-var cod_partido>&amp;dat_filiacao=<dtml-var expr="pysc.data_converter_pysc(dat_filiacao)">">
+                    <dtml-in expr="zsql.partido_obter_zsql(ind_excluido=0)">
+                    <dtml-if expr="cod_partido==filiacao_form.cod_partido"><dtml-var sgl_partido></dtml-if></dtml-in></a></td>
+               <td width="33%" class="form-text">&nbsp;&nbsp;<dtml-if dat_filiacao><dtml-var dat_filiacao></dtml-if></td>
+               <td width="33%" class="form-text">&nbsp;&nbsp;<dtml-if dat_desfiliacao><dtml-var dat_desfiliacao null=""></dtml-if></td>
+            </tr>            
+ <dtml-if sequence-end>
+    <dtml-if next-sequence>
+        <tr><td><font size="1">&nbsp;</font></td></tr>
+        <tr> 
+          <td width="12%" colspan="3" class="form-element"><a href="<dtml-var URL><dtml-var sequence-query>query_start=<dtml-var next-sequence-start-number>">
+          Próxima Página (<dtml-var next-sequence-size> resultados)</a></td>
+        </tr>
+    </dtml-if next-sequence>
+    </table>
+    </fieldset>   
+  </dtml-if sequence-end>
+<dtml-else>
+      <fieldset><legend><dtml-var nom_parlamentar></legend>
+      <table width="100%" align="center">
+        <tr><td class="form-text">Nenhuma filiação cadastrada para esse parlamentar.</td></tr>
+      </table>
+      </fieldset>
+</dtml-in>
+     <center><p>
+         <input type="submit" name="btn_incluir_filiacao" class="botao" value="Incluir Filiação Partidária"/>
+     </p></center> <br/>
+</fieldset>
+</form>
+</body>
+<dtml-var standard_html_footer>

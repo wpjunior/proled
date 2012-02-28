@@ -1,0 +1,147 @@
+<dtml-var standard_html_header>
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+  function submeter(endereco){
+     /*-----------------------------
+        Função: Confirma se o usuário deseja salvar os dados ao clicar em
+              link do formulário que não os botões SALVAR ou EXCLUIR.
+        Argumentos: endereco : txt - é o endereço que deve ser renderizado
+                    apos a confirmação ou não de salvar os dados. 
+        Retorno: Uma janela de confirmação. Se o usuário confirmar, ele 
+               invoca o método materia_salvar_proc.
+               Se ele cancelar, a função apenas renderiza o endereço
+               (caso esteja na atualizacao).
+        Michael Onishi , Daniel C. Azevedo em 09/04/01.
+     ------------------------------*/
+     
+     var form = document.despacho_inicial_form;
+
+     endereco += '?cod_materia=' + form.cod_materia.value;
+
+      if (form.hdn_alterou.value=="1"){
+         if (confirm("Deseja salvar os dados?")){
+            form.hdn_url.value = endereco;
+            campos_criticar(form);
+         }else {location.href = endereco}
+      }
+      location.href = endereco;  }
+
+  function campos_criticar(form){
+      /*-----------------------------
+         Função: Critica os campos obrigatórios do formulário. É chamada
+                pelo botão btn_despacho_inicial_salvar do formulário para 
+                validação dos campos.
+         Argumentos: form : formulário - é o formulário em si.
+         Retorno: Invoca o SUBMIT do formulário ou retorna valor booleano 
+                falso ,caso haja algum campo incorreto, juntamente com uma
+                uma mensagem de erro e o cursor no campo a ser corrigido.
+         Rommel Carvalho e Danilo Custódio em 04/04/2001.
+      ------------------------------*/ 
+           
+      if (form.lst_cod_comissao.value == ""){
+          alert("A Comissão deve ser selecionada!");
+          form.lst_nom_comissao.focus();
+          return false;
+      }
+      form.submit();
+  }
+    
+  function atualiza_cod_comissao(cod_materia, cod_comissao, num_ordem){
+        location.href = "despacho_inicial_form?cod_materia="+cod_materia+"&cod_comissao_sel="
+                        +cod_comissao+"&num_ordem="+num_ordem;
+    }   
+
+  function despacho_inicial_excluir(){
+      /*-----------------------------
+         Função: Chama o Método DTML de exclusão do despacho
+         Argumentos: ().
+         Retorno: Retorna uma mensagem de exclusão bem sucessida e
+                redireciona à página 'index_html'.
+         Rommel Carvalho e Danilo Custódio em 04/04/2001.
+      ------------------------------*/
+       
+       if (confirm("Deseja realmente excluir?")) {
+          location.href="despacho_inicial_excluir_proc?cod_materia=<dtml-var cod_materia missing>&num_ordem=<dtml-var num_ordem missing>";
+       }
+  } 
+
+//-->
+</SCRIPT>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/despacho_autoria">Ajuda</a> </div>
+<h1 class="firstHeading"> Mat&eacute;ria Legislativa </h1>
+
+<form name="despacho_inicial_form" method="post" action="despacho_inicial_salvar_proc">
+
+<fieldset><legend>Mat&eacute;ria Legislativa</legend>
+    <dtml-var materia_menu>
+    <table width="100%" align="center">
+        <tr><td><dtml-var materia_header></td></tr>
+      </table>
+      <fieldset><legend>Despacho Inicial</legend>
+      <table width="100%" align="center">
+        <tr class="fundo"> 
+          <td width="78%" class="form-label">&nbsp;Comiss&atilde;o (*)</td>
+          <td width="22%" class="form-label">| &nbsp;Sigla</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+           <td width="78%">
+            <select name="lst_cod_comissao" onChange="atualiza_cod_comissao(document.despacho_inicial_form.cod_materia.value, document.despacho_inicial_form.lst_cod_comissao[document.despacho_inicial_form.lst_cod_comissao.selectedIndex].value, document.despacho_inicial_form.num_ordem.value)">
+             <option> 
+
+<dtml-comment>
+***************************************************************************************
+*   O dtml-in a seguir tem como finalidade mostrar as opcoes presentes                *
+*   na tabela comissao em uma combo box do despacho_inicial_form. E os ifs que        *
+*   utilizamos  foi para selecionar o nome e a sigla da comissao que o mandato possui,*
+*   se ele existir.                                                                   *
+*   by Rommel Carvalho e Danilo Custódio em 04/04/2001                                *
+***************************************************************************************
+</dtml-comment>
+
+               <dtml-in expr="zsql.despacho_inicial_comissao_obter_zsql(cod_materia=cod_materia)">
+                  <dtml-if expr="not dat_extincao">
+                  <option
+                    <dtml-if cod_comissao_sel>
+                      <dtml-if expr="_.int(cod_comissao) == _.int(cod_comissao_sel)">
+                        selected
+                      </dtml-if>
+                    </dtml-if>
+                   value="<dtml-var cod_comissao  missing>"> 
+                   <dtml-var nom_comissao></option>
+                   </dtml-if>
+               </dtml-in>
+               </option>
+             </select>
+           </td>
+           <td width="22%" class="form-text">
+            <dtml-if cod_comissao_sel>
+              <dtml-in expr="zsql.comissao_obter_zsql(ind_excluido=0, cod_comissao=cod_comissao_sel)">
+               &nbsp;&nbsp; <dtml-var sgl_comissao>
+              </dtml-in>
+            </dtml-if>
+           </td>
+        </tr>
+      </table>
+     </fieldset>
+  <p><center>
+  <input type="button" class="botao" name="btn_despacho_inicial_salvar" value="Salvar" onClick="campos_criticar(document.despacho_inicial_form)">
+  &nbsp;&nbsp; 
+
+  <dtml-if num_ordem>
+    <input type="button" class="botao" name="btn_despacho_inicial_excluir" value="Excluir" onClick="despacho_inicial_excluir()">
+  </dtml-if>
+
+  </center></p>
+  <br>
+
+  <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>">
+  <input type="hidden" name="num_ordem" value="<dtml-var num_ordem missing=0>">
+  <input type="hidden" name="hdn_url" value="index_html?cod_materia=<dtml-var cod_materia>">
+  <input type="hidden" name="hdn_alterou" value="<dtml-if expr="REQUEST.has_key('cod_comissao_sel')">1<dtml-else>0</dtml-if>">
+   </fieldset>
+</body>
+</form>
+
+<dtml-var standard_html_footer>

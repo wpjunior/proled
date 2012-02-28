@@ -1,0 +1,179 @@
+<dtml-comment>
+***************************************************************************
+*Abaixo busca-se nom_comissao a partir do parametro recebido cod_comissao.*
+***************************************************************************
+</dtml-comment>
+<dtml-in expr="zsql.comissao_obter_zsql(cod_comissao=cod_comissao)">
+  <dtml-call expr="REQUEST.set('nom_comissao', nom_comissao)">
+</dtml-in>
+<dtml-var standard_html_header>
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!--
+   function submeter(endereco){
+      var form = document.comissao_form;      
+      endereco += '?cod_comissao=<dtml-var cod_comissao>&incluir=0';
+      location.href = endereco;
+  }   
+//-->
+</SCRIPT>
+
+<script type="text/javascript">
+<!--
+   function periodo_mudou(form){
+      /*-----------------------------
+         Função: Reinvoca a página trocando o período no campo SELECT COD_
+               PERIODO_COMISSAO. Os parlamentares que são listados para
+               aquele período também são atualizados.
+         Argumentos: form : formulário - é o formulario em si.
+         Retorno: A página atualizada com o novo período selecionado e com
+               os parlamentares relativos ao período listados.
+         Michael Onishi em 16/03/01.
+      ------------------------------*/
+      var URL = 'index_html?cod_periodo_comp_sel=' +
+                form.cod_periodo_comp[form.cod_periodo_comp.selectedIndex].value +
+                '&cod_comissao=' + form.cod_comissao.value 
+
+      location.href= URL;
+   }
+//-->
+</script>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/modulo_comissoes">Ajuda</a> </div>
+<h1 class="firstHeading"> Comiss&atilde;o </h1> 
+<ul>
+    <dtml-if expr="zsql.composicao_comissao_obter_zsql(cod_comissao=cod_comissao)">
+    <li>
+        Composi&ccedil;&atilde;o
+    </li>
+    </dtml-if>
+	<dtml-if expr="zsql.unidade_tramitacao_obter_zsql(cod_comissao=cod_comissao)">
+	<li>
+	   <a href="consultas/comissao/materia/materia_index_html?cod_comissao=<dtml-var cod_comissao>&txt_npc=&existe_ocorrencia=&lst_tip_materia=&txt_numero=&txt_ano=&dt_apres=&dt_apres2=&dt_public=&dt_public2=&hdn_txt_autor=&hdn_cod_autor=&lst_tip_autor=&lst_cod_partido=&txt_relator=&txt_assunto=&rad_tramitando=&lst_status=&lst_localizacao=&btn_materia_pesquisar=&incluir=1">Mat&eacute;rias em Tramita&ccedil;&atilde;o</a>
+	</li>
+    </dtml-if>
+    <li>
+        <a href="&dtml-portal_url;/cadastros/comissao/composicao/comissao_mostrar_proc?cod_comissao=<dtml-var cod_comissao>">Início</a>
+    </li>
+</ul>
+
+<br />
+
+<form name="composicao_index_form" action="composicao_comissao_form">
+   <input type="hidden" name="nom_comissao" value="<dtml-var nom_comissao>" />
+   <input type="hidden" name="cod_comissao" value="<dtml-var cod_comissao>" />
+<fieldset><legend>Selecione um per&iacute;odo da composi&ccedil;&atilde;o</legend>
+<table width="100%" align="center">
+  <tr class="fundo"> 
+    <td width="40%" align="left" colspan="2">
+       <select name="cod_periodo_comp" size="1" onChange="periodo_mudou(document.composicao_index_form)">
+        <dtml-in expr="zsql.periodo_comp_comissao_obter_zsql(cod_comissao='')">
+          <option 
+            <dtml-if cod_periodo_comp_sel>
+              <dtml-if expr="(cod_periodo_comp==cod_periodo_comp_sel)"> 
+                selected
+              </dtml-if>
+            <dtml-elif expr="(_.DateTime() <= dat_fim and _.DateTime() >= dat_inicio)">
+              <dtml-call expr="REQUEST.set('cod_periodo_comp_sel', cod_periodo_comp)">
+              selected
+            </dtml-if> value="<dtml-var cod_periodo_comp>"><dtml-var dat_inicio_periodo> a <dtml-var dat_fim_periodo>
+          </option>
+       <dtml-else>
+         <dtml-call expr="REQUEST.set('cod_periodo_comp_sel', -1)">           
+       </dtml-in>
+      </select>
+
+       <dtml-comment> caso não tenha o período atual, coloca como default o primeiro da lista, se esta não for vazia. </dtml-comment>
+       <dtml-if expr="not _.has_key('cod_periodo_comp_sel')">
+         <dtml-in expr="zsql.periodo_comp_comissao_obter_zsql(cod_comissao='')">
+           <dtml-if sequence-start>
+             <dtml-call expr="REQUEST.set('cod_periodo_comp_sel', cod_periodo_comp)">
+           </dtml-if>
+         </dtml-in>
+       </dtml-if>           
+    </td>
+
+    <td valign="middle" align="right" width="20%" class="form-element"> </td>
+  </tr>
+</table>
+</fieldset>
+<table width="100%" align="center"></table>
+
+<dtml-comment>
+******************************************************************
+*      Os campos do tipo HIDDEN atribuídos abaixo são apenas para*
+*   passar para próximo método os valores de COD_COMISSAO e NOM_ *
+*   COMISSAO, que são obrigatórios.                              *
+******************************************************************
+</dtml-comment>
+
+<dtml-comment>
+******************************************************************
+*      O campo abaixo mostra o período com qual a lista de parla-*
+*  mentar abaixo estará associada. Ao ser invocado, o código tes-*
+*  ta a existencia um COD_PERIODO_COMP selecionando o período re-*
+*  ferente a ele. Se não existir, ele checa a data atual e atri- *
+*  bui o período em possui essa data.                            *
+******************************************************************
+</dtml-comment>
+
+<dtml-if expr="_.int(cod_periodo_comp_sel) != -1">
+  <dtml-in expr="zsql.periodo_comp_comissao_obter_zsql(cod_periodo_comp=cod_periodo_comp_sel)">
+     <input type="hidden" name="dat_inicio_periodo" value="<dtml-var dat_inicio_periodo missing>" >
+     <input type="hidden" name="dat_fim_periodo"    value="<dtml-var dat_fim_periodo missing>" >
+  </dtml-in>
+  <dtml-in expr="zsql.composicao_comissao_obter_zsql(cod_comissao=cod_comissao, cod_periodo_comp=cod_periodo_comp_sel)">
+    <dtml-if sequence-start>
+    <table width="100%" align="center">
+    <tr><td>
+      <fieldset><legend><dtml-var nom_comissao></legend>
+      <table width="100%" align="center">
+        <tr class="fundo">
+          <td width="30%" valign="top" class="form-label">&nbsp;Parlamentar</td>
+          <td width="20%" valign="top" class="form-label">&nbsp;Cargo</td>
+          <td width="10%" valign="top" class="form-label">&nbsp;Titular</td>
+          <td width="20%" valign="top" class="form-label">&nbsp;Data &nbsp;Designa&ccedil;&atilde;o</td>
+          <td width="20%" valign="top" class="form-label">&nbsp;Data &nbsp;Desligamento</td>
+        </tr>
+        
+    </dtml-if sequence-start>
+        <tr><td class="form-element" width="30%">
+                <a href="composicao_comissao_mostrar_proc?cod_comp_comissao=<dtml-var cod_comp_comissao>&cod_periodo_comp=<dtml-var cod_periodo_comp_sel>">&nbsp;<dtml-var nom_parlamentar missing></a></td>
+             <td class="form-text" width="20%">&nbsp;<dtml-var des_cargo missing></td>
+             <td class="form-text" width="20%">&nbsp;<dtml-if expr="ind_titular">SIM <dtml-else>NÃO</dtml-if></td>
+             <td class="form-text" width="20%">&nbsp;<dtml-var dat_designacao></td>
+             <td class="form-text" width="20%">&nbsp;<dtml-var dat_desligamento missing null="-"></td>
+        </tr>
+    <dtml-if sequence-end>
+      </table>
+     </fieldset>
+    </dtml-if sequence-end>
+  <dtml-else>
+  <table width="100%" align="center">
+  <tr> 
+    <td> <fieldset><legend><dtml-var nom_comissao></legend>
+   <table width="100%" align="center">
+     <tr><td class="form-text">Nenhum parlamentar cadastrado neste período para esta comissão.</td></tr>
+   </table>
+   </fieldset>
+  </dtml-in>
+  <p><center>
+     <input type="submit" name="Submit" class="botao" value="Incluir Parlamentar na Composi&ccedil;&atilde;o" />
+  </center></p>
+
+<dtml-else>
+  <table width="100%" align="center">
+  <tr> 
+    <td> <fieldset><legend><dtml-var nom_comissao></legend>
+   <table width="100%" align="center">
+     <tr><td class="form-text">Nenhum período cadastrado para composição.</td></tr>
+   </table>
+   </fieldset>
+</dtml-if>
+</td>
+</tr>
+</table>
+
+</form>
+<dtml-var standard_html_footer>
+

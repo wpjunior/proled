@@ -1,0 +1,64 @@
+<dtml-var standard_html_header>
+
+<div class="helpsapl"> <a id="ajuda" href="&dtml-portal_url;/ajuda/tipo_afastamento">Ajuda</a> </div>
+
+<h1 class="firstHeading"> Tabelas Auxiliares </h1> 
+
+<table width="95%" align="center">
+  <tr class="fundo"> 
+    <td align="left" class="form-label"> 
+      | <a href="tipo_afastamento_form">Incluir Tipo Afastamento</a> |</td>
+<dtml-comment>
+    <td align="right" class="form-label">
+      | <a href="javascript:history.go(-1)">Voltar</a> |</td>
+</dtml-comment>
+   </tr>
+</table><fieldset><legend>Tipo Afastamento</legend>
+  <dtml-in expr="zsql.tipo_afastamento_obter_zsql()"> 
+  <dtml-if sequence-start>
+ <table width="95%" align="center">
+  <tr>
+    <td>
+     <table width="95%" align="center">
+      <tr class="fundo"> 
+       <td width="36%" nowrap valign="middle" class="form-label">&nbsp;Tipo Afastamento</td>
+       <td width="12%" nowrap valign="middle" class="form-label"> |&nbsp;Afastado</td>
+       <td width="12%" nowrap valign="middle" class="form-label"> |&nbsp;Fim Mandato</td>
+       <td width="35%" nowrap valign="middle" class="form-label"> |&nbsp;Dispositivo Legal</td>
+      </tr>
+    </dtml-if>
+<dtml-comment>
+   ****** o dtml var precisa ficar na mesma linha do td para que não aparece espaço em branco sublinhado
+          antes da palavra  **** Martinha***
+</dtml-comment>
+      <tr>
+            <td width="36%" height="17" class="form-element">&nbsp;<a href="tipo_afastamento_mostrar_proc?tip_afastamento=<dtml-var tip_afastamento>">
+             <dtml-var des_afastamento></a></td>
+             <td width="12%" class="form-text">&nbsp;&nbsp;
+              <dtml-if expr="ind_afastamento=='1'">Sim
+              <dtml-else>Não
+              </dtml-if></td>
+            <td width="12%" class="form-text">&nbsp;&nbsp;
+              <dtml-if expr="ind_fim_mandato=='1'">Sim
+              <dtml-else>Não
+             </dtml-if></td>
+        <td width="35%" class="form-text">&nbsp;&nbsp;<dtml-var des_dispositivo missing null=""></td>
+           </tr>
+
+  <dtml-if sequence-end>
+        </table>
+  </dtml-if sequence-end>
+  <dtml-else>
+ <table width="95%" align="center">
+  <tr>
+    <td>
+       <table width="98%" border="0" cellspacing="2" align="center">
+         <tr><td><font size="1">&nbsp;</font></td></tr>
+         <tr><td class="form-text">Nenhum tipo de afastamento cadastrado.</td></tr>
+       </table>
+  </dtml-in>
+  </td>
+ </tr>
+ </fieldset>
+</table>
+<dtml-var standard_html_footer>

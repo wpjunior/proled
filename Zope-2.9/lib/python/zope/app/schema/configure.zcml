@@ -1,0 +1,31 @@
+<configure xmlns="http://namespaces.zope.org/zope" i18n_domain="zope">
+
+  <localUtility class=".schema.SchemaUtility">
+
+    <factory
+        title="Mutable Schema"
+        description="A Persistent Schema that can be edited through the web"/>
+
+    <require
+        permission="zope.ManageServices"
+        interface=".interfaces.IMutableSchema" />
+
+    <require
+        permission="zope.ManageServices"
+        interface=".interfaces.ISchemaUtility"
+        set_schema=".interfaces.ISchemaUtility" />
+
+  </localUtility>
+
+  <content class=".schema.SchemaRegistration">
+    <require
+      permission="zope.ManageServices"
+      interface="zope.app.component.interfaces.IUtilityRegistration"
+      set_schema="zope.app.component.interfaces.IUtilityRegistration" />
+  </content>
+
+  <include file="fields.zcml" />
+  <include package=".browser" />
+  <include file="fieldforms.zcml" />
+
+</configure>

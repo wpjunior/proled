@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <interface
+      interface="zope.app.content.interfaces.IContentType" />
+
+  <vocabulary
+      name="Content Types"
+      factory="zope.app.component.vocabulary.UtilityVocabulary"
+      interface="zope.app.content.interfaces.IContentType" />
+
+</configure>
+
+

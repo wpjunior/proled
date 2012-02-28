@@ -1,0 +1,1159 @@
+------
+2011-10-03T09:57:01 INFO ZServer HTTP server started at Mon Oct  3 09:57:01 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-03T09:57:01 INFO Zope Set effective user to "zope"
+------
+2011-10-03T09:57:02 WARNING ZODB.FileStorage Ignoring index for /var/interlegis/SAPL-2.3/instances/sapl23/var/Data.fs
+------
+2011-10-03T09:57:03 INFO Zope.ZCatalog Start migration of indexes for Control_Panel/Products/TextIndexNG2/Help/catalog
+------
+2011-10-03T09:57:03 INFO Zope.ZCatalog processing index permissions
+------
+2011-10-03T09:57:03 INFO Zope.ZCatalog processing index categories
+------
+2011-10-03T09:57:03 INFO Zope.ZCatalog Finished migration of indexes for Control_Panel/Products/TextIndexNG2/Help/catalog
+------
+2011-10-03T09:57:03 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-03T09:57:03 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-03T09:57:03 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-03T09:57:03 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-03T09:57:03 INFO Zope New disk product detected, determining if we need to fix up any ZClasses.
+------
+2011-10-03T09:57:03 INFO Zope Ready to handle requests
+------
+2011-10-03T10:02:14 WARNING ZODB.FileStorage Ignoring index for /var/interlegis/SAPL-2.3/instances/sapl23/var/DocumentosSapl.fs
+------
+2011-10-03T14:56:15 INFO Signals Caught signal SIGTERM
+------
+2011-10-03T14:56:15 INFO Z2 Shutting down fast
+------
+2011-10-03T14:56:15 INFO ZServer closing HTTP to new connections
+------
+2011-10-03T14:56:21 INFO ZServer HTTP server started at Mon Oct  3 14:56:21 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-03T14:56:21 INFO Zope Set effective user to "zope"
+------
+2011-10-03T14:56:22 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-03T14:56:22 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-03T14:56:22 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-03T14:56:22 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-03T14:56:22 INFO Zope Ready to handle requests
+------
+2011-10-05T14:16:53 INFO ZServer HTTP server started at Wed Oct  5 14:16:53 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-05T14:16:53 INFO Zope Set effective user to "zope"
+------
+2011-10-05T14:16:58 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-05T14:16:58 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-05T14:16:58 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-05T14:16:58 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-05T14:16:58 INFO Zope Ready to handle requests
+------
+2011-10-05T14:17:01 INFO Signals Caught signal SIGTERM
+------
+2011-10-05T14:17:01 INFO Z2 Shutting down fast
+------
+2011-10-05T14:17:01 INFO ZServer closing HTTP to new connections
+------
+2011-10-05T14:17:05 INFO ZServer HTTP server started at Wed Oct  5 14:17:05 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-05T14:17:05 INFO Zope Set effective user to "zope"
+------
+2011-10-05T14:17:07 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-05T14:17:07 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-05T14:17:07 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-05T14:17:07 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-05T14:17:07 INFO Zope Ready to handle requests
+------
+2011-10-10T14:43:01 INFO ZServer HTTP server started at Mon Oct 10 14:43:01 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-10T14:43:01 INFO Zope Set effective user to "zope"
+------
+2011-10-10T14:43:04 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-10T14:43:04 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-10T14:43:04 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-10T14:43:04 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-10T14:43:04 INFO Zope Ready to handle requests
+------
+2011-10-12T09:50:48 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/generico/materia_pesquisar_proc
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/generico/materia_pesquisar_proc.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 443, in renderwb
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: dt_apres
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 494, in __call__
+   - <FSZSQLMethod at /sapl/zsql/materia_pesquisar_zsql>
+  Module Products.ZMySQLDA.db, line 284, in query
+ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'materia_legislativa.dat_publicacao >= '15/11/2011' and\n     materia_legislativa.' at line 42")
+------
+2011-10-13T11:11:40 INFO ZPublisher.Conflict ConflictError at /sapl/cadastros/comissao/composicao/composicao_comissao_form: database conflict error (oid 0x023e, class BTrees._OOBTree.OOBTree, serial this txn started with 0x0391b3af95124fdd 2011-10-13 14:07:34.938640, serial currently committed 0x0391b3b3ad37dc11 2011-10-13 14:11:40.598016) (1 conflicts (0 unresolved) since startup at Mon Oct 10 14:43:04 2011)
+------
+2011-10-13T16:37:34 INFO ZPublisher.Conflict ConflictError at /sapl/generico/materia_pesquisar_form: database conflict error (oid 0x0472, class BTrees._OOBTree.OOBTree, serial this txn started with 0x0391b4f5db62c422 2011-10-13 19:33:51.418548, serial currently committed 0x0391b4f993826288 2011-10-13 19:37:34.572496) (2 conflicts (0 unresolved) since startup at Mon Oct 10 14:43:04 2011)
+------
+2011-10-21T15:04:38 INFO Signals Caught signal SIGTERM
+------
+2011-10-21T15:04:38 INFO Z2 Shutting down fast
+------
+2011-10-21T15:04:38 INFO ZServer closing HTTP to new connections
+------
+2011-10-21T15:04:51 INFO ZServer HTTP server started at Fri Oct 21 15:04:51 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-21T15:04:51 INFO Zope Set effective user to "zope"
+------
+2011-10-21T15:04:52 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-21T15:04:52 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-21T15:04:52 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-21T15:04:52 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-21T15:04:52 INFO Zope Ready to handle requests
+------
+2011-10-21T15:06:30 INFO Signals Caught signal SIGTERM
+------
+2011-10-21T15:06:30 INFO Z2 Shutting down fast
+------
+2011-10-21T15:06:30 INFO ZServer closing HTTP to new connections
+------
+2011-10-21T15:06:48 INFO ZServer HTTP server started at Fri Oct 21 15:06:48 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-21T15:06:48 INFO Zope Set effective user to "zope"
+------
+2011-10-21T15:06:50 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-21T15:06:50 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-21T15:06:50 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-21T15:06:50 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-21T15:06:50 INFO Zope Ready to handle requests
+------
+2011-10-24T09:42:14 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-24T09:44:59 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-24T09:56:29 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-24T10:18:18 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/relatorios/pdf_sessao_plenaria_preparar_pysc
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSPythonScript, line 108, in __call__
+  Module Shared.DC.Scripts.Bindings, line 311, in __call__
+  Module Shared.DC.Scripts.Bindings, line 348, in _bindAndExec
+  Module Products.CMFCore.FSPythonScript, line 164, in _exec
+  Module None, line 125, in pdf_sessao_plenaria_preparar_pysc
+   - <FSPythonScript at /sapl/relatorios/pdf_sessao_plenaria_preparar_pysc>
+   - Line 125
+  Module Products.CMFCore.FSPythonScript, line 108, in __call__
+  Module Shared.DC.Scripts.Bindings, line 311, in __call__
+  Module Shared.DC.Scripts.Bindings, line 348, in _bindAndExec
+  Module Products.CMFCore.FSPythonScript, line 164, in _exec
+  Module None, line 207, in pdf_sessao_plenaria_gerar
+   - <FSPythonScript at /sapl/relatorios/pdf_sessao_plenaria_gerar>
+   - Line 207
+  Module None, line 197, in principal
+   - <FSPythonScript at /sapl/relatorios/pdf_sessao_plenaria_gerar>
+   - Line 197
+  Module trml2pdf.trml2pdf, line 544, in parseString
+  Module trml2pdf.trml2pdf, line 172, in render
+  Module trml2pdf.trml2pdf, line 533, in render
+  Module reportlab.platypus.doctemplate, line 877, in build
+  Module reportlab.platypus.doctemplate, line 510, in clean_hanging
+  Module reportlab.platypus.doctemplate, line 757, in handle_flowable
+  Module reportlab.platypus.doctemplate, line 140, in apply
+  Module reportlab.platypus.doctemplate, line 535, in handle_pageBegin
+  Module trml2pdf.trml2pdf, line 364, in render
+  Module trml2pdf.trml2pdf, line 352, in render
+  Module trml2pdf.trml2pdf, line 280, in _image
+  Module urllib, line 82, in urlopen
+  Module urllib, line 190, in open
+  Module urllib, line 313, in open_http
+  Module httplib, line 798, in endheaders
+  Module httplib, line 679, in _send_output
+  Module httplib, line 646, in send
+  Module httplib, line 630, in connect
+IOError: [Errno socket error] (110, 'Connection timed out')
+   handle_pageBegin args=()
+------
+2011-10-24T19:11:46 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-24T19:54:50 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-24T20:20:36 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/sapl_documentos/proposicao/16/renderXMLforEditing
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.StructuredDoc.StrDoc, line 426, in renderXMLforEditing
+  Module OFS.ObjectManager, line 506, in manage_delObjects
+BadRequest: SDE6 does not exist
+------
+2011-10-24T20:42:05 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-25T15:44:28 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-25T16:04:58 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-27T18:00:03 INFO Signals Caught signal SIGTERM
+------
+2011-10-27T18:00:03 INFO Z2 Shutting down fast
+------
+2011-10-27T18:00:03 INFO ZServer closing HTTP to new connections
+------
+2011-10-27T18:00:18 INFO ZServer HTTP server started at Thu Oct 27 18:00:18 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-27T18:00:18 INFO Zope Set effective user to "zope"
+------
+2011-10-27T18:00:20 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-27T18:00:20 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-27T18:00:20 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-27T18:00:20 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-27T18:00:20 INFO Zope Ready to handle requests
+------
+2011-10-27T18:01:54 INFO Signals Caught signal SIGTERM
+------
+2011-10-27T18:01:54 INFO Z2 Shutting down fast
+------
+2011-10-27T18:01:54 INFO ZServer closing HTTP to new connections
+------
+2011-10-27T18:07:50 INFO ZServer HTTP server started at Thu Oct 27 18:07:50 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-10-27T18:07:50 INFO Zope Set effective user to "zope"
+------
+2011-10-27T18:07:51 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-10-27T18:07:51 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-10-27T18:07:51 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-10-27T18:07:51 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-10-27T18:07:51 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-10-27T18:07:51 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "html" for text/html registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "null" for text/plain registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-10-27T18:07:52 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-10-27T18:07:52 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-10-27T18:07:52 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-10-27T18:07:52 INFO Zope Ready to handle requests
+------
+2011-10-31T08:52:33 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-31T08:53:26 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-31T08:56:28 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-31T09:08:42 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-10-31T09:15:51 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/proposicao_recibo_imprimir
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/proposicao/proposicao_recibo_imprimir.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_Let, line 76, in render
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: zsql
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/materia_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: sqlgroup
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-10-31T09:16:05 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/proposicao_recibo_imprimir
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/proposicao/proposicao_recibo_imprimir.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_Let, line 76, in render
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: zsql
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/materia_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: sqlgroup
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-11-01T12:14:03 INFO Script (Python) Some of your Scripts have stale code cached.  Since Zope cannot use this code, startup will be slightly slower until these Scripts are edited. You can automatically recompile all Scripts that have this problem by visiting /manage_addProduct/PythonScripts/recompile of your server in a browser.
+------
+2011-11-01T12:18:23 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-11-01T12:21:51 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-11-03T08:11:16 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T08:11:51 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T08:14:36 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/sapl_documentos/proposicao/36/renderXMLforEditing
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.StructuredDoc.StrDoc, line 453, in renderXMLforEditing
+  Module Products.StructuredDoc.StrDoc, line 225, in possibleChild
+  Module Products.StructuredDoc.StrDoc, line 116, in definitionElement
+AttributeError: getDefElement
+------
+2011-11-03T08:14:53 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/sapl_documentos/proposicao/36/renderXMLforEditing
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.StructuredDoc.StrDoc, line 453, in renderXMLforEditing
+  Module Products.StructuredDoc.StrDoc, line 225, in possibleChild
+  Module Products.StructuredDoc.StrDoc, line 116, in definitionElement
+AttributeError: getDefElement
+------
+2011-11-03T08:14:56 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/proposicao/proposicao_validar_texto_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/proposicao/proposicao_validar_texto_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_proposicao
+  Module <string>, line 1, in <expression>
+  Module Products.StructuredDoc.StrDoc, line 178, in isInvalid
+  Module Products.StructuredDoc.StrDoc, line 116, in definitionElement
+AttributeError: getDefElement
+------
+2011-11-03T08:19:13 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T08:19:32 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T14:30:48 INFO Signals Caught signal SIGTERM
+------
+2011-11-03T14:30:48 INFO Z2 Shutting down fast
+------
+2011-11-03T14:30:48 INFO ZServer closing HTTP to new connections
+------
+2011-11-03T14:31:03 INFO ZServer HTTP server started at Thu Nov  3 14:31:03 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-11-03T14:31:03 INFO Zope Set effective user to "zope"
+------
+2011-11-03T14:31:06 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "html" for text/html registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "null" for text/plain registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-11-03T14:31:06 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-11-03T14:31:06 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-11-03T14:31:06 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-11-03T14:31:06 INFO Zope Ready to handle requests
+------
+2011-11-03T14:32:43 INFO Script (Python) Some of your Scripts have stale code cached.  Since Zope cannot use this code, startup will be slightly slower until these Scripts are edited. You can automatically recompile all Scripts that have this problem by visiting /manage_addProduct/PythonScripts/recompile of your server in a browser.
+------
+2011-11-03T14:42:01 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T14:46:16 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2011-11-03T16:43:19 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-11-03T16:44:11 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2011-11-03T16:56:07 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 189.59.26.15:49519 at 0x348c1b8 channel#: 70 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2011-12-01T16:35:55 INFO ZServer HTTP server started at Thu Dec  1 16:35:55 2011
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2011-12-01T16:35:55 INFO Zope Set effective user to "zope"
+------
+2011-12-01T16:35:59 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "sgml" for text/xml registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "ps" for application/postscript registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "doc" for application/msword registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "html" for text/html registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "null" for text/plain registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2011-12-01T16:35:59 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2011-12-01T16:35:59 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2011-12-01T16:35:59 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2011-12-01T16:35:59 INFO Zope Ready to handle requests
+------
+2011-12-13T04:41:13 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 94.85.174.75:3763 at 0x7ffd845b82d8 channel#: 177 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-01-13T10:03:21 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2012-01-16T11:04:21 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2012-01-31T08:51:04 INFO ZServer HTTP server started at Tue Jan 31 08:51:04 2012
+	Hostname: 0.0.0.0
+	Port: 8080
+------
+2012-01-31T08:51:04 INFO Zope Set effective user to "zope"
+------
+2012-01-31T08:51:08 INFO textindexng Converter "sgml" for text/sgml registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "sgml" for text/xml registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "ps" for application/postscript registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "doc" for application/msword registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "doc" for application/ms-word registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "doc" for application/vnd.ms-word registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "html" for text/html registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "null" for text/plain registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "pdf" for application/pdf registered
+------
+2012-01-31T08:51:08 WARNING textindexng Converter "ppt" not registered because executable "pptHtml" could not be found
+------
+2012-01-31T08:51:08 INFO textindexng Converter "ooffice" for application/vnd.sun.xml.writer registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "xls" for application/msexcel registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "xls" for application/ms-excel registered
+------
+2012-01-31T08:51:08 INFO textindexng Converter "xls" for application/vnd.ms-excel registered
+------
+2012-01-31T08:51:08 INFO Zope Ready to handle requests
+------
+2012-01-31T09:53:08 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/recebimento_proposicao/proposicao_listar_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/recebimento_proposicao/proposicao_listar_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 602, in renderwb
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: cod_mat_ou_doc
+  Module <string>, line 1, in <expression>
+  Module Shared.DC.ZRDB.DA, line 480, in __call__
+   - <FSZSQLMethod at /sapl/zsql/documento_acessorio_obter_zsql>
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqlgroup, line 114, in render
+   - __traceback_info__: and
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module Shared.DC.ZRDB.sqltest, line 149, in render
+TypeError: int() argument must be a string or a number
+------
+2012-01-31T10:39:37 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/relatorios_administrativos/propositurasAnoAutorTipo/view
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/relatorios_administrativos/propositurasAnoAutorTipo/view.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 626, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: ano
+  Module <string>, line 1, in <expression>
+NameError: name 'ano' is not defined
+------
+2012-02-09T10:16:52 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2012-02-09T10:17:20 ERROR Zope.SiteErrorLog http://186.202.61.105:8080/sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form
+Traceback (innermost last):
+  Module ZPublisher.Publish, line 115, in publish
+  Module ZPublisher.mapply, line 88, in mapply
+  Module ZPublisher.Publish, line 41, in call_object
+  Module Products.CMFCore.FSDTMLMethod, line 133, in __call__
+   - __traceback_info__: ILSAPL/skins/sk_sapl/cadastros/auxiliares/tipo_proposicao/tipo_proposicao_form.dtml
+  Module DocumentTemplate.DT_String, line 476, in __call__
+  Module DocumentTemplate.DT_In, line 703, in renderwob
+  Module DocumentTemplate.DT_Util, line 196, in eval
+   - __traceback_info__: tip_mat_ou_doc
+  Module <string>, line 1, in <expression>
+NameError: name 'tip_mat_ou_doc' is not defined
+------
+2012-02-09T11:00:22 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 177.17.184.33:58281 at 0x5edecb0 channel#: 324 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T09:50:29 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:49444 at 0x5c0f680 channel#: 752 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T09:56:51 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:56780 at 0x5624488 channel#: 782 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T10:05:19 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:51424 at 0x578ab90 channel#: 834 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T10:30:15 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:60132 at 0x5f6a488 channel#: 963 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T11:09:00 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:52428 at 0x5b19050 channel#: 1192 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-18T11:18:31 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 124.68.7.63:64839 at 0x4db4ef0 channel#: 1246 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-19T09:34:30 ERROR ZServer uncaptured python exception, closing channel <ZServer.HTTPServer.zhttp_channel connected 175.146.203.223:44025 at 0x5c237e8 channel#: 3929 requests:> (socket.error:(110, 'Connection timed out') [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asynchat.py|handle_read|89] [/var/interlegis/SAPL-2.3/Zope-2.9/lib/python/ZServer/medusa/http_server.py|recv|423] [/var/interlegis/SAPL-2.3/Python-2.4/lib/python2.4/asyncore.py|recv|343])
+------
+2012-02-26T21:23:35 ERROR ZServer Bad HTTP request: '\x04\x01\x00P`\x07\xc2x\x04'
+------
+2012-02-26T21:26:11 ERROR ZServer Bad HTTP request: '\x04\x01\x00P\x1f\xd2$\xee\x04'
