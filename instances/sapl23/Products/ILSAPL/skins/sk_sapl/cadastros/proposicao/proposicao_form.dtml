@@ -217,7 +217,7 @@
           </dtml-if>
     <form name="proposicao_form" method="post" action="proposicao_salvar_proc" enctype="multipart/form-data">
         <fieldset>
-            <legend>Dados B&aacute;sicos</legend>
+            <legend>Dados B&aacute;sicos</legend><b>Teste</b>
                 <input type="hidden" name="hdn_alterou" value="0" />                      
                 <input type="hidden" name="hdn_tip_proposicao" value="" />
                 <input type="hidden" name="hdn_file" value=0 />
@@ -229,7 +229,7 @@
                 <table width="100%" border="0" cellspacing="0" align="center">
                     <dtml-if cod_proposicao>
                     <dtml-if expr="(prop_enviada and usr_eh_autor) or dat_recebimento">
-                    <tr style="height="30" valign="middle"> 
+                    <tr style="height:30px;" valign="middle"> 
                         <td width="100%" colspan=3 class="form-element" align="left">
                             C&oacute;digo do Documento: <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)"></b>
                         </td>
