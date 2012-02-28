@@ -193,7 +193,7 @@
 
 <dtml-if expr="usr_eh_autor or (AUTHENTICATED_USER.hasRole(this(), ['Operador', 'Operador Materia']))"> 
           <dtml-if cod_proposicao>
-            <ul>
+            <!--<ul>-->
             <dtml-if expr="not (prop_enviada)">
               <dtml-if expr="tipo_txtint=='XML'">
                 <li>
@@ -212,12 +212,12 @@
                 </dtml-let>
               </dtml-if>
             </dtml-if>
-            </ul>
+            <!--</ul>-->
           <dtml-else>
           </dtml-if>
     <form name="proposicao_form" method="post" action="proposicao_salvar_proc" enctype="multipart/form-data">
         <fieldset>
-            <legend>Dados B&aacute;sicos</legend><b>Teste</b>
+            <legend>Dados B&aacute;sicos</legend>
                 <input type="hidden" name="hdn_alterou" value="0" />                      
                 <input type="hidden" name="hdn_tip_proposicao" value="" />
                 <input type="hidden" name="hdn_file" value=0 />
