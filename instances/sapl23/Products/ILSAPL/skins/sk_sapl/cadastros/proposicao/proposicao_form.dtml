@@ -203,12 +203,12 @@
             <dtml-else>
               <dtml-if usr_eh_autor>
                 <dtml-let cod_doc="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)">
-                 <!--<li>
+                  <li>
                     <a target="blank" href="proposicao_recibo_imprimir?cod_documento=<dtml-var cod_doc>">Imprimir Recibo</a>
                  </li>
                  <li>
                     <a target="blank" href="proposicao_texto_imprimir?cod_documento=<dtml-var cod_doc>">Imprimir Texto Integral</a>
-                 </li>-->
+                 </li>
                 </dtml-let>
               </dtml-if>
             </dtml-if>

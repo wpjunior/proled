@@ -22,7 +22,7 @@
   <dtml-else>
     <!--dtml-call expr="sapl_documentos.requerimento_preparar_pysc(cod_proposicao = hdn_cod_proposicao)"-->    
     <dtml-let cod_doc="_.str(pysc.proposicao_calcular_checksum_pysc(hdn_cod_proposicao))"
-              mensagem="'Proposição enviada com sucesso!<br><b>Código do Documento: ' + cod_doc + '</b><br><br><a target=\'blank\' href=\'proposicao_recibo_imprimir?cod_documento=' + cod_doc + '\'>[Imprimir Recibo]</a> <a target=\'blank\' href=\'proposicao_texto_imprimir?cod_documento=' + cod_doc + '\'>[Imprimir Texto]</a><br>'" sucesso="1">
+              mensagem="'Proposição enviada com sucesso!<br><b>Código do Documento: ' + cod_doc + '</b>'" sucesso="1">
       <dtml-var mensagem_emitir>
     </dtml-let>
   </dtml-try>
