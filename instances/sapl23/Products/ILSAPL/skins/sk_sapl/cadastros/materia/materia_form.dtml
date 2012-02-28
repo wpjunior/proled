@@ -426,7 +426,7 @@
                         <tr>
                           <td colspan="0" class="label">Outras Informa&ccedil;&otilde;es</td>
                         </tr>
-                        <tr>
+                        <!--<tr>
                           <td colspan="2"><label for="txt_nom_apelido">Apelido </label>
                             <input type="text" id="txt_nom_apelido" name="txt_nom_apelido" size="30" maxlength="50" value="<dtml-var nom_apelido missing>" onChange="javascript:form.hdn_alterou.value=1" />
                           </td>
@@ -443,11 +443,11 @@
                               <dtml-var expr="_['sequence-item']">
 </dtml-in>
                           </td>
-                        </tr>
+                        </tr>-->
                         <tr>
-                          <td colspan="2"><label for="txt_des_objeto">Objeto </label>
+                          <!--<td colspan="2"><label for="txt_des_objeto">Objeto </label>
                             <input type="text" id="txt_des_objeto" name="txt_des_objeto" size="30" maxlength="150" value="<dtml-var des_objeto missing>" onChange="javascript:form.hdn_alterou.value=1" />
-                          </td>
+                          </td>-->
                           <td><label for="lst_cod_regime_tramitacao">Regime Tramita&ccedil;&atilde;o </label>
                             <select id="lst_cod_regime_tramitacao" name="lst_cod_regime_tramitacao" onChange="javascript:form.hdn_alterou.value=1">
 				<option value="0">
@@ -475,7 +475,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2"><label for="txt_dat_fim_prazo">Data Fim Prazo </label>
+                          <!--<td colspan="2"><label for="txt_dat_fim_prazo">Data Fim Prazo </label>
                             <input type="text" id="txt_dat_fim_prazo" name="txt_dat_fim_prazo" size="10" maxlength="10" value="<dtml-var dat_fim_prazo missing null="">" onBlur="formata_data(form.txt_dat_fim_prazo)" onChange="javascript:form.hdn_alterou.value=1" />
                             <script type="text/javascript">
                                 /*<[CDATA[*/
@@ -496,7 +496,7 @@
                                 });
                                 /*]]>*/
                               </script>
-                          </td>
+                          </td>-->
                           <td class="texto"><label for="rad_ind_complementar">É Complementar?</label><br />
 <dtml-in expr="[(1,'Sim'),(0,'Não')]">
                             <input type="radio" id="rad_ind_complementar" name="rad_ind_complementar" value="<dtml-var expr="_['sequence-key']">"
@@ -509,7 +509,7 @@
                           </td>
                         </tr>
 <tr><td>&nbsp;</td></tr>
-                        <tr>
+                        <!--<tr>
                           <td colspan="0" class="label">Origem Externa</td>
                         </tr>
                         <tr>
@@ -558,7 +558,7 @@
                                 /*]]>*/
                               </script>
                           </td>
-                        </tr>
+                        </tr>-->
 <tr><td>&nbsp;</td></tr>
                         <tr>
                           <td colspan="4"><label for="txa_txt_ementa">Ementa </label> <span class="campoObrigatorio">(Obrigatório)</span>

@@ -164,10 +164,11 @@
 </dtml-in>
 
 <fieldset>
+  
  <legend>Outras Informa&ccedil;&otilde;es</legend>
   <table>
       <dtml-if expr="nom_apelido or num_dias_prazo or dat_fim_prazo">
-        <tr>
+        <!--<tr>
 	<dtml-if nom_apelido>
           <td colspan="2" class="texto"><b>Apelido: </b>
           <dtml-var nom_apelido missing></td>
@@ -179,22 +180,22 @@
 	<dtml-if dat_fim_prazo> 
          <td class="texto"><b>Data Fim Prazo: </b>
            <dtml-var dat_fim_prazo missing null=""></td>
-	</dtml-if>  
-        </tr>
+	</dtml-if>
+        </tr>-->
 	</dtml-if>
 	<dtml-if expr="des_objeto or ind_complementar==1 or ind_complementar==0 or dat_publicacao">
         <tr>
 	  <dtml-if des_objeto> 
-          <td colspan="2" class="texto"></b>Objeto: </b>
-          <dtml-var des_objeto missing></td>
+          <!--<td colspan="2" class="texto"></b>Objeto: </b>
+          <dtml-var des_objeto missing></td>-->
 	  </dtml-if>
           <td class="texto"><b>Complementar?</b>
               <dtml-if expr="ind_complementar == 1">Sim
               <dtml-elif expr="ind_complementar == 0">Não
             </dtml-if></td>
 	  <dtml-if dat_publicacao> 
-          <td class="texto"><b>Data Publica&ccedil;&atilde;o: </b>
-           <dtml-var dat_publicacao missing null=""></td>
+          <!--<td class="texto"><b>Data Publica&ccedil;&atilde;o: </b>
+           <dtml-var dat_publicacao missing null=""></td>-->
           </dtml-if>
         </tr>
 	</dtml-if>
@@ -203,18 +204,18 @@
            <dtml-if expr="ind_tramitacao == 1">Sim
            <dtml-elif expr="ind_tramitacao == 0">Não
            </dtml-if></td>
-          <td class="texto"><b>&nbsp;&nbsp;Mat&eacute;ria Pol&ecirc;mica?</b>
+          <!--<td class="texto"><b>&nbsp;&nbsp;Mat&eacute;ria Pol&ecirc;mica?</b>
            <dtml-if expr="ind_polemica == 1">Sim
            <dtml-elif expr="ind_polemica == 0">Não
-           </dtml-if></td>
+           </dtml-if></td>-->
 
           <td colspan="2" class="texto"><b>&nbsp;&nbsp;Regime Tramita&ccedil;&atilde;o: </b>
            <dtml-in expr="zsql.regime_tramitacao_obter_zsql(cod_regime_tramitacao = cod_regime_tramitacao)">
             <dtml-var des_regime_tramitacao>
            </dtml-in></td>
          </tr>
-<dtml-if expr="tip_origem_externa or num_origem_externa or ano_origem_externa or cod_local_origem_externa or dat_origem_externa">
-    <tr>
+          <dtml-if expr="tip_origem_externa or num_origem_externa or ano_origem_externa or cod_local_origem_externa or dat_origem_externa">
+    <!--<tr>
       <td colspan="0" class="texto"><b>Origem Externa</b></td> 
      </tr>
      <dtml-if expr="tip_origem_externa or num_origem_externa or ano_origem_externa">  
@@ -253,7 +254,7 @@
       <td class="texto"><b>Data: </b>
        <dtml-var dat_origem_externa missing null=""></td>
       </dtml-if>
-     </tr>
+     </tr>-->
      </dtml-if>
     </dtml-if>
  </table>
