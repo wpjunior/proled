@@ -130,7 +130,8 @@
          form.txt_dat_apresentacao.select();
          return false;
       }
-/* ---------------------------------------------------------------------------------------------------------------
+
+      /*
       if (form.txt_dat_publicacao.value!="" && !IsValidDate(form.txt_dat_publicacao.value)){
          alert("Digite uma data de publicação válida!");
          form.txt_dat_publicacao.focus();
