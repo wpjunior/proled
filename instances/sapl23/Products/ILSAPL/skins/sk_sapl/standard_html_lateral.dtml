@@ -64,7 +64,7 @@
       </dtml-if>
 
       <dtml-if expr="AUTHENTICATED_USER.hasRole(this(), ['Operador', 'Operador Materia'])">
-        <li><a href="<dtml-var diretorio>recebimento_proposicao">Recebimento de Proposi&ccedil;&otilde;es</a></li>
+        <li><a href="<dtml-var diretorio>recebimento_proposicao/proposicao_listar_form?envrec=E">Recebimento de Proposi&ccedil;&otilde;es</a></li>
         <li><a href="&dtml-portal_url;/generico/materia_pesquisar_form?incluir=1">Mat&eacute;rias Legislativas</a></li>
         <li><a href="<dtml-var diretorio>materia/tramitacao/tramitacao_lote_form">Tramita&ccedil;&atilde;o em Lote</a></li>
 	<li><a href="&dtml-portal_url;/generico/prot_prefeitura_lote_form">Protocolo em Lote</a></li>
