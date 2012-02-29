@@ -144,14 +144,14 @@
          form.txt_dat_origem_externa.focus();
          form.txt_dat_origem_externa.select();
          return false;
-      }*/
+      }
 
       if (form.txt_dat_fim_prazo.value!="" && !IsValidDate(form.txt_dat_fim_prazo.value)){
          alert("Digite uma data de publicação válida!");
          form.txt_dat_fim_prazo.focus();
          form.txt_dat_fim_prazo.select();
          return false;
-      }
+      }*/
 
       form.hdn_cod_proposicao.value = form.selProp.value;
  
