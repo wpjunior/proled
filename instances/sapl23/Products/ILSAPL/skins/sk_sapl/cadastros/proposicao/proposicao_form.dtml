@@ -364,14 +364,6 @@
                                             </dtml-if>
                                 </td>
                             </tr>
-<form method="post" action="../materia/documento_acessorio/documento_acessorio_form">
-                <input type="hidden" name="cod_materia" value="<dtml-var cod_materia>" />
-                <input type="hidden" name="hdnCodProposicao" value="<dtml-var cod_proposicao>" />    
-                <input type="hidden" name="hdnCodCompleto" value="<dtml-var txtCodDoc>" />
-                <td align="center">
-                    <input class="botao" type="submit" value="Criar Documento Acess&oacute;rio">
-                </td>
-            </form>
                             <dtml-if prop_enviada>
                             <tr style="height:10">
                                 <td></td>
