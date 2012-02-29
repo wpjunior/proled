@@ -228,13 +228,11 @@
                 </dtml-if>
                 <table width="100%" border="0" cellspacing="0" align="center">
                     <dtml-if cod_proposicao>
-                    <dtml-if expr="(prop_enviada) or dat_recebimento">
                     <tr style="height:30px;" valign="middle"> 
                         <td width="100%" colspan=3 class="form-element" align="left">
                             C&oacute;digo do Documento: <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)"></b>
                         </td>
                     </tr>
-                    </dtml-if>
                     </dtml-if>
                     <tr style="height:40" valign="top">
                         <td width="40%" class="form-element" align="left">
