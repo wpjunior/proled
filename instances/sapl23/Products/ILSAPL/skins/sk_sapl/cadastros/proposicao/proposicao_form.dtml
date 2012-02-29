@@ -232,7 +232,11 @@
                         <td width="100%" colspan=3 class="form-element" align="left">
                             C&oacute;digo do Documento: <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)"></b>
                         </td>
+                        <td>
+                        <a href="../../materia/materia_form?cod_prosicao=<dtml-var cod_proposicao>">Emitir materia</a>
+                        </td>                  
                     </tr>
+                   
                     </dtml-if>
                     <tr style="height:40" valign="top">
                         <td width="40%" class="form-element" align="left">
