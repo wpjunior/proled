@@ -233,7 +233,7 @@
                             C&oacute;digo do Documento: <dtml-var expr="pysc.proposicao_calcular_checksum_pysc(cod_proposicao)"></b>
                         </td>
                         <td>
-                        <a href="../../materia/materia_form?cod_prosicao=<dtml-var cod_proposicao>">Emitir materia</a>
+                        <a href="../../materia/materia_form?hdnCodProposicao=<dtml-var cod_proposicao>">Emitir materia</a>
                         </td>                  
                     </tr>
                    
