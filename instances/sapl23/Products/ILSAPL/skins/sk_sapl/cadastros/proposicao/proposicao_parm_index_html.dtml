@@ -32,7 +32,7 @@
             <tr class="fundo">  
               <td width="18%" class="form-label">Enviada em</td>
               <td width="15%" class="form-label"> | Tipo</td>
-              <td width="55%" class="form-label">| Descrição</td>
+              <td width="55%" class="form-label">| Ementa</td>
               <td width="12%" class="form-label" align="center">| Recebida?</td>
             </tr>
       <dtml-if previous-sequence>

@@ -317,7 +317,7 @@
                             <tr style="height:40" valign="top"> 
                                 <td width="100%"
                                     colspan=3
-				                    class="form-element" align="left">Descri&ccedil;&atilde;o<br />
+				                    class="form-element" align="left">Ementa<br />
                                     <input type="text"
                                            name="txt_descricao"
                                            value="<dtml-var txt_descricao missing>"
