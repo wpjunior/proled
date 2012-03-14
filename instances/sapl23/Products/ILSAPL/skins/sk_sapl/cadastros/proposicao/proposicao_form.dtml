@@ -331,23 +331,13 @@
                                 <td width="100%"
                                     colspan=3
 				                    class="form-element" align="left">Texto da propositura<br />
-                                    <input type="text"
-                                           name="txt_propositura"
-                                           value="<dtml-var txt_propositura missing>"
-                                           size="80"
-                                           maxlength="100"
-                                           <dtml-if prop_enviada>readonly</dtml-if> />
+				                    <textarea id="txt_propositura" name="txt_propositura" cols="67"><dtml-var txt_propositura missing></textarea>
                                 </td>
                             </tr><tr style="height:40" valign="top"> 
                                 <td width="100%"
                                     colspan=3
 				                    class="form-element" align="left">Justivativa<br />
-                                    <input type="text"
-                                           name="txt_justificativa"
-                                           value="<dtml-var txt_justificativa missing>"
-                                           size="80"
-                                           maxlength="100"
-                                           <dtml-if prop_enviada>readonly</dtml-if> />
+				                    <textarea id="txt_justificativa" name="txt_justificativa" cols="67"><dtml-var txt_justificativa missing></textarea>
                                 </td>
                             </tr>
                             <tr style="height:40" valign="top"> 
