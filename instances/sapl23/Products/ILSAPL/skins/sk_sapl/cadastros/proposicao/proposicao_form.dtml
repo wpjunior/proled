@@ -340,7 +340,7 @@
 				                    <textarea id="txt_justificativa" name="txt_justificativa" cols="67"><dtml-var txt_justificativa missing></textarea>
                                 </td>
                             </tr>
-                            <tr style="height:40" valign="top"> 
+                            <!--<tr style="height:40" valign="top"> 
                                 <td width="40%"
 				                    class="form-element"
                                     align="left">Mat&eacute;ria Legislativa<br />
@@ -381,7 +381,7 @@
                                            <dtml-if "not _.has_key('ano_ident_basica_sel') or prop_enviada"> disabled />
                                             </dtml-if>
                                 </td>
-                            </tr>
+                            </tr>-->
                             <dtml-if prop_enviada>
                             <tr style="height:10">
                                 <td></td>
