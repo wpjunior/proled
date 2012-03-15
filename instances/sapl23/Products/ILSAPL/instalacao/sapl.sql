@@ -1146,6 +1146,7 @@ CREATE TABLE `proposicao` (
   `dat_recebimento` datetime DEFAULT NULL,
   `txt_descricao` varchar(100) NOT NULL,
   `txt_propositura` text,
+  `txt_justificativa` text,
   `cod_mat_ou_doc` int(11) DEFAULT NULL,
   `dat_devolucao` datetime DEFAULT NULL,
   `txt_justif_devolucao` varchar(200) DEFAULT NULL,

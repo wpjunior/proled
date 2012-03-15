@@ -1,6 +1,6 @@
 <dtml-comment>
 connection_id : dbcon_interlegis
-arguments : cod_proposicao cod_materia txt_descricao txt_propositura
+arguments : cod_proposicao cod_materia txt_descricao txt_propositura txt_justificativa
 max_rows : 1000
 max_cache : 100
 </dtml-comment>
@@ -14,7 +14,11 @@ SET
 </dtml-if>
 
 <dtml-if txt_propositura>
-  , txt_propositura> = <dtml-sqlvar txt_propositura type="string">
+  , txt_propositura = <dtml-sqlvar txt_propositura type="string">
+</dtml-if>
+
+<dtml-if txt_justificativa>
+  , txt_justificativa = <dtml-sqlvar txt_justificativa type="string">
 </dtml-if>
 
 WHERE
