@@ -413,16 +413,7 @@
                                 <td></td>
                             </tr>
                             <dtml-else>
-                            <tr style="height:40" valign="top">
-                                <td colspan=3 class="form-element" align="left">Texto Integral:<br />  
-                                    <input type="radio"
-                                           class="form-element"
-                                           name="radTipTxtIntegral"
-                                           value="XML"
-                                           onClick="tipo_texto_integral('X')" checked /> Criar texto em XML
-                                </td>
-                            </tr>
-                            <tr> 
+                              <tr> 
                                 <td colspan="3" class="form-element" align="left">
                                     <input type="radio"
                                            class="form-element"
@@ -432,6 +423,16 @@
                                     <input type="file" name="file_nom_arquivo" size="40" maxlength="100" disabled />
                                 </td>
                             </tr>
+                            <tr style="height:40" valign="top">
+                                <td colspan=3 class="form-element" align="left">Texto Integral:<br />  
+                                    <input type="radio"
+                                           class="form-element"
+                                           name="radTipTxtIntegral"
+                                           value="XML"
+                                           onClick="tipo_texto_integral('X')" checked /> Criar texto em XML
+                                </td>
+                            </tr>
+                            
                             </dtml-if>
                             </dtml-if>
                             <dtml-if usr_eh_autor>
