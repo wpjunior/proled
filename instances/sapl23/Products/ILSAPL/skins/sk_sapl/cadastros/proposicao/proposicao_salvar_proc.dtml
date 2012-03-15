@@ -63,14 +63,16 @@
       <dtml-call expr="zsql.proposicao_atualizar_zsql(
           cod_proposicao            = hdn_cod_proposicao,
           cod_materia               = cod_materia,   
-          txt_descricao             = txt_descricao)">
+          txt_descricao             = txt_descricao,
+          txt_propositura           = txt_propositura)">
     <dtml-else>
       <dtml-call expr="zsql.proposicao_incluir_zsql(
           cod_proposicao            = hdn_cod_proposicao,
           cod_autor                 = cod_autor,
           tip_proposicao            = hdn_tip_proposicao,
           cod_materia               = cod_materia,
-          txt_descricao             = txt_descricao)">
+          txt_descricao             = txt_descricao,
+          txt_propositura           = txt_propositura)">
       <dtml-in expr="zsql.proposicao_incluida_codigo_obter_zsql()">
         <dtml-call expr="REQUEST.set('cod_proposicao', _.str(_.int(cod_proposicao)))">
       </dtml-in>

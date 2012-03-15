@@ -9,6 +9,7 @@ INSERT INTO proposicao (
                tip_proposicao,
                cod_materia, 
                txt_descricao,
+               txt_propositura,
                dat_envio,
                dat_recebimento,
                ind_excluido)
@@ -19,6 +20,7 @@ VALUES
   <dtml-sqlvar tip_proposicao          type="int">,
   <dtml-sqlvar cod_materia             type="int" optional>,
   <dtml-sqlvar txt_descricao           type="string">,
+  <dtml-sqlvar txt_propositura         type="string">,
   <dtml-sqlvar dat_envio               type="nb">,
   <dtml-sqlvar dat_recebimento         type="nb" optional>,
   <dtml-sqlvar ind_excluido            type="int" optional>)

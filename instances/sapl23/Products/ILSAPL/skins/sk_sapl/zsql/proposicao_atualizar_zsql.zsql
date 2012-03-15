@@ -13,5 +13,9 @@ SET
   , cod_materia = <dtml-sqlvar cod_materia type="int">
 </dtml-if>
 
+<dtml-if txt_propositura>
+  , txt_propositura> = <dtml-sqlvar txt_propositura type="string">
+</dtml-if>
+
 WHERE
     <dtml-sqltest cod_proposicao op="=" type="int">
