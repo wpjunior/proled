@@ -58,7 +58,6 @@
 </dtml-if>
 
 <dtml-if expr="save_ok=='1'">
-  <dtml-try>
     <dtml-if hdn_cod_proposicao>
       <dtml-call expr="zsql.proposicao_atualizar_zsql(
           cod_proposicao            = hdn_cod_proposicao,
@@ -78,12 +77,6 @@
       </dtml-in>
     </dtml-if>
     <dtml-call expr="REQUEST.set('save_ok', '1')">
-  <dtml-except>
-    <dtml-call expr="REQUEST.set('save_ok', '0')">
-    <dtml-let mensagem="'Não foi possível salvar a proposicao. Tente novamente!'">
-      <dtml-var mensagem_emitir>
-    </dtml-let>
-  </dtml-try>
 </dtml-if>
 
 <dtml-if expr="save_ok=='1' and radTipTxtIntegral=='XML'">
