@@ -566,17 +566,17 @@
 <tr><td>&nbsp;</td></tr>
                         <tr>
                           <td colspan="4"><label for="txa_txt_ementa">Descrição</label> <span class="campoObrigatorio">(Obrigatório)</span>
-                            <textarea disabled="disabled" id="txa_txt_ementa" name="txa_txt_ementa" cols="67" onBlur="form.txa_txt_ementa.value = form.txa_txt_ementa.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_ementa missing><dtml-var prop_txt_descricao missing></textarea>
+                            <textarea id="txa_txt_ementa" name="txa_txt_ementa" cols="67" onBlur="form.txa_txt_ementa.value = form.txa_txt_ementa.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_ementa missing><dtml-var prop_txt_descricao missing></textarea>
                           </td>
                         </tr>
                         <tr>
                           <td colspan="4"><label for="txa_txt_indexacao">Texto da propositura</label>
-                            <textarea disabled="disabled" id="txa_txt_indexacao" name="txa_txt_indexacao" cols="67"  onBlur="form.txa_txt_indexacao.value = form.txa_txt_indexacao.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_indexacao missing><dtml-var prop_txt_propositura missing></textarea>
+                            <textarea id="txa_txt_indexacao" name="txa_txt_indexacao" cols="67"  onBlur="form.txa_txt_indexacao.value = form.txa_txt_indexacao.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_indexacao missing><dtml-var prop_txt_propositura missing></textarea>
                           </td>
                         </tr>  
                         <tr>
                           <td colspan="4"><label for="txa_txt_observacao">Justivativa</label> 
-                            <textarea disabled="disabled" id="txa_txt_observacao" name="txa_txt_observacao" cols="67" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_observacao missing><dtml-var prop_txt_justificativa missing></textarea>
+                            <textarea id="txa_txt_observacao" name="txa_txt_observacao" cols="67" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_observacao missing><dtml-var prop_txt_justificativa missing></textarea>
                           </td>
                         </tr>
 
