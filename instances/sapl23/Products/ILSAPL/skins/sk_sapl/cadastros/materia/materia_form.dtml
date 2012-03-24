@@ -563,7 +563,7 @@
 <tr><td>&nbsp;</td></tr>
                         <tr>
                           <td colspan="4"><label for="txa_txt_ementa">Descrição</label> <span class="campoObrigatorio">(Obrigatório)</span>
-                            <textarea disabled="disabled" id="txa_txt_ementa" name="txa_txt_ementa" cols="67" onBlur="form.txa_txt_ementa.value = form.txa_txt_ementa.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_ementa missing></textarea>
+                            <textarea disabled="disabled" id="txa_txt_ementa" name="txa_txt_ementa" cols="67" onBlur="form.txa_txt_ementa.value = form.txa_txt_ementa.value.toUpperCase()" onChange="javascript:form.hdn_alterou.value=1"><dtml-var txt_ementa missing><dtml-var txt_descricao missing></textarea>
                           </td>
                         </tr>
                         <tr>
