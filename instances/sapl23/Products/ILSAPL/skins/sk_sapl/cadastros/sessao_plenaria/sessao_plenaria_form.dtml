@@ -90,26 +90,29 @@ function campos_criticar(){
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/mesa_diretora_sessao/index_html')">Mesa</a>
     </li>
-    <li>
+    <!--<li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/oradores/index_html')">Oradores</a>
-    </li>
+    </li>-->
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/presenca_sessao/index_html')">Lista de Presen&ccedil;a Sess&atilde;o</a>
     </li>
+    
+   
+    
+    
     <li>
+        <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/expedientes/index_html')">Expedientes</a>
+    </li><li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/presenca_ordem_dia/index_html')">Lista de Presen&ccedil;a Ordem do Dia</a>
+    </li> 
+
+    <li>
+      <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/ordem_dia_sessao/index_html')">Mat&eacute;rias da Ordem do Dia</a>
     </li>
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/votacao/index_html')">Vota&ccedil;&atilde;o</a>
-    </li>
-    <li> 
+    </li><li> 
         <a href="javascript:submeter('&dtml-portal_url;/consultas/sessao_plenaria/agenda_sessao_plen_mostrar_proc')">Agenda/Ata</a>
-    </li>
-    <li>
-        <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/ordem_dia_sessao/index_html')">Mat&eacute;rias da Ordem do Dia</a>
-    </li>
-    <li>
-        <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/expedientes/index_html')">Expedientes</a>
     </li>
 </ul> 
        <input type="hidden" name="hdn_cod_sessao_plen" value="<dtml-var cod_sessao_plen missing>" />
