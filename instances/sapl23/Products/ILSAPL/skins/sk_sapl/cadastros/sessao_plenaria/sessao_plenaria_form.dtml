@@ -112,7 +112,7 @@ function campos_criticar(){
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/votacao/index_html')">Vota&ccedil;&atilde;o</a>
     </li><li> 
-        <a href="javascript:submeter('&dtml-portal_url;/consultas/sessao_plenaria/agenda_sessao_plen_mostrar_proc')">Agenda/Ata</a>
+        <a href="javascript:submeter('&dtml-portal_url;/consultas/sessao_plenaria/agenda_sessao_plen_mostrar_proc')">Ata</a>
     </li>
 </ul> 
        <input type="hidden" name="hdn_cod_sessao_plen" value="<dtml-var cod_sessao_plen missing>" />
