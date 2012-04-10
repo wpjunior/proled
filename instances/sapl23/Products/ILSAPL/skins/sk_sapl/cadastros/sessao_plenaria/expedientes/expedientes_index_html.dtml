@@ -85,7 +85,7 @@
             <table width="100%">
                 <tr>
                     <td>
-                        <!--<label for="txa_txt_expediente">Conteúdo do expediente</label>-->
+                        <label for="txa_txt_expediente"><dtml-var subtitulo></label>
                         <dtml-if expr="zsql.expediente_obter_zsql(cod_sessao_plen=cod_sessao_plen,cod_expediente=cod_expediente, ind_excluido=0)">
                             <dtml-in expr="zsql.expediente_obter_zsql(cod_sessao_plen=cod_sessao_plen,cod_expediente=cod_expediente, ind_excluido=0)">
                                 <textarea name="txa_txt_expediente" id="<dtml-var cod_expediente missing>" cols="60"><dtml-var txt_expediente missing></textarea>

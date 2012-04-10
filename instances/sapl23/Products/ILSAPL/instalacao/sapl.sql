@@ -1599,6 +1599,7 @@ CREATE TABLE `tipo_expediente` (
   `cod_expediente` int(11) NOT NULL AUTO_INCREMENT,
   `nom_expediente` varchar(100) NOT NULL,
   `ind_excluido` tinyint(4) unsigned NOT NULL,
+  `subtitulo` varchar(100),
   PRIMARY KEY (`cod_expediente`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0;
 /*!40101 SET character_set_client = @saved_cs_client */;
