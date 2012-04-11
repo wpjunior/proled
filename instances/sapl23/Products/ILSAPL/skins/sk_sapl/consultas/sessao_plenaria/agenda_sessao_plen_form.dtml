@@ -67,7 +67,7 @@
    </table>
   </legend>
 </fieldset>
-<fieldset>
+<!--<fieldset>
    <legend>Oradores Inscritos</legend>
     <table>
         <dtml-in expr="zsql.oradores_obter_zsql(cod_sessao_plen=cod_sessao_plen, ind_excluido=0)">
@@ -80,7 +80,7 @@
         </dtml-in>
         </dtml-in>
     </table>
-</fieldset>
+</fieldset>-->
 <fieldset>
     <legend>Matérias da Ordem do Dia</legend>
     <table width="100%">
