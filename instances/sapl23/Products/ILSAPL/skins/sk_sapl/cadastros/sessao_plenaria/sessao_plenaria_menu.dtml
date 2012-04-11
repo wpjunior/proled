@@ -7,8 +7,6 @@
     </li>-->
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/presenca_sessao/index_html')">Lista de Presen&ccedil;a Sess&atilde;o</a>
-    </li><li>
-        <a href="&dtml-portal_url;/cadastros/sessao_plenaria/sessao_plenaria_mostrar_proc?cod_sessao_plen=<dtml-var cod_sessao_plen>">In&iacute;cio</a>
     </li>
  <li>
         <a href="javascript:submeter('&dtml-portal_url;/cadastros/sessao_plenaria/expedientes/index_html')">Expedientes</a>
@@ -24,6 +22,8 @@
     </li>
     <li>
         <a href="javascript:submeter('&dtml-portal_url;/consultas/sessao_plenaria/agenda_sessao_plen_mostrar_proc')">Ata</a>
+    </li><li>
+        <a href="&dtml-portal_url;/cadastros/sessao_plenaria/sessao_plenaria_mostrar_proc?cod_sessao_plen=<dtml-var cod_sessao_plen>">In&iacute;cio</a>
     </li>
 </ul>
 <input type="hidden" name="hdn_url" value="index_html?cod_sessao_plen=<dtml-var cod_sessao_plen missing>&cod_num_legislatura=<dtml-var cod_num_legislatura missing>&cod_sessao_leg=<dtml-var cod_sessao_leg missing>&dat_sessao=<dtml-var dat_sessao missing>&tip_sessao=<dtml-var tip_sessao missing>" />
