@@ -318,26 +318,7 @@
                                 <td width="100%"
                                     colspan=3
 				                    class="form-element" align="left">Ementa<br />
-                                    <input type="text"
-                                           name="txt_descricao"
-                                           value="<dtml-var txt_descricao missing>"
-                                           size="80"
-                                           maxlength="100"
-                                           onChange="javascript:form.hdn_alterou.value=1"
-                                           <dtml-if prop_enviada>readonly</dtml-if> />
-                                </td>
-                            </tr>
-                            <tr style="height:40" valign="top"> 
-                                <td width="100%"
-                                    colspan=3
-				                    class="form-element" align="left">Texto da propositura<br />
-				                    <textarea id="txt_propositura" name="txt_propositura" cols="67"><dtml-var txt_propositura missing></textarea>
-                                </td>
-                            </tr><tr style="height:40" valign="top"> 
-                                <td width="100%"
-                                    colspan=3
-				                    class="form-element" align="left">Justivativa<br />
-				                    <textarea id="txt_justificativa" name="txt_justificativa" cols="67"><dtml-var txt_justificativa missing></textarea>
+                                    <textarea name="txt_descricao" onChange="javascript:form.hdn_alterou.value=1" <dtml-if prop_enviada>readonly</dtml-if>><dtml-var txt_descricao missing></textarea>
                                 </td>
                             </tr>
                             <!--<tr style="height:40" valign="top"> 
