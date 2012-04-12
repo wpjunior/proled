@@ -397,7 +397,7 @@
                               <tr> 
                                 <td colspan="3" class="form-element" align="left">
                                     <input type="hidden" name="radTipTxtIntegral" value="Arq" />
-                                    <input type="file" name="file_nom_arquivo" size="40" maxlength="100" disabled />
+                                    <input type="file" name="file_nom_arquivo" size="40" maxlength="100" />
                                 </td>
                             </tr>
                             
