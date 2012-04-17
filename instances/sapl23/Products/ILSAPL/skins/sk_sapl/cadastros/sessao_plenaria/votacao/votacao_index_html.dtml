@@ -69,6 +69,23 @@ function submeter(endereco){
                     </dtml-if>
                 </dtml-in>
                 </dtml-in>
+                
+                
+                
+                <dtml-let id_documento="_.str(cod_materia)+'_texto_integral'">
+                  <dtml-if "_.hasattr(sapl_documentos.materia,id_documento)">
+                    <dtml-let documento="_.getattr(sapl_documentos.materia,id_documento).absolute_url">
+                      <div style="font-size: smaller;">Texto</div>
+                      <a target="_blank" href="<dtml-var documento>"><img align="middle" border="0" src="sapl/imagens/archiv.gif" alt="Texto Integral"></a>
+                      <div style="font-size: smaller;">Integral</div>
+                    </dtml-let>
+                  <dtml-else>
+                    <br>
+                  </dtml-if>
+                </dtml-let>
+                
+                
+                
             </td>
             <td>
                 <dtml-in expr="zsql.materia_obter_zsql(cod_materia=cod_materia, ind_excluido=0)">
